@@ -16,7 +16,7 @@
 <BR>
 [LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=b3GccK5_KSQ&t=2s)
 <BR>
-[............- oops vedio lecture 2](https://www.youtube.com/watch?v=i_5pvt7ag7E)
+[............  - oops vedio lecture 2](https://www.youtube.com/watch?v=i_5pvt7ag7E)
 
 ### OS
 [os git hub repository](https://github.com/Saujanya-rajvanshi/os)
