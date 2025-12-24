@@ -10,18 +10,24 @@
 ### OOPS
 [REPOSITORY - oops git hub repository](https://github.com/Saujanya-rajvanshi/Oops)
 <BR>
-[THEORY - oops theory part 1](https://drive.google.com/file/d/1h-4RdVIQCNu_loshweVu5TvqvYxHTY2d/view)
+[THEORY NOTES- oops theory part 1 ](https://drive.google.com/file/d/1h-4RdVIQCNu_loshweVu5TvqvYxHTY2d/view)
 <BR>
-[................ - oops theory part 2](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
+[................ - oops theory part 2 s](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
 <BR>
 [LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=b3GccK5_KSQ&t=2s)
 <BR>
 [...................- oops vedio lecture 2](https://www.youtube.com/watch?v=i_5pvt7ag7E)
 
 ### OS
-[os git hub repository](https://github.com/Saujanya-rajvanshi/os)
+[REPOSITORY - os git hub repository](https://github.com/Saujanya-rajvanshi/os)
 <BR>
-[OS theory](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
+[THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
+<BR>
+[LECTURE - OS vedio lecture](https://www.youtube.com/watch?v=3obEP8eLsCw)
 
 ### CN
-[cn git hub repository](https://github.com/Saujanya-rajvanshi/CN)
+[REPOSITORY - cn git hub repository](https://github.com/Saujanya-rajvanshi/CN)
+<BR>
+[THEORY NOTES - CN theory ]()
+<BR>
+[LECTURE - CN vedio lecture](https://www.youtube.com/watch?v=IPvYjXCsTg8&t=290s)
