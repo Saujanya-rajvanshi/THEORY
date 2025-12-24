@@ -13,7 +13,9 @@
 [oops theory part 2](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
 
 ### OS
-
+[os git hub repository](https://github.com/Saujanya-rajvanshi/os)
+<BR>
+[OS theory](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
 
 ### CN
 [cn git hub repository](https://github.com/Saujanya-rajvanshi/CN)
