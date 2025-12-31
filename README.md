@@ -31,3 +31,8 @@
 [THEORY NOTES - CN theory ]()
 <BR>
 [LECTURE - CN vedio lecture](https://www.youtube.com/watch?v=IPvYjXCsTg8&t=290s)
+
+
+// study
+// revise 
+// practice
