@@ -9,7 +9,7 @@
 <BR>
 [LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=i_5pvt7ag7E&t=1s)
 <BR>
-[...................- oops vedio lecture 2](https://www.youtube.com/watch?v=i_5pvt7ag7E)
+[...................- oops vedio lecture 2](https://www.youtube.com/watch?v=b3GccK5_KSQ)
 
 ### DBMS
 [REPOSITORY - dbms git hub repository](https://github.com/Saujanya-rajvanshi/DBMS)
