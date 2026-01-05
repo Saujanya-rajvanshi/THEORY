@@ -7,7 +7,7 @@
 <BR>
 [.............................. - oops theory part 2 ](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
 <BR>
-[LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=b3GccK5_KSQ&t=2s)
+[LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=i_5pvt7ag7E&t=1s)
 <BR>
 [...................- oops vedio lecture 2](https://www.youtube.com/watch?v=i_5pvt7ag7E)
 
