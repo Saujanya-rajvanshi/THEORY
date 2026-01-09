@@ -1,7 +1,7 @@
 # THEORY
 
-### OOPS
-[REPOSITORY OOPS](#Oops)
+### OOPS THEORY
+[OOPS](#Oops)
 <BR>
 [THEORY NOTES- oops theory part 1 ](https://drive.google.com/file/d/1h-4RdVIQCNu_loshweVu5TvqvYxHTY2d/view)
 <BR>
