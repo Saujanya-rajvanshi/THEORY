@@ -19,14 +19,14 @@
 [LECTURE - dbms vedio lecture](https://www.youtube.com/watch?v=dl00fOOYLOM&t=34400s)
 
 ### OS
-[REPOSITORY - os git hub repository](https://github.com/Saujanya-rajvanshi/os)
+[REPOSITORY OS](#OS)
 <BR>
 [THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
 <BR>
 [LECTURE - OS vedio lecture](https://www.youtube.com/watch?v=3obEP8eLsCw)
 
 ### CN
-[REPOSITORY - cn git hub repository](https://github.com/Saujanya-rajvanshi/CN)
+[REPOSITORY - CN](#CN)
 <BR>
 [THEORY NOTES - CN theory ]()
 <BR>
