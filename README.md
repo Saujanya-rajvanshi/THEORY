@@ -11,21 +11,21 @@
 <BR>
 [...................- oops vedio lecture 2](https://www.youtube.com/watch?v=b3GccK5_KSQ)
 
-### DBMS
+### DBMS THEORY
 [REPOSITORY DBMS](#DBMS)
 <BR>
 [THEORY NOTES - dbms theory](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
 <BR>
 [LECTURE - dbms vedio lecture](https://www.youtube.com/watch?v=dl00fOOYLOM&t=34400s)
 
-### OS
+### OS  THEORY
 [REPOSITORY OS](#OS)
 <BR>
 [THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
 <BR>
 [LECTURE - OS vedio lecture](https://www.youtube.com/watch?v=3obEP8eLsCw)
 
-### CN
+### CN THEORY
 [REPOSITORY - CN](#CN)
 <BR>
 [THEORY NOTES - CN theory ]()
@@ -359,7 +359,7 @@ int main() {
 return 0;
 }
 
-
+```
 
 # DBMS
 
@@ -368,3 +368,6 @@ return 0;
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54f3ad88-1fe4-4fd5-81f6-0b23e7b08e9c" />
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6fc25f50-66dc-49d0-889c-116d901363e9" />
+
+# 
+
