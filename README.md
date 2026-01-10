@@ -52,7 +52,7 @@ Oops programming
 - [syntax](#syntax)
 - [acess modifiers](#acess-modifiers)
 - [setter and getter](#setter-and-getter)
-- [padding and greedyy alignment](#padding-and-greedyy-lignment)
+- [padding and greedy alignment](#padding-and-greedy-alignment)
 2. encapsulation
 3. constructor
 4. shallow vs deep copy
@@ -160,7 +160,7 @@ int main() {
 }
 ```
 
-#### padding and greedyy alignment
+#### padding and greedy alignment
 ---
 
 ## 🔹 Padding (in OOPS / Memory)
