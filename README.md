@@ -51,7 +51,8 @@ Oops programming
 #### index
 - [syntax](#syntax)
 - [acess modifiers](#acess-modifiers)
-- [getter and setter](#getter-and-setter)
+- [setter and getter](#setter-and-getter)
+- [padding and greedyy alignment](#padding-and-greedyy-lignment)
 2. encapsulation
 3. constructor
 4. shallow vs deep copy
@@ -118,7 +119,7 @@ int main() {
 }
 ```
 
-# getter and setter
+# setter and getter
 ``` Cpp
 #include <iostream>
 using namespace std;
@@ -158,6 +159,154 @@ int main() {
     return 0;
 }
 ```
+
+#### padding and greedyy alignment
+---
+
+## 🔹 Padding (in OOPS / Memory)
+
+### What is Padding?
+
+**Padding** is the extra unused memory added by the compiler **between class/struct data members** to satisfy **alignment rules** and make memory access faster.
+
+### Why padding is needed?
+
+* CPU accesses memory faster when data is **properly aligned**
+* Avoids **multiple memory fetches**
+* Improves **performance**
+
+---
+
+### Example (C++)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+    char c;   // 1 byte
+    int i;    // 4 bytes
+};
+
+int main() {
+    cout << sizeof(A);
+}
+```
+
+### Memory layout (32/64-bit system)
+
+```
+| c | pad pad pad | i |
+ 1B      3B        4B
+```
+
+✔ Total size = **8 bytes**, not 5
+✔ Padding = **3 bytes**
+
+---
+
+## 🔹 Alignment
+
+### What is Alignment?
+
+**Alignment** means placing data in memory addresses that are multiples of their size.
+
+| Data Type | Alignment |
+| --------- | --------- |
+| char      | 1 byte    |
+| short     | 2 bytes   |
+| int       | 4 bytes   |
+| double    | 8 bytes   |
+
+---
+
+## 🔹 Greedy Alignment
+
+### What is Greedy Alignment?
+
+**Greedy alignment** is a strategy where the compiler places **each data member at the next valid aligned address**, even if it causes unused gaps (padding).
+
+➡ Compiler is **greedy for alignment**, not memory saving.
+
+---
+
+### Example (Bad Order → More Padding)
+
+```cpp
+class B {
+    char c;
+    double d;
+    int i;
+};
+```
+
+Memory layout:
+
+```
+| c | pad x7 | d | i | pad x4 |
+```
+
+✔ More padding
+✔ More memory used
+
+---
+
+### Optimized (Less Padding)
+
+```cpp
+class C {
+    double d;
+    int i;
+    char c;
+};
+```
+
+Memory layout:
+
+```
+| d | i | c | pad x3 |
+```
+
+✔ Less padding
+✔ Same data, less memory
+
+---
+
+## 🔑 Key Differences (Exam Table)
+
+| Concept            | Padding            | Greedy Alignment         |
+| ------------------ | ------------------ | ------------------------ |
+| Meaning            | Extra unused bytes | Placement strategy       |
+| Purpose            | Speed              | Correct alignment        |
+| Controlled by      | Compiler           | Compiler                 |
+| Programmer control | ❌                  | Partially (member order) |
+
+---
+
+## 🔹 How to Reduce Padding? (Very Important)
+
+✔ Arrange members **largest → smallest**
+✔ Use `#pragma pack(1)` (⚠️ performance cost)
+
+```cpp
+#pragma pack(1)
+class P {
+    char c;
+    int i;
+};
+```
+
+
+
+## 🔹 One-Line Definitions (Homework Ready)
+
+* **Padding**: Extra bytes added to satisfy alignment.
+* **Alignment**: Positioning data at suitable memory addresses.
+* **Greedy alignment**: Compiler places each member at the earliest aligned address, even if padding increases.
+
+---
+
+
 
 ##### encapsulation 
 combine data and other function
