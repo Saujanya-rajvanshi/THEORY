@@ -307,7 +307,7 @@ class P {
 
 ---
 
-### stic and dynamic
+### static and dynamic
 ```cpp
 #include <iostream>
 using namespace std;
@@ -327,7 +327,7 @@ int main() {
     Teacher t1 ;
 
     //dynamic memory allocation
-    Teacher *t2 = new Teacher;
+    Teacher *t2 = new Teacher; // for calling writ (*t2.propertie)
     
     return 0;
 }
