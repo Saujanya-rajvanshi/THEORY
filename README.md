@@ -54,8 +54,9 @@ Oops programming
 - [setter and getter](#setter-and-getter)
 - [padding and greedy alignment](#padding-and-greedy-alignment)
 - [static and dynamic](#static-and-dynamic)
+- [constructor](#constructor)
+- [this](#this)
 2. encapsulation
-3. constructor
 4. shallow vs deep copy
 5. destructor
 6. inheritance
@@ -357,7 +358,8 @@ return salary;
 ```
 
 ##### constructor
-object creation used for initialisation
+* when a function is created a function (constructor gets build) like name t1.Teacher()
+* object creation used for initialisation
 
 ```cpp
 public:
@@ -383,7 +385,6 @@ dept =xd;
 subject = s;
 salary = sal;
 }
-
 ```
 ```
 //copy constructor
@@ -407,8 +408,126 @@ Student(Student &obj){
     cgpaPtr = new double;
     cgpaPtr = *obj.cgpaPtr;
 }
-
 ```
+
+# this
+---
+
+## 🔹 `this` Keyword (C++)
+
+### What is `this`?
+
+`this` is an **implicit pointer** inside a non-static member function that **points to the current calling object**.
+
+➡ It holds the **address of the current object**.
+
+---
+
+## 🔹 Why `this` is used?
+
+1. To **differentiate data members and parameters**
+2. To **return the current object**
+3. To **pass current object as argument**
+4. To **enable method chaining**
+
+---
+
+## 🔹 Example 1: Resolving name conflict
+
+```cpp
+class Student {
+    int id;
+public:
+    void setId(int id) {
+        this->id = id;
+    }
+};
+```
+
+✔ `this->id` → data member
+✔ `id` → function parameter
+
+---
+
+## 🔹 Example 2: Returning current object
+
+```cpp
+class Test {
+    int x;
+public:
+    Test& set(int x) {
+        this->x = x;
+        return *this;
+    }
+};
+```
+
+Usage:
+
+```cpp
+obj.set(10).set(20);
+```
+
+✔ Enables **method chaining**
+
+---
+
+## 🔹 Example 3: Passing current object
+
+```cpp
+class Demo {
+public:
+    void show(Demo* obj) {
+        cout << "Object passed";
+    }
+
+    void call() {
+        show(this);
+    }
+};
+```
+
+✔ `this` passes **current object address**
+
+---
+
+## 🔹 Important Rules (Exam Points)
+
+* `this` is a **pointer**
+* Available only in **non-static** member functions
+* Cannot be used in **static functions**
+* Type: `ClassName*`
+
+---
+
+## 🔹 One-Line Definition (Very Important)
+
+> **`this` is a pointer that stores the address of the current calling object.**
+
+---
+
+## 🔹 `this` vs Normal Variable
+
+| Without `this`    | With `this`  |
+| ----------------- | ------------ |
+| Ambiguous         | Clear        |
+| Shadowing problem | No confusion |
+
+---
+
+## 🔹 Common Viva Questions
+
+**Q. Why `this` is not used in static functions?**
+👉 Static members do not belong to any object.
+
+**Q. Can we change `this`?**
+👉 ❌ No, it is a constant pointer.
+
+---
+
+
+
+
 ```cpp
 int main() {
     Student s1("rahul kumar", 8.9);
