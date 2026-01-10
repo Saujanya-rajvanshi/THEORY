@@ -55,6 +55,7 @@ Oops programming
 - [padding and greedy alignment](#padding-and-greedy-alignment)
 - [static and dynamic](#static-and-dynamic)
 - [constructor](#constructor)
+- [shallow and deep copy](#shallow-and-deep-copy)
 - [this](#this)
 2. encapsulation
 4. shallow vs deep copy
@@ -367,13 +368,14 @@ Teacher() {
 cout << "Hi, I am constructor\n";
 }
 ```
-```
+```cpp
 public:
 Teacher () {
     dept = "Computer Science";
 }
 ```
-```public:
+``` cpp
+public:
 //non-parameterized
 Teacher() {
 dept = "Computer Science";
@@ -386,7 +388,7 @@ subject = s;
 salary = sal;
 }
 ```
-```
+```cpp
 //copy constructor
 Teacher(Teacher &org0bj) {
     cout << "i am custom copy constructor ... \n";
@@ -394,19 +396,6 @@ Teacher(Teacher &org0bj) {
     this->dept = org0bj.dept;
     this->subject = org0bj.subject;
     this->salary = org0bj. salary;
-}
-
-//shallow copy
-Student(Student &obj) {
-    this->name = obj.name;
-    this->cgpaPtr = obj.cgpaPtr;
-}
-
-//deep copy
-Student(Student &obj){
-    this->name = obj.name;
-    cgpaPtr = new double;
-    cgpaPtr = *obj.cgpaPtr;
 }
 ```
 
@@ -525,7 +514,21 @@ public:
 
 ---
 
+### shallow and deep copy
+```cpp
+//shallow copy
+Student(Student &obj) {
+    this->name = obj.name;
+    this->cgpaPtr = obj.cgpaPtr;
+}
 
+//deep copy
+Student(Student &obj){
+    this->name = obj.name;
+    cgpaPtr = new double;
+    cgpaPtr = *obj.cgpaPtr;
+}
+```
 
 
 ```cpp
