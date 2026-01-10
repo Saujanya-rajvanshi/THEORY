@@ -306,7 +306,31 @@ class P {
 
 ---
 
+### stic and dynamic
+```cpp
+#include <iostream>
+using namespace std;
 
+class Teacher {
+    // using access modifers
+    private:   // private access
+    double salary;
+    public:   // public access 
+    string name;
+    string dept;
+    string subject;
+};
+
+int main() {
+    //static memory allocation
+    Teacher t1 ;
+
+    //dynamic memory allocation
+    Teacher *t2 = new Teacher;
+    
+    return 0;
+}
+```
 
 ##### encapsulation 
 combine data and other function
