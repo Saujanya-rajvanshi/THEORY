@@ -51,6 +51,7 @@ Oops programming
 #### index
 - [syntax](#syntax)
 - [acess modifiers](#acess-modifiers)
+- [getter and setter](#getter-and-setter)
 2. encapsulation
 3. constructor
 4. shallow vs deep copy
@@ -117,7 +118,7 @@ int main() {
 }
 ```
 
-
+# getter and setter
 ``` Cpp
 #include <iostream>
 using namespace std;
@@ -141,6 +142,7 @@ void setSalary (double s) {
     salary = s;
 }
 
+//getter
 double getSalary() {
 return salary;
 }
