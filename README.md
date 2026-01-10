@@ -53,6 +53,7 @@ Oops programming
 - [acess modifiers](#acess-modifiers)
 - [setter and getter](#setter-and-getter)
 - [padding and greedy alignment](#padding-and-greedy-alignment)
+- [static and dynamic](#static-and-dynamic)
 2. encapsulation
 3. constructor
 4. shallow vs deep copy
