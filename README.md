@@ -553,7 +553,7 @@ int main() {
 ```
 
 ### static keywords
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -572,13 +572,6 @@ return 0;
 }
 
 ```
-
-
-
-
-
-
-
 ```cpp
 class Student : public Person {
 public:
@@ -590,7 +583,16 @@ public:
         cout << "rollno : " << rollno << endl;
 }
 ```
-##### inherittance
+
+## four pillars
+- [inherittance](#inherittance)
+- [polymorphism](#polymorphism)
+- [encapsulation](#encapsulation)
+- [abstraction](#abstraction)
+
+
+
+### inherittance
 ###### multilevel inheritance
 ```cpp
 class GradStudent : public Student {
