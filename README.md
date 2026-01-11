@@ -57,12 +57,11 @@ Oops programming
 - [constructor](#constructor)
 - [shallow and deep copy](#shallow-and-deep-copy)
 - [this](#this)
-2. encapsulation
-4. shallow vs deep copy
-5. destructor
-6. inheritance
-7. abstract
-8. static keywords
+- [shallow vs deep copy](#shallow-vs-deep-copy)
+- [destructor](#destructor)
+- [static keywords](#static-keywords)
+- [four pillars](#four-pillars)
+
    
 ### syntax 
 ```cpp
@@ -530,7 +529,6 @@ Student(Student &obj){
 }
 ```
 
-
 ```cpp
 int main() {
     Student s1("rahul kumar", 8.9);
@@ -545,12 +543,42 @@ int main() {
     return 0;
 }
 ```
+### destructor
+
 ```cpp
 //destructor
 ~Student() {
     cout << "Hi, I delete everything\n";
 }
 ```
+
+### static keywords
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+void fun() {
+    static int x = 0; //init statement - 1 run
+    cout << "x :" << x << endl;
+    x++;
+}
+
+int main() {
+    fun();
+    fun();
+    fun();
+return 0;
+}
+
+```
+
+
+
+
+
+
+
 ```cpp
 class Student : public Person {
 public:
@@ -638,26 +666,7 @@ int main() {
 return 0;
 }
 ```
-###### static keywords
-```
-#include <iostream>
-#include <string>
-using namespace std;
 
-void fun() {
-    static int x = 0; //init statement - 1 run
-    cout << "x :" << x << endl;
-    x++;
-}
-
-int main() {
-    fun();
-    fun();
-    fun();
-return 0;
-}
-
-```
 
 # DBMS
 
