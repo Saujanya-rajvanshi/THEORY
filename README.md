@@ -585,12 +585,12 @@ public:
 ```
 
 ## four pillars
+- [encapsulation](#encapsulation)
 - [inherittance](#inherittance)
 - [polymorphism](#polymorphism)
-- [encapsulation](#encapsulation)
 - [abstraction](#abstraction)
 
-
+### encapsulation
 
 ### inherittance
 ###### multilevel inheritance
@@ -647,7 +647,8 @@ public:
 }
 ```
 ###### abstract
-```#include <iostream>
+```cpp
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -668,6 +669,14 @@ int main() {
 return 0;
 }
 ```
+
+
+
+
+
+
+
+
 
 
 # DBMS
