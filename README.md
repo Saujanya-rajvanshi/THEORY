@@ -591,6 +591,8 @@ public:
 - [abstraction](#abstraction)
 
 ### encapsulation
+* wrapping up of data & member function in a single unit called class
+
 
 ### inherittance
 ###### multilevel inheritance
