@@ -639,6 +639,8 @@ int main() {
 
 
 ### inherittance
+* When properties & member functions of base class are passed on to the derived class.
+
 ###### multilevel inheritance
 ```cpp
 class GradStudent : public Student {
@@ -692,7 +694,31 @@ public:
     string subject;
 }
 ```
-###### abstract
+
+### polymorphism 
+```cpp
+#include <iostream>
+using namespace std;
+
+class Print {
+public:
+    void show(int x) {
+        cout << "int : " << x << endl;
+    }
+
+    void show(char ch) {
+        cout << "char : " << ch << endl;
+    }
+};
+
+int main() {
+    Print p1;
+    p1.show(101);
+    return 0;
+}
+```
+
+### abstract
 ```cpp
 #include <iostream>
 #include <string>
