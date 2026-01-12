@@ -592,6 +592,50 @@ public:
 
 ### encapsulation
 * wrapping up of data & member function in a single unit called class
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;   // hidden data
+
+public:
+    void setName(string n) {
+        name = n;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+class GradStudent : public Student {
+private:
+    string researchArea;   // hidden data
+
+public:
+    void setResearchArea(string r) {
+        researchArea = r;
+    }
+
+    string getResearchArea() {
+        return researchArea;
+    }
+};
+
+int main() {
+    GradStudent s1;
+
+    s1.setName("Tony Stark");
+    s1.setResearchArea("Quantum Physics");
+
+    cout << s1.getName() << endl;
+    cout << s1.getResearchArea() << endl;
+
+    return 0;
+}
+```
 
 
 ### inherittance
