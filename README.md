@@ -40,12 +40,6 @@
 
 
 
-
-
-
-
-
-
 # Oops
 Oops programming 
 #### index
