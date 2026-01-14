@@ -514,60 +514,57 @@ public:
 
 ---
 
-##### encapsulation 
-combine data and other function
-
+### shallow and deep copy
 ```cpp
 #include <iostream>
 using namespace std;
-class Teacher {
-    double salary;
-    public:
+
+class Student {
+public:
     string name;
-    string dept;
-    string subject;
-    
-//setter
-void setSalary (double s) {
-    salary = s;
-}
+    double* cgpaPtr;
 
-double getSalary() {
-return salary;
-}
-```
+    // parameterized constructor
+    Student(string name, double cgpa) {
+        this->name = name;
+        cgpaPtr = new double;
+        *cgpaPtr = cgpa;
+    }
 
-### shallow and deep copy
-```cpp
-//shallow copy
-Student(Student &obj) {
-    this->name = obj.name;
-    this->cgpaPtr = obj.cgpaPtr;
-}
+    // deep copy constructor
+    Student(const Student &obj) {
+        this->name = obj.name;
+        cgpaPtr = new double(*obj.cgpaPtr);
+    }
 
-//deep copy
-Student(Student &obj){
-    this->name = obj.name;
-    cgpaPtr = new double;
-    cgpaPtr = *obj.cgpaPtr;
-}
-```
+    void getInfo() {
+        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
+    }
 
-```cpp
+    // destructor
+    ~Student() {
+        delete cgpaPtr;
+    }
+};
+
 int main() {
     Student s1("rahul kumar", 8.9);
-    Student s2(s1); //"neha kumar"
+    Student s2(s1);   // deep copy
 
     s1.getInfo();
-    *(s2.cgpaPtr) = 9.2;
-    s1.getInfo();
+
+    *(s2.cgpaPtr) = 9.2;   // change only s2
+    s1.getInfo();         // unchanged
 
     s2.name = "neha";
     s2.getInfo();
+
     return 0;
 }
 ```
+
 ### destructor
+A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
 
 ```cpp
 //destructor
@@ -575,8 +572,59 @@ int main() {
     cout << "Hi, I delete everything\n";
 }
 ```
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    double* cgpaPtr;
+
+    // constructor
+    Student(string name, double cgpa) {
+        this->name = name;
+        cgpaPtr = new double(cgpa);
+        cout << "Constructor called for " << name << endl;
+    }
+
+    // deep copy constructor
+    Student(const Student &obj) {
+        name = obj.name;
+        cgpaPtr = new double(*obj.cgpaPtr);
+        cout << "Copy constructor called for " << name << endl;
+    }
+
+    void getInfo() {
+        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
+    }
+
+    // destructor
+    ~Student() {
+        delete cgpaPtr;
+        cout << "Hi, I delete everything for " << name << endl;
+    }
+};
+
+int main() {
+    Student s1("rahul kumar", 8.9);
+    Student s2(s1);
+
+    s1.getInfo();
+    s2.getInfo();
+
+    return 0;   // destructors called automatically here
+}
+
+```
 
 ### static keywords
+The static keyword gives a variable or function a lifetime of the entire program
+* it retains its value even after the scope where it is declared ends.
+* to accesss you dont need to create object
+* can accesss only static member
+
+
 ```cpp
 #include <iostream>
 #include <string>
