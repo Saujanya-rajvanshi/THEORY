@@ -298,27 +298,59 @@ class P {
 ---
 
 ### static and dynamic
+**Static memory allocation**
+* Memory decided at compile time.
+* Size and lifetime are fixed before the program runs.
+* * memory area is stack/data.
+
+**Dynamic memory allocation**
+* memory decided at runtime.
+* Size and lifetime are controlled by the programmer.
+* Program requests memory from heap, OS provides a memory block
+* Address is returned to the program
+* Memory exists until explicitly released
+
 ```cpp
 #include <iostream>
 using namespace std;
 
 class Teacher {
-    // using access modifers
-    private:   // private access
+private:
     double salary;
-    public:   // public access 
+
+public:
     string name;
     string dept;
     string subject;
+
+    // setters
+    void setName(string n) {
+        name = n;
+    }
+
+    void setSubject(string s) {
+        subject = s;
+    }
 };
 
 int main() {
-    //static memory allocation
-    Teacher t1 ;
+    // static memory allocation
+    Teacher t1;
+    t1.name = "Alice";
+    t1.subject = "Math";
 
-    //dynamic memory allocation
-    Teacher *t2 = new Teacher; // for calling writ (*t2.propertie)
+    // dynamic memory allocation
+    Teacher* t2 = new Teacher;
+    t2->setName("Bob");
+    t2->setSubject("Physics");
+
+    cout << "Static object name: " << t1.name << endl;
+    cout << "Static object subject: " << t1.subject << endl;
     
+    cout << "Dynamic object name: " << t2->name << endl;
+    cout << "Dynamic object subject: " << t2->subject << endl;
+
+    delete t2;   // free dynamic memory
     return 0;
 }
 ```
