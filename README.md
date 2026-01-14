@@ -87,6 +87,9 @@ int main() {
     return 0;
 }
 ```
+💡 size of class is sum of all properties
+💡 empty class - no properties - size is 1 for identification
+
 
 ## acess modifiers
 ```cpp
@@ -118,8 +121,14 @@ int main() {
     return 0;
 }
 ```
+💡other files class in vs code can be accesed by #include<file.cpp>
+
 
 # setter and getter
+**Getter** and **Setter** are **public member functions** to **access and modify private data members** of a class, enabling **encapsulation** and controlled data access.
+* **Getter** → returns the value of a private variable
+* **Setter** → sets or updates the value of a private variable (often with validation)
+
 ``` Cpp
 #include <iostream>
 using namespace std;
@@ -164,18 +173,10 @@ int main() {
 ---
 
 ## 🔹 Padding (in OOPS / Memory)
-
-### What is Padding?
-
 **Padding** is the extra unused memory added by the compiler **between class/struct data members** to satisfy **alignment rules** and make memory access faster.
-
-### Why padding is needed?
-
 * CPU accesses memory faster when data is **properly aligned**
 * Avoids **multiple memory fetches**
 * Improves **performance**
-
----
 
 ### Example (C++)
 
@@ -199,17 +200,20 @@ int main() {
 | c | pad pad pad | i |
  1B      3B        4B
 ```
-
 ✔ Total size = **8 bytes**, not 5
 ✔ Padding = **3 bytes**
 
+💡padding depends on:
+* Data type sizes
+* Alignment requirements
+* Order of members
+* Target architecture/compiler
+* Padding is added only when needed for alignment, not a fixed number of bytes.
 ---
 
 ## 🔹 Alignment
-
-### What is Alignment?
-
 **Alignment** means placing data in memory addresses that are multiples of their size.
+* CPUs don’t read memory byte-by-byte logically — they read in words (e.g., 4 bytes, 8 bytes).
 
 | Data Type | Alignment |
 | --------- | --------- |
@@ -225,7 +229,6 @@ int main() {
 ### What is Greedy Alignment?
 
 **Greedy alignment** is a strategy where the compiler places **each data member at the next valid aligned address**, even if it causes unused gaps (padding).
-
 ➡ Compiler is **greedy for alignment**, not memory saving.
 
 ---
@@ -272,7 +275,7 @@ Memory layout:
 
 ---
 
-## 🔑 Key Differences (Exam Table)
+## Key Differences 
 
 | Concept            | Padding            | Greedy Alignment         |
 | ------------------ | ------------------ | ------------------------ |
@@ -283,10 +286,10 @@ Memory layout:
 
 ---
 
-## 🔹 How to Reduce Padding? (Very Important)
+## How to Reduce Padding
 
-✔ Arrange members **largest → smallest**
-✔ Use `#pragma pack(1)` (⚠️ performance cost)
+* Arrange members **largest → smallest**
+* Use `#pragma pack(1)` (⚠️ performance cost)
 
 ```cpp
 #pragma pack(1)
@@ -295,15 +298,6 @@ class P {
     int i;
 };
 ```
-
-
-
-## 🔹 One-Line Definitions (Homework Ready)
-
-* **Padding**: Extra bytes added to satisfy alignment.
-* **Alignment**: Positioning data at suitable memory addresses.
-* **Greedy alignment**: Compiler places each member at the earliest aligned address, even if padding increases.
-
 ---
 
 ### static and dynamic
