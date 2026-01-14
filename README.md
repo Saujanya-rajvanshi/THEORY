@@ -355,32 +355,11 @@ int main() {
 }
 ```
 
-##### encapsulation 
-combine data and other function
-
-```cpp
-#include <iostream>
-using namespace std;
-class Teacher {
-    double salary;
-    public:
-    string name;
-    string dept;
-    string subject;
-    
-//setter
-void setSalary (double s) {
-    salary = s;
-}
-
-double getSalary() {
-return salary;
-}
-```
-
 ##### constructor
 * when a function is created a function (constructor gets build) like name t1.Teacher()
 * object creation used for initialisation
+* no return type
+* input parameter can or cannot be 
 
 ```cpp
 public:
@@ -416,6 +395,29 @@ Teacher(Teacher &org0bj) {
     this->dept = org0bj.dept;
     this->subject = org0bj.subject;
     this->salary = org0bj. salary;
+}
+```
+
+##### encapsulation 
+combine data and other function
+
+```cpp
+#include <iostream>
+using namespace std;
+class Teacher {
+    double salary;
+    public:
+    string name;
+    string dept;
+    string subject;
+    
+//setter
+void setSalary (double s) {
+    salary = s;
+}
+
+double getSalary() {
+return salary;
 }
 ```
 
