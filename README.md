@@ -231,7 +231,6 @@ int main() {
 **Greedy alignment** is a strategy where the compiler places **each data member at the next valid aligned address**, even if it causes unused gaps (padding).
 ➡ Compiler is **greedy for alignment**, not memory saving.
 
----
 
 ### Example (Bad Order → More Padding)
 
@@ -251,8 +250,6 @@ Memory layout:
 
 ✔ More padding
 ✔ More memory used
-
----
 
 ### Optimized (Less Padding)
 
