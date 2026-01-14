@@ -41,7 +41,11 @@
 
 
 # Oops
-Oops programming 
+Object-Oriented Programming (OOP) is a programming paradigm 
+* that organizes software using objects
+* which combine data (attributes) and methods (functions) that operate on that data
+* enabling modularity, reusability, abstraction, and data security.
+
 #### index
 - [syntax](#syntax)
 - [acess modifiers](#acess-modifiers)
