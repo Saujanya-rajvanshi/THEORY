@@ -397,29 +397,7 @@ Teacher(Teacher &org0bj) {
     this->salary = org0bj. salary;
 }
 ```
-
-##### encapsulation 
-combine data and other function
-
-```cpp
-#include <iostream>
-using namespace std;
-class Teacher {
-    double salary;
-    public:
-    string name;
-    string dept;
-    string subject;
-    
-//setter
-void setSalary (double s) {
-    salary = s;
-}
-
-double getSalary() {
-return salary;
-}
-```
+💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
 
 # this
 ---
@@ -535,6 +513,29 @@ public:
 👉 ❌ No, it is a constant pointer.
 
 ---
+
+##### encapsulation 
+combine data and other function
+
+```cpp
+#include <iostream>
+using namespace std;
+class Teacher {
+    double salary;
+    public:
+    string name;
+    string dept;
+    string subject;
+    
+//setter
+void setSalary (double s) {
+    salary = s;
+}
+
+double getSalary() {
+return salary;
+}
+```
 
 ### shallow and deep copy
 ```cpp
