@@ -829,6 +829,205 @@ int main() {
 }
 ```
 
+### 
+Here is a **clear, exam-ready explanation** of **Function Overloading** with **definition, logic, rules, and example**, matching what’s in your image.
+
+---
+
+## Function Overloading 
+
+**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).
+The compiler decides **which function to call at compile time**, based on the arguments passed.
+👉 It improves **readability and flexibility** of the program.
+
+* **How Functions Can Be Overloaded**
+Functions can be overloaded by:
+1. **Different number of arguments**
+2. **Different types of arguments**
+3. **Different order of arguments**
+
+❌ Function overloading **cannot** be done by return type alone.
+
+* **Logic (How Compiler Works)**
+
+* When a function is called,
+* The compiler matches:
+
+  * Function name
+  * Number of parameters
+  * Data types of parameters
+* Then it calls the **best matched function**
+
+This is called **Compile-Time Polymorphism**.
+
+---
+
+## Example 1: Function Overloading with Different Number of Arguments
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function with two parameters
+int add(int num1, int num2) {
+    return num1 + num2;
+}
+
+// Function with three parameters
+int add(int num1, int num2, int num3) {
+    return num1 + num2 + num3;
+}
+
+int main() {
+    cout << add(10, 20) << endl;
+    cout << add(10, 20, 30) << endl;
+    return 0;
+}
+```
+
+## Example 2: Function Overloading with Different Data Types
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(5, 3) << endl;
+    cout << add(2.5, 3.5) << endl;
+    return 0;
+}
+```
+
+Below is a **clean, exam-ready explanation of Operator Overloading in C++** with **definition, rules, list, and example**, exactly matching what your screenshot shows (CodeStudio → OOPS → Operator Overloading).
+
+---
+
+## Operator Overloading 
+
+###  **Definition**
+
+**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.
+It makes objects behave like **built-in data types**.
+👉 It is a form of **compile-time polymorphism**.
+
+
+* **Why Operator Overloading?**
+
+* Improves **code readability**
+* Makes user-defined objects **intuitive to use**
+* Enables **natural syntax** (e.g., `c1 + c2`)
+
+
+## General Syntax
+
+```cpp
+return_type operator operator_symbol (arguments) {
+    // logic
+}
+```
+
+---
+
+## Operators That **CAN** Be Overloaded in C++
+
+Some commonly overloaded operators:
+
+```
++  -  *  /  %  
+== != < > <= >=
+++ -- += -= *= /=
+<< >> [] ()
+&& || !
+-> new delete
+```
+
+✔ Most arithmetic, relational, logical, and bitwise operators can be overloaded.
+
+---
+
+## Operators That **CANNOT** Be Overloaded in C++
+
+| Operator | Meaning           |
+| -------- | ----------------- |
+| `::`     | Scope resolution  |
+| `.`      | Member access     |
+| `.*`     | Pointer to member |
+| `?:`     | Ternary operator  |
+
+These operators have **fixed meanings** decided by the compiler.
+
+---
+
+## Example: Operator Overloading (Addition of Complex Numbers)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imag = i;
+    }
+
+    // Overload + operator
+    Complex operator + (Complex const &obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+};
+
+int main() {
+    Complex c1(3, 4), c2(1, 2);
+    Complex c3 = c1 + c2;
+
+    cout << "Real: " << c3.real << endl;
+    cout << "Imaginary: " << c3.imag << endl;
+
+    return 0;
+}
+```
+
+### Output
+
+```
+Real: 4
+Imaginary: 6
+```
+
+## Important Rules 
+
+✔ At least **one operand must be a user-defined type**
+✔ Operator precedence **cannot be changed**
+✔ Number of operands **cannot be changed**
+✔ Some operators must be overloaded as **member functions** (`=`, `[]`, `()`)
+
+
+## Function Overloading vs Operator Overloading
+
+| Feature      | Function Overloading | Operator Overloading |
+| ------------ | -------------------- | -------------------- |
+| Purpose      | Same function name   | Same operator        |
+| Polymorphism | Compile-time         | Compile-time         |
+| Used for     | Functions            | Operators            |
+
+
+
+
+
 ### abstract
 ```cpp
 #include <iostream>
