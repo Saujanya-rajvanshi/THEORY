@@ -664,6 +664,10 @@ public:
 
 ### encapsulation
 * wrapping up of data & member function in a single unit called class
+* fully encapsulated class -> all data member are private
+
+<img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -764,6 +768,41 @@ public:
 class Teacher : public Person{
 public:
     string subject;
+}
+```
+###### Ambiguity
+Ambiguity occurs in C++ when a derived class inherits two or more base classes that have functions or variables with the same name, and the compiler cannot decide which one to use.
+This commonly happens in multiple inheritance.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void func() {
+        cout << "I am A" << endl;
+    }
+};
+
+class B {
+public:
+    void func() {
+        cout << "I am B" << endl;
+    }
+};
+
+class C : public A, public B {
+};
+
+int main() {
+    C obj;
+    // obj.func();  // Ambiguous call
+
+    obj.A::func(); // Calls A's func
+    // obj.B::func(); // Calls B's func
+
+    return 0;
 }
 ```
 
