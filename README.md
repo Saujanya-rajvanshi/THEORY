@@ -4,6 +4,7 @@
 [OOPS](#Oops)
 <BR>
 [THEORY NOTES- oops theory part 1 ](https://drive.google.com/file/d/1h-4RdVIQCNu_loshweVu5TvqvYxHTY2d/view)
+[notes](https://www.geeksforgeeks.org/cpp/object-oriented-programming-in-cpp/)
 <BR>
 [.............................. - oops theory part 2 ](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
 <BR>
