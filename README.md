@@ -830,7 +830,6 @@ int main() {
 ```
 
 ### 
-Here is a **clear, exam-ready explanation** of **Function Overloading** with **definition, logic, rules, and example**, matching what’s in your image.
 
 ---
 
@@ -1023,6 +1022,95 @@ Imaginary: 6
 | Purpose      | Same function name   | Same operator        |
 | Polymorphism | Compile-time         | Compile-time         |
 | Used for     | Functions            | Operators            |
+
+
+
+
+---
+
+## 🔵 Runtime Polymorphism (C++)
+
+**Runtime polymorphism** is also called **dynamic polymorphism**.
+It occurs when the **function call is resolved at runtime**, not at compile time.
+
+👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
+
+---
+
+## Method Overriding
+
+**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.
+
+The decision of which function to call depends on the **object type at runtime**.
+
+## Rules for Method Overriding (Very Important)
+
+1. Function name must be **same** in parent and child class
+2. Function parameters must be **same**
+3. Return type must be **same**
+4. Must use **inheritance**
+5. Parent class function must be declared as **virtual**
+6. Access is usually through **base class pointer**
+
+
+## How Runtime Polymorphism Works (Logic)
+
+* Base class pointer points to derived class object
+* Compiler decides the function call **at runtime**
+* Uses **virtual function table (v-table)** internally
+
+
+## 🧪 Example: Runtime Polymorphism using Method Overriding
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void show() {
+        cout << "This is Parent class show function" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "This is Child class show function" << endl;
+    }
+};
+
+int main() {
+    Parent* p;
+    Child obj;
+    p = &obj;
+
+    p->show();   // Runtime decision
+    return 0;
+}
+```
+
+---
+
+### Output
+
+```
+This is Child class show function
+```
+
+* **What if `virtual` is not used?**
+Without `virtual`, **compile-time binding** happens and parent class function is called.
+
+## Compile-Time vs Runtime Polymorphism
+
+| Feature     | Compile-Time                    | Runtime           |
+| ----------- | ------------------------------- | ----------------- |
+| Binding     | Compile time                    | Runtime           |
+| Achieved by | Function / Operator Overloading | Method Overriding |
+| Keyword     | No keyword                      | `virtual`         |
+| Inheritance | Not required                    | Required          |
+
+---
 
 
 
