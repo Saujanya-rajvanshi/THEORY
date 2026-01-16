@@ -1152,12 +1152,260 @@ return 0;
 
 
 # DBMS
+- [introduction to database](#Introduction to DBMS)
+- [DBMS Architecture](#DBMS-Architecture)
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/474ed3eb-12e2-46c8-8efb-3352473bacfc" />
+---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54f3ad88-1fe4-4fd5-81f6-0b23e7b08e9c" />
+## Introduction to DBMS
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6fc25f50-66dc-49d0-889c-116d901363e9" />
+### Data
+* Raw, unorganized facts
+* No meaning without processing
+* Measured in bits & bytes
+
+**Types**
+* Quantitative → numerical (weight, cost)
+* Qualitative → descriptive (name, gender)
+
+### Information
+* Processed & meaningful data
+* Used for decision-making
+
+### Data vs Information
+
+| Basis           | Data                                 | Information                 |
+| --------------- | ------------------------------------ | --------------------------- |
+| Definition      | Collection of raw facts              | Processed data with meaning |
+| Nature          | Raw and unorganized                  | Organized and structured    |
+| Relationship    | Individual and sometimes unrelated   | Provides big-picture view   |
+| Meaning         | Meaningless on its own               | Meaningful after processing |
+| Dependency      | Does not depend on information       | Depends on data             |
+| Form            | Numbers, graphs, figures, statistics | Words, language, ideas      |
+| Decision Making | Not sufficient for decisions         | Used for decision-making    |
+
+### Database
+* Organized electronic storage of data
+* Easily accessed, updated, managed
+
+### DBMS
+* Software to store & manage databases
+* Supports insert, delete, update, retrieve
+
+### DBMS vs File System (Why DBMS?)
+* No redundancy
+* Easy data access
+* Better security
+* Handles concurrency
+* Maintains integrity
+
+---
+
+## DBMS Architecture
+
+### view of data(3-Schema Architecture)
+system hides certain details of how the data is stored and maintained, through several levels of abstraction.
+1. **Physical Level**
+   * How data is stored
+2. **Logical Level**
+   * What data is stored
+   * Relationships
+3. **View Level**
+   * User-specific views
+   * Security
+
+### Schema vs Instance
+
+* **Schema** → DB structure (static)
+* **Instance** → DB data at a time (dynamic)
+
+### Data Models
+
+* ER Model
+* Relational Model
+* Object-Oriented Model
+
+### DB Languages
+
+* **DDL** → Create structure
+* **DML** → Insert, update, delete
+* **SQL** → Combines both
+
+### DBA
+
+* Schema design
+* Security
+* Backup & maintenance
+
+### DBMS Architectures
+
+* **1-Tier** → Single machine
+* **2-Tier** → Client + DB server
+* **3-Tier** → Client + App server + DB (best)
+
+---
+
+## 📘 LEC-3: ER Model
+
+### Entity
+
+* Real-world object
+* Identified by **Primary Key**
+
+**Types**
+
+* Strong Entity → independent
+* Weak Entity → depends on strong entity
+
+### Attributes
+
+* Simple
+* Composite (name, address)
+* Single-valued
+* Multi-valued (phone)
+* Derived (age)
+
+### Relationships
+
+* Association between entities
+
+**Degree**
+
+* Unary, Binary, Ternary
+
+### Cardinality
+
+* 1-1
+* 1-M
+* M-1
+* M-M
+
+### Participation
+
+* Partial
+* Total (mandatory)
+
+---
+
+## 📘 LEC-4: Extended ER
+
+* **Specialisation** → Top-down
+* **Generalisation** → Bottom-up
+* **Inheritance** → attributes passed
+* **Aggregation** → relationship as entity
+
+---
+
+## 📘 LEC-7: Relational Model
+
+### Basic Terms
+
+* Table → Relation
+* Row → Tuple
+* Column → Attribute
+* Degree → No. of columns
+* Cardinality → No. of rows
+
+### Keys
+
+* Super Key
+* Candidate Key
+* Primary Key
+* Alternate Key
+* Foreign Key
+* Composite Key
+* Surrogate Key
+
+### Integrity Constraints
+
+* Domain
+* Entity (PK not NULL)
+* Referential (FK rules)
+
+---
+
+## 📘 LEC-8: ER → Relational Mapping
+
+* Strong entity → Table
+* Weak entity → FK + composite PK
+* Composite attribute → split
+* Multivalued → new table
+* Derived → ignored
+* Generalisation → 2 methods
+* Aggregation → relationship table
+
+---
+
+## 📘 LEC-9: SQL Basics
+
+### SQL Commands
+
+* **DDL** → CREATE, ALTER, DROP
+* **DML** → INSERT, UPDATE, DELETE
+* **DQL** → SELECT
+* **DCL** → GRANT, REVOKE
+* **TCL** → COMMIT, ROLLBACK
+
+### Clauses
+
+* WHERE
+* GROUP BY
+* HAVING
+* ORDER BY
+* DISTINCT
+
+### Joins
+
+* INNER
+* LEFT
+* RIGHT
+* FULL (emulated)
+* CROSS
+* SELF
+
+### Subqueries
+
+* WHERE
+* FROM
+* SELECT
+* Correlated Subquery
+
+### Views
+
+* Virtual table
+* No data storage
+* Auto-updated
+
+---
+
+## 📘 LEC-11: Normalisation
+
+### Why?
+
+* Remove redundancy
+* Avoid anomalies
+
+### Anomalies
+
+* Insertion
+* Deletion
+* Update
+
+### Functional Dependency
+
+* X → Y
+
+### Normal Forms
+
+* **1NF** → Atomic values
+* **2NF** → No partial dependency
+* **3NF** → No transitive dependency
+* **BCNF** → Stronger than 3NF
+
+---
+
+
+
 
 # CN 
 
