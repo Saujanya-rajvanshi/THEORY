@@ -1152,7 +1152,7 @@ return 0;
 
 
 # DBMS
-- [introduction to database](#Introduction to DBMS)
+- [introduction to database](#Introduction-to-DBMS)
 - [DBMS Architecture](#DBMS-Architecture)
 
 ---
