@@ -1220,16 +1220,21 @@ system hides certain details of how the data is stored and maintained, through s
 * **Instance** → DB data at a time (dynamic)
 
 ### Data Models
-
-* ER Model
-* Relational Model
-* Object-Oriented Model
+design at logical level 
+data , data relationship , data semantic & consistency
+* ER Model, Relational Model, Object-Oriented Model
 
 ### DB Languages
 
-* **DDL** → Create structure
+* **DDL** → Create structure, specify database schema 
 * **DML** → Insert, update, delete
 * **SQL** → Combines both
+
+### how is datas accesssed from application program 
+* apps (written in host languages C,C++,Java) interacts with DB.
+<br>  API is provided to send DML / DDL Statements to DB and retrieve the result.
+<br>     (i)  open database connectivity (DDBC), Microsoft "C" .
+<br>     (ii) JAVA database connectivity (JDBC),java
 
 ### DBA
 
