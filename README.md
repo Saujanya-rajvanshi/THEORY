@@ -1213,6 +1213,8 @@ system hides certain details of how the data is stored and maintained, through s
 3. **View Level**
    * User-specific views
    * Security
+<img width="559" height="387" alt="image" src="https://github.com/user-attachments/assets/ad52331c-ebcb-4d26-8026-dc9243b2f346" />
+
 
 ### Schema vs Instance
 
@@ -1231,13 +1233,13 @@ data , data relationship , data semantic & consistency
 * **SQL** → Combines both
 
 ### how is datas accesssed from application program 
-* apps (written in host languages C,C++,Java) interacts with DB.
-<br>  API is provided to send DML / DDL Statements to DB and retrieve the result.
+apps (written in host languages C,C++,Java) interacts with DB.
+<br>API is provided to send DML / DDL Statements to DB and retrieve the result.
 <br>     (i)  open database connectivity (DDBC), Microsoft "C" .
 <br>     (ii) JAVA database connectivity (JDBC),java
 
 ### DBA
-
+* autharization control
 * Schema design
 * Security
 * Backup & maintenance
@@ -1247,6 +1249,8 @@ data , data relationship , data semantic & consistency
 * **1-Tier** → Single machine
 * **2-Tier** → Client + DB server
 * **3-Tier** → Client + App server + DB (best)
+<img width="582" height="306" alt="image" src="https://github.com/user-attachments/assets/4e8bb4e6-7023-4844-8892-8b9d38f741fd" />
+
 
 ---
 
