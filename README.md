@@ -1254,45 +1254,81 @@ apps (written in host languages C,C++,Java) interacts with DB.
 
 ---
 
-## 📘 LEC-3: ER Model
+## ER Model
 
-### Entity
+### 🔅 Entity
 
 * Real-world object
 * Identified by **Primary Key**
+* eg -> Student
 
 **Types**
 
 * Strong Entity → independent
 * Weak Entity → depends on strong entity
 
-### Attributes
+<img width="691" height="247" alt="image" src="https://github.com/user-attachments/assets/d9e3f9b4-827a-4ce9-8e48-fed464bc794e" />
 
-* Simple
-* Composite (name, address)
-* Single-valued
-* Multi-valued (phone)
-* Derived (age)
 
-### Relationships
+### 🔅 Attributes
+An attribute represents a characteristic or feature of an entity.
+A property of an entity
+eg -> Roll_No, Name, Age
+
+Types of Attributes (important for exams)
+
+1. Simple Attribute <br> 
+Cannot be divided <br> 
+Example: Age
+
+2. Composite Attribute <br> 
+Can be divided into sub-parts <br> 
+Example: Address → Street, City, Pincode
+
+3. Single-valued Attribute <br> 
+One value only <br> 
+Example: Roll_No
+
+4. Multi-valued Attribute <br> 
+Multiple values <br> 
+Example: Phone_Number
+
+5. Derived Attribute <br> 
+Calculated from another attribute <br> 
+Example: Age (derived from Date_of_Birth)
+
+6. Key Attribute <br> 
+Uniquely identifies an entity <br> 
+Example: Student_ID
+
+7. null value : not applicable <br> 
+example : middle name 
+
+<img width="828" height="432" alt="image" src="https://github.com/user-attachments/assets/a307959f-3a27-4a3d-ab60-34dab937a460" />
+
+### 🔅 Relationships
 
 * Association between entities
 
-**Degree**
+* **Cardinality**
+* one to one
+* one to many
+* many to one
+* many to many
 
+* **Degree**
 * Unary, Binary, Ternary
 
-### Cardinality
+### 🔅 Participation
+aka minimium cardinality constraints.
+* Partial -> not all  entity envolved
+* Total (mandatory) -> all entitty envolved
+* **weak entity** has total participation constraints.
 
-* 1-1
-* 1-M
-* M-1
-* M-M
+<img width="910" height="342" alt="image" src="https://github.com/user-attachments/assets/74f2bfe4-f808-46a4-b5fc-7a826bcf69f9" />
 
-### Participation
 
-* Partial
-* Total (mandatory)
+<img width="872" height="474" alt="image" src="https://github.com/user-attachments/assets/65ae1467-af6b-48e1-a77f-f81f22ae4d7b" />
 
 ---
 
