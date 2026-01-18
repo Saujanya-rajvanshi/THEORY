@@ -1154,6 +1154,7 @@ return 0;
 # DBMS
 - [introduction to database](#Introduction-to-DBMS)
 - [DBMS Architecture](#DBMS-Architecture)
+- [ER Model](#ER-Model)
 
 ---
 
@@ -1324,8 +1325,6 @@ aka minimium cardinality constraints.
 * Partial -> not all  entity envolved
 * Total (mandatory) -> all entitty envolved
 * **weak entity** has total participation constraints.
-
-<img width="910" height="342" alt="image" src="https://github.com/user-attachments/assets/74f2bfe4-f808-46a4-b5fc-7a826bcf69f9" />
 
 
 <img width="872" height="474" alt="image" src="https://github.com/user-attachments/assets/65ae1467-af6b-48e1-a77f-f81f22ae4d7b" />
