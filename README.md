@@ -1350,6 +1350,94 @@ Avoid redundancy
 
 ---
 
+## Steps to Make ER Diagram
+
+* **1) Identify Entity Sets**
+* **2) Identify attributes and their types**
+* **3) Identify relational and constraints**
+
+
+### **Example: ER Model of Banking System**
+
+1. Banking system has **branches**
+2. Bank has **customers**
+3. Customer is **associated with some bank**
+4. Customer **has accounts / takes loan**
+5. Bank has **employees**
+6. Accounts are of two types:
+   * Saving Account
+   * Current Account
+7. Loan:
+   * Loan originated by **branch**
+   * Loan → **one or more customers**
+   * Loan has **payment schedule**
+
+---
+
+## **1) Entity Set**
+
+1. Branch 2. Customer 3. Employee 4. Saving Account <br>
+5. Current Account 6. Loan 7. Payment (weak entity – loan)
+
+## **2) Attributes & Their Types**
+
+1. branch -> name, city, assest, liabilities
+2. customer -> cust-id, name, address(composite), contact no(multivalued), DOB , age                              
+3. employee -> name contact no. , dependent name(multivalued), years of service(years of services), start-date(single-value) 
+4. Saving Account -> acc_number, balance, interest_rate, daily_withdrawal_limit
+5. Current Account -> 
+
+* acc_no
+* balance
+* per_transaction_charges
+* overdraft_amount
+
+---
+
+### **6. Generalized Entity: Account**
+
+* acc_no
+* balance
+
+---
+
+### **7. Loan**
+
+* loan_number
+* amount
+
+---
+
+### **8. Weak Entity: Payment**
+
+* payment_no
+* date
+* amount
+
+---
+
+## **3) Relationship & Constraints**
+
+1. **Customer borrows Loan**
+
+   * M : N
+
+2. **Loan originated by Branch**
+
+   * N : 1
+
+3. **Loan – Payment**
+
+   * 1 : N
+
+4. **Customer deposits Account**
+
+5. **Employee managed by Employee** *(recursive relationship)*
+
+---
+
+
+
 ## Relational Model
 
 ### Basic Terms
