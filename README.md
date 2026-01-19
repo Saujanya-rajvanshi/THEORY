@@ -1151,6 +1151,7 @@ return 0;
 - [ER Model](#ER-Model)
 - [Extended ER](#Extended-ER)
 - [Relational Model](#Relational-Model)
+- [ER to Relational Mapping](#ER-to-Relational-Mapping)
 
 ---
 
@@ -1390,19 +1391,19 @@ Avoid redundancy
 
 💡 on delete dascade <br>
 can we delete value from parent table if the value is lying in the child table w/o violating delete constraints ? <br>
-yes -> delete value from parent table -> delete corresponding entry from child table too
+yes -> delete value from parent table -> delete corresponding entry from child table too <br>
 <br>
-create table order (----- cust id int refrencing customer on delete cascode)
+create table order (----- cust id int refrencing customer on delete cascode) <br>
 on delete null <br>
-    - null constraints 
-    - unique constraints 
-    - default constraints
-    - check constraints
-    - primary key 
+    - null constraints  <br>
+    - unique constraints  <br>
+    - default constraints <br>
+    - check constraints <br>
+    - primary key  <br>
 
 ---
 
-## ER → Relational Mapping
+## ER to Relational Mapping
 
 * Strong entity → Table
 * Weak entity → FK + composite PK
