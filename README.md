@@ -1394,6 +1394,8 @@ can we delete value from parent table if the value is lying in the child table w
 yes -> delete value from parent table -> delete corresponding entry from child table too <br>
 <br>
 create table order (----- cust id int refrencing customer on delete cascode) <br>
+<br>
+can F.K. have NULL (value)
 on delete null <br>
     - null constraints  <br>
     - unique constraints  <br>
