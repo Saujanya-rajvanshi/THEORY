@@ -1388,9 +1388,21 @@ Avoid redundancy
     * **insert constraints ->** value cant be inserted in child if not present in parent table.
     * **delete constraints ->** value cant be deleted from parent table if the value is lying in child table.
 
+💡 on delete dascade <br>
+can we delete value from parent table if the value is lying in the child table w/o violating delete constraints ? <br>
+yes -> delete value from parent table -> delete corresponding entry from child table too
+<br>
+create table order (----- cust id int refrencing customer on delete cascode)
+on delete null <br>
+    - null constraints 
+    - unique constraints 
+    - default constraints
+    - check constraints
+    - primary key 
+
 ---
 
-## 📘 LEC-8: ER → Relational Mapping
+## ER → Relational Mapping
 
 * Strong entity → Table
 * Weak entity → FK + composite PK
