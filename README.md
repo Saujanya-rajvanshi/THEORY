@@ -1333,10 +1333,23 @@ aka minimium cardinality constraints.
 
 ## 📘 LEC-4: Extended ER
 
-* **Specialisation** → Top-down
-* **Generalisation** → Bottom-up
-* **Inheritance** → attributes passed
+* **Specialisation** → Top-down <br>
+Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
+specialities and features. <br>
+It is a Top-Down approach.
+  
+* **Generalisation** → Bottom-up <br>
+ properties of two entities are overlapping .
+
+* **Inheritance** → attributes passed <br>
+Attribute Inheritance <br>
+Both Specialisation and Generalisation, has attribute inheritance. <br>
+he attributes of higher level entity sets are inherited by lower level entity sets. <br>
+E.g., Customer & Employee inherit the attributes of Person
+
 * **Aggregation** → relationship as entity
+relationships among relationships <br>
+Avoid redundancy 
 
 ---
 
@@ -1344,27 +1357,40 @@ aka minimium cardinality constraints.
 
 ### Basic Terms
 
-* Table → Relation
-* Row → Tuple
-* Column → Attribute
-* Degree → No. of columns
-* Cardinality → No. of rows
+* **Table** → Relation, A single row / unique record.
+* **Row** → Tuple, relationship among a set of values.
+* **Column** → Attribute, attributes of the relation.
+* **Degree** → No. of columns / attribute.
+* **Cardinality** → No. of rows / tuples
+* **Relational Key** → Set of attributes which can uniquely identify an each tuple.
+
+### properties 
+
+* unique key
+* atomic values
+* tuple unique
+* sequence any
+* integrity constraints
 
 ### Keys
 
-* Super Key
-* Candidate Key
-* Primary Key
-* Alternate Key
-* Foreign Key
-* Composite Key
-* Surrogate Key
+* **Super Key (SK) :** combine unique key, can be null  
+* **Candidate Key (CK) :** minimum subset of super keys, cannot be null
+* **Primary Key (PK) :** selected out of CK set, has least no. of attributes 
+* **Alternate Key (AK) :** [CK] - PK 
+* **Foreign Key (FK) :** relational key
+* **Composite Key :** PK formed using at least 2 attributes.
+* **Compound Key :**  PK which is formed using 2 FK.
+* **Surrogate Key :** Synthetic PK, Generated automatically by DB, usually an integer value, May be used as PK. 
 
 ### Integrity Constraints
 
-* Domain
-* Entity (PK not NULL)
-* Referential (FK rules)
+* CRUD ( Create Read Update Delete) 
+* **Domain Constraints**
+* **Entity Constraints**  PK != NULL
+* **Referential Constraints** (FK rules) <br>
+    * **insert constraints ->** value cant be inserted in child if not present in parent table.
+    * **delete constraints ->** value cant be deleted from parent table if the value is lying in child table.
 
 ---
 
