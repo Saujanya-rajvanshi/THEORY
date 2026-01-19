@@ -1145,16 +1145,12 @@ return 0;
 
 
 
-
-
-
-
-
-
 # DBMS
 - [introduction to database](#Introduction-to-DBMS)
 - [DBMS Architecture](#DBMS-Architecture)
 - [ER Model](#ER-Model)
+- [Extended ER](#Extended-ER)
+- [Relational Model](#Relational-Model)
 
 ---
 
@@ -1331,7 +1327,7 @@ aka minimium cardinality constraints.
 
 ---
 
-## 📘 LEC-4: Extended ER
+## Extended ER
 
 * **Specialisation** → Top-down <br>
 Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
@@ -1353,7 +1349,7 @@ Avoid redundancy
 
 ---
 
-## 📘 LEC-7: Relational Model
+## Relational Model
 
 ### Basic Terms
 
