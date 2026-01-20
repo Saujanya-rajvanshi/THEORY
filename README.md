@@ -1152,6 +1152,7 @@ return 0;
 - [Extended ER](#Extended-ER)
 - [Relational Model](#Relational-Model)
 - [ER to Relational Mapping](#ER-to-Relational-Mapping)
+- [Normalisation](#Normalisation)
 
 ---
 
@@ -1521,29 +1522,65 @@ on delete null <br>
 
 ---
 
-## 📘 LEC-11: Normalisation
+## Normalisation
 
-### Why?
+Normalisation is a step towards DB optimisation.
 
-* Remove redundancy
-* Avoid anomalies
+* **Functional Dependency (FD)** <br>
+    PK to other attribute / relation <br>
+    X -> Y, theleft side of FD - Determinant, the right side of the production - Dependent.
+* **Types of FD**
+    * Trivial FD : A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
+    * Non-trivial FD : A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
+* **Rules of FD (Armstrong’s axioms)**
+    * Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
+                  If A ⊇ B then A → B. <br>
+    * Augmentation : If B can be determined from A, then adding an attribute to this functional dependency won’t change anything. <br>
+                     If A→ B holds, then AX→ BX holds too. ‘X’ being a set of attributes. <br>
+    * Transitivity : If A determines B and B determines C, we can say that A determines C. <br>
+                     If A→ B and B→ C then A→ C. <br>
 
-### Anomalies
+* Why Normalisation? -> To avoid redundancy in the DB, not to store redundant data. 
+* redundant data? -> Insertion, deletion and updation anomalies arises.
+ 
+*  **Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
+    * Insertion anomaly : can not be inserted into the DB without the presence of other data.
+    * Deletion anomaly : The delete anomaly refers to the situation where the deletion of data results in the unintended loss of some other important data.
+    * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated.
+2. Due to updation to many places, may be Data inconsistency arises, if one forgets to update the data at all the
+intended places.
+5. Due to these anomalies, DB size increases and DB performance become very slow.
+6. To rectify these anomalies and the effect of these of DB, we use Database optimisation technique called
+NORMALISATION.
+6. What is Normalisation?
+1. Normalisation is used to minimise the redundancy from a relations. It is also used to eliminate undesirable
+characteristics like Insertion, Update, and Deletion Anomalies.
+2. Normalisation divides the composite attributes into individual attributes OR larger table into smaller and links them
+using relationships.
+3. The normal form is used to reduce redundancy from the database table.
 
-* Insertion
-* Deletion
-* Update
+* **Types of Normal forms**
+* 1. 1NF
+    1. Every relation cell must have atomic value.
+    2. Relation must not have multi-valued attributes.
+* 2. 2NF
+    1. Relation must be in 1NF.
+    2. There should not be any partial dependency.
+        1. All non-prime attributes must be fully dependent on PK.
+        2. Non prime attribute can not depend on the part of the PK.
+* 3. 3NF
+    1. Relation must be in 2NF.
+    2. No transitivity dependency exists.
+        1. Non-prime attribute should not find a non-prime attribute.
+* 4. BCNF (Boyce-Codd normal form)
+     1. Relation must be in 3NF.
+     2. FD: A -> B, A must be a super key.
+         1. We must not derive prime attribute from any prime or non-prime attribute.
 
-### Functional Dependency
-
-* X → Y
-
-### Normal Forms
-
-* **1NF** → Atomic values
-* **2NF** → No partial dependency
-* **3NF** → No transitive dependency
-* **BCNF** → Stronger than 3NF
+8. Advantages of Normalisation
+1. Normalisation helps to minimise data redundancy.
+2. Greater overall database organisation.
+3. Data consistency is maintained in DB.
 
 ---
 
