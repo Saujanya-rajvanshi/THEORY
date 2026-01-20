@@ -1385,57 +1385,24 @@ Avoid redundancy
 2. customer -> cust-id, name, address(composite), contact no(multivalued), DOB , age                              
 3. employee -> name contact no. , dependent name(multivalued), years of service(years of services), start-date(single-value) 
 4. Saving Account -> acc_number, balance, interest_rate, daily_withdrawal_limit
-5. Current Account -> 
-
-* acc_no
-* balance
-* per_transaction_charges
-* overdraft_amount
-
----
-
-### **6. Generalized Entity: Account**
-
-* acc_no
-* balance
-
----
-
-### **7. Loan**
-
-* loan_number
-* amount
-
----
-
-### **8. Weak Entity: Payment**
-
-* payment_no
-* date
-* amount
-
----
+5. Current Account -> acc_no, balance, per_transaction_charges, overdraft_amount
+6. Generalized Entity "Account" -> acc_number, balance
+7. Loan -> loan_number, amount
+8. Weak Entity "Payment" -> payment_no, date, amount
 
 ## **3) Relationship & Constraints**
-
-1. **Customer borrows Loan**
-
+1. Customer borrows Loan
    * M : N
 
-2. **Loan originated by Branch**
-
+2. Loan originated by Branch
    * N : 1
 
-3. **Loan – Payment**
-
+3. Loan – Payment
    * 1 : N
 
-4. **Customer deposits Account**
+4. Customer deposits Account
 
-5. **Employee managed by Employee** *(recursive relationship)*
-
----
-
+5. Employee managed by Employee (recursive relationship)
 
 
 ## Relational Model
@@ -1495,13 +1462,20 @@ on delete null <br>
 
 ## ER to Relational Mapping
 
-* Strong entity → Table
-* Weak entity → FK + composite PK
-* Composite attribute → split
-* Multivalued → new table
-* Derived → ignored
-* Generalisation → 2 methods
-* Aggregation → relationship table
+* Strong entity → becomes an individual table with entity name, attrbute becomes column <br>
+  **PK is used as relation's PK FK**
+* Weak entity → table formed with all entity attribute <br>
+  **FK + composite PK** PK of corresponding strong entity will be added as FK. 
+* single valued attribute → column directly in tables 
+* Composite attribute → handled by attribute itself in original relation. **split**
+* Multivalued attribute → new table(named as original attribute name) are created for each multivalued attribute <br>
+  PK as FK
+  PK = FK + multivalued name 
+* Derived attribute → not consider in tables 
+* Generalisation → M1 create a table for the higher level entity <br>
+                   M2 if generalisation is disjoint and complete , table <br>
+                   drawback of M2 - stored twice                   
+* Aggregation → relationship table 
 
 ---
 
