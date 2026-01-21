@@ -1373,14 +1373,12 @@ Avoid redundancy
    * Loan → **one or more customers**
    * Loan has **payment schedule**
 
----
-
-## **1) Entity Set**
+### **1) Entity Set**
 
 1. Branch 2. Customer 3. Employee 4. Saving Account <br>
 5. Current Account 6. Loan 7. Payment (weak entity – loan)
 
-## **2) Attributes & Their Types**
+### **2) Attributes & Their Types**
 
 1. branch -> name, city, assest, liabilities
 2. customer -> cust-id, name, address(composite), contact no(multivalued), DOB , age                              
@@ -1391,7 +1389,7 @@ Avoid redundancy
 7. Loan -> loan_number, amount
 8. Weak Entity "Payment" -> payment_no, date, amount
 
-## **3) Relationship & Constraints**
+### **3) Relationship & Constraints**
 1. Customer borrows Loan
    * M : N
 
@@ -1405,6 +1403,7 @@ Avoid redundancy
 
 5. Employee managed by Employee (recursive relationship)
 
+---
 
 ## Relational Model
 
