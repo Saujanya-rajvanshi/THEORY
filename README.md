@@ -1153,6 +1153,7 @@ return 0;
 - [Steps to Make ER Diagram](#Steps-to-Make-ER-Diagram)
 - [Relational Model](#Relational-Model)
 - [ER to Relational Mapping](#ER-to-Relational-Mapping)
+- [SQL](#SQL)
 - [Normalisation](#Normalisation)
 - [Transaction](#Transaction)
 - [How to implement Atomicity and Durability in Transactions](#How-to-implement-Atomicity-and-Durability-in-Transactions)
