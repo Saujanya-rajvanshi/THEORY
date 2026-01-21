@@ -51,7 +51,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * enabling modularity, reusability, abstraction, and data security.
 
 #### index
-- [🪷 syntax](#a)
+- [syntax](#syntax)
 - [acess modifiers](#b)
 - [setter and getter](#c)
 - [padding and greedy alignment](#d)
@@ -64,7 +64,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [four pillars](#four-pillars)
 
    
-##### 🪷 a 
+##### a 
 ## 🪷 SYNTAX
 ```cpp
 #include <iostream>
