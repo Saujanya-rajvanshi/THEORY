@@ -63,7 +63,9 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [static keywords](#static-keywords)
 - [four pillars](#four-pillars)
 
-   
+
+---
+
 ## syntax
 
 ```cpp
@@ -94,6 +96,7 @@ int main() {
 💡 size of class is sum of all properties
 💡 empty class - no properties - size is 1 for identification
 
+---
 
 ## acess modifiers
 
@@ -128,6 +131,7 @@ int main() {
 ```
 💡other files class in vs code can be accesed by #include<file.cpp>
 
+---
 
 ## setter and getter
 
@@ -175,8 +179,9 @@ int main() {
 }
 ```
 
-## padding and greedy alignment
 ---
+
+## padding and greedy alignment
 
 ## 🔹 Padding (in OOPS / Memory)
 **Padding** is the extra unused memory added by the compiler **between class/struct data members** to satisfy **alignment rules** and make memory access faster.
@@ -360,6 +365,7 @@ int main() {
     return 0;
 }
 ```
+---
 
 ## constructor
 
@@ -406,9 +412,9 @@ Teacher(Teacher &org0bj) {
 ```
 💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
 
+---
 
 ## this
----
 
 ## 🔹 `this` Keyword (C++)
 
@@ -418,16 +424,12 @@ Teacher(Teacher &org0bj) {
 
 ➡ It holds the **address of the current object**.
 
----
-
 ## 🔹 Why `this` is used?
 
 1. To **differentiate data members and parameters**
 2. To **return the current object**
 3. To **pass current object as argument**
 4. To **enable method chaining**
-
----
 
 ## 🔹 Example 1: Resolving name conflict
 
@@ -443,8 +445,6 @@ public:
 
 ✔ `this->id` → data member
 ✔ `id` → function parameter
-
----
 
 ## 🔹 Example 2: Returning current object
 
@@ -467,8 +467,6 @@ obj.set(10).set(20);
 
 ✔ Enables **method chaining**
 
----
-
 ## 🔹 Example 3: Passing current object
 
 ```cpp
@@ -486,8 +484,6 @@ public:
 
 ✔ `this` passes **current object address**
 
----
-
 ## 🔹 Important Rules (Exam Points)
 
 * `this` is a **pointer**
@@ -495,13 +491,9 @@ public:
 * Cannot be used in **static functions**
 * Type: `ClassName*`
 
----
-
 ## 🔹 One-Line Definition (Very Important)
 
 > **`this` is a pointer that stores the address of the current calling object.**
-
----
 
 ## 🔹 `this` vs Normal Variable
 
@@ -509,8 +501,6 @@ public:
 | ----------------- | ------------ |
 | Ambiguous         | Clear        |
 | Shadowing problem | No confusion |
-
----
 
 ## 🔹 Common Viva Questions
 
@@ -570,6 +560,7 @@ int main() {
     return 0;
 }
 ```
+---
 
 ## destructor
 A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
@@ -623,8 +614,9 @@ int main() {
 
     return 0;   // destructors called automatically here
 }
-
 ```
+
+---
 
 ## static keywords
 The static keyword gives a variable or function a lifetime of the entire program
@@ -663,6 +655,8 @@ public:
         cout << "rollno : " << rollno << endl;
 }
 ```
+
+---
 
 ## four pillars
 - [encapsulation](#encapsulation)
@@ -835,9 +829,7 @@ int main() {
     p1.show(101);
     return 0;
 }
-```
-
-### 
+``` 
 
 ---
 
@@ -912,8 +904,6 @@ int main() {
     return 0;
 }
 ```
-
-Below is a **clean, exam-ready explanation of Operator Overloading in C++** with **definition, rules, list, and example**, exactly matching what your screenshot shows (CodeStudio → OOPS → Operator Overloading).
 
 ---
 
@@ -1143,6 +1133,7 @@ int main() {
 return 0;
 }
 ```
+---
 
 
 
