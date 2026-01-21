@@ -1154,6 +1154,13 @@ return 0;
 - [Relational Model](#Relational-Model)
 - [ER to Relational Mapping](#ER-to-Relational-Mapping)
 - [Normalisation](#Normalisation)
+- [Transaction](#Transaction)
+- [How to implement Atomicity and Durability in Transactions](#How-to-implement-Atomicity-and-Durability-in-Transactions)
+- [Indexing in DBMS](#Indexing-in-DBMS)
+- [NoSQL](#NoSQL)
+- [Types of Databases](#Types-of-Databases)
+- [Clustering in DBMS](#Clustering-in-DBMS)
+- [Partitioning & Sharding in DBMS (DB Optimisation)](#Partitioning-Sharding-in-DBMS-DB-Optimisation)
 
 ---
 
@@ -1634,6 +1641,300 @@ completely. T reaches abort state after rollback. DB’s state prior to the T is
 
 6. Terminated state
 1. A transaction is said to have terminated if has either committed or aborted.
+
+## How to implement Atomicity and Durability in Transactions
+
+Recovery Mechanism Component of DBMS supports atomicity and durability.
+
+2. Shadow-copy scheme
+1. Based on making copies of DB (aka, shadow copies).
+2. Assumption only one Transaction (T) is active at a time.
+3. A pointer called db-pointer is maintained on the disk; which at any instant points to current copy of DB.
+4. T, that wants to update DB first creates a complete copy of DB.
+5. All further updates are done on new DB copy leaving the original copy (shadow copy) untouched.
+6. If at any point the T has to be aborted the system deletes the new copy. And the old copy is not affected.
+7. If T success, it is committed as,
+1. OS makes sure all the pages of the new copy of DB written on the disk.
+2. DB system updates the db-pointer to point to the new copy of DB.
+3. New copy is now the current copy of DB.
+4. The old copy is deleted.
+5. The T is said to have been COMMITTED at the point where the updated db-pointer is written to disk.
+
+8. Atomicity
+1. If T fails at any time before db-pointer is updated, the old content of DB are not affected.
+2. T abort can be done by just deleting the new copy of DB.
+3. Hence, either all updates are reflected or none.
+
+9. Durability
+1. Suppose, system fails are any time before the updated db-pointer is written to disk.
+2. When the system restarts, it will read db-pointer & will thus, see the original content of DB and none of the effects of T will
+be visible.
+3. T is assumed to be successful only when db-pointer is updated.
+4. If system fails after db-pointer has been updated. Before that all the pages of the new copy were written to disk. Hence,
+when system restarts, it will read new DB copy.
+10. The implementation is dependent on write to the db-pointer being atomic. Luckily, disk system provide atomic updates to entire
+block or at least a disk sector. So, we make sure db-pointer lies entirely in a single sector. By storing db-pointer at the beginning
+of a block.
+11. Inefficient, as entire DB is copied for every Transaction.
+
+3. Log-based recovery methods
+1. The log is a sequence of records. Log of each transaction is maintained in some stable storage so that if any failure occurs, then
+it can be recovered from there.
+2. If any operation is performed on the database, then it will be recorded in the log.
+3. But the process of storing the logs should be done before the actual transaction is applied in the database.
+4. Stable storage is a classification of computer data storage technology that guarantees atomicity for any given write operation
+and allows software to be written that is robust against some hardware and power failures.
+
+6. Deferred DB Modifications
+1. Ensuring atomicity by recording all the DB modifications in the log but deferring the execution of all the write operations
+until the final action of the T has been executed.
+2. Log information is used to execute deferred writes when T is completed.
+3. If system crashed before the T completes, or if T is aborted, the information in the logs are ignored.
+4. If T completes, the records associated to it in the log file are used in executing the deferred writes.
+5. If failure occur while this updating is taking place, we preform redo.
+
+7. Immediate DB Modifications
+1. DB modifications to be output to the DB while the T is still in active state.
+2. DB modifications written by active T are called uncommitted modifications.
+3. In the event of crash or T failure, system uses old value field of the log records to restore modified values.
+4. Update takes place only after log records in a stable storage.
+5. Failure handling
+1. System failure before T completes, or if T aborted, then old value field is used to undo the T.
+2. If T completes and system crashes, then new value field is used to redo T having commit logs in the logs.
+CodeHelp
+
+## Indexing in DBMS
+
+1. Indexing is used to optimise the performance of a database by minimising the number of disk accesses required when a query is
+processed.
+2. The index is a type of data structure. It is used to locate and access the data in a database table quickly.
+3. Speeds up operation with read operations like SELECT queries, WHERE clause etc.
+4. Search Key: Contains copy of primary key or candidate key
+of the table or something else.
+5. Data Reference: Pointer holding the address of disk block
+where the value of the corresponding key is stored.
+6. Indexing is optional, but increases access speed. It is not the
+primary mean to access the tuple, it is the secondary mean.
+7. Index file is always sorted.
+
+9. Indexing Methods
+1. Primary Index (Clustering Index)
+1. A file may have several indices, on different search keys. If the data file containing the records is sequentially ordered, a
+Primary index is an index whose search key also defines the sequential order of the file.
+2. NOTE: The term primary index is sometimes used to mean an index on a primary key. However, such usage is
+nonstandard and should be avoided.
+3. All files are ordered sequentially on some search key. It could be Primary Key or non-primary key.
+4. Dense And Sparse Indices
+1. Dense Index
+1. The dense index contains an index record for every search key value in the data file.
+2. The index record contains the search-key value and a pointer to the first data record with that search-key value.
+The rest of the records with the same search-key value would be stored sequentially after the first record.
+3. It needs more space to store index record itself. The index records have the search key and a pointer to the actual
+record on the disk.
+2. Sparse Index
+1. An index record appears for only some of the search-key values.
+2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a
+range of index columns stores the same data block address, and when data needs to be retrieved, the block
+address will be fetched.
+5. Primary Indexing can be based on Data file is sorted w.r.t Primary Key attribute or non-key attributes.
+6. Based on Key attribute
+1. Data file is sorted w.r.t primary key attribute.
+2. PK will be used as search-key in Index.
+3. Sparse Index will be formed i.e., no. of entries in the index file = no. of blocks in datafile.
+7. Based on Non-Key attribute
+1. Data file is sorted w.r.t non-key attribute.
+2. No. Of entries in the index = unique non-key attribute value in the data file.
+3. This is dense index as, all the unique values have an entry in the
+index file.
+4. E.g., Let’s assume that a company recruited many employees in
+various departments. In this case, clustering indexing in DBMS
+should be created for all employees who belong to the same
+dept.
+8. Multi-level Index
+1. Index with two or more levels.
+2. If the single level index become enough large that the binary
+search it self would take much time, we can break down
+indexing into multiple levels.
+2. Secondary Index (Non-Clustering Index)
+1. Datafile is unsorted. Hence, Primary Indexing is not possible.
+2. Can be done on key or non-key attribute.
+3. Called secondary indexing because normally one indexing is already
+applied.
+4. No. Of entries in the index file = no. of records in the data file.
+5. It's an example of Dense index.
+CodeHelp
+
+9. Advantages of Indexing
+1. Faster access and retrieval of data.
+2. IO is less.
+10. Limitations of Indexing
+1. Additional space to store index table
+2. Indexing Decrease performance in INSERT, DELETE, and UPDATE query.
+
+## NoSQL 
+
+<img width="617" height="638" alt="image" src="https://github.com/user-attachments/assets/4915b60b-5298-4f6c-ba9c-41ed5f0ee6c1" />
+
+## Types of Databases
+
+1. Relational Databases
+1. Based on Relational Model.
+2. Relational databases are quite popular, even though it was a system designed in the 1970s. Also known as relational database
+management systems (RDBMS), relational databases commonly use Structured Query Language (SQL) for operations such as
+creating, reading, updating, and deleting data. Relational databases store information in discrete tables, which can be JOINed
+together by fields known as foreign keys. For example, you might have a User table which contains information about all your
+users, and join it to a Purchases table, which contains information about all the purchases they’ve made. MySQL, Microsoft SQL
+Server, and Oracle are types of relational databases.
+3. they are ubiquitous, having acquired a steady user base since the 1970s
+4. they are highly optimised for working with structured data.
+5. they provide a stronger guarantee of data normalisation
+6. they use a well-known querying language through SQL
+7. Scalability issues (Horizontal Scaling).
+8. Data become huge, system become more complex.
+2. Object Oriented Databases
+1. The object-oriented data model, is based on the object-oriented-programming paradigm, which is now in wide use.
+Inheritance, object-identity, and encapsulation (information hiding), with methods to provide an interface to objects, are
+among the key concepts of object-oriented programming that have found applications in data modelling. The object-oriented
+data model also supports a rich type system, including structured and collection types. While inheritance and, to some extent,
+complex types are also present in the E-R model, encapsulation and object-identity distinguish the object-oriented data model
+from the E-R model.
+2. Sometimes the database can be very complex, having multiple relations. So, maintaining a relationship between them can be
+tedious at times.
+1. In Object-oriented databases data is treated as an object.
+2. All bits of information come in one instantly available object package instead of multiple tables.
+3. Advantages
+1. Data storage and retrieval is easy and quick.
+2. Can handle complex data relations and more variety of data types that standard relational databases.
+3. Relatively friendly to model the advance real world problems
+4. Works with functionality of OOPs and Object Oriented languages.
+4. Disadvantages
+1. High complexity causes performance issues like read, write, update and delete operations are slowed down.
+2. Not much of a community support as isn’t widely adopted as relational databases.
+3. Does not support views like relational databases.
+5. e.g., ObjectDB, GemStone etc.
+3. NoSQL Databases
+1. NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL
+databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and
+graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
+2. They are schema free.
+3. Data structures used are not tabular, they are more flexible, has the ability to adjust dynamically.
+4. Can handle huge amount of data (big data).
+5. Most of the NoSQL are open sources and has the capability of horizontal scaling.
+6. It just stores data in some format other than relational.
+7. Refer LEC-15 notes...
+4. Hierarchical Databases
+1. As the name suggests, the hierarchical database model is most appropriate for use cases in which the main focus of information
+gathering is based on a concrete hierarchy, such as several individual employees reporting to a single department at a
+company.
+2. The schema for hierarchical databases is defined by its tree-like organisation, in which there is typically a root “parent”
+directory of data stored as records that links to various other subdirectory branches, and each subdirectory branch, or child
+record, may link to various other subdirectory branches.
+3. The hierarchical database structure dictates that, while a parent record can have several child records, each child record can only
+have one parent record. Data within records is stored in the form of fields, and each field can only contain one value. Retrieving
+hierarchical data from a hierarchical database architecture requires traversing the entire tree, starting at the root node.
+4. Since the disk storage system is also inherently a hierarchical structure, these models can also be used as physical models.
+5. The key advantage of a hierarchical database is its ease of use. The one-to-many organisation of data makes traversing the
+database simple and fast, which is ideal for use cases such as website drop-down menus or computer folders in systems like
+CodeHelp
+
+Microsoft Windows OS. Due to the separation of the tables from physical storage structures, information can easily be added or
+deleted without affecting the entirety of the database. And most major programming languages offer functionality for reading
+tree structure databases.
+6. The major disadvantage of hierarchical databases is their inflexible nature. The one-to-many structure is not ideal for complex
+structures as it cannot describe relationships in which each child node has multiple parents nodes. Also the tree-like
+organisation of data requires top-to-bottom sequential searching, which is time consuming, and requires repetitive storage of
+data in multiple different entities, which can be redundant.
+7. e.g., IBM IMS.
+5. Network Databases
+1. Extension of Hierarchical databases
+2. The child records are given the freedom to associate with multiple parent records.
+3. Organised in a Graph structure.
+4. Can handle complex relations.
+5. Maintenance is tedious.
+6. M:N links may cause slow retrieval.
+7. Not much web community support.
+8. e.g., Integrated Data Store (IDS), IDMS (Integrated Database Management System),
+Raima Database Manager, TurboIMAGE etc.
+CodeHelp
+
+## Clustering in DBMS
+
+1. Database Clustering (making Replica-sets) is the process of combining more than one servers or instances connecting a single database.
+Sometimes one server may not be adequate to manage the amount of data or the number of requests, that is when a Data Cluster is needed.
+Database clustering, SQL server clustering, and SQL clustering are closely associated with SQL is the language used to manage the database
+information.
+2. Replicate the same dataset on different servers.
+3. Advantages
+1. Data Redundancy: Clustering of databases helps with data redundancy, as we store the same data at multiple servers. Don’t confuse this
+data redundancy as repetition of the same data that might lead to some anomalies. The redundancy that clustering offers is required and is
+quite certain due to the synchronisation. In case any of the servers had to face a failure due to any possible reason, the data is available at other
+servers to access.
+2. Load balancing: or scalability doesn’t come by default with the database. It has to be brought by clustering regularly. It also depends on the
+setup. Basically, what load balancing does is allocating the workload among the different servers that are part of the cluster. This indicates that
+more users can be supported and if for some reasons if a huge spike in the traffic appears, there is a higher assurance that it will be able to
+support the new traffic. One machine is not going to get all of the hits. This can provide scaling seamlessly as required. This links directly to
+high availability. Without load balancing, a particular machine could get overworked and traffic would slow down, leading to decrement of
+the traffic to zero.
+3. High availability: When you can access a database, it implies that it is available. High availability refers the amount of time a database is
+considered available. The amount of availability you need greatly depends on the number of transactions you are running on your database
+and how often you are running any kind of analytics on your data. With database clustering, we can reach extremely high levels of availability
+due to load balancing and have extra machines. In case a server got shut down the database will, however, be available.
+4. How does Clustering Work?
+1. In cluster architecture, all requests are split with many computers so that an individual user request is executed and produced by a number of
+computer systems. The clustering is serviceable definitely by the ability of load balancing and high-availability. If one node collapses, the
+request is handled by another node. Consequently, there are few or no possibilities of absolute system failures.
+CodeHelp
+
+## Partitioning & Sharding in DBMS (DB Optimisation)
+
+1. A big problem can be solved easily when it is chopped into several smaller sub-problems. That is what the partitioning technique does. It divides a
+big database containing data metrics and indexes into smaller and handy slices of data called partitions. The partitioned tables are directly used by
+SQL queries without any alteration. Once the database is partitioned, the data definition language can easily work on the smaller partitioned slices,
+instead of handling the giant database altogether. This is how partitioning cuts down the problems in managing large database tables.
+2. Partitioning is the technique used to divide stored database objects into separate servers. Due to this, there is an increase in performance,
+controllability of the data. We can manage huge chunks of data optimally. When we horizontally scale our machines/servers, we know that it gives us
+a challenging time dealing with relational databases as it’s quite tough to maintain the relations. But if we apply partitioning to the database that is
+already scaled out i.e. equipped with multiple servers, we can partition our database among those servers and handle the big data easily.
+3. Vertical Partitioning
+1. Slicing relation vertically / column-wise.
+2. Need to access different servers to get complete tuples.
+4. Horizontal Partitioning
+1. Slicing relation horizontally / row-wise.
+2. Independent chunks of data tuples are stored in different servers.
+5. When Partitioning is Applied?
+1. Dataset become much huge that managing and dealing with it become a tedious task.
+2. The number of requests are enough larger that the single DB server access is taking huge time and hence the system’s response time become
+high.
+6. Advantages of Partitioning
+1. Parallelism
+2. Availability
+3. Performance
+4. Manageability
+5. Reduce Cost, as scaling-up or vertical scaling might be costly.
+7. Distributed Database
+1. A single logical database that is, spread across multiple locations (servers) and logically interconnected by network.
+2. This is the product of applying DB optimisation techniques like Clustering, Partitioning and Sharding.
+3. Why this is needed? READ Point 5.
+8. Sharding
+1. Technique to implement Horizontal Partitioning.
+2. The fundamental idea of Sharding is the idea that instead of having all the data sit on one DB instance, we split it up and introduce a
+Routing layer so that we can forward the request to the right instances that actually contain the data.
+3. Pros
+1. Scalability
+2. Availability
+4. Cons
+
+1. Complexity, making partition mapping, Routing layer to be implemented in the system, Non-uniformity that creates the necessity of Re-
+Sharding
+
+2. Not well suited for Analytical type of queries, as the data is spread across different DB instances. (Scatter-Gather problem)
+CodeHelp
+
+
+
+
+
+
 
 
 # CN 
