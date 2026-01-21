@@ -64,7 +64,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [four pillars](#four-pillars)
 
    
-##### a 
+##### syntax 
 ## 🪷 SYNTAX
 ```cpp
 #include <iostream>
