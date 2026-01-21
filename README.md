@@ -59,7 +59,6 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [constructor](#f)
 - [this](#g)
 - [shallow and deep copy](#h)
-- [shallow vs deep copy](#shallow-vs-deep-copy)
 - [destructor](#destructor)
 - [static keywords](#static-keywords)
 - [four pillars](#four-pillars)
@@ -525,7 +524,8 @@ public:
 
 ---
 
-### shallow and deep copy
+###### h
+## 🪷 SHALLOW AND DEEP COPY
 ```cpp
 #include <iostream>
 using namespace std;
@@ -574,7 +574,8 @@ int main() {
 }
 ```
 
-### destructor
+##### i
+## 🪷 DESTRUCTOR 
 A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
 
 ```cpp
@@ -629,7 +630,8 @@ int main() {
 
 ```
 
-### static keywords
+###### j
+## 🪷 STATIC KEYWORDS
 The static keyword gives a variable or function a lifetime of the entire program
 * it retains its value even after the scope where it is declared ends.
 * to accesss you dont need to create object
@@ -667,7 +669,8 @@ public:
 }
 ```
 
-## four pillars
+###### k
+## 🪷 FOUR PILLARS
 - [encapsulation](#encapsulation)
 - [inherittance](#inherittance)
 - [polymorphism](#polymorphism)
