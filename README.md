@@ -57,8 +57,8 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [padding and greedy alignment](#d)
 - [static and dynamic](#e)
 - [constructor](#f)
-- [this](#this)
-- [shallow and deep copy](#shallow-and-deep-copy)
+- [this](#g)
+- [shallow and deep copy](#h)
 - [shallow vs deep copy](#shallow-vs-deep-copy)
 - [destructor](#destructor)
 - [static keywords](#static-keywords)
@@ -306,7 +306,7 @@ class P {
 ---
 
 ##### e
-## STATIC AND DYNAMIC
+## 🪷 STATIC AND DYNAMIC
 **Static memory allocation**
 * Memory decided at compile time.
 * Size and lifetime are fixed before the program runs.
@@ -365,7 +365,7 @@ int main() {
 ```
 
 ###### f
-## CONSTRUCTOR
+## 🪷 CONSTRUCTOR
 * when a function is created a function (constructor gets build) like name t1.Teacher()
 * object creation used for initialisation
 * no return type
@@ -410,7 +410,7 @@ Teacher(Teacher &org0bj) {
 💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
 
 ###### g
-## this
+## 🪷 THIS
 ---
 
 ## 🔹 `this` Keyword (C++)
