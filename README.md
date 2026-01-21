@@ -1150,6 +1150,7 @@ return 0;
 - [DBMS Architecture](#DBMS-Architecture)
 - [ER Model](#ER-Model)
 - [Extended ER](#Extended-ER)
+- [Steps to Make ER Diagram](#Steps-to-Make-ER-Diagram)
 - [Relational Model](#Relational-Model)
 - [ER to Relational Mapping](#ER-to-Relational-Mapping)
 - [Normalisation](#Normalisation)
@@ -1402,6 +1403,9 @@ Avoid redundancy
 4. Customer deposits Account
 
 5. Employee managed by Employee (recursive relationship)
+
+<img width="1125" height="687" alt="image" src="https://github.com/user-attachments/assets/03627f2f-c891-49a3-9979-8458f2524a97" />
+
 
 ---
 
