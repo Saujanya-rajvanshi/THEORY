@@ -42,7 +42,9 @@
 
 
 
-# Oops
+###### Oops
+# 🎗 OOPS
+
 Object-Oriented Programming (OOP) is a programming paradigm 
 * that organizes software using objects
 * which combine data (attributes) and methods (functions) that operate on that data
@@ -63,7 +65,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [four pillars](#four-pillars)
 
    
-### syntax 
+### 🪷 syntax 
 ```cpp
 #include <iostream>
 using namespace std;
@@ -1145,7 +1147,8 @@ return 0;
 
 
 
-# DBMS
+###### DBMS
+# 🎗 DBMS 
 - [introduction to database](#Introduction-to-DBMS)
 - [DBMS Architecture](#DBMS-Architecture)
 - [ER Model](#ER-Model)
@@ -1166,7 +1169,7 @@ return 0;
 ---
 
 ###### Introduction to DBMS
-## ⚜️ Introduction to DBMS
+# ⚜️ Introduction to DBMS
 
 ### 🎍 Data
 * Raw, unorganized facts
@@ -1211,7 +1214,7 @@ return 0;
 ---
 
 ###### DBMS Architecture
-## ⚜️ DBMS Architecture
+# ⚜️ DBMS Architecture
 
 ### 🎍 view of data(3-Schema Architecture)
 system hides certain details of how the data is stored and maintained, through several levels of abstraction.
@@ -1267,7 +1270,7 @@ apps (written in host languages C,C++,Java) interacts with DB.
 ---
 
 ###### ER Model
-## ⚜️ ER Model
+# ⚜️ ER Model
 
 ### 🎍 Entity
 
@@ -1343,7 +1346,7 @@ aka minimium cardinality constraints.
 
 ---
 ###### Extended ER
-## ⚜️ Extended ER
+# ⚜️ Extended ER
 
 * 🎍 **Specialisation** → Top-down <br>
 Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
@@ -1365,7 +1368,7 @@ Avoid redundancy
 
 ---
 ###### Steps to Make ER Diagram
-## ⚜️ Steps to Make ER Diagram
+# ⚜️ Steps to Make ER Diagram
 
 * **1) Identify Entity Sets**
 * **2) Identify attributes and their types**
@@ -1423,7 +1426,7 @@ Avoid redundancy
 ---
 
 ###### Relational Model
-## ⚜️ Relational Model
+# ⚜️ Relational Model
 
 ### 🎍 Basic Terms
 
