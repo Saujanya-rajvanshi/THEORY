@@ -51,7 +51,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * enabling modularity, reusability, abstraction, and data security.
 
 #### index
-- [syntax](#a)
+- [🪷 syntax](#a)
 - [acess modifiers](#b)
 - [setter and getter](#c)
 - [padding and greedy alignment](#d)
