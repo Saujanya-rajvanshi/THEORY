@@ -1165,7 +1165,8 @@ return 0;
 
 ---
 
-## Introduction to DBMS
+###### Introduction to DBMS
+## ⚜️ Introduction to DBMS
 
 ### 🎍 Data
 * Raw, unorganized facts
@@ -1209,7 +1210,8 @@ return 0;
 
 ---
 
-## DBMS Architecture
+###### DBMS Architecture
+## ⚜️ DBMS Architecture
 
 ### 🎍 view of data(3-Schema Architecture)
 system hides certain details of how the data is stored and maintained, through several levels of abstraction.
@@ -1264,7 +1266,8 @@ apps (written in host languages C,C++,Java) interacts with DB.
 
 ---
 
-## ER Model
+###### ER Model
+## ⚜️ ER Model
 
 ### 🎍 Entity
 
@@ -1339,8 +1342,8 @@ aka minimium cardinality constraints.
 <img width="872" height="474" alt="image" src="https://github.com/user-attachments/assets/65ae1467-af6b-48e1-a77f-f81f22ae4d7b" />
 
 ---
-
-## Extended ER
+###### Extended ER
+## ⚜️ Extended ER
 
 * 🎍 **Specialisation** → Top-down <br>
 Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
@@ -1361,8 +1364,8 @@ relationships among relationships <br>
 Avoid redundancy 
 
 ---
-
-## Steps to Make ER Diagram
+###### Steps to Make ER Diagram
+## ⚜️ Steps to Make ER Diagram
 
 * **1) Identify Entity Sets**
 * **2) Identify attributes and their types**
@@ -1419,7 +1422,8 @@ Avoid redundancy
 
 ---
 
-## Relational Model
+###### Relational Model
+## ⚜️ Relational Model
 
 ### 🎍 Basic Terms
 
