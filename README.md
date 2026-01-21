@@ -1167,20 +1167,20 @@ return 0;
 
 ## Introduction to DBMS
 
-### Data
+### 🎍 Data
 * Raw, unorganized facts
 * No meaning without processing
 * Measured in bits & bytes
 
-**Types**
+### 🎍 Types
 * Quantitative → numerical (weight, cost)
 * Qualitative → descriptive (name, gender)
 
-### Information
+### 🎍 Information
 * Processed & meaningful data
 * Used for decision-making
 
-### Data vs Information
+### 🎍 Data vs Information
 
 | Basis           | Data                                 | Information                 |
 | --------------- | ------------------------------------ | --------------------------- |
@@ -1192,15 +1192,15 @@ return 0;
 | Form            | Numbers, graphs, figures, statistics | Words, language, ideas      |
 | Decision Making | Not sufficient for decisions         | Used for decision-making    |
 
-### Database
+### 🎍 Database
 * Organized electronic storage of data
 * Easily accessed, updated, managed
 
-### DBMS
+### 🎍 DBMS
 * Software to store & manage databases
 * Supports insert, delete, update, retrieve
 
-### DBMS vs File System (Why DBMS?)
+### 🎍 DBMS vs File System (Why DBMS?)
 * No redundancy
 * Easy data access
 * Better security
@@ -1211,7 +1211,7 @@ return 0;
 
 ## DBMS Architecture
 
-### view of data(3-Schema Architecture)
+### 🎍 view of data(3-Schema Architecture)
 system hides certain details of how the data is stored and maintained, through several levels of abstraction.
 1. **Physical Level**
    * How data is stored
@@ -1221,42 +1221,44 @@ system hides certain details of how the data is stored and maintained, through s
 3. **View Level**
    * User-specific views
    * Security
+     
 <img width="559" height="387" alt="image" src="https://github.com/user-attachments/assets/ad52331c-ebcb-4d26-8026-dc9243b2f346" />
 
 
-### Schema vs Instance
+### 🎍 Schema vs Instance
 
 * **Schema** → DB structure (static)
 * **Instance** → DB data at a time (dynamic)
 
-### Data Models
+### 🎍 Data Models
 design at logical level 
 data , data relationship , data semantic & consistency
 * ER Model, Relational Model, Object-Oriented Model
 
-### DB Languages
+### 🎍 DB Languages
 
 * **DDL** → Create structure, specify database schema 
 * **DML** → Insert, update, delete
 * **SQL** → Combines both
 
-### how is datas accesssed from application program 
+### 🎍 how is datas accesssed from application program 
 apps (written in host languages C,C++,Java) interacts with DB.
 <br>API is provided to send DML / DDL Statements to DB and retrieve the result.
 <br>     (i)  open database connectivity (DDBC), Microsoft "C" .
 <br>     (ii) JAVA database connectivity (JDBC),java
 
-### DBA
+### 🎍 DBA
 * autharization control
 * Schema design
 * Security
 * Backup & maintenance
 
-### DBMS Architectures
+### 🎍 DBMS Architectures
 
 * **1-Tier** → Single machine
 * **2-Tier** → Client + DB server
 * **3-Tier** → Client + App server + DB (best)
+
 <img width="582" height="306" alt="image" src="https://github.com/user-attachments/assets/4e8bb4e6-7023-4844-8892-8b9d38f741fd" />
 
 
@@ -1264,7 +1266,7 @@ apps (written in host languages C,C++,Java) interacts with DB.
 
 ## ER Model
 
-### 🔅 Entity
+### 🎍 Entity
 
 * Real-world object
 * Identified by **Primary Key**
@@ -1278,7 +1280,7 @@ apps (written in host languages C,C++,Java) interacts with DB.
 <img width="691" height="247" alt="image" src="https://github.com/user-attachments/assets/d9e3f9b4-827a-4ce9-8e48-fed464bc794e" />
 
 
-### 🔅 Attributes
+### 🎍 Attributes
 An attribute represents a characteristic or feature of an entity.
 A property of an entity
 eg -> Roll_No, Name, Age
@@ -1314,7 +1316,7 @@ example : middle name
 
 <img width="828" height="432" alt="image" src="https://github.com/user-attachments/assets/a307959f-3a27-4a3d-ab60-34dab937a460" />
 
-### 🔅 Relationships
+### 🎍 Relationships
 
 * Association between entities
 
@@ -1327,7 +1329,7 @@ example : middle name
 * **Degree**
 * Unary, Binary, Ternary
 
-### 🔅 Participation
+### 🎍 Participation
 aka minimium cardinality constraints.
 * Partial -> not all  entity envolved
 * Total (mandatory) -> all entitty envolved
@@ -1340,21 +1342,21 @@ aka minimium cardinality constraints.
 
 ## Extended ER
 
-* **Specialisation** → Top-down <br>
+* 🎍 **Specialisation** → Top-down <br>
 Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
 specialities and features. <br>
 It is a Top-Down approach.
   
-* **Generalisation** → Bottom-up <br>
+* 🎍 **Generalisation** → Bottom-up <br>
  properties of two entities are overlapping .
 
-* **Inheritance** → attributes passed <br>
+* 🎍 **Inheritance** → attributes passed <br>
 Attribute Inheritance <br>
 Both Specialisation and Generalisation, has attribute inheritance. <br>
 he attributes of higher level entity sets are inherited by lower level entity sets. <br>
 E.g., Customer & Employee inherit the attributes of Person
 
-* **Aggregation** → relationship as entity
+* 🎍 **Aggregation** → relationship as entity
 relationships among relationships <br>
 Avoid redundancy 
 
@@ -1367,7 +1369,7 @@ Avoid redundancy
 * **3) Identify relational and constraints**
 
 
-### **Example: ER Model of Banking System**
+### 🎍 Example: ER Model of Banking System
 
 1. Banking system has **branches**
 2. Bank has **customers**
@@ -1382,12 +1384,12 @@ Avoid redundancy
    * Loan → **one or more customers**
    * Loan has **payment schedule**
 
-### **1) Entity Set**
+#### 🎍 **1) Entity Set**
 
 1. Branch 2. Customer 3. Employee 4. Saving Account <br>
 5. Current Account 6. Loan 7. Payment (weak entity – loan)
 
-### **2) Attributes & Their Types**
+#### 🎍 **2) Attributes & Their Types**
 
 1. branch -> name, city, assest, liabilities
 2. customer -> cust-id, name, address(composite), contact no(multivalued), DOB , age                              
@@ -1398,7 +1400,7 @@ Avoid redundancy
 7. Loan -> loan_number, amount
 8. Weak Entity "Payment" -> payment_no, date, amount
 
-### **3) Relationship & Constraints**
+#### 🎍 **3) Relationship & Constraints**
 1. Customer borrows Loan
    * M : N
 
@@ -1419,7 +1421,7 @@ Avoid redundancy
 
 ## Relational Model
 
-### Basic Terms
+### 🎍 Basic Terms
 
 * **Table** → Relation, A single row / unique record.
 * **Row** → Tuple, relationship among a set of values.
@@ -1428,7 +1430,7 @@ Avoid redundancy
 * **Cardinality** → No. of rows / tuples
 * **Relational Key** → Set of attributes which can uniquely identify an each tuple.
 
-### properties 
+### 🎍 properties 
 
 * unique key
 * atomic values
@@ -1436,7 +1438,7 @@ Avoid redundancy
 * sequence any
 * integrity constraints
 
-### Keys
+### 🎍 Keys
 
 * **Super Key (SK) :** combine unique key, can be null  
 * **Candidate Key (CK) :** minimum subset of super keys, cannot be null
@@ -1447,7 +1449,7 @@ Avoid redundancy
 * **Compound Key :**  PK which is formed using 2 FK.
 * **Surrogate Key :** Synthetic PK, Generated automatically by DB, usually an integer value, May be used as PK. 
 
-### Integrity Constraints
+### 🎍 Integrity Constraints
 
 * CRUD ( Create Read Update Delete) 
 * **Domain Constraints**
@@ -1474,20 +1476,20 @@ on delete null <br>
 
 ## ER to Relational Mapping
 
-* Strong entity → becomes an individual table with entity name, attrbute becomes column <br>
+* 🎍 Strong entity → becomes an individual table with entity name, attrbute becomes column <br>
   **PK is used as relation's PK FK**
-* Weak entity → table formed with all entity attribute <br>
+* 🎍 Weak entity → table formed with all entity attribute <br>
   **FK + composite PK** PK of corresponding strong entity will be added as FK. 
-* single valued attribute → column directly in tables 
-* Composite attribute → handled by attribute itself in original relation. **split**
-* Multivalued attribute → new table(named as original attribute name) are created for each multivalued attribute <br>
+* 🎍 single valued attribute → column directly in tables 
+* 🎍 Composite attribute → handled by attribute itself in original relation. **split**
+* 🎍 Multivalued attribute → new table(named as original attribute name) are created for each multivalued attribute <br>
   PK as FK
   PK = FK + multivalued name 
-* Derived attribute → not consider in tables 
-* Generalisation → M1 create a table for the higher level entity <br>
+* 🎍 Derived attribute → not consider in tables 
+* 🎍 Generalisation → M1 create a table for the higher level entity <br>
                    M2 if generalisation is disjoint and complete , table <br>
                    drawback of M2 - stored twice                   
-* Aggregation → relationship table 
+* 🎍 Aggregation → relationship table 
 
 ---
 
@@ -1537,13 +1539,13 @@ on delete null <br>
 
 Normalisation is a step towards DB optimisation.
 
-* **Functional Dependency (FD)** <br>
+* 🎍 **Functional Dependency (FD)** <br>
     PK to other attribute / relation <br>
     X -> Y, theleft side of FD - Determinant, the right side of the production - Dependent.
-* **Types of FD**
+* 🎍 **Types of FD**
     * Trivial FD : A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
     * Non-trivial FD : A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
-* **Rules of FD (Armstrong’s axioms)**
+* 🎍 **Rules of FD (Armstrong’s axioms)**
     * Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
                   If A ⊇ B then A → B. <br>
     * Augmentation : If B can be determined from A, then adding an attribute to this functional dependency won’t change anything. <br>
@@ -1554,7 +1556,7 @@ Normalisation is a step towards DB optimisation.
 * Why Normalisation? -> To avoid redundancy in the DB, not to store redundant data. 
 * redundant data? -> Insertion, deletion and updation anomalies arises.
  
-*  **Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
+*  🎍 **Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
     * Insertion anomaly : can not be inserted into the DB without the presence of other data.
     * Deletion anomaly : The delete anomaly refers to the situation where the deletion of data results in the unintended loss of some other important data.
     * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated.
@@ -1570,7 +1572,7 @@ characteristics like Insertion, Update, and Deletion Anomalies.
 using relationships.
 3. The normal form is used to reduce redundancy from the database table.
 
-* **Types of Normal forms**
+* 🎍 **Types of Normal forms**
 * 1. 1NF
     1. Every relation cell must have atomic value.
     2. Relation must not have multi-valued attributes.
@@ -1596,14 +1598,14 @@ using relationships.
 ---
 
 ## Transaction
-* Transaction
+* 🎍 Transaction
     * A unit of work done against the DB in a logical sequence.
     * Sequence is very important in transaction.
     * It is a logical unit of work that contains one or more SQL statements. The result of all these statements in a
 transaction either gets completed successfully (all the changes made to the database are permanent) or if at any
 point any failure happens it gets rollbacked (all the changes being done are undone.)
 
-* ACID Properties
+* 🎍 ACID Properties
     * To ensure integrity of the data, we require that the DB system maintain the following properties of the transaction.
     * Atomicity : Either all operations of transaction are reflected properly in the DB, or none are.
     * Consistency : Integrity constraints must be maintained before and after transaction.
@@ -1615,7 +1617,7 @@ after Ti finished. Thus, each transaction is unaware of other transactions execu
     * Durability : After transaction completes successfully, the changes it has made to the database persist, even if there are
 system failures.
 
-* Transaction states
+* 🎍 Transaction states
 
 <img width="795" height="438" alt="image" src="https://github.com/user-attachments/assets/2fc4883f-938c-4b9a-9579-ccbfa9cfcb45" />
 
@@ -1647,7 +1649,7 @@ completely. T reaches abort state after rollback. DB’s state prior to the T is
 
 Recovery Mechanism Component of DBMS supports atomicity and durability.
 
-2. Shadow-copy scheme
+🎍 Shadow-copy scheme
 1. Based on making copies of DB (aka, shadow copies).
 2. Assumption only one Transaction (T) is active at a time.
 3. A pointer called db-pointer is maintained on the disk; which at any instant points to current copy of DB.
@@ -1661,12 +1663,12 @@ Recovery Mechanism Component of DBMS supports atomicity and durability.
 4. The old copy is deleted.
 5. The T is said to have been COMMITTED at the point where the updated db-pointer is written to disk.
 
-8. Atomicity
+🎍 Atomicity
 1. If T fails at any time before db-pointer is updated, the old content of DB are not affected.
 2. T abort can be done by just deleting the new copy of DB.
 3. Hence, either all updates are reflected or none.
 
-9. Durability
+🎍 Durability
 1. Suppose, system fails are any time before the updated db-pointer is written to disk.
 2. When the system restarts, it will read db-pointer & will thus, see the original content of DB and none of the effects of T will
 be visible.
@@ -1678,7 +1680,7 @@ block or at least a disk sector. So, we make sure db-pointer lies entirely in a 
 of a block.
 11. Inefficient, as entire DB is copied for every Transaction.
 
-3. Log-based recovery methods
+Log-based recovery methods
 1. The log is a sequence of records. Log of each transaction is maintained in some stable storage so that if any failure occurs, then
 it can be recovered from there.
 2. If any operation is performed on the database, then it will be recorded in the log.
@@ -1686,7 +1688,7 @@ it can be recovered from there.
 4. Stable storage is a classification of computer data storage technology that guarantees atomicity for any given write operation
 and allows software to be written that is robust against some hardware and power failures.
 
-6. Deferred DB Modifications
+🎍 Deferred DB Modifications
 1. Ensuring atomicity by recording all the DB modifications in the log but deferring the execution of all the write operations
 until the final action of the T has been executed.
 2. Log information is used to execute deferred writes when T is completed.
@@ -1694,7 +1696,7 @@ until the final action of the T has been executed.
 4. If T completes, the records associated to it in the log file are used in executing the deferred writes.
 5. If failure occur while this updating is taking place, we preform redo.
 
-7. Immediate DB Modifications
+🎍 Immediate DB Modifications
 1. DB modifications to be output to the DB while the T is still in active state.
 2. DB modifications written by active T are called uncommitted modifications.
 3. In the event of crash or T failure, system uses old value field of the log records to restore modified values.
@@ -1718,8 +1720,8 @@ where the value of the corresponding key is stored.
 primary mean to access the tuple, it is the secondary mean.
 7. Index file is always sorted.
 
-9. Indexing Methods
-1. Primary Index (Clustering Index)
+🎍 **Indexing Methods**
+* **Primary Index (Clustering Index)**
 1. A file may have several indices, on different search keys. If the data file containing the records is sequentially ordered, a
 Primary index is an index whose search key also defines the sequential order of the file.
 2. NOTE: The term primary index is sometimes used to mean an index on a primary key. However, such usage is
@@ -1756,7 +1758,7 @@ dept.
 2. If the single level index become enough large that the binary
 search it self would take much time, we can break down
 indexing into multiple levels.
-2. Secondary Index (Non-Clustering Index)
+🎍 **Secondary Index (Non-Clustering Index)**
 1. Datafile is unsorted. Hence, Primary Indexing is not possible.
 2. Can be done on key or non-key attribute.
 3. Called secondary indexing because normally one indexing is already
@@ -1778,7 +1780,7 @@ CodeHelp
 
 ## Types of Databases
 
-1. Relational Databases
+🎍 Relational Databases
 1. Based on Relational Model.
 2. Relational databases are quite popular, even though it was a system designed in the 1970s. Also known as relational database
 management systems (RDBMS), relational databases commonly use Structured Query Language (SQL) for operations such as
@@ -1892,7 +1894,7 @@ CodeHelp
 big database containing data metrics and indexes into smaller and handy slices of data called partitions. The partitioned tables are directly used by
 SQL queries without any alteration. Once the database is partitioned, the data definition language can easily work on the smaller partitioned slices,
 instead of handling the giant database altogether. This is how partitioning cuts down the problems in managing large database tables.
-2. Partitioning is the technique used to divide stored database objects into separate servers. Due to this, there is an increase in performance,
+🎍 Partitioning is the technique used to divide stored database objects into separate servers. Due to this, there is an increase in performance,
 controllability of the data. We can manage huge chunks of data optimally. When we horizontally scale our machines/servers, we know that it gives us
 a challenging time dealing with relational databases as it’s quite tough to maintain the relations. But if we apply partitioning to the database that is
 already scaled out i.e. equipped with multiple servers, we can partition our database among those servers and handle the big data easily.
