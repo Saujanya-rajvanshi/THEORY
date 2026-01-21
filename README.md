@@ -51,21 +51,21 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * enabling modularity, reusability, abstraction, and data security.
 
 #### index
-- [syntax](#a)
-- [acess modifiers](#b)
-- [setter and getter](#c)
-- [padding and greedy alignment](#d)
-- [static and dynamic](#e)
-- [constructor](#f)
-- [this](#g)
-- [shallow and deep copy](#h)
-- [destructor](#i)
-- [static keywords](#j)
-- [four pillars](#k)
+- [syntax](#syntax)
+- [acess modifiers](#acess-modifiers)
+- [setter and getter](#setter-and-getter)
+- [padding and greedy alignment](#padding-and-greedy-alignment)
+- [static and dynamic](#static-and-dynamic)
+- [constructor](#constructor)
+- [this](#this)
+- [shallow and deep copy](#shallow-and-deep-copy)
+- [destructor](#destructor)
+- [static keywords](#static-keywords)
+- [four pillars](#four-pillars)
 
    
-##### syntax 
-## 🪷 SYNTAX
+## syntax
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -95,8 +95,8 @@ int main() {
 💡 empty class - no properties - size is 1 for identification
 
 
-###### b
-## 🪷 ACESS MODIFIERS
+## acess modifiers
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -129,8 +129,8 @@ int main() {
 💡other files class in vs code can be accesed by #include<file.cpp>
 
 
-###### c
-## 🪷 SETTER AND GETTER 
+## setter and getter
+
 **Getter** and **Setter** are **public member functions** to **access and modify private data members** of a class, enabling **encapsulation** and controlled data access.
 * **Getter** → returns the value of a private variable
 * **Setter** → sets or updates the value of a private variable (often with validation)
@@ -175,8 +175,7 @@ int main() {
 }
 ```
 
-###### d
-## 🪷 PADDING AND GREEDY ALIGNMENT 
+## padding and greedy alignment
 ---
 
 ## 🔹 Padding (in OOPS / Memory)
@@ -304,8 +303,7 @@ class P {
 ```
 ---
 
-##### e
-## 🪷 STATIC AND DYNAMIC
+## static and dynamic
 **Static memory allocation**
 * Memory decided at compile time.
 * Size and lifetime are fixed before the program runs.
@@ -363,8 +361,8 @@ int main() {
 }
 ```
 
-###### f
-## 🪷 CONSTRUCTOR
+## constructor
+
 * when a function is created a function (constructor gets build) like name t1.Teacher()
 * object creation used for initialisation
 * no return type
@@ -408,8 +406,8 @@ Teacher(Teacher &org0bj) {
 ```
 💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
 
-###### g
-## 🪷 THIS
+
+## this
 ---
 
 ## 🔹 `this` Keyword (C++)
@@ -524,8 +522,7 @@ public:
 
 ---
 
-###### h
-## 🪷 SHALLOW AND DEEP COPY
+## shallow and deep copy
 ```cpp
 #include <iostream>
 using namespace std;
@@ -574,8 +571,7 @@ int main() {
 }
 ```
 
-##### i
-## 🪷 DESTRUCTOR 
+## destructor
 A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
 
 ```cpp
@@ -630,8 +626,7 @@ int main() {
 
 ```
 
-###### j
-## 🪷 STATIC KEYWORDS
+## static keywords
 The static keyword gives a variable or function a lifetime of the entire program
 * it retains its value even after the scope where it is declared ends.
 * to accesss you dont need to create object
@@ -669,8 +664,7 @@ public:
 }
 ```
 
-###### k
-## 🪷 FOUR PILLARS
+## four pillars
 - [encapsulation](#encapsulation)
 - [inherittance](#inherittance)
 - [polymorphism](#polymorphism)
@@ -1126,11 +1120,7 @@ Without `virtual`, **compile-time binding** happens and parent class function is
 
 ---
 
-
-
-
-
-### abstract
+### abstraction
 ```cpp
 #include <iostream>
 #include <string>
