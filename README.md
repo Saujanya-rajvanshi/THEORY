@@ -51,12 +51,12 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * enabling modularity, reusability, abstraction, and data security.
 
 #### index
-- [syntax](#syntax)
-- [acess modifiers](#acess-modifiers)
-- [setter and getter](#setter-and-getter)
-- [padding and greedy alignment](#padding-and-greedy-alignment)
-- [static and dynamic](#static-and-dynamic)
-- [constructor](#constructor)
+- [syntax](#a)
+- [acess modifiers](#b)
+- [setter and getter](#c)
+- [padding and greedy alignment](#d)
+- [static and dynamic](#e)
+- [constructor](#f)
 - [this](#this)
 - [shallow and deep copy](#shallow-and-deep-copy)
 - [shallow vs deep copy](#shallow-vs-deep-copy)
@@ -65,8 +65,8 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [four pillars](#four-pillars)
 
    
-##### syntax 
-🪷 **SYNTAX**
+##### a 
+## 🪷 SYNTAX
 ```cpp
 #include <iostream>
 using namespace std;
@@ -96,7 +96,8 @@ int main() {
 💡 empty class - no properties - size is 1 for identification
 
 
-## acess modifiers
+###### b
+## 🪷 ACESS MODIFIERS
 ```cpp
 #include <iostream>
 using namespace std;
@@ -129,7 +130,8 @@ int main() {
 💡other files class in vs code can be accesed by #include<file.cpp>
 
 
-# setter and getter
+###### c
+## 🪷 SETTER AND GETTER 
 **Getter** and **Setter** are **public member functions** to **access and modify private data members** of a class, enabling **encapsulation** and controlled data access.
 * **Getter** → returns the value of a private variable
 * **Setter** → sets or updates the value of a private variable (often with validation)
@@ -174,7 +176,8 @@ int main() {
 }
 ```
 
-#### padding and greedy alignment
+###### d
+## 🪷 PADDING AND GREEDY ALIGNMENT 
 ---
 
 ## 🔹 Padding (in OOPS / Memory)
@@ -302,7 +305,8 @@ class P {
 ```
 ---
 
-### static and dynamic
+##### e
+## STATIC AND DYNAMIC
 **Static memory allocation**
 * Memory decided at compile time.
 * Size and lifetime are fixed before the program runs.
@@ -360,7 +364,8 @@ int main() {
 }
 ```
 
-##### constructor
+###### f
+## CONSTRUCTOR
 * when a function is created a function (constructor gets build) like name t1.Teacher()
 * object creation used for initialisation
 * no return type
@@ -404,7 +409,8 @@ Teacher(Teacher &org0bj) {
 ```
 💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
 
-# this
+###### g
+## this
 ---
 
 ## 🔹 `this` Keyword (C++)
