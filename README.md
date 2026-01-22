@@ -39,7 +39,9 @@
 // revise 
 // practice
 
-
+### extra 
+## mechanism of the computer 
+- [mechanism of the computer](#mechanism-of-the-computer)
 
 
 ###### Oops
@@ -1933,3 +1935,5 @@ CodeHelp
 # CN 
 
 # OS
+
+## mechanism of the computer
