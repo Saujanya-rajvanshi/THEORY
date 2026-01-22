@@ -1471,7 +1471,7 @@ on delete null <br>
     - primary key  <br>
 
 ---
-
+###### ER to Relational Mapping
 ## ⚜️ ER to Relational Mapping
 
 * 🎍 Strong entity → becomes an individual table with entity name, attrbute becomes column <br>
