@@ -1149,7 +1149,6 @@ return 0;
 - [Steps to Make ER Diagram](#Steps-to-Make-ER-Diagram)
 - [Relational Model](#Relational-Model)
 - [ER to Relational Mapping](#ER-to-Relational-Mapping)
-- [SQL](#SQL)
 - [Normalisation](#Normalisation)
 - [Transaction](#Transaction)
 - [How to implement Atomicity and Durability in Transactions](#How-to-implement-Atomicity-and-Durability-in-Transactions)
@@ -1482,48 +1481,6 @@ on delete null <br>
                    M2 if generalisation is disjoint and complete , table <br>
                    drawback of M2 - stored twice                   
 * 🎍 Aggregation → relationship table 
-
----
-
-## 📘 LEC-9: SQL Basics
-
-### SQL Commands
-
-* **DDL** → CREATE, ALTER, DROP
-* **DML** → INSERT, UPDATE, DELETE
-* **DQL** → SELECT
-* **DCL** → GRANT, REVOKE
-* **TCL** → COMMIT, ROLLBACK
-
-### Clauses
-
-* WHERE
-* GROUP BY
-* HAVING
-* ORDER BY
-* DISTINCT
-
-### Joins
-
-* INNER
-* LEFT
-* RIGHT
-* FULL (emulated)
-* CROSS
-* SELF
-
-### Subqueries
-
-* WHERE
-* FROM
-* SELECT
-* Correlated Subquery
-
-### Views
-
-* Virtual table
-* No data storage
-* Auto-updated
 
 ---
 
