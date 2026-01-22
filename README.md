@@ -1929,11 +1929,10 @@ CodeHelp
 
 
 
-
+# OS
 
 
 # CN 
 
-# OS
 
 ## mechanism of the computer
