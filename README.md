@@ -1489,11 +1489,15 @@ on delete null <br>
 Normalisation is a step towards DB optimisation.
 
 * 🎍 **Functional Dependency (FD)** <br>
-    PK to other attribute / relation <br>
-    X -> Y, theleft side of FD - Determinant, the right side of the production - Dependent.
+    PK to other attribute / relation , getting other entity with one or more entity  <br>
+    X -> Y <br>
+    the left side of FD - Determinant  <br>
+    the right side of the production - Dependent. <br>
+    
 * 🎍 **Types of FD**
-    * Trivial FD : A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
-    * Non-trivial FD : A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
+    * Trivial FD : **A → B is trivial if B ⊆ A** A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
+    * Non-trivial FD : **A → B is non-trivial if B ⊄ A, A ∩ B = Ø (NULL)** A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
+    
 * 🎍 **Rules of FD (Armstrong’s axioms)**
     * Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
                   If A ⊇ B then A → B. <br>
@@ -1511,9 +1515,11 @@ Normalisation is a step towards DB optimisation.
     * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated.
 2. Due to updation to many places, may be Data inconsistency arises, if one forgets to update the data at all the
 intended places.
+
 5. Due to these anomalies, DB size increases and DB performance become very slow.
 6. To rectify these anomalies and the effect of these of DB, we use Database optimisation technique called
 NORMALISATION.
+
 6. What is Normalisation?
 1. Normalisation is used to minimise the redundancy from a relations. It is also used to eliminate undesirable
 characteristics like Insertion, Update, and Deletion Anomalies.
