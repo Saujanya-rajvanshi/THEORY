@@ -1494,10 +1494,10 @@ using relationships.
 3. The normal form is used to reduce redundancy from the database table.
 
 #### 🎍 Functional Dependency (FD)
-    PK to other attribute / relation , getting other entity with one or more entity 
-    X -> Y 
-    the left side of FD - Determinant  
-    the right side of the production - Dependent. 
+PK to other attribute / relation , getting other entity with one or more entity <br>
+X -> Y <br>
+the left side of FD - Determinant <br>
+the right side of the production - Dependent. <br>
     
 #### 🎍 Types of FD
     * Trivial FD : **A → B is trivial if B ⊆ A** A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
