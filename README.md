@@ -1500,24 +1500,24 @@ the left side of FD - Determinant <br>
 the right side of the production - Dependent. <br>
     
 #### 🎍 Types of FD
-    * Trivial FD : **A → B is trivial if B ⊆ A** A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
-    * Non-trivial FD : **A → B is non-trivial if B ⊄ A, A ∩ B = Ø (NULL)** A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
+* Trivial FD : **A → B is trivial if B ⊆ A** A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
+* Non-trivial FD : **A → B is non-trivial if B ⊄ A, A ∩ B = Ø (NULL)** A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
     
   #### 🎍 Rules of FD (Armstrong’s axioms)
-    * Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
+* Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
                   If A ⊇ B then A → B. <br>
-    * Augmentation : If B can be determined from A, then adding an attribute to this functional dependency won’t change anything. <br>
+* Augmentation : If B can be determined from A, then adding an attribute to this functional dependency won’t change anything. <br>
                      If A→ B holds, then AX→ BX holds too. ‘X’ being a set of attributes. <br>
-    * Transitivity : If A determines B and B determines C, we can say that A determines C. <br>
+* Transitivity : If A determines B and B determines C, we can say that A determines C. <br>
                      If A→ B and B→ C then A→ C. <br>
 
 * Why Normalisation? -> To avoid redundancy in the DB, not to store redundant data. 
 * redundant data? -> Insertion, deletion and updation anomalies arises.
  
 #### 🎍 Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
-    * Insertion anomaly : can not be inserted, without the presence of other data.
-    * Deletion anomaly : unintended loss of some other important data.
-    * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated. <br>
+* Insertion anomaly : can not be inserted, without the presence of other data.
+* Deletion anomaly : unintended loss of some other important data.
+* Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated. <br>
     time taken , data inconsistency
 
 #### 🎍 Types of Normal forms
