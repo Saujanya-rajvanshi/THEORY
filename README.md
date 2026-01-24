@@ -1493,17 +1493,17 @@ characteristics like Insertion, Update, and Deletion Anomalies.
 using relationships.
 3. The normal form is used to reduce redundancy from the database table.
 
-#### 🎍 **Functional Dependency (FD)** <br>
+#### 🎍 Functional Dependency (FD)
     PK to other attribute / relation , getting other entity with one or more entity  <br>
     X -> Y <br>
     the left side of FD - Determinant  <br>
     the right side of the production - Dependent. <br>
     
-#### 🎍 **Types of FD**
+#### 🎍 Types of FD
     * Trivial FD : **A → B is trivial if B ⊆ A** A → B has trivial functional dependency if B is a subset of A. A->A, B->B are also Trivial FD.
     * Non-trivial FD : **A → B is non-trivial if B ⊄ A, A ∩ B = Ø (NULL)** A → B has a non-trivial functional dependency if B is not a subset of A. [A intersection B is NULL].
     
-  #### 🎍 **Rules of FD (Armstrong’s axioms)**
+  #### 🎍 Rules of FD (Armstrong’s axioms)
     * Reflexive : If ‘A’ is a set of attributes and ‘B’ is a subset of ‘A’. Then, A→ B holds. <br>
                   If A ⊇ B then A → B. <br>
     * Augmentation : If B can be determined from A, then adding an attribute to this functional dependency won’t change anything. <br>
@@ -1514,13 +1514,13 @@ using relationships.
 * Why Normalisation? -> To avoid redundancy in the DB, not to store redundant data. 
 * redundant data? -> Insertion, deletion and updation anomalies arises.
  
-#### 🎍 **Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
+#### 🎍 Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
     * Insertion anomaly : can not be inserted, without the presence of other data.
     * Deletion anomaly : unintended loss of some other important data.
     * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated. <br>
     time taken , data inconsistency
 
-#### 🎍 **Types of Normal forms**
+#### 🎍 Types of Normal forms
 * **1NF**
     1. Every relation cell must have atomic value.
     2. Relation must not have multi-valued attributes.
@@ -1538,7 +1538,7 @@ using relationships.
      2. FD: A -> B, A must be a super key.
          * We must not derive prime attribute from any prime or non-prime attribute
 
-#### **Advantages of Normalisation**
+#### Advantages of Normalisation
 1. Normalisation helps to minimise data redundancy.
 2. Greater overall database organisation.
 3. Data consistency is maintained in DB.
