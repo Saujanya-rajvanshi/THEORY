@@ -1486,7 +1486,12 @@ on delete null <br>
 
 ## Normalisation
 
-Normalisation is a step towards DB optimisation.
+Normalisation is a step towards DB optimisation. <br>
+1. Normalisation is used to minimise the redundancy from a relations. It is also used to eliminate undesirable
+characteristics like Insertion, Update, and Deletion Anomalies.
+2. Normalisation divides the composite attributes into individual attributes OR larger table into smaller and links them
+using relationships.
+3. The normal form is used to reduce redundancy from the database table.
 
 * 🎍 **Functional Dependency (FD)** <br>
     PK to other attribute / relation , getting other entity with one or more entity  <br>
@@ -1510,42 +1515,30 @@ Normalisation is a step towards DB optimisation.
 * redundant data? -> Insertion, deletion and updation anomalies arises.
  
 *  🎍 **Anomalies** abnormalities, there are three types of anomalies introduced by data redundancy.
-    * Insertion anomaly : can not be inserted into the DB without the presence of other data.
-    * Deletion anomaly : The delete anomaly refers to the situation where the deletion of data results in the unintended loss of some other important data.
-    * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated.
-2. Due to updation to many places, may be Data inconsistency arises, if one forgets to update the data at all the
-intended places.
-
-5. Due to these anomalies, DB size increases and DB performance become very slow.
-6. To rectify these anomalies and the effect of these of DB, we use Database optimisation technique called
-NORMALISATION.
-
-6. What is Normalisation?
-1. Normalisation is used to minimise the redundancy from a relations. It is also used to eliminate undesirable
-characteristics like Insertion, Update, and Deletion Anomalies.
-2. Normalisation divides the composite attributes into individual attributes OR larger table into smaller and links them
-using relationships.
-3. The normal form is used to reduce redundancy from the database table.
+    * Insertion anomaly : can not be inserted, without the presence of other data.
+    * Deletion anomaly : unintended loss of some other important data.
+    * Updation anomaly (or modification anomaly) : The update anomaly is when an update of a single data value requires multiple rows of data to be updated. <br>
+    time taken , data inconsistency
 
 * 🎍 **Types of Normal forms**
-* 1. 1NF
+* 1. **1NF**
     1. Every relation cell must have atomic value.
     2. Relation must not have multi-valued attributes.
-* 2. 2NF
+* 2. **2NF**
     1. Relation must be in 1NF.
     2. There should not be any partial dependency.
-        1. All non-prime attributes must be fully dependent on PK.
-        2. Non prime attribute can not depend on the part of the PK.
-* 3. 3NF
+        * All non-prime attributes must be fully dependent on PK.
+        * Non prime attribute can not depend on the part of the PK.
+* 3. **3NF**
     1. Relation must be in 2NF.
     2. No transitivity dependency exists.
-        1. Non-prime attribute should not find a non-prime attribute.
-* 4. BCNF (Boyce-Codd normal form)
+        * Non-prime attribute should not find a non-prime attribute.
+* 4. **BCNF (Boyce-Codd normal form)**
      1. Relation must be in 3NF.
      2. FD: A -> B, A must be a super key.
-         1. We must not derive prime attribute from any prime or non-prime attribute.
+         * We must not derive prime attribute from any prime or non-prime attribute
 
-8. Advantages of Normalisation
+**Advantages of Normalisation**
 1. Normalisation helps to minimise data redundancy.
 2. Greater overall database organisation.
 3. Data consistency is maintained in DB.
