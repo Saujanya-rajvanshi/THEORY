@@ -1160,7 +1160,7 @@ return 0;
 
 ---
 
-# Introduction to DBMS
+## Introduction to DBMS
 
 ### 🎍 Data
 * Raw, unorganized facts
@@ -1203,7 +1203,7 @@ return 0;
 * Maintains integrity
 
 ---
-# DBMS Architecture
+## DBMS Architecture
 
 ### 🎍 view of data(3-Schema Architecture)
 system hides certain details of how the data is stored and maintained, through several levels of abstraction.
@@ -1258,7 +1258,7 @@ apps (written in host languages C,C++,Java) interacts with DB.
 
 ---
 
-# ER Model
+## ER Model
 
 ### 🎍 Entity
 
@@ -1333,7 +1333,7 @@ aka minimium cardinality constraints.
 <img width="872" height="474" alt="image" src="https://github.com/user-attachments/assets/65ae1467-af6b-48e1-a77f-f81f22ae4d7b" />
 
 ---
-# Extended ER
+## Extended ER
 
 * 🎍 **Specialisation** → Top-down <br>
 Specialisation is splitting up the entity set into further sub entity sets on the basis of their functionalities,
@@ -1411,7 +1411,7 @@ Avoid redundancy
 
 ---
 
-# Relational Model
+## Relational Model
 
 ### 🎍 Basic Terms
 
@@ -1465,7 +1465,7 @@ on delete null <br>
     - primary key  <br>
 
 ---
-# ER to Relational Mapping
+## ER to Relational Mapping
 
 * 🎍 Strong entity → becomes an individual table with entity name, attrbute becomes column <br>
   **PK is used as relation's PK**
@@ -1565,11 +1565,11 @@ point any failure happens it gets rollbacked (all the changes being done are und
 <img width="795" height="438" alt="image" src="https://github.com/user-attachments/assets/2fc4883f-938c-4b9a-9579-ccbfa9cfcb45" />
 
 1. **Active state :** read and write operation -> partial commit state
-                                               -> error - failed state
+ &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;-> error - failed state
 
    
-3. **Partially committed state
-1. After transaction is executed the changes are saved in the buffer in the main memory. If the changes made
+3. **Partially committed state :** transaction executed -> changes saved -> in buffer in main memory.
+If the changes made
 are permanent on the DB then the state will transfer to the committed state and if there is any failure, the T
 will go to Failed state.
 
