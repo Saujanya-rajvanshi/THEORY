@@ -1572,20 +1572,18 @@ point any failure happens it gets rollbacked (all the changes being done are und
 If the changes are permanent DB -> committed state <br>
 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;-> error - Failed state. <br>
 
-3. Committed state
-1. When updates are made permanent on the DB. Then the T is said to be in the committed state. Rollback
-can’t be done from the committed states. New consistent state is achieved at this stage.
+3. **Committed state :** updates permanent on DB, T in committed state. <br>
+Rollback can’t be done. <br>
+New consistent state is achieved at this stage.
 
-4. Failed state
-1. When T is being executed and some failure occurs. Due to this it is impossible to continue the execution of
-the T.
+5. **Failed state :** failure occurs, impossible execution 
 
-5. Aborted state
-1. When T reaches the failed state, all the changes made in the buffer are reversed. After that the T rollback
-completely. T reaches abort state after rollback. DB’s state prior to the T is achieved.
+6. **Aborted state :** T reaches the failed state <br>
+all the changes made in the buffer are reversed. <br>
+rollback <br>
+prior DB’s state
 
-6. Terminated state
-1. A transaction is said to have terminated if has either committed or aborted.
+7. **Terminated state :** A transaction is said to have terminated if has either committed or aborted.
 
 ## How to implement Atomicity and Durability in Transactions
 
