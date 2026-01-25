@@ -1547,19 +1547,18 @@ the right side of the production - Dependent. <br>
 
 ## Transaction
 #### 🎍 Transaction
-    * A unit of work done against the DB in a logical sequence.
-    * Sequence is very important in transaction.
-    * It is a logical unit of work that contains one or more SQL statements. The result of all these statements in a
+* A unit of work done against the DB in a logical sequence.
+* Sequence is very important in transaction.
+* It is a logical unit of work that contains one or more SQL statements. The result of all these statements in a
 transaction either gets completed successfully (all the changes made to the database are permanent) or if at any
 point any failure happens it gets rollbacked (all the changes being done are undone.) 
 
 #### 🎍 ACID Properties
-    * To ensure integrity of the data.
-    * **Atomicity** : Either all operations of transaction are reflected properly in the DB, or none are.
-    * **Consistency** : Integrity constraints must be maintained before and after transaction.
-    * **Isolation** : multiple transactions may execute concurrently, unaware of other transactions executinh, without interfering each other.
-    * **Durability** : After transaction completes successfully, the changes it has made to the database persist, even if there are
-system failures.
+* To ensure integrity of the data.
+* **Atomicity** : Either all operations of transaction are reflected properly in the DB, or none are.
+* **Consistency** : Integrity constraints must be maintained before and after transaction.
+* **Isolation** : multiple transactions may execute concurrently, unaware of other transactions executinh, without interfering each other.
+* **Durability** : After transaction completes successfully, the changes it has made to the database persist, even if there are system failures.
 
 #### 🎍 Transaction states
 
