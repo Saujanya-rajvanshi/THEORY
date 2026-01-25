@@ -1564,14 +1564,13 @@ point any failure happens it gets rollbacked (all the changes being done are und
 
 <img width="795" height="438" alt="image" src="https://github.com/user-attachments/assets/2fc4883f-938c-4b9a-9579-ccbfa9cfcb45" />
 
-1. **Active state :** read and write operation -> partial commit state
+1. **Active state :** read and write operation -> partial commit state <br>
  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;-> error - failed state
 
    
-3. **Partially committed state :** transaction executed -> changes saved -> in buffer in main memory.
-If the changes made
-are permanent on the DB then the state will transfer to the committed state and if there is any failure, the T
-will go to Failed state.
+3. **Partially committed state :** transaction executed -> changes saved -> in buffer in main memory. <br>
+If the changes are permanent DB -> committed state <br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;error -> Failed state. <br>
 
 3. Committed state
 1. When updates are made permanent on the DB. Then the T is said to be in the committed state. Rollback
