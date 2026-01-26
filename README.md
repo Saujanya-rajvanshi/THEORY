@@ -1604,22 +1604,22 @@ prior DB’s state
     5. The T is said to have been COMMITTED at the point where updated db-pointer is written to disk.
 
 #### **Atomicity**
-    1. If T fails at any time before db-pointer is updated, the old content of DB are not affected.
-    2. T abort can be done by just deleting the new copy of DB.
-    3. Hence, either all updates are reflected or none.
+1. If T fails at any time before db-pointer is updated, the old content of DB are not affected.
+2. T abort can be done by just deleting the new copy of DB.
+3. Hence, either all updates are reflected or none.
 
 #### **Durability**
-    1. Suppose, system fails are any time before the updated db-pointer is written to disk.
-    2. When the system restarts, it will read db-pointer & will thus, see the original content of DB and none of the effects of T will
+1. Suppose, system fails are any time before the updated db-pointer is written to disk.
+2. When the system restarts, it will read db-pointer & will thus, see the original content of DB and none of the effects of T will
 be visible.
-    3. T is assumed to be successful only when db-pointer is updated.
-    4. If **system fails after** db-pointer has been updated. Before that all the pages of the new copy were written to disk. Hence,
+3. T is assumed to be successful only when db-pointer is updated.
+4. If **system fails after** db-pointer has been updated. Before that all the pages of the new copy were written to disk. Hence,
 when system restarts, it will read new DB copy.
 
-10. The implementation is dependent on write to the db-pointer being atomic. Luckily, disk system provide atomic updates to entire
+* The implementation is dependent on write to the db-pointer being atomic. Luckily, disk system provide atomic updates to entire
 block or at least a disk sector. So, we make sure db-pointer lies entirely in a single sector. By storing db-pointer at the beginning
 of a block.
-11. **Inefficient**, as entire DB is copied for every Transaction.
+* **Inefficient**, as entire DB is copied for every Transaction.
 
 ### 🎍 Log-based recovery methods
 1. The log is a sequence of records. Log of each transaction is maintained in some stable storage so that if any failure occurs, then
@@ -1630,21 +1630,21 @@ it can be recovered from there.
 and allows software to be written that is robust against some hardware and power failures.
 
 #### **Deferred DB Modifications**
-    1. Ensuring atomicity by recording all the DB modifications in the log but deferring the execution of all the write operations
+1. Ensuring atomicity by recording all the DB modifications in the log but deferring the execution of all the write operations
 until the final action of the T has been executed.
-    2. Log information is used to execute deferred writes when T is completed.
-    3. If system crashed before the T completes, or if T is aborted, the information in the logs are ignored.
-    4. If T completes, the records associated to it in the log file are used in executing the deferred writes.
-    5. If failure occur while this updating is taking place, we preform redo.
+2. Log information is used to execute deferred writes when T is completed.
+3. If system crashed before the T completes, or if T is aborted, the information in the logs are ignored.
+4. If T completes, the records associated to it in the log file are used in executing the deferred writes.
+5. If failure occur while this updating is taking place, we preform redo.
 
 #### **Immediate DB Modifications**
-    1. DB modifications to be output to the DB while the T is still in active state.
-    2. DB modifications written by active T are called uncommitted modifications.
-    3. In the event of crash or T failure, system uses old value field of the log records to restore modified values.
-    4. Update takes place only after log records in a stable storage.
-    5. Failure handling
-        1. System failure before T completes, or if T aborted, then old value field is used to undo the T.
-        2. If T completes and system crashes, then new value field is used to redo T having commit logs in the logs.
+1. DB modifications to be output to the DB while the T is still in active state.
+2. DB modifications written by active T are called uncommitted modifications.
+3. In the event of crash or T failure, system uses old value field of the log records to restore modified values.
+4. Update takes place only after log records in a stable storage.
+5. Failure handling
+   1. System failure before T completes, or if T aborted, then old value field is used to undo the T.
+   2. If T completes and system crashes, then new value field is used to redo T having commit logs in the logs.
 CodeHelp.
 
 ## Indexing in DBMS
