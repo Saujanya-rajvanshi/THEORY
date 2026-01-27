@@ -1697,8 +1697,8 @@ dept.
 2. If the single level index become enough large that the binary
 search it self would take much time, we can break down
 indexing into multiple levels.
-<br>
-🎍 **Secondary Index (Non-Clustering Index)** <br>
+
+#### 🎍 **Secondary Index (Non-Clustering Index)** 
 1. Datafile is unsorted. Hence, Primary Indexing is not possible.
 2. Can be done on key or non-key attribute.
 3. Called secondary indexing because normally one indexing is already
