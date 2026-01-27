@@ -1649,35 +1649,35 @@ CodeHelp.
 
 ## Indexing in DBMS
 
-1. **Indexing** is used to **optimise the performance** of a database by minimising the number of disk accesses required when a query is
-processed.
-2. The index is a type of **data structure.** It is used to locate and access the data in a database table quickly.
-3. **Speeds up operation** with read operations like SELECT queries, WHERE clause etc.
-4. Search Key: Contains copy of primary key or candidate key
-of the table or something else.
-5. Data Reference: Pointer holding the address of disk block
-where the value of the corresponding key is stored.
-6. Indexing is optional, but increases access speed. It is not the
-primary mean to access the tuple, it is the secondary mean.
-7. Index file is always sorted.
+**Indexing** is used to **optimise the performance** of a database by minimising the number of disk accesses required when a query is
+processed. <br>
+The index is a type of **data structure.** <br>
+**Speeds up operation** with read operations like SELECT queries, WHERE clause etc. <br>
 
-🎍 **Indexing Methods**
+**Search Key :** Contains copy of primary key or candidate key
+of the table or something else. <br>
+**Data Reference :** Pointer holding the address of disk block
+where the value of the corresponding key is stored. <br>
+Indexing is optional, but increases access speed. It is not the
+primary mean to access the tuple, it is the secondary mean. <br>
+Index file is always sorted. <br>
+
+#### 🎍 **Indexing Methods**
 * **Primary Index (Clustering Index)**
-1. A file may have several indices, on different search keys. If the data file containing the records is sequentially ordered, a
-Primary index is an index whose search key also defines the sequential order of the file.
-2. NOTE: The term primary index is sometimes used to mean an index on a primary key. However, such usage is
-nonstandard and should be avoided.
-3. All files are ordered sequentially on some search key. It could be Primary Key or non-primary key.
-4. Dense And Sparse Indices
-1. Dense Index
-1. The dense index contains an index record for every search key value in the data file.
-2. The index record contains the search-key value and a pointer to the first data record with that search-key value.
+A file may have several indices, on different search keys. If the data file containing the records is sequentially ordered, a
+Primary index is an index whose search key also defines the sequential order of the file. <br>
+**NOTE :** The term primary index is sometimes used to mean an index on a primary key. However, such usage is **nonstandard** and **should be avoided.** <br>
+All files are ordered sequentially on some search key. It could be Primary Key or non-primary key. <br>
+**Dense And Sparse Indices**
+    1. Dense Index
+        1. The dense index contains an index record for every search key value in the data file.
+        2. The index record contains the search-key value and a pointer to the first data record with that search-key value.
 The rest of the records with the same search-key value would be stored sequentially after the first record.
-3. It needs more space to store index record itself. The index records have the search key and a pointer to the actual
+        3. It needs more space to store index record itself. The index records have the search key and a pointer to the actual
 record on the disk.
-2. Sparse Index
-1. An index record appears for only some of the search-key values.
-2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a
+**Sparse Index**
+    1. An index record appears for only some of the search-key values.
+    2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a
 range of index columns stores the same data block address, and when data needs to be retrieved, the block
 address will be fetched.
 5. Primary Indexing can be based on Data file is sorted w.r.t Primary Key attribute or non-key attributes.
