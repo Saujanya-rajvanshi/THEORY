@@ -1668,8 +1668,8 @@ A file may have several indices, on different search keys. If the data file cont
 Primary index is an index whose search key also defines the sequential order of the file. <br>
 **NOTE :** The term primary index is sometimes used to mean an index on a primary key. However, such usage is **nonstandard** and **should be avoided.** <br>
 All files are ordered sequentially on some search key. It could be Primary Key or non-primary key. <br>
-**Dense And Sparse Indices**
-    1. Dense Index
+* **Dense And Sparse Indices**
+  **Dense Index**
         1. The dense index contains an index record for every search key value in the data file.
         2. The index record contains the search-key value and a pointer to the first data record with that search-key value.
 The rest of the records with the same search-key value would be stored sequentially after the first record.
@@ -1677,15 +1677,13 @@ The rest of the records with the same search-key value would be stored sequentia
 record on the disk.
 **Sparse Index**
     1. An index record appears for only some of the search-key values.
-    2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a
-range of index columns stores the same data block address, and when data needs to be retrieved, the block
-address will be fetched.
-5. Primary Indexing can be based on Data file is sorted w.r.t Primary Key attribute or non-key attributes.
-6. Based on Key attribute
+    2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a range of index columns stores the same data block address, and when data needs to be retrieved, the block address will be fetched.
+* Primary Indexing can be based on Data file is sorted w.r.t Primary Key attribute or non-key attributes.
+* **Based on Key attribute**
 1. Data file is sorted w.r.t primary key attribute.
 2. PK will be used as search-key in Index.
 3. Sparse Index will be formed i.e., no. of entries in the index file = no. of blocks in datafile.
-7. Based on Non-Key attribute
+* **Based on Non-Key attribute**
 1. Data file is sorted w.r.t non-key attribute.
 2. No. Of entries in the index = unique non-key attribute value in the data file.
 3. This is dense index as, all the unique values have an entry in the
@@ -1694,7 +1692,7 @@ index file.
 various departments. In this case, clustering indexing in DBMS
 should be created for all employees who belong to the same
 dept.
-8. Multi-level Index
+* **Multi-level Index**
 1. Index with two or more levels.
 2. If the single level index become enough large that the binary
 search it self would take much time, we can break down
@@ -1708,10 +1706,11 @@ applied.
 5. It's an example of Dense index.
 CodeHelp
 
-9. Advantages of Indexing
+* **Advantages of Indexing**
 1. Faster access and retrieval of data.
 2. IO is less.
-10. Limitations of Indexing
+
+* **Limitations of Indexing**
 1. Additional space to store index table
 2. Indexing Decrease performance in INSERT, DELETE, and UPDATE query.
 
