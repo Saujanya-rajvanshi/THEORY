@@ -1157,6 +1157,8 @@ return 0;
 - [Types of Databases](#Types-of-Databases)
 - [Clustering in DBMS](#Clustering-in-DBMS)
 - [Partitioning & Sharding in DBMS (DB Optimisation)](#Partitioning-Sharding-in-DBMS-DB-Optimisation)
+- [CAP Theorem](#CAP-Theorem)
+- [master slave architecture](#master-slave-architecture)
 
 ---
 
@@ -1717,165 +1719,507 @@ CodeHelp
 
 ## NoSQL 
 
+**NoSQL Overview**
+* Non-relational, non-tabular databases
+* Schema-free, flexible data models
+* Handles big data & high traffic
+* Supports horizontal scaling
+* Mostly open-source
+
+**Why NoSQL Emerged**
+* Rise of unstructured data
+* Need for faster development & flexibility
+* Cheap storage, cloud computing
+* Easy scaling across servers
+* caching mechanism
+
+**Advantages**
+* Flexible schema
+* Horizontal scaling (Sharding, Replication)
+* High availability & fault tolerance
+* Fast read/insert operations
+* Good for cloud & distributed apps
+
+**When to Use NoSQL**
+* Agile development
+* Huge / semi-structured data
+* Scale-out systems
+* Microservices & real-time apps
+
+**Misconceptions**
+* ❌ No relationships → ✅ Stored differently (nested)
+* ❌ No ACID → ✅ Some DBs (MongoDB) support ACID
+
+**Types of NoSQL**
+
+1. **Key-Value** – Fast access via keys
+   * Use: caching, sessions
+   * Ex: Redis, DynamoDB
+    
+2. **Column-Oriented** – Column-wise storage
+   * Use: analytics
+   * Ex: Cassandra, RedShift
+     
+3. **Document-Based** – JSON-like documents
+   * Use: e-commerce, apps
+   * Ex: MongoDB, CouchDB
+     
+4. **Graph-Based** – Relationship focused
+   * Use: social networks, fraud detection
+   * Ex: Neo4j
+
+**Disadvantages**
+* Data redundancy
+* Costly update/delete
+* One model doesn’t fit all use cases
+* Limited consistency & ACID (in general)
+
 <img width="617" height="638" alt="image" src="https://github.com/user-attachments/assets/4915b60b-5298-4f6c-ba9c-41ed5f0ee6c1" />
 
-## Types of Databases
+# Types of Databases
 
-🎍 Relational Databases
-1. Based on Relational Model.
-2. Relational databases are quite popular, even though it was a system designed in the 1970s. Also known as relational database
-management systems (RDBMS), relational databases commonly use Structured Query Language (SQL) for operations such as
-creating, reading, updating, and deleting data. Relational databases store information in discrete tables, which can be JOINed
-together by fields known as foreign keys. For example, you might have a User table which contains information about all your
-users, and join it to a Purchases table, which contains information about all the purchases they’ve made. MySQL, Microsoft SQL
-Server, and Oracle are types of relational databases.
-3. they are ubiquitous, having acquired a steady user base since the 1970s
-4. they are highly optimised for working with structured data.
-5. they provide a stronger guarantee of data normalisation
-6. they use a well-known querying language through SQL
-7. Scalability issues (Horizontal Scaling).
-8. Data become huge, system become more complex.
-2. Object Oriented Databases
-1. The object-oriented data model, is based on the object-oriented-programming paradigm, which is now in wide use.
-Inheritance, object-identity, and encapsulation (information hiding), with methods to provide an interface to objects, are
-among the key concepts of object-oriented programming that have found applications in data modelling. The object-oriented
-data model also supports a rich type system, including structured and collection types. While inheritance and, to some extent,
-complex types are also present in the E-R model, encapsulation and object-identity distinguish the object-oriented data model
-from the E-R model.
-2. Sometimes the database can be very complex, having multiple relations. So, maintaining a relationship between them can be
-tedious at times.
-1. In Object-oriented databases data is treated as an object.
-2. All bits of information come in one instantly available object package instead of multiple tables.
-3. Advantages
-1. Data storage and retrieval is easy and quick.
-2. Can handle complex data relations and more variety of data types that standard relational databases.
-3. Relatively friendly to model the advance real world problems
-4. Works with functionality of OOPs and Object Oriented languages.
-4. Disadvantages
-1. High complexity causes performance issues like read, write, update and delete operations are slowed down.
-2. Not much of a community support as isn’t widely adopted as relational databases.
-3. Does not support views like relational databases.
-5. e.g., ObjectDB, GemStone etc.
-3. NoSQL Databases
-1. NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL
-databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and
-graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
-2. They are schema free.
-3. Data structures used are not tabular, they are more flexible, has the ability to adjust dynamically.
-4. Can handle huge amount of data (big data).
-5. Most of the NoSQL are open sources and has the capability of horizontal scaling.
-6. It just stores data in some format other than relational.
-7. Refer LEC-15 notes...
-4. Hierarchical Databases
-1. As the name suggests, the hierarchical database model is most appropriate for use cases in which the main focus of information
-gathering is based on a concrete hierarchy, such as several individual employees reporting to a single department at a
-company.
-2. The schema for hierarchical databases is defined by its tree-like organisation, in which there is typically a root “parent”
-directory of data stored as records that links to various other subdirectory branches, and each subdirectory branch, or child
-record, may link to various other subdirectory branches.
-3. The hierarchical database structure dictates that, while a parent record can have several child records, each child record can only
-have one parent record. Data within records is stored in the form of fields, and each field can only contain one value. Retrieving
-hierarchical data from a hierarchical database architecture requires traversing the entire tree, starting at the root node.
-4. Since the disk storage system is also inherently a hierarchical structure, these models can also be used as physical models.
-5. The key advantage of a hierarchical database is its ease of use. The one-to-many organisation of data makes traversing the
-database simple and fast, which is ideal for use cases such as website drop-down menus or computer folders in systems like
-CodeHelp
+## 🎍 Relational Databases
 
-Microsoft Windows OS. Due to the separation of the tables from physical storage structures, information can easily be added or
-deleted without affecting the entirety of the database. And most major programming languages offer functionality for reading
-tree structure databases.
-6. The major disadvantage of hierarchical databases is their inflexible nature. The one-to-many structure is not ideal for complex
-structures as it cannot describe relationships in which each child node has multiple parents nodes. Also the tree-like
-organisation of data requires top-to-bottom sequential searching, which is time consuming, and requires repetitive storage of
-data in multiple different entities, which can be redundant.
-7. e.g., IBM IMS.
-5. Network Databases
-1. Extension of Hierarchical databases
-2. The child records are given the freedom to associate with multiple parent records.
-3. Organised in a Graph structure.
-4. Can handle complex relations.
-5. Maintenance is tedious.
-6. M:N links may cause slow retrieval.
-7. Not much web community support.
-8. e.g., Integrated Data Store (IDS), IDMS (Integrated Database Management System),
-Raima Database Manager, TurboIMAGE etc.
-CodeHelp
+* Based on the **Relational Model**
+* Designed in the **1970s**, still widely used
+* Also called **RDBMS**
+* Use **SQL** for CRUD operations
+* Data stored in **tables**
+* Tables are connected using **foreign keys (JOINs)**
+* Example:
+
+  * `User` table
+  * `Purchases` table joined via user ID
+* Examples: **MySQL, MS SQL Server, Oracle**
+* Highly optimised for **structured data**
+* Strong **data normalisation**
+* Uses a well-known query language (**SQL**)
+* **Scalability issues** (horizontal scaling is difficult)
+* As data grows, system becomes **complex**
+
+## 🎍 Object Oriented Databases
+
+* Based on **Object-Oriented Programming concepts**
+
+  * Inheritance
+  * Encapsulation
+  * Object identity
+* Data is stored as **objects**, not tables
+* Supports **complex data types**
+* Useful when databases become very complex
+* Relationships can be difficult to maintain
+
+### Characteristics
+
+* Data treated as **objects**
+* All related data stored in **one object**
+* No need for multiple tables
+
+### Advantages
+
+* Easy and fast **data storage & retrieval**
+* Handles **complex relationships**
+* Good for modelling **real-world problems**
+* Works naturally with **OOP languages**
+
+### Disadvantages
+
+* High complexity → slower **read/write/update/delete**
+* Limited community support
+* No **views** like relational databases
+
+### Examples
+
+* **ObjectDB**
+* **GemStone**
+
+---
+
+## 🎍 NoSQL Databases
+
+* **Non-relational**, non-tabular databases
+* Schema-free
+* Flexible data structures
+* Handles **big data**
+* Supports **horizontal scaling**
+* Mostly **open source**
+* Stores data in formats other than tables
+* Types include:
+
+  * Document
+  * Key-Value
+  * Wide-Column
+  * Graph
+* Refer **LEC-15 NoSQL notes**
+
+## 🎍 Hierarchical Databases
+
+* Based on **tree-like structure**
+* Best for **one-to-many relationships**
+* Example: employees → departments
+
+### Structure
+
+* One **root (parent)** node
+* Multiple **child** nodes
+* Each child has **only one parent**
+* Data stored as **records & fields**
+* Data retrieval starts from the **root**
+
+### Advantages
+
+* Easy to use
+* Fast traversal
+* Simple structure
+* Suitable for:
+
+  * File systems
+  * Folder structures
+  * Drop-down menus
+* Adding/deleting data does not affect whole DB
+* Supported by many programming languages
+
+### Disadvantages
+
+* Very **inflexible**
+* Cannot handle **many-to-many** relationships
+* Sequential searching is time-consuming
+* Data redundancy possible
+
+### Example
+
+* **IBM IMS**
+
+## 🎍 Network Databases
+
+* Extension of **Hierarchical databases**
+* Child records can have **multiple parents**
+* Organised as a **graph**
+* Supports **many-to-many relationships**
+
+### Advantages
+
+* Handles **complex relationships**
+
+### Disadvantages
+
+* Difficult to maintain
+* M:N links can slow retrieval
+* Limited web/community support
+
+### Examples
+
+* **IDS**
+* **IDMS**
+* **Raima Database Manager**
+* **TurboIMAGE**
+
+---
 
 ## Clustering in DBMS
 
-1. Database Clustering (making Replica-sets) is the process of combining more than one servers or instances connecting a single database.
-Sometimes one server may not be adequate to manage the amount of data or the number of requests, that is when a Data Cluster is needed.
-Database clustering, SQL server clustering, and SQL clustering are closely associated with SQL is the language used to manage the database
-information.
-2. Replicate the same dataset on different servers.
-3. Advantages
-1. Data Redundancy: Clustering of databases helps with data redundancy, as we store the same data at multiple servers. Don’t confuse this
-data redundancy as repetition of the same data that might lead to some anomalies. The redundancy that clustering offers is required and is
-quite certain due to the synchronisation. In case any of the servers had to face a failure due to any possible reason, the data is available at other
-servers to access.
-2. Load balancing: or scalability doesn’t come by default with the database. It has to be brought by clustering regularly. It also depends on the
-setup. Basically, what load balancing does is allocating the workload among the different servers that are part of the cluster. This indicates that
-more users can be supported and if for some reasons if a huge spike in the traffic appears, there is a higher assurance that it will be able to
-support the new traffic. One machine is not going to get all of the hits. This can provide scaling seamlessly as required. This links directly to
-high availability. Without load balancing, a particular machine could get overworked and traffic would slow down, leading to decrement of
-the traffic to zero.
-3. High availability: When you can access a database, it implies that it is available. High availability refers the amount of time a database is
-considered available. The amount of availability you need greatly depends on the number of transactions you are running on your database
-and how often you are running any kind of analytics on your data. With database clustering, we can reach extremely high levels of availability
-due to load balancing and have extra machines. In case a server got shut down the database will, however, be available.
-4. How does Clustering Work?
-1. In cluster architecture, all requests are split with many computers so that an individual user request is executed and produced by a number of
-computer systems. The clustering is serviceable definitely by the ability of load balancing and high-availability. If one node collapses, the
-request is handled by another node. Consequently, there are few or no possibilities of absolute system failures.
-CodeHelp
+## 🎍 Database Clustering (Replica-Sets)
+
+* Process of combining **multiple servers/instances** connected to a single database
+* Used when one server is **not sufficient** to handle:
+
+  * Large data volume
+  * High number of requests
+* Often associated with **SQL databases**
+* SQL is used to manage clustered database information
+* Same dataset is **replicated across multiple servers**
+
+## 🎍 Advantages of Database Clustering
+
+### Data Redundancy
+
+* Same data stored on **multiple servers**
+* Redundancy is **intentional and synchronised**
+* Prevents data loss during server failure
+* If one server fails, data is still available on others
+
+### Load Balancing
+
+* Workload is **distributed across servers**
+* Prevents a single machine from getting overloaded
+* Supports:
+
+  * More users
+  * Traffic spikes
+* Improves scalability and performance
+* Directly contributes to **high availability**
+
+### High Availability
+
+* Refers to how often the database is **accessible**
+* Depends on:
+
+  * Number of transactions
+  * Frequency of analytics
+* Clustering ensures database remains available even if:
+
+  * One or more servers go down
+* Achieves very high uptime using:
+
+  * Load balancing
+  * Multiple backup machines
+
+## 🎍 How Database Clustering Works
+
+* Requests are **split among multiple computers**
+* Each user request can be handled by **any node**
+* Load balancing distributes traffic
+* If one node fails:
+
+  * Another node handles the request
+* Results in:
+
+  * Minimal downtime
+  * No single point of failure
+
+---
 
 ## Partitioning & Sharding in DBMS (DB Optimisation)
 
-1. A big problem can be solved easily when it is chopped into several smaller sub-problems. That is what the partitioning technique does. It divides a
-big database containing data metrics and indexes into smaller and handy slices of data called partitions. The partitioned tables are directly used by
-SQL queries without any alteration. Once the database is partitioned, the data definition language can easily work on the smaller partitioned slices,
-instead of handling the giant database altogether. This is how partitioning cuts down the problems in managing large database tables.
-🎍 Partitioning is the technique used to divide stored database objects into separate servers. Due to this, there is an increase in performance,
-controllability of the data. We can manage huge chunks of data optimally. When we horizontally scale our machines/servers, we know that it gives us
-a challenging time dealing with relational databases as it’s quite tough to maintain the relations. But if we apply partitioning to the database that is
-already scaled out i.e. equipped with multiple servers, we can partition our database among those servers and handle the big data easily.
-3. Vertical Partitioning
-1. Slicing relation vertically / column-wise.
-2. Need to access different servers to get complete tuples.
-4. Horizontal Partitioning
-1. Slicing relation horizontally / row-wise.
-2. Independent chunks of data tuples are stored in different servers.
-5. When Partitioning is Applied?
-1. Dataset become much huge that managing and dealing with it become a tedious task.
-2. The number of requests are enough larger that the single DB server access is taking huge time and hence the system’s response time become
-high.
-6. Advantages of Partitioning
-1. Parallelism
-2. Availability
-3. Performance
-4. Manageability
-5. Reduce Cost, as scaling-up or vertical scaling might be costly.
-7. Distributed Database
-1. A single logical database that is, spread across multiple locations (servers) and logically interconnected by network.
-2. This is the product of applying DB optimisation techniques like Clustering, Partitioning and Sharding.
-3. Why this is needed? READ Point 5.
-8. Sharding
-1. Technique to implement Horizontal Partitioning.
-2. The fundamental idea of Sharding is the idea that instead of having all the data sit on one DB instance, we split it up and introduce a
-Routing layer so that we can forward the request to the right instances that actually contain the data.
-3. Pros
-1. Scalability
-2. Availability
-4. Cons
+## 🎍 Partitioning
 
-1. Complexity, making partition mapping, Routing layer to be implemented in the system, Non-uniformity that creates the necessity of Re-
-Sharding
+* A big problem can be solved easily when it is chopped into several smaller sub-problems.
 
-2. Not well suited for Analytical type of queries, as the data is spread across different DB instances. (Scatter-Gather problem)
-CodeHelp
+* That is what the **partitioning technique** does.
+
+* It divides a big database containing data metrics and indexes into **smaller and handy slices of data called partitions**.
+
+* The partitioned tables are directly used by **SQL queries without any alteration**.
+
+* Once the database is partitioned, the **data definition language** can easily work on the smaller partitioned slices, instead of handling the giant database altogether.
+
+* This is how partitioning cuts down the problems in managing large database tables.
+
+* Partitioning is the technique used to divide stored database objects into **separate servers**.
+
+* Due to this, there is an increase in:
+
+  * Performance
+  * Controllability of the data
+
+* We can manage huge chunks of data optimally.
+
+* When we horizontally scale our machines/servers, dealing with relational databases becomes challenging because it is tough to maintain relations.
+
+* If we apply partitioning to a database that is already scaled out (equipped with multiple servers), we can partition the database among those servers and handle big data easily.
+
+## 🎍 Vertical Partitioning
+
+* Slicing relation **vertically / column-wise**
+* Need to access **different servers** to get complete tuples
+
+## 🎍 Horizontal Partitioning
+
+* Slicing relation **horizontally / row-wise**
+* Independent chunks of data tuples are stored in **different servers**
+
+## 🎍 When Partitioning is Applied
+
+* Dataset becomes so huge that managing and dealing with it becomes a tedious task
+* Number of requests becomes very large
+* Single DB server access takes huge time
+* System response time becomes high
+
+## 🎍 Advantages of Partitioning
+
+* Parallelism
+* Availability
+* Performance
+* Manageability
+* Reduced cost, as scaling-up or vertical scaling can be costly
+
+## 🎍 Distributed Database
+
+* A single logical database spread across **multiple locations (servers)** and logically interconnected by a network
+* Product of applying DB optimisation techniques such as:
+
+  * Clustering
+  * Partitioning
+  * Sharding
+* Why this is needed: **Refer “When Partitioning is Applied”**
+
+## 🎍 Sharding
+
+* Technique to implement **Horizontal Partitioning**
+* Fundamental idea of sharding:
+
+  * Instead of storing all data on one DB instance
+  * Data is split across multiple DB instances
+  * A **routing layer** forwards the request to the correct instance containing the data
+
+### Pros
+
+* Scalability
+* Availability
+
+### Cons
+
+* High complexity
+* Partition mapping required
+* Routing layer must be implemented
+* Non-uniform data distribution
+* Necessity of **Re-Sharding**
+* Not suitable for analytical queries
+* Data is spread across DB instances (Scatter–Gather problem)
 
 
+## CAP Theorem
 
+### Overview
+
+* One of the **most important concepts in Distributed Databases**
+* Useful to design **efficient distributed systems** based on business logic
+
+### Consistency (C)
+
+* In a consistent system, **all nodes see the same data simultaneously**
+* A read operation returns the value of the **most recent write**
+* Read should cause all nodes to return the same data
+* All users see the same data at the same time, regardless of the node they connect to
+* Data is written to a **single node first**, then replicated to other nodes
+
+### Availability (A)
+
+* System remains **operational all the time**
+* Every request receives a response, regardless of node failures
+* System continues working even if **multiple nodes are down**
+* No guarantee that the response contains the **most recent write**
+
+### Partition Tolerance (P)
+
+* Occurs when there is a **break in communication between nodes**
+* Messages may be **dropped or delayed**
+* Partition-tolerant systems continue to function even during network failures
+* Requires **data replication across multiple nodes and networks**
+
+## 🎍 What the CAP Theorem Says
+
+* A distributed system can provide **only two out of three** properties at the same time:
+
+  * Consistency
+  * Availability
+  * Partition Tolerance
+* CAP theorem formalises the **trade-off between consistency and availability** when a partition occurs
+
+## 🎍 CAP Theorem in NoSQL Databases
+
+* NoSQL databases are ideal for **distributed networks**
+* Support **horizontal scaling**
+* Can scale quickly across multiple nodes
+* CAP theorem must be considered while choosing a NoSQL database
+
+## 🎍 CA Databases
+
+* Provide **Consistency + Availability**
+* Do **not support Partition Tolerance**
+* Not practical in real distributed systems because partitions are unavoidable
+* Still useful in limited cases
+* Some relational databases like:
+
+  * MySQL
+  * PostgreSQL
+* Can provide consistency and availability using **replication**
+
+
+## 🎍 CP Databases
+
+* Provide **Consistency + Partition Tolerance**
+* Do **not provide Availability**
+* During a partition:
+
+  * Inconsistent nodes are turned off
+  * System waits until partition is fixed
+* **MongoDB** is an example of a CP database
+* MongoDB:
+
+  * Is a NoSQL DBMS
+  * Uses **document-based storage**
+  * Is **schema-less**
+  * Commonly used in big data and distributed applications
+* CP systems have:
+
+  * **One primary node** that handles all write requests in a replica set
+  * Secondary nodes replicate data from the primary
+* If the primary fails:
+
+  * A secondary node takes over
+* In banking systems:
+
+  * **Consistency is more important than availability**
+  * Hence CP databases are preferred
+
+## 🎍 AP Databases
+
+* Provide **Availability + Partition Tolerance**
+* Do **not provide Consistency**
+* During a partition:
+
+  * All nodes remain available
+  * Data may not be the most recent
+* Example scenario:
+
+  * User accesses data from a bad node
+  * Receives outdated data
+* After partition is resolved:
+
+  * Nodes synchronise data
+  * **Eventual consistency** is achieved
+* **Apache Cassandra** is an example of an AP database
+* Cassandra:
+
+  * Has **no primary node**
+  * All nodes remain available
+* Eventual consistency is achieved by:
+
+  * Re-syncing data after partition resolution
+* For applications like **Facebook**:
+
+  * Availability is more important than consistency
+  * AP databases like **Cassandra** or **Amazon DynamoDB** are preferred
+
+---
+
+## master slave architecture 
+
+<img width="924" height="503" alt="image" src="https://github.com/user-attachments/assets/ba1b92b0-0df1-4970-b9b0-41287ebdce41" />
+
+## 🎍 Master–Slave Architecture (Database Replication)
+
+* Master–Slave is a general way to **optimise I/O** in a system where the number of requests becomes so high that a **single DB server cannot handle it efficiently**
+* It is a pattern discussed in **LEC-19 (Database Scaling Pattern)**
+
+  * **Command Query Responsibility Segregation (CQRS)**
+
+## 🎍 Working of Master–Slave
+
+* The **true or latest data** is always kept in the **Master database**
+* **Write operations** are directed only to the **Master**
+* **Read operations** are performed only from the **Slave databases**
+* This architecture helps in:
+
+  * Safeguarding site **reliability**
+  * Improving **availability**
+  * Reducing **latency**
+* If the site receives a lot of traffic and only one database is available:
+
+  * The database becomes overloaded with read and write requests
+  * The system becomes slow for all users
+
+## 🎍 DB Replication
+
+* DB replication distributes data from the **Master machine to Slave machines**
+* Replication can be:
+
+  * **Synchronous**
+  * **Asynchronous**
+* Type of replication depends on the **system’s requirement**
+
+---
 
 
 # OS
