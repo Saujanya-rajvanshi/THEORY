@@ -2182,11 +2182,13 @@ CodeHelp
   * Availability is more important than consistency
   * AP databases like **Cassandra** or **Amazon DynamoDB** are preferred
 
+<img width="354" height="301" alt="image" src="https://github.com/user-attachments/assets/2835a660-5d59-458d-80be-f38b3d05b4c3" />
+
 ---
 
 ## master slave architecture 
 
-<img width="924" height="503" alt="image" src="https://github.com/user-attachments/assets/ba1b92b0-0df1-4970-b9b0-41287ebdce41" />
+<img width="882" height="501" alt="image" src="https://github.com/user-attachments/assets/ad34aa68-c9c6-4ac9-a443-d0bd9b999cd1" />
 
 ## 🎍 Master–Slave Architecture (Database Replication)
 
