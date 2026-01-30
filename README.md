@@ -2226,6 +2226,25 @@ CodeHelp
 
 # OS
 
+**Application software** performs specific task for the user. <br>
+**System software** operates and controls the computer system and provides a platform to run
+application software. <br>
+
+#### Why OS?
+* Bulky and complex app. (Hardware interaction code must be in app’s
+code base)
+* Resource exploitation by 1 App.
+* No memory protection.
+
+#### What is an Operating System?
+* System software that manages hardware and software resources.
+* Acts as interface between user and hardware.
+* Provides abstraction, protection and resource management (CPU, memory, files, I/O).
+* Goals: high CPU utilization, less starvation, better throughput.
+
+
+
+
 
 # CN 
 
