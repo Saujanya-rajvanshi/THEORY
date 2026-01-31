@@ -2242,8 +2242,32 @@ code base)
 * Provides abstraction, protection and resource management (CPU, memory, files, I/O).
 * Goals: high CPU utilization, less starvation, better throughput.
 
+#### An operating system function 
+- Access to the computer hardware.
+- interface between the user and the computer hardware
+- Resource management (Aka, Arbitration) (memory, device, file, security, process etc)
+- Hides the underlying complexity of the hardware. (Aka, Abstraction)
+- facilitates execution of application programs by providing isolation and protection.
 
+<img width="330" height="173" alt="image" src="https://github.com/user-attachments/assets/3a2a6feb-bcd3-4e44-89e2-5260d7c31e7c" />
 
+## Types of OS
+
+OS goals –
+• Maximum CPU utilization
+• Less process starvation
+• Higher priority job execution
+
+Types of operating systems -
+* Single process operating system - [MS DOS, 1981]
+* Batch-processing operating system - [ATLAS, Manchester Univ., late 1950s - early 1960s]
+* Multiprogramming operating system - [THE, Dijkstra, early 1960s]
+* Multitasking operating system - [CTSS, MIT, early 1960s]
+* Multi-processing operating system - [Windows NT]
+* Distributed system - [LOCUS]
+* Real time OS - [ATCS]
+
+<img width="559" height="748" alt="image" src="https://github.com/user-attachments/assets/c9f8361f-010d-4387-b94d-1839a0924e73" />
 
 
 # CN 
