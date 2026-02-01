@@ -2269,6 +2269,51 @@ Types of operating systems -
 
 <img width="559" height="748" alt="image" src="https://github.com/user-attachments/assets/c9f8361f-010d-4387-b94d-1839a0924e73" />
 
+**Single	process	OS**,	only	1	process	executes	at	a	time	from	the	ready	queue.
+
+**Batch-processing	OS**,	
+Batch-processing OS,
+1. Firstly, user prepares his job using punch cards.
+2. Then, he submits the job to the computer operator.
+3. Operator collects the jobs from different users and sort the jobs into batches with
+similar needs.
+4. Then, operator submits the batches to the processor one by one.
+5. All the jobs of one batch are executed together.
+
+- Priorities cannot be set, if a job comes with some higher priority.
+- May lead to starvation. (A batch may take more time to complete)
+- CPU may become idle in case of I/O operations.
+
+* **Multiprogramming** increases CPU utilization by keeping multiple jobs (code and data)
+in thememory so that the CPU always has one to execute in case some job gets busy with
+I/O.
+- Single CPU
+- Context switching for processes.
+- Switch happens when current process goes to wait state.
+- CPU idle time reduced.
+
+* **Multitasking** is a logical extension of
+multiprogramming.
+- Single CPU
+- Able to run more than one task simultaneously.
+- Context switching and time sharing used.
+- Increases responsiveness.
+- CPU idle time is further reduced.
+
+* **Multi-processing OS**, more than 1 CPU in a single computer.
+- Increases reliability, 1 CPU fails, other can work
+- Better throughput.
+- Lesser process starvation, (if 1 CPU is working on some process, other can be executed on other CPU.
+
+* **Distributed OS**,
+- OS manages many bunches of resources, >=1 CPUs, >=1 memory, >=1 GPUs, etc
+- Loosely connected autonomous, interconnected computer nodes.
+- collection of independent, networked, communicating, and physically separate computational nodes.
+
+* **RTOS**
+- Real time error free, computations within tight-time boundaries.
+- Air Traffic control system, ROBOTS etc.
+
 
 # CN 
 
