@@ -81,13 +81,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 ```cpp
 class Student {
 public:
-    int id;
-    int mobile;
-    string name;
-
-    int add(int x, int y) {
-        return x + y;
-    }
+    
 };
 ```
 
@@ -157,7 +151,7 @@ simple, multipleinheritance and hierarchical inheritance.
 
 ---
 
-###### multilevel inheritance
+#### multilevel inheritance
 ```cpp
 class GradStudent : public Student {
 public:
@@ -173,7 +167,7 @@ int main() {
     return 0;
 }
 ```
-###### multiple inheritance
+#### multiple inheritance
 ```cpp
 class Student {
 public:
@@ -192,7 +186,8 @@ public:
     string researchArea;
 };
 ```
-###### hierarchial inheritance
+
+#### hierarchial inheritance
 ```cpp
 class Person {
 public:
