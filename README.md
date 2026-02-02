@@ -53,6 +53,9 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * enabling modularity, reusability, abstraction, and data security.
 
 #### index
+- [class](#Class)
+- [object](#Object)
+- [four pillars](#four-pillars)
 - [syntax](#syntax)
 - [acess modifiers](#acess-modifiers)
 - [setter and getter](#setter-and-getter)
@@ -63,10 +66,697 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [shallow and deep copy](#shallow-and-deep-copy)
 - [destructor](#destructor)
 - [static keywords](#static-keywords)
-- [four pillars](#four-pillars)
+
+---
+
+## Class
+
+* A **class** is a **user-defined data type**.
+* It defines **properties (data members)** and **functions (member functions)**.
+* It is a **logical blueprint**, not a real entity.
+* **No memory is allocated** when a class is declared.
+
+**Example:**
+
+```cpp
+class Student {
+public:
+    int id;
+    int mobile;
+    string name;
+
+    int add(int x, int y) {
+        return x + y;
+    }
+};
+```
+
+---
+
+## Object
+
+* An **object** is a **runtime entity**.
+* It is an **instance of a class**.
+* Memory is allocated **when an object is created**.
+* Objects can access **data members and member functions**.
+
+**Example:**
+
+```cpp
+Student s;   // object creation
+```
+
+### Memory Note 
+
+* **Without `new`** → memory allocated on **stack**
+* **With `new`** → memory allocated on **heap**
+
+```cpp
+Student s;              // stack memory
+Student* s = new Student(); // heap memory
+```
+
+---
+
+## four pillars
+- [inherittance](#inherittance)
+- [encapsulation](#encapsulation)
+- [abstraction](#abstraction)
+- [polymorphism](#polymorphism)
+
+## Inheritance
+
+* **Inheritance** allows one class to acquire properties and functions of another class.
+* Helps in **code reusability** and **hierarchical classification**.
+
+**Example:**
+
+```cpp
+class Person {
+public:
+    string name;
+};
+
+class Student : public Person {
+public:
+    int id;
+};
+```
+
+### Types of Inheritance :
+1. **Single inheritance :** When one class inherits anotherclass, it is known
+as singlelevel inheritance
+2. **Multiple inheritance :** Multiple inheritance isthe process of deriving
+a new classthat inherits the attributes from twoor more classes.
+3. **Hierarchical inheritance :** Hierarchical inheritanceis defined as the
+process ofderiving more than one class from a baseclass.
+4. **Multilevel inheritance :** Multilevel inheritanceis a process of deriving a
+class fromanother derived class.
+5. **Hybrid inheritance :** Hybrid inheritance is a combinationof
+simple, multipleinheritance and hierarchical inheritance.
+
+---
+
+###### multilevel inheritance
+```cpp
+class GradStudent : public Student {
+public:
+    string researchArea;
+};
+
+int main() {
+    GradStudent s1;
+    s1.name = "tony stark";
+    s1.researchArea = "quantum physics";
+    cout << s1.name << endl;
+    cout << s1.researchArea << endl;
+    return 0;
+}
+```
+###### multiple inheritance
+```cpp
+class Student {
+public:
+    string name;
+    int rollno;
+};
+
+class Teacher {
+public:
+    string subject;
+    double salary;
+};
+
+class TA : public Student, public Teacher {
+public:
+    string researchArea;
+};
+```
+###### hierarchial inheritance
+```cpp
+class Person {
+public:
+    string name;
+    int age;
+};
+
+class Student : public Person {
+public:
+    int rollno;
+}
+
+class Teacher : public Person{
+public:
+    string subject;
+}
+```
+#### Ambiguity
+Ambiguity occurs in C++ when a derived class inherits two or more base classes that have functions or variables with the same name, and the compiler cannot decide which one to use.
+This commonly happens in multiple inheritance.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void func() {
+        cout << "I am A" << endl;
+    }
+};
+
+class B {
+public:
+    void func() {
+        cout << "I am B" << endl;
+    }
+};
+
+class C : public A, public B {
+};
+
+int main() {
+    C obj;
+    // obj.func();  // Ambiguous call
+
+    obj.A::func(); // Calls A's func
+    // obj.B::func(); // Calls B's func
+
+    return 0;
+}
+```
+
+### encapsulation
+* wrapping up of data & member function in a single unit called class
+* fully encapsulated class -> all data member are private
+
+<img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;   // hidden data
+
+public:
+    void setName(string n) {
+        name = n;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+class GradStudent : public Student {
+private:
+    string researchArea;   // hidden data
+
+public:
+    void setResearchArea(string r) {
+        researchArea = r;
+    }
+
+    string getResearchArea() {
+        return researchArea;
+    }
+};
+
+int main() {
+    GradStudent s1;
+
+    s1.setName("Tony Stark");
+    s1.setResearchArea("Quantum Physics");
+
+    cout << s1.getName() << endl;
+    cout << s1.getResearchArea() << endl;
+
+    return 0;
+}
+```
+
+### abstraction
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Shape { //abstract class
+virtual void draw() = 0; //pure virtual function
+
+};
+
+class Circle : public Shape {
+public:
+void draw() {
+    cout << "drawing a circle\n";
+};
+
+int main() {
+    Circle c1;
+    c1.draw();
+return 0;
+}
+```
+---
+
+### polymorphism 
+```cpp
+#include <iostream>
+using namespace std;
+
+class Print {
+public:
+    void show(int x) {
+        cout << "int : " << x << endl;
+    }
+
+    void show(char ch) {
+        cout << "char : " << ch << endl;
+    }
+};
+
+int main() {
+    Print p1;
+    p1.show(101);
+    return 0;
+}
+``` 
+
+---
+
+## Function Overloading 
+
+**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).
+The compiler decides **which function to call at compile time**, based on the arguments passed.
+👉 It improves **readability and flexibility** of the program.
+
+* **How Functions Can Be Overloaded**
+Functions can be overloaded by:
+1. **Different number of arguments**
+2. **Different types of arguments**
+3. **Different order of arguments**
+
+❌ Function overloading **cannot** be done by return type alone.
+
+* **Logic (How Compiler Works)**
+
+* When a function is called,
+* The compiler matches:
+
+  * Function name
+  * Number of parameters
+  * Data types of parameters
+* Then it calls the **best matched function**
+
+This is called **Compile-Time Polymorphism**.
+
+---
+
+## Example 1: Function Overloading with Different Number of Arguments
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function with two parameters
+int add(int num1, int num2) {
+    return num1 + num2;
+}
+
+// Function with three parameters
+int add(int num1, int num2, int num3) {
+    return num1 + num2 + num3;
+}
+
+int main() {
+    cout << add(10, 20) << endl;
+    cout << add(10, 20, 30) << endl;
+    return 0;
+}
+```
+
+## Example 2: Function Overloading with Different Data Types
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(5, 3) << endl;
+    cout << add(2.5, 3.5) << endl;
+    return 0;
+}
+```
+
+---
+
+## Operator Overloading 
+
+###  **Definition**
+
+**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.
+It makes objects behave like **built-in data types**.
+👉 It is a form of **compile-time polymorphism**.
+
+
+* **Why Operator Overloading?**
+
+* Improves **code readability**
+* Makes user-defined objects **intuitive to use**
+* Enables **natural syntax** (e.g., `c1 + c2`)
+
+
+## General Syntax
+
+```cpp
+return_type operator operator_symbol (arguments) {
+    // logic
+}
+```
+
+---
+
+## Operators That **CAN** Be Overloaded in C++
+
+Some commonly overloaded operators:
+
+```
++  -  *  /  %  
+== != < > <= >=
+++ -- += -= *= /=
+<< >> [] ()
+&& || !
+-> new delete
+```
+
+✔ Most arithmetic, relational, logical, and bitwise operators can be overloaded.
+
+---
+
+## Operators That **CANNOT** Be Overloaded in C++
+
+| Operator | Meaning           |
+| -------- | ----------------- |
+| `::`     | Scope resolution  |
+| `.`      | Member access     |
+| `.*`     | Pointer to member |
+| `?:`     | Ternary operator  |
+
+These operators have **fixed meanings** decided by the compiler.
+
+---
+
+## Example: Operator Overloading (Addition of Complex Numbers)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imag = i;
+    }
+
+    // Overload + operator
+    Complex operator + (Complex const &obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+};
+
+int main() {
+    Complex c1(3, 4), c2(1, 2);
+    Complex c3 = c1 + c2;
+
+    cout << "Real: " << c3.real << endl;
+    cout << "Imaginary: " << c3.imag << endl;
+
+    return 0;
+}
+```
+
+### Output
+
+```
+Real: 4
+Imaginary: 6
+```
+
+## Important Rules 
+
+✔ At least **one operand must be a user-defined type**
+✔ Operator precedence **cannot be changed**
+✔ Number of operands **cannot be changed**
+✔ Some operators must be overloaded as **member functions** (`=`, `[]`, `()`)
+
+
+## Function Overloading vs Operator Overloading
+
+| Feature      | Function Overloading | Operator Overloading |
+| ------------ | -------------------- | -------------------- |
+| Purpose      | Same function name   | Same operator        |
+| Polymorphism | Compile-time         | Compile-time         |
+| Used for     | Functions            | Operators            |
+
+
 
 
 ---
+
+## 🔵 Runtime Polymorphism (C++)
+
+**Runtime polymorphism** is also called **dynamic polymorphism**.
+It occurs when the **function call is resolved at runtime**, not at compile time.
+
+👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
+
+---
+
+## Method Overriding
+
+**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.
+
+The decision of which function to call depends on the **object type at runtime**.
+
+## Rules for Method Overriding (Very Important)
+
+1. Function name must be **same** in parent and child class
+2. Function parameters must be **same**
+3. Return type must be **same**
+4. Must use **inheritance**
+5. Parent class function must be declared as **virtual**
+6. Access is usually through **base class pointer**
+
+
+## How Runtime Polymorphism Works (Logic)
+
+* Base class pointer points to derived class object
+* Compiler decides the function call **at runtime**
+* Uses **virtual function table (v-table)** internally
+
+
+## 🧪 Example: Runtime Polymorphism using Method Overriding
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void show() {
+        cout << "This is Parent class show function" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "This is Child class show function" << endl;
+    }
+};
+
+int main() {
+    Parent* p;
+    Child obj;
+    p = &obj;
+
+    p->show();   // Runtime decision
+    return 0;
+}
+```
+
+---
+
+### Output
+
+```
+This is Child class show function
+```
+
+* **What if `virtual` is not used?**
+Without `virtual`, **compile-time binding** happens and parent class function is called.
+
+## Compile-Time vs Runtime Polymorphism
+
+| Feature     | Compile-Time                    | Runtime           |
+| ----------- | ------------------------------- | ----------------- |
+| Binding     | Compile time                    | Runtime           |
+| Achieved by | Function / Operator Overloading | Method Overriding |
+| Keyword     | No keyword                      | `virtual`         |
+| Inheritance | Not required                    | Required          |
+
+---
+
+## Encapsulation
+
+* Encapsulation is **binding data and functions into a single unit (class)**.
+* Data is **not accessed directly**; it is accessed via **member functions**.
+* Achieves **data hiding** using access specifiers.
+
+**Access Specifiers in C++:**
+
+* `private` → accessible only within the class
+* `protected` → accessible in class + derived class
+* `public` → accessible everywhere
+
+**Benefits:**
+
+* Data security
+* Controlled access
+* Better maintainability
+
+**Example:**
+
+```cpp
+class Student {
+private:
+    int id;
+
+public:
+    void setId(int x) { id = x; }
+    int getId() { return id; }
+};
+```
+
+---
+
+## Abstraction
+
+* Abstraction means **showing only essential details** and hiding unnecessary details.
+* Focuses on **what an object does**, not **how it does it**.
+* Helps in solving **complex real-world problems efficiently**.
+
+**Achieved using:**
+
+* Classes
+* Abstract classes
+* Interfaces (using pure virtual functions)
+
+**Example:**
+
+```cpp
+class Shape {
+public:
+    virtual void draw() = 0;  // pure virtual function
+};
+```
+
+---
+
+## **Data Binding**
+
+* Data binding connects **UI and business logic**.
+* Any change in business logic **automatically reflects in UI**.
+* Improves consistency and reduces errors.
+
+---
+
+## **Polymorphism**
+
+* Polymorphism means **one interface, many forms**.
+* Same function name behaves **differently for different objects**.
+* Derived from:
+
+  * **Poly** → many
+  * **Morphism** → forms
+
+### **Types of Polymorphism**
+
+1. **Compile-Time (Static)**
+2. **Runtime (Dynamic)**
+
+---
+
+## **Compile-Time Polymorphism**
+
+* Resolved **at compile time**.
+* Implemented using **Function Overloading** and **Operator Overloading**.
+
+### **Function Overloading**
+
+* Same function name with **different parameters**.
+* Cannot be overloaded only by **return type**.
+
+**Example:**
+
+```cpp
+class Add {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+```
+
+---
+
+## **Runtime Polymorphism**
+
+* Resolved **at runtime**.
+* Implemented using **Function Overriding** and **virtual functions**.
+* Uses **base class pointer** to derived class object.
+
+**Example:**
+
+```cpp
+class Base {
+public:
+    virtual void show() {
+        cout << "Base class" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() {
+        cout << "Derived class" << endl;
+    }
+};
+```
+
+---
+
+
 
 ## syntax
 
@@ -660,482 +1350,6 @@ public:
 
 ---
 
-## four pillars
-- [encapsulation](#encapsulation)
-- [inherittance](#inherittance)
-- [polymorphism](#polymorphism)
-- [abstraction](#abstraction)
-
-### encapsulation
-* wrapping up of data & member function in a single unit called class
-* fully encapsulated class -> all data member are private
-
-<img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Student {
-private:
-    string name;   // hidden data
-
-public:
-    void setName(string n) {
-        name = n;
-    }
-
-    string getName() {
-        return name;
-    }
-};
-
-class GradStudent : public Student {
-private:
-    string researchArea;   // hidden data
-
-public:
-    void setResearchArea(string r) {
-        researchArea = r;
-    }
-
-    string getResearchArea() {
-        return researchArea;
-    }
-};
-
-int main() {
-    GradStudent s1;
-
-    s1.setName("Tony Stark");
-    s1.setResearchArea("Quantum Physics");
-
-    cout << s1.getName() << endl;
-    cout << s1.getResearchArea() << endl;
-
-    return 0;
-}
-```
-
-
-### inherittance
-* When properties & member functions of base class are passed on to the derived class.
-
-###### multilevel inheritance
-```cpp
-class GradStudent : public Student {
-public:
-    string researchArea;
-};
-
-int main() {
-    GradStudent s1;
-    s1.name = "tony stark";
-    s1.researchArea = "quantum physics";
-    cout << s1.name << endl;
-    cout << s1.researchArea << endl;
-    return 0;
-}
-```
-###### multiple inheritance
-```cpp
-class Student {
-public:
-    string name;
-    int rollno;
-};
-
-class Teacher {
-public:
-    string subject;
-    double salary;
-};
-
-class TA : public Student, public Teacher {
-public:
-    string researchArea;
-};
-```
-###### hierarchial inheritance
-```cpp
-class Person {
-public:
-    string name;
-    int age;
-};
-
-class Student : public Person {
-public:
-    int rollno;
-}
-
-class Teacher : public Person{
-public:
-    string subject;
-}
-```
-###### Ambiguity
-Ambiguity occurs in C++ when a derived class inherits two or more base classes that have functions or variables with the same name, and the compiler cannot decide which one to use.
-This commonly happens in multiple inheritance.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class A {
-public:
-    void func() {
-        cout << "I am A" << endl;
-    }
-};
-
-class B {
-public:
-    void func() {
-        cout << "I am B" << endl;
-    }
-};
-
-class C : public A, public B {
-};
-
-int main() {
-    C obj;
-    // obj.func();  // Ambiguous call
-
-    obj.A::func(); // Calls A's func
-    // obj.B::func(); // Calls B's func
-
-    return 0;
-}
-```
-
-### polymorphism 
-```cpp
-#include <iostream>
-using namespace std;
-
-class Print {
-public:
-    void show(int x) {
-        cout << "int : " << x << endl;
-    }
-
-    void show(char ch) {
-        cout << "char : " << ch << endl;
-    }
-};
-
-int main() {
-    Print p1;
-    p1.show(101);
-    return 0;
-}
-``` 
-
----
-
-## Function Overloading 
-
-**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).
-The compiler decides **which function to call at compile time**, based on the arguments passed.
-👉 It improves **readability and flexibility** of the program.
-
-* **How Functions Can Be Overloaded**
-Functions can be overloaded by:
-1. **Different number of arguments**
-2. **Different types of arguments**
-3. **Different order of arguments**
-
-❌ Function overloading **cannot** be done by return type alone.
-
-* **Logic (How Compiler Works)**
-
-* When a function is called,
-* The compiler matches:
-
-  * Function name
-  * Number of parameters
-  * Data types of parameters
-* Then it calls the **best matched function**
-
-This is called **Compile-Time Polymorphism**.
-
----
-
-## Example 1: Function Overloading with Different Number of Arguments
-
-```cpp
-#include <iostream>
-using namespace std;
-
-// Function with two parameters
-int add(int num1, int num2) {
-    return num1 + num2;
-}
-
-// Function with three parameters
-int add(int num1, int num2, int num3) {
-    return num1 + num2 + num3;
-}
-
-int main() {
-    cout << add(10, 20) << endl;
-    cout << add(10, 20, 30) << endl;
-    return 0;
-}
-```
-
-## Example 2: Function Overloading with Different Data Types
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int add(int a, int b) {
-    return a + b;
-}
-
-double add(double a, double b) {
-    return a + b;
-}
-
-int main() {
-    cout << add(5, 3) << endl;
-    cout << add(2.5, 3.5) << endl;
-    return 0;
-}
-```
-
----
-
-## Operator Overloading 
-
-###  **Definition**
-
-**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.
-It makes objects behave like **built-in data types**.
-👉 It is a form of **compile-time polymorphism**.
-
-
-* **Why Operator Overloading?**
-
-* Improves **code readability**
-* Makes user-defined objects **intuitive to use**
-* Enables **natural syntax** (e.g., `c1 + c2`)
-
-
-## General Syntax
-
-```cpp
-return_type operator operator_symbol (arguments) {
-    // logic
-}
-```
-
----
-
-## Operators That **CAN** Be Overloaded in C++
-
-Some commonly overloaded operators:
-
-```
-+  -  *  /  %  
-== != < > <= >=
-++ -- += -= *= /=
-<< >> [] ()
-&& || !
--> new delete
-```
-
-✔ Most arithmetic, relational, logical, and bitwise operators can be overloaded.
-
----
-
-## Operators That **CANNOT** Be Overloaded in C++
-
-| Operator | Meaning           |
-| -------- | ----------------- |
-| `::`     | Scope resolution  |
-| `.`      | Member access     |
-| `.*`     | Pointer to member |
-| `?:`     | Ternary operator  |
-
-These operators have **fixed meanings** decided by the compiler.
-
----
-
-## Example: Operator Overloading (Addition of Complex Numbers)
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Complex {
-public:
-    int real, imag;
-
-    Complex(int r = 0, int i = 0) {
-        real = r;
-        imag = i;
-    }
-
-    // Overload + operator
-    Complex operator + (Complex const &obj) {
-        Complex temp;
-        temp.real = real + obj.real;
-        temp.imag = imag + obj.imag;
-        return temp;
-    }
-};
-
-int main() {
-    Complex c1(3, 4), c2(1, 2);
-    Complex c3 = c1 + c2;
-
-    cout << "Real: " << c3.real << endl;
-    cout << "Imaginary: " << c3.imag << endl;
-
-    return 0;
-}
-```
-
-### Output
-
-```
-Real: 4
-Imaginary: 6
-```
-
-## Important Rules 
-
-✔ At least **one operand must be a user-defined type**
-✔ Operator precedence **cannot be changed**
-✔ Number of operands **cannot be changed**
-✔ Some operators must be overloaded as **member functions** (`=`, `[]`, `()`)
-
-
-## Function Overloading vs Operator Overloading
-
-| Feature      | Function Overloading | Operator Overloading |
-| ------------ | -------------------- | -------------------- |
-| Purpose      | Same function name   | Same operator        |
-| Polymorphism | Compile-time         | Compile-time         |
-| Used for     | Functions            | Operators            |
-
-
-
-
----
-
-## 🔵 Runtime Polymorphism (C++)
-
-**Runtime polymorphism** is also called **dynamic polymorphism**.
-It occurs when the **function call is resolved at runtime**, not at compile time.
-
-👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
-
----
-
-## Method Overriding
-
-**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.
-
-The decision of which function to call depends on the **object type at runtime**.
-
-## Rules for Method Overriding (Very Important)
-
-1. Function name must be **same** in parent and child class
-2. Function parameters must be **same**
-3. Return type must be **same**
-4. Must use **inheritance**
-5. Parent class function must be declared as **virtual**
-6. Access is usually through **base class pointer**
-
-
-## How Runtime Polymorphism Works (Logic)
-
-* Base class pointer points to derived class object
-* Compiler decides the function call **at runtime**
-* Uses **virtual function table (v-table)** internally
-
-
-## 🧪 Example: Runtime Polymorphism using Method Overriding
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Parent {
-public:
-    virtual void show() {
-        cout << "This is Parent class show function" << endl;
-    }
-};
-
-class Child : public Parent {
-public:
-    void show() {
-        cout << "This is Child class show function" << endl;
-    }
-};
-
-int main() {
-    Parent* p;
-    Child obj;
-    p = &obj;
-
-    p->show();   // Runtime decision
-    return 0;
-}
-```
-
----
-
-### Output
-
-```
-This is Child class show function
-```
-
-* **What if `virtual` is not used?**
-Without `virtual`, **compile-time binding** happens and parent class function is called.
-
-## Compile-Time vs Runtime Polymorphism
-
-| Feature     | Compile-Time                    | Runtime           |
-| ----------- | ------------------------------- | ----------------- |
-| Binding     | Compile time                    | Runtime           |
-| Achieved by | Function / Operator Overloading | Method Overriding |
-| Keyword     | No keyword                      | `virtual`         |
-| Inheritance | Not required                    | Required          |
-
----
-
-### abstraction
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-class Shape { //abstract class
-virtual void draw() = 0; //pure virtual function
-
-};
-
-class Circle : public Shape {
-public:
-void draw() {
-    cout << "drawing a circle\n";
-};
-
-int main() {
-    Circle c1;
-    c1.draw();
-return 0;
-}
-```
----
 
 
 
