@@ -2435,6 +2435,9 @@ CodeHelp
 
 # OS
 
+- [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
+- [Types of OS](#Types-of-OS)
+
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
 application software. <br>
@@ -2525,7 +2528,7 @@ multiprogramming.
 - Real time error free, computations within tight-time boundaries.
 - Air Traffic control system, ROBOTS etc.
 
-## Multi-Tasking vs Multi-Threading
+## Multi Tasking vs Multi Threading
 
 **Program :** A Program is an executable file which contains a certain set of instructions written to complete the specific job or operation on your computer.
 • It’s a compiled code. Ready to be executed.
@@ -2541,7 +2544,6 @@ multiprogramming.
 of execution.
 • E.g., Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiplethreads.)
 
-Here you go — clean **two tables** rewritten neatly 👇
 
 ---
 
