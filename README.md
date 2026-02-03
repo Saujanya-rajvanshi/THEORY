@@ -2493,6 +2493,8 @@ similar needs.
 - May lead to starvation. (A batch may take more time to complete)
 - CPU may become idle in case of I/O operations.
 
+<img width="650" height="209" alt="image" src="https://github.com/user-attachments/assets/b1d2c6ef-3ad4-4d43-9225-ca9b80371d60" />
+
 * **Multiprogramming** increases CPU utilization by keeping multiple jobs (code and data)
 in thememory so that the CPU always has one to execute in case some job gets busy with
 I/O.
@@ -2522,6 +2524,55 @@ multiprogramming.
 * **RTOS**
 - Real time error free, computations within tight-time boundaries.
 - Air Traffic control system, ROBOTS etc.
+
+## Multi-Tasking vs Multi-Threading
+
+**Program :** A Program is an executable file which contains a certain set of instructions written to complete the specific job or operation on your computer.
+• It’s a compiled code. Ready to be executed.
+• Stored in Disk <br>
+
+**Process :** Program under execution. Resides in Computer’s primary memory (RAM). <br>
+
+**Thread :**
+• Single sequence stream within a process.
+• An independent path of execution in a process.
+• Light-weight process.
+• Used to achieve parallelism by dividing a process’s tasks which are independent path
+of execution.
+• E.g., Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiplethreads.)
+
+Here you go — clean **two tables** rewritten neatly 👇
+
+---
+
+### **Table 1: Multitasking vs Multithreading**
+
+| **Multitasking**                                                       | **Multithreading**                                                                             |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Execution of more than one task simultaneously is called multitasking. | A process is divided into multiple sub-tasks called threads, each with its own execution path. |
+| Concept of more than one **process** being context switched.           | Concept of more than one **thread** being context switched.                                    |
+| Number of CPU: **1**                                                   | Number of CPU: **≥ 1** (better with more than 1 CPU)                                           |
+| **Isolation and memory protection exists.**                            | **No isolation and memory protection.**                                                        |
+| OS allocates separate memory and resources to each process.            | OS allocates memory to a process; all threads share the same memory and resources.             |
+
+---
+
+**Thread Scheduling :** <br>
+Threads are scheduled for execution based on their priority. Even though threads are executing within the runtime, all threads are assigned processor time slices by the operating system. 
+
+
+
+### **Table 2: Thread Context Switching vs Process Context Switching**
+
+| **Thread Context Switching**                                                               | **Process Context Switching**                                            |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| OS saves the current state of a thread and switches to another thread of the same process. | OS saves the current state of a process and switches to another process. |
+| Does **not** include switching of memory address space.                                    | Includes switching of memory address space.                              |
+| Program counter, registers, and stack are switched.                                        | Program counter, registers, stack, and memory space are switched.        |
+| **Fast** switching.                                                                        | **Slow** switching.                                                      |
+| CPU cache state is preserved.                                                              | CPU cache state is flushed.                                              |
+
+---
 
 
 # CN 
