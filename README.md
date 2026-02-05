@@ -2666,6 +2666,69 @@ protection), But some may need to communicate to work.
 
 
 
+
+## System Calls
+**How do apps interact with Kernel?** -> using system calls. <br>
+
+**Eg. Mkdir laks** <br>
+- Mkdir indirectly calls kernel and asked the file mgmt. module to create a new
+directory.
+- Mkdir is just a wrapper of actual system calls.
+- Mkdir interacts with kernel using system calls. <br>
+
+**Eg. Creating a process.** <br>
+- User executes a process. (User space)
+- Gets system call. (US)
+- Exec system call to create a process. (KS)
+- Return to US. <br>
+
+**Transitions from US to KS done by software interrupts.** <br>
+**System calls** are implemented in C.<br>
+**A system call** is a mechanism using which a user program can request a service from the kernel for
+whichitdoesnot havethepermissiontoperform. <br>
+User programs typically do not have permission to perform operations like accessing I/O devices and
+communicatingotherprograms.<br>
+**System Calls** are the only way through which a process can go into **kernel mode from user mode.** <br>
+
+<img width="665" height="516" alt="image" src="https://github.com/user-attachments/assets/cabb5eb7-d016-4b2d-b3f6-998ab678c0c6" />
+
+##### Types of System Calls:
+1) Process Control 
+a. end, abort
+b. load, execute
+c. create process, terminate process
+d. get process attributes, set process attributes
+e. wait for time
+f. wait event, signal event
+g. allocate and free memory
+
+2) File Management
+a. create file, delete file
+b. open, close
+c. read, write, reposition
+d. get file attributes, set file attributes
+
+3) Device Management
+a. request device, release device
+b. read, write, reposition
+c. get device attributes, set device attributes
+d. logically attach or detach devices
+
+5) Information maintenance
+a. get time or date, set time or date
+b. get system data, set system data
+c. get process, file, or device attributes
+d. set process, file, or device attributes
+
+7) Communication Management
+a. create, delete communication connection
+b. send, receive messages
+c. transfer status information
+d. attach or detach remote devices
+
+<img width="868" height="639" alt="image" src="https://github.com/user-attachments/assets/6f4bb47e-f62d-4e75-a553-eca46450a5a2" />
+
+
 # CN 
 
 
