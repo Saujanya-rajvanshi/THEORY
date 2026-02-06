@@ -68,6 +68,10 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [static keywords](#static-keywords)
 
 ---
+- [OOPS in C](#OOPS-in-C)
+- [OOPS in python](#OOPS-in-python)
+- [OOPS in JAVA](#OOPS-in-JAVA)
+---
 
 ## Class
 
@@ -1344,6 +1348,56 @@ public:
 ```
 
 ---
+
+- [OOPS in C](#OOPS-in-C)
+
+# OOPS in python
+## 🎗 OOP — Python vs C++
+
+### ✅ CONCEPTS THAT STAY
+
+* Class & Object
+* Encapsulation
+* Inheritance
+* Polymorphism
+* Abstraction
+
+### ❌ C++-ONLY FEATURES
+
+| C++ Feature              | Python              |
+| ------------------------ | ------------------- |
+| Access specifiers        | ❌ (convention only) |
+| Constructors overloading | ❌                   |
+| Destructors              | ❌                   |
+| Multiple constructors    | ❌                   |
+
+### ✅ Python OOP
+
+```python
+class A:
+    def __init__(self, x):
+        self.x = x
+```
+
+📌 **Exam Line:**
+
+> Python supports OOP but with **dynamic binding and duck typing**.
+
+---
+
+- [OOPS in JAVA](#OOPS-in-JAVA)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
