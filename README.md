@@ -2438,6 +2438,10 @@ CodeHelp
 - [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
 - [Types of OS](#Types-of-OS)
 - [Components of OS](#Components-of-OS)
+- [Components of OS](#Components-of-OS)
+- [System Calls](#System-Calls)
+- [What happens when you turn on your computer](#What-happens-when-you-turn-on-your-computer)
+- [32 Bit vs 64 Bit OS](#32-Bit-vs-64-Bit-OS)
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -2728,6 +2732,71 @@ d. attach or detach remote devices
 
 <img width="868" height="639" alt="image" src="https://github.com/user-attachments/assets/6f4bb47e-f62d-4e75-a553-eca46450a5a2" />
 
+
+## What happens when you turn on your computer 
+i. PC On
+
+ii. CPU initializes itself and looks for a firmware program (BIOS) stored in
+BIOS Chip (Basic input-output system chip is a ROM chip found on
+mother board that allows to access & setup computer system at most
+basic level.)
+    1. In modern PCs, CPU loads UEFI (Unified extensible firmware interface)
+
+iii. CPU runs the BIOS which tests and initializes system hardware. Bios
+loads configuration settings. If something is not appropriate (like missing
+RAM) error is thrown and boot process is stopped.
+This is called POST (Power on self-test) process.
+(UEFI can do a lot more than just initialize hardware; it’s really a tiny
+operating system. For example, Intel CPUs have the Intel Management
+Engine. This provides a variety of features, including powering Intel’s
+Active Management Technology, which allows for remote management
+of business PCs.)
+
+iv. BIOS will handoff responsibility for booting your PC to your OS’s
+bootloader.
+    1. BIOS looked at the MBR (master boot record), a special boot
+sector at the beginning of a disk. The MBR contains code that
+loads the rest of the operating system, known as a “bootloader.”
+The BIOS executes the bootloader, which takes it from there and
+begins booting the actual operating system—Windows or Linux,
+for example.
+In other words,
+the BIOS or UEFI examines a storage device on your system to
+look for a small program, either in the MBR or on an EFI system
+partition, and runs it.
+
+v. The bootloader is a small program that has the large task of booting the
+rest of the operating system (Boots Kernel then, User Space). Windows
+uses a bootloader named Windows Boot Manager (Bootmgr.exe), most
+Linux systems use GRUB, and Macs use something called boot.efi
+
+
+
+# 32 Bit vs 64 Bit OS
+
+1. A 32-bit OS has 32-bit registers, and it can access 2^32 unique memory addresses. i.e., 4GB of
+physical memory.
+2. A 64-bit OS has 64-bit registers, and it can access 2^64 unique memory addresses. i.e.,
+17,179,869,184 GB of physical memory.
+3. 32-bit CPU architecture can process 32 bits of data & information.
+4. 64-bit CPU architecture can process 64 bits of data & information.
+5. Advantages of 64-bit over the 32-bit operating system:
+a. **Addressable Memory :** 32-bit CPU -> 2^32 memory addresses, 64-bit CPU -> 2^64
+memory addresses.
+b. **Resource usage :** Installing more RAM on a system with a 32-bit OS doesn't impact
+performance. However, upgrade that system with excess RAM to the 64-bit version of
+Windows, and you'll notice a difference.
+c. **Performance :** All calculations take place in the registers. When you’re performing math in
+your code, operands are loaded from memory into registers. So, having larger registers
+allow you to perform larger calculations at the same time.
+32-bit processor can execute 4 bytes of data in 1 instruction cycle while 64-bit means that
+processor can execute 8 bytes of data in 1 instruction cycle.
+(In 1 sec, there could be thousands to billons of instruction cycles depending upon a
+processor design)
+d. **Compatibility :** 64-bit CPU can run both 32-bit and 64-bit OS. While 32-bit CPU can only
+run 32-bit OS.
+e. **Better Graphics performance :** 8-bytes graphics calculations make graphics-intensive apps
+run faster.
 
 # CN 
 
