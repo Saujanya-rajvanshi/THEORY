@@ -2897,9 +2897,8 @@ quicker processing by the CPU.
 ## Introduction to Process
 1. What is a program? Compiled code, that is ready to execute.
 2. What is a process? Program under execution.
-3. How OS creates a process? Converting program into a process.
-<br>
-* **STEPS :**
+3. How OS creates a process? Converting program into a process. <br>
+4. **STEPS :**
     * a. Load the program & static data into memory.
     * b. Allocate runtime stack.
     * c. Heap memory allocation.
