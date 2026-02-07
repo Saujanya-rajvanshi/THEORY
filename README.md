@@ -2496,6 +2496,10 @@ CodeHelp
 - [System Calls](#System-Calls)
 - [What happens when you turn on your computer](#What-happens-when-you-turn-on-your-computer)
 - [32 Bit vs 64 Bit OS](#32-Bit-vs-64-Bit-OS)
+- [Storage Devices Basics](#Storage-Devices-Basics)
+- [Introduction to Process](#Introduction-to-Process)
+- [Process States Process Queues](#Process-States-Process-Queues)
+- [Swapping | Context-Switching | Orphan process | Zombie process](#Swapping-Context-Switching-Orphan-process-Zombie-process)
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -2871,7 +2875,7 @@ quicker processing by the CPU.
 
 7. **Secondary Memory :** Storage media, on which computer can store data & programs.
 
-Comparison
+##### Comparison
 1. **Cost :**
     * a. Primary storages are costly.
     * b. Registers are most expensive due to expensive semiconductors & labour.
@@ -2887,6 +2891,75 @@ Comparison
 6. **Volatility :**
     * a. Primary memory is volatile.
     * b. Secondary is non-volatile.
+
+
+  
+## Introduction to Process
+1. What is a program? Compiled code, that is ready to execute.
+2. What is a process? Program under execution.
+3. How OS creates a process? Converting program into a process.
+<br>
+* **STEPS :**
+    * a. Load the program & static data into memory.
+    * b. Allocate runtime stack.
+    * c. Heap memory allocation.
+    * d. IO tasks.
+    * e. OS handoffs control to main ().
+  
+5. **Architecture** of process:
+<img width="1030" height="483" alt="image" src="https://github.com/user-attachments/assets/b40238d0-0bdd-4e3b-958b-8e936de1dfd8" />
+
+
+6. **Attributes** of process:
+    * a. Feature that allows identifying a process uniquely.
+    * b. Process table
+        * i. All processes are being tracked by OS using a table like data structure.
+        * ii. Each entry in that table is process control block (PCB).
+    * c. PCB: Stores info/attributes of a process.
+        * i. Data structure used for each process, that stores information of a process such as process id, program counter, process state, priority etc.
+
+7. **PCB structure :**
+
+<img width="802" height="458" alt="image" src="https://github.com/user-attachments/assets/b41762e3-59e5-4b20-8af2-8daa133c60cc" />
+
+**Registers in the PCB**, it is a data structure. When a processes is running and it's time slice expires, the
+current value of process specific registers would be stored in the PCB and the process would be swapped
+out. When the process is scheduled to be run, the register values is read from the PCB and written to the
+CPU registers. This is the main purpose of the registers in the PCB.
+CodeHelp
+
+## Process States Process Queues
+
+1. **Process States :** As process executes, it changes state. Each process may be in one of the following
+states.
+    * a. **New :** OS is about to pick the program & convert it into process. OR the process is being
+created.
+    * b. **Run :** Instructions are being executed; CPU is allocated.
+    * c. **Waiting :** Waiting for IO.
+    * d. **Ready :** The process is in memory, waiting to be assigned to a processor.
+    * e. **Terminated :** The process has finished execution. PCB entry removed from process table.
+  
+<img width="776" height="323" alt="image" src="https://github.com/user-attachments/assets/9bae4967-62bd-47fc-a1e5-43448409fed0" />
+
+
+2. **Process Queues :**
+    * a. **Job Queue :**
+        * i. Processes in new state.
+        * ii. Present in secondary memory.
+        * iii. Job Schedular (Long term schedular (LTS)) picks process from the pool and loads them into memory for execution.
+    * b. **Ready Queue :**
+        * i. Processes in Ready state.
+        * ii. Present in main memory.
+        * iii. CPU Schedular (Short-term schedular) picks process from ready queue and dispatch it to CPU.
+    * c. **Waiting Queue :**
+        * i. Processes in Wait state.
+
+3. **Degree of multi-programming :** The number of processes in the memory.
+    * a. LTS controls degree of multi-programming.
+
+4. **Dispatcher :** The module of OS that gives control of CPU to a process selected by STS.
+
+## Swapping Context Switching Orphan process Zombie process
 
 # CN 
 
