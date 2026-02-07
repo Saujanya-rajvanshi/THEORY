@@ -2906,7 +2906,7 @@ quicker processing by the CPU.
     * e. OS handoffs control to main ().
   
 5. **Architecture** of process:
-<img width="776" height="438" alt="image" src="https://github.com/user-attachments/assets/f8b2b8f2-4ee8-49d8-92db-c5d731811573" />
+<img width="850" height="397" alt="image" src="https://github.com/user-attachments/assets/43c3ed3f-137a-49f3-9387-2ad848184530" />
 
 
 6. **Attributes** of process:
@@ -2919,7 +2919,7 @@ quicker processing by the CPU.
 
 7. **PCB structure :**
 
-<img width="802" height="458" alt="image" src="https://github.com/user-attachments/assets/b41762e3-59e5-4b20-8af2-8daa133c60cc" />
+<img width="776" height="438" alt="image" src="https://github.com/user-attachments/assets/2063a074-62e8-4962-9664-8add42d59036" />
 
 **Registers in the PCB**, it is a data structure. When a processes is running and it's time slice expires, the
 current value of process specific registers would be stored in the PCB and the process would be swapped
