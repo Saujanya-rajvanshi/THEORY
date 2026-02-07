@@ -2852,6 +2852,41 @@ run 32-bit OS.
 * e. **Better Graphics performance :** 8-bytes graphics calculations make graphics-intensive apps
 run faster.
 
+## Storage Devices Basics
+
+What are the different memory present in the computer system?
+
+<img width="473" height="695" alt="image" src="https://github.com/user-attachments/assets/56be26a4-f9d5-48f7-bf11-32341731afca" />
+
+1. **Register :** Smallest unit of storage. It is a part of CPU itself. <br>
+A register may hold an instruction, a storage address, or any data (such as bit sequence or individual
+characters). <br>
+Registers are a type of computer memory used to quickly accept, store, and transfer data and
+instructions that are being used immediately by the CPU.
+
+3. **Cache :** Additional memory system that temporarily stores frequently used instructions and data for
+quicker processing by the CPU.
+
+5. **Main Memory :** RAM.
+6. **Secondary Memory :** Storage media, on which computer can store data & programs.
+
+Comparison
+1. **Cost :**
+    a. Primary storages are costly.
+    b. Registers are most expensive due to expensive semiconductors & labour.
+    c. Secondary storages are cheaper than primary.
+   
+2. **Access Speed :**
+a. Primary has higher access speed than secondary memory.
+b. Registers has highest access speed, then comes cache, then main memory.
+
+4. **Storage size :**
+a. Secondary has more space.
+
+6. **Volatility :**
+a. Primary memory is volatile.
+b. Secondary is non-volatile.
+
 # CN 
 
 
