@@ -2868,24 +2868,25 @@ instructions that are being used immediately by the CPU.
 quicker processing by the CPU.
 
 5. **Main Memory :** RAM.
-6. **Secondary Memory :** Storage media, on which computer can store data & programs.
+
+7. **Secondary Memory :** Storage media, on which computer can store data & programs.
 
 Comparison
 1. **Cost :**
-    a. Primary storages are costly.
-    b. Registers are most expensive due to expensive semiconductors & labour.
-    c. Secondary storages are cheaper than primary.
+    * a. Primary storages are costly.
+    * b. Registers are most expensive due to expensive semiconductors & labour.
+    * c. Secondary storages are cheaper than primary.
    
 2. **Access Speed :**
-a. Primary has higher access speed than secondary memory.
-b. Registers has highest access speed, then comes cache, then main memory.
+    * a. Primary has higher access speed than secondary memory.
+    * b. Registers has highest access speed, then comes cache, then main memory.
 
 4. **Storage size :**
-a. Secondary has more space.
+    * a. Secondary has more space.
 
 6. **Volatility :**
-a. Primary memory is volatile.
-b. Secondary is non-volatile.
+    * a. Primary memory is volatile.
+    * b. Secondary is non-volatile.
 
 # CN 
 
