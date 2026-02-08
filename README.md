@@ -2489,8 +2489,8 @@ CodeHelp
 
 # OS
 
-- [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
 - [Types of OS](#Types-of-OS)
+- [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
 - [Components of OS](#Components-of-OS)
 - [Components of OS](#Components-of-OS)
 - [System Calls](#System-Calls)
