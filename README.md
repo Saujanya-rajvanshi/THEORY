@@ -2500,6 +2500,10 @@ CodeHelp
 - [Introduction to Process](#Introduction-to-Process)
 - [Process States Process Queues](#Process-States-Process-Queues)
 - [Swapping | Context-Switching | Orphan process | Zombie process](#Swapping-Context-Switching-Orphan-process-Zombie-process)
+- [Intro to Process Scheduling | FCFS | Convoy Effect](#Intro-to-Process-Scheduling-FCFS-Convoy-Effect)
+- [CPU Scheduling | SJF | Priority | RR](#CPU-Scheduling-SJF-Priority-RR)
+- [MLQ | MLFQ](#MLQ-MLFQ)
+- [Introduction to Concurrency](#Introduction-to-Concurrency)
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -2987,7 +2991,7 @@ child process. Hence, the child process remains a zombie till it is removed from
 
 
 
-## Intro to Process Scheduling | FCFS | Convoy Effect
+## Intro to Process Scheduling FCFS Convoy Effect
 
 * **Process Scheduling**
     * a. Basis of Multi-programming OS.
