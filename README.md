@@ -2542,8 +2542,6 @@ Types of operating systems -
 * Distributed system - [LOCUS]
 * Real time OS - [ATCS]
 
-<img width="559" height="748" alt="image" src="https://github.com/user-attachments/assets/c9f8361f-010d-4387-b94d-1839a0924e73" />
-
 **Single	process	OS**,	only	1	process	executes	at	a	time	from	the	ready	queue.
 
 **Batch-processing	OS**,	
