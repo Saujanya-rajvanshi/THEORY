@@ -2504,6 +2504,14 @@ CodeHelp
 - [CPU Scheduling | SJF | Priority | RR](#CPU-Scheduling-SJF-Priority-RR)
 - [MLQ | MLFQ](#MLQ-MLFQ)
 - [Introduction to Concurrency](#Introduction-to-Concurrency)
+- [Critical Section Problem and How to address it](#Critical-Section-Problem-and-How-to-address-it)
+- [Conditional Variable and Semaphores for Threads synchronization](#Conditional-Variable-and-Semaphores-for-Threads-synchronization)
+- [The Dining Philosophers problem](#The-Dining-Philosophers-problem)
+- [Deadlock Part-1](#Deadlock-Part-one)
+- [Deadlock Part-2](#Deadlock-Part-two)
+- [Memory Management Techniques Contiguous Memory Allocation](#Memory-Management-Techniques-Contiguous-Memory-Allocation)
+
+
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -3222,7 +3230,7 @@ Process synchronization techniques play a key role in maintaining the consistenc
 We must add some enhancement rules to make deadlock free solution.
 
 
-## Deadlock Part-1
+## Deadlock Part 0ne
 
 * In Multi-programming environment, we have several processes competing for finite number of
 resources
@@ -3268,7 +3276,7 @@ resources
         * i. To ensure that this condition never holds is to impose a proper ordering of resource allocation.
         * ii. P1 and P2 both require R1 and R1, locking on these resources should be like, both try to lock R1 then R2. By this way which ever process first locks R1 will get R2.
 
-## Deadlock Part-2
+## Deadlock Part two
 
 * **Deadlock Avoidance:** Idea is, the kernel be given in advance info concerning which resources will use in its lifetime. By this, system can decide for each request whether the process should wait. To decide whether the current request can be satisfied or delayed, the system must consider the resources currently available, resources currently allocated to each process in the system and the future requests and releases of each process.
     * a. Schedule process and its resources allocation in such a way that the DL never occur.
@@ -3318,8 +3326,9 @@ To realize this increase in performance, however, we must keep several processes
 * c. The runtime mapping from virtual to physical address is done by a hardware device called the memory-management unit (MMU).
 * d. The user's program mainly generates the logical address, and the user thinks that the program isrunning in this logical address, but the program mainly needs physical memory in order to complete its execution.
 
-<img width="505" height="360" alt="image" src="https://github.com/user-attachments/assets/57e923ac-0031-4c2a-aa5a-933a22d8be1a" />
+<img width="505" height="360" alt="image" src="https://github.com/user-attachments/assets/57e923ac-0031-4c2a-aa5a-933a22d8be1a" />  
 <br>
+
 How OS manages the isolation and protect? **(Memory Mapping and Protection)**
 * a. OS provides this Virtual Address Space (VAS) concept.
 * b. To separate memory space, we need the ability to determine the range of legal addresses that the process may access and to ensure that the process can access only these legal addresses.
@@ -3353,12 +3362,14 @@ How OS manages the isolation and protect? **(Memory Mapping and Protection)**
 * c. **Dynamic Partitioning**
     * i. In this technique, the partition size is not declared initially. It is declared at the time of process loading.
     <img width="527" height="323" alt="image" src="https://github.com/user-attachments/assets/7991fc8a-4206-4ba5-ab55-da93c0f396bf" />
+    <br>
     * ii. Advantages over fixed partitioning
         * 1. No internal fragmentation
         * 2. No limit on size of process
         * 3. Better degree of multi-programming
     * iv. Limitation
         * 1. External fragmentation
+          <br>
         <img width="660" height="449" alt="image" src="https://github.com/user-attachments/assets/77ac6a6f-cafc-49d5-9759-034e3c13e8ee" />
 
 
@@ -3395,6 +3406,7 @@ also called defragmentation.
     * i. Allocate the largest hole that is big enough.
     * ii. Slow, as required to iterate whole free holes list.
     * iii. Leaves larger holes that may accommodate other processes.
+
 
 ## Paging Non Contiguous Memory Allocation
 1. The main disadvantage of Dynamic partitioning is External Fragmentation.
