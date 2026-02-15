@@ -2524,10 +2524,10 @@ CodeHelp
 application software. <br>
 
 #### Why OS?
-* Bulky and complex app. (Hardware interaction code must be in app’s
-code base)
-* Resource exploitation by 1 App.
-* No memory protection.
+* resourse managment
+* bulky apps, hardware interaction code writing problem
+* memory isolation and protection
+* avoid (do not repeat youself) voilation
 
 #### What is an Operating System?
 * System software that manages hardware and software resources.
