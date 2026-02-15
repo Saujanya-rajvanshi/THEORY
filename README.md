@@ -2510,6 +2510,12 @@ CodeHelp
 - [Deadlock Part-1](#Deadlock-Part-one)
 - [Deadlock Part-2](#Deadlock-Part-two)
 - [Memory Management Techniques Contiguous Memory Allocation](#Memory-Management-Techniques-Contiguous-Memory-Allocation)
+- [Free Space Management](#Free-Space-Management)
+- [Paging Non Contiguous Memory Allocation](#Paging-Non-Contiguous-Memory-Allocation)
+- [Segmentation Non-Contiguous Memory Allocation](#Segmentation-Non-Contiguous-Memory-Allocation)
+- [What is Virtual Memory Demand Paging Page Faults](#What-is-Virtual-Memory-Demand-Paging-Page-Faults)
+- [Page Replacement Algorithms](#Page-Replacement-Algorithms)
+- [Thrashing](#Thrashing)
 
 
 
