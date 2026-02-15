@@ -3362,6 +3362,7 @@ How OS manages the isolation and protect? **(Memory Mapping and Protection)**
 * c. **Dynamic Partitioning**
     * i. In this technique, the partition size is not declared initially. It is declared at the time of process loading.
     <img width="527" height="323" alt="image" src="https://github.com/user-attachments/assets/7991fc8a-4206-4ba5-ab55-da93c0f396bf" />
+    
     <br>
     * ii. Advantages over fixed partitioning
         * 1. No internal fragmentation
@@ -3369,8 +3370,10 @@ How OS manages the isolation and protect? **(Memory Mapping and Protection)**
         * 3. Better degree of multi-programming
     * iv. Limitation
         * 1. External fragmentation
-          <br>
-        <img width="660" height="449" alt="image" src="https://github.com/user-attachments/assets/77ac6a6f-cafc-49d5-9759-034e3c13e8ee" />
+    <br>
+        
+
+  <img width="660" height="449" alt="image" src="https://github.com/user-attachments/assets/77ac6a6f-cafc-49d5-9759-034e3c13e8ee" />
 
 
 
