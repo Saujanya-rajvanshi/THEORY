@@ -2607,6 +2607,24 @@ multiprogramming.
 - Real time error free, computations within tight-time boundaries.
 - Air Traffic control system, ROBOTS etc.
 
+
+### Comparison
+
+| Type                    | CPUs                   | Main Idea                                         | Example                     |
+| ----------------------- | ---------------------- | ------------------------------------------------- | --------------------------- |
+| **Single Process OS**   | 1                      | Only one process runs at a time                   | MS-DOS                      |
+| **Batch Processing OS** | 1                      | Jobs grouped & executed in batches                | Atlas Supervisor            |
+| **Multiprogramming OS** | 1                      | Multiple jobs in memory, CPU switches on I/O wait | THE multiprogramming system |
+| **Multitasking OS**     | 1                      | Time-sharing between tasks, fast switching        | CTSS                        |
+| **Multiprocessing OS**  | ≥ 2                    | Multiple CPUs execute processes simultaneously    | Windows NT                  |
+| **Distributed OS**      | ≥ 1 (multiple systems) | Networked independent computers act as one system | LOCUS                       |
+| **Real-Time OS (RTOS)** | 1 or more              | Strict time-bound execution                       | Air Traffic Control System  |
+
+
+
+
+
+
 ## Multi Tasking vs Multi Threading
 
 **Program :** A Program is an executable file which contains a certain set of instructions written to complete the specific job or operation on your computer.
