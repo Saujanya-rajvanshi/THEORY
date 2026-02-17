@@ -2633,13 +2633,13 @@ multiprogramming.
 
 **Process :** Program under execution. Resides in Computer’s primary memory (RAM). <br>
 
-**Thread :**
-• Single sequence stream within a process.
-• An independent path of execution in a process.
-• Light-weight process.
-• Used to achieve parallelism by dividing a process’s tasks which are independent path
+**Thread :** <br>
+* Single sequence stream within a process.
+* An independent path of execution in a process.
+* Light-weight process.
+* Used to achieve parallelism by dividing a process’s tasks which are independent path
 of execution.
-• E.g., Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiplethreads.)
+* E.g., Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiplethreads.)
 
 
 ---
