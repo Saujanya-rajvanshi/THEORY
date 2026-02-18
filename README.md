@@ -2628,8 +2628,8 @@ multiprogramming.
 ## Multi Tasking vs Multi Threading
 
 **Program :** A Program is an executable file which contains a certain set of instructions written to complete the specific job or operation on your computer.
-• It’s a compiled code. Ready to be executed.
-• Stored in Disk <br>
+* It’s a compiled code. Ready to be executed.
+* Stored in Disk <br>
 
 **Process :** Program under execution. Resides in Computer’s primary memory (RAM). <br>
 
@@ -2642,7 +2642,6 @@ of execution.
 * E.g., Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiplethreads.)
 
 
----
 
 ### **Table 1: Multitasking vs Multithreading**
 
@@ -2654,7 +2653,6 @@ of execution.
 | **Isolation and memory protection exists.**                            | **No isolation and memory protection.**                                                        |
 | OS allocates separate memory and resources to each process.            | OS allocates memory to a process; all threads share the same memory and resources.             |
 
----
 
 **Thread Scheduling :** <br>
 Threads are scheduled for execution based on their priority. Even though threads are executing within the runtime, all threads are assigned processor time slices by the operating system. 
@@ -2679,7 +2677,7 @@ Threads are scheduled for execution based on their priority. Even though threads
 the hardware andperforms the most crucialtasks.
 a. Heart of OS/Core component
 b. Very first part of OS to load on start-up.
-2. User space: Where application software runs, apps don’t have privileged access to the
+2. **User space :** Where application software runs, apps don’t have privileged access to the
 underlying hardware. It interacts with kernel.
 a. GUI
 b. CLI
@@ -2721,7 +2719,7 @@ a. Buffering (data copy between two devices), caching and spooling.
        1. Memory caching, Web caching etc.
 
 
-Types of Kernels:
+### Types of Kernels
 1. **Monolithic kernel**
 a. All functions are in kernel itself.
 b. Bulky in size.
