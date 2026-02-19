@@ -2492,7 +2492,6 @@ CodeHelp
 - [Types of OS](#Types-of-OS)
 - [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
 - [Components of OS](#Components-of-OS)
-- [Components of OS](#Components-of-OS)
 - [System Calls](#System-Calls)
 - [What happens when you turn on your computer](#What-happens-when-you-turn-on-your-computer)
 - [32 Bit vs 64 Bit OS](#32-Bit-vs-64-Bit-OS)
@@ -2786,7 +2785,7 @@ communicatingotherprograms.<br>
 
 <img width="665" height="516" alt="image" src="https://github.com/user-attachments/assets/cabb5eb7-d016-4b2d-b3f6-998ab678c0c6" />
 
-##### Types of System Calls:
+#### Types of System Calls:
 1) Process Control 
 a. end, abort
 b. load, execute
