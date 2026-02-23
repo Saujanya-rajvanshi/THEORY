@@ -3167,6 +3167,55 @@ operating system.
         * 1. Also, allocating memory and resources for process creation is costly, so better to divide tasks into threads of same process.
     * Threads allow utilization of multiprocessor architectures to a greater scale and efficiency.
 
+* **code**
+```cpp
+#include <iostream>
+#include <thread>
+#include <unistd.h>
+
+using namespace std;
+
+void taskA() {
+    for (int i = 0; i < 10; ++i) {
+        sleep(1);
+        printf("TaskA: %d\n", i);
+        fflush(stdout);
+    }
+}
+
+void taskB() {
+    for (int i = 0; i < 10; ++i) {
+        sleep(1);
+        printf("TaskB: %d\n", i);
+        fflush(stdout);
+    }
+}
+
+int main() {
+
+    thread t1(taskA);
+    thread t2(taskB);
+
+    t1.join();
+    t2.join();
+
+    return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Critical Section Problem and How to address it
 
 Process synchronization techniques play a key role in maintaining the consistency of shared data <br>
