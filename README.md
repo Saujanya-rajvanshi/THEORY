@@ -3280,7 +3280,33 @@ int main() {
 }
 ```
 
+* **solution code**
+```cpp
+from threading import Thread, Lock
 
+lock = Lock()
+count = 0
+
+def task():
+    global count
+    lock.acquire()
+    for i in range(1000000):
+        count += 1
+    lock.release()
+
+if __name__ == "__main__":
+
+    t1 = Thread(target=task)
+    t2 = Thread(target=task)
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    print(count)
+```
 
 
 
