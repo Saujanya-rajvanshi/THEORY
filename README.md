@@ -3331,6 +3331,52 @@ if __name__ == "__main__":
         * i. To avoid busy waiting.
     * e. Contention is not here.
 
+
+```py
+from threading import *
+import time
+
+cond = Condition()
+done = 0
+
+def task(name):
+    global done
+    
+    with cond:
+        if done == 1:
+            done = 2
+            print("Waiting on condition variable cond:", name)
+            cond.wait()
+            print("Condition met:", name)
+        else:
+            for i in range(5):
+                print(name, "working...")
+                time.sleep(1)
+            
+            print("Signaling condition variable cond:", name)
+            cond.notify_all()
+            print("Notification done:", name)
+
+if __name__ == "__main__":
+    t1 = Thread(target=task, args=("t1",))
+    t2 = Thread(target=task, args=("t2",))
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
+```
+
+
+
+
+
+
+
+
+
+
 * **Semaphores**
     * a. Synchronization method.
     * b. An integer that is equal to number of resources
@@ -3343,6 +3389,87 @@ if __name__ == "__main__":
         * ii. Can be used to control access to a given resource consisting of a finite number of instances.
     * g. To overcome the need for busy waiting, we can modify the definition of the wait () and signal () semaphore operations. When a process executes the wait () operation and finds that the semaphore value is not positive, it must wait. However, rather than engaging in busy waiting, the process car block itself. The block- operation places a process into a waiting queue associated with the semaphore, and the state of the process is switched to the Waiting state. Then control is transferred to the CPU scheduler, which selects another process to execute.
     * h. A process that is blocked, waiting on a semaphore S, should be restarted when some other process executes a signal () operation. The process is restarted by a wakeup () operation, which changes the process from the waiting state to the ready state. The process is then placed in the ready queue.
+
+```py
+from threading import *
+import time
+
+sem = Semaphore(5)
+
+def task(name):
+    sem.acquire()
+    for i in range(5):
+        print("{} working".format(name))
+        time.sleep(1)
+    sem.release()
+
+if __name__ == "__main__":
+    t1 = Thread(target=task, args=("Thread-1",))
+    t2 = Thread(target=task, args=("Thread-2",))
+    t3 = Thread(target=task, args=("Thread-3",))
+    t4 = Thread(target=task, args=("Thread-4",))
+    t5 = Thread(target=task, args=("Thread-5",))
+
+    t1.start()
+    t2.start()
+    t3.start()
+    t4.start()
+    t5.start()
+
+    t1.join()
+    t2.join()
+    t3.join()
+    t4.join()
+    t5.join()
+```
+
+### producer consumer problem and its solution 
+```py
+from threading import *
+import time
+
+cond = Condition()
+done = 0
+
+def task(name):
+    global done
+    
+    with cond:
+        if done == 1:
+            done = 2
+            print("Waiting on condition variable cond:", name)
+            cond.wait()
+            print("Condition met:", name)
+        else:
+            for i in range(5):
+                print(name, "working...")
+                time.sleep(1)
+            
+            print("Signaling condition variable cond:", name)
+            cond.notify_all()
+            print("Notification done:", name)
+
+if __name__ == "__main__":
+    t1 = Thread(target=task, args=("t1",))
+    t2 = Thread(target=task, args=("t2",))
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
+```
+
+
+
+
+
+
+
+
+
+
+
 
 ## The Dining Philosophers problem
 
