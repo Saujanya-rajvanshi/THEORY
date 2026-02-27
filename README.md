@@ -3503,7 +3503,7 @@ if __name__ == "__main__":
 We must add some enhancement rules to make deadlock free solution.
 
 
-## Deadlock Part 0ne
+## Deadlock Part one
 
 * In Multi-programming environment, we have several processes competing for finite number of
 resources
