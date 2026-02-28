@@ -2593,30 +2593,24 @@ Everything in OS is about managing these 4.<br>
 
 ## Types of OS
 
-OS goals - <br>
-* Maximum CPU utilization
-* Less process starvation
-* Higher priority job execution
-
-
-Types of operating systems :
-#### Based on Number of Programs Executing
+#### 🍂 Based on Number of Programs Executing
 * Single process operating system - [MS DOS, 1981]
 * Batch-processing operating system - [ATLAS, Manchester Univ., late 1950s - early 1960s]
 * Multiprogramming operating system - [THE, Dijkstra, early 1960s]
 * Multitasking operating system - [CTSS, MIT, early 1960s]
-#### Based on Number of CPUs
+#### 🍂 Based on Number of CPUs
 * Multi-processing operating system - [Windows NT]
-#### Based on System Architecture
+#### 🍂 Based on System Architecture
 * Distributed system - [LOCUS]
-#### Based on Time Constraints
+#### 🍂 Based on Time Constraints
 * Real time OS - [ATCS]
 
-* **Single	process	OS**	only	1	process	executes	at	a	time	from	the	ready	queue. <br>
+### **Single	process	OS**	
+only	1	process	executes	at	a	time	from	the	ready	queue. <br>
 Basis → Only ONE program runs at a time. <br>
 CPU handles one job. No parallel feeling. <br>
 
-* **Batch-processing	OS**	
+### **Batch-processing	OS**	
 1. Firstly, user prepares his job using punch cards. 
 2. Then, he submits the job to the computer operator.
 3. Operator collects the jobs from different users and sort the jobs into batches with
@@ -2633,9 +2627,8 @@ No user interaction during execution. <br>
 
 <img width="650" height="209" alt="image" src="https://github.com/user-attachments/assets/b1d2c6ef-3ad4-4d43-9225-ca9b80371d60" />
 
-* **Multiprogramming** increases CPU utilization by keeping multiple jobs (code and data)
-in thememory so that the CPU always has one to execute in case some job gets busy with
-I/O.
+### **Multiprogramming** 
+increases CPU utilization by keeping multiple jobs (code and data) in thememory so that the CPU always has one to execute in case some job gets busy with I/O.
 - Single CPU
 - Context switching for processes.
 - Switch happens when current process goes to wait state.
@@ -2644,8 +2637,8 @@ Basis → Multiple programs are kept in memory. <br>
 When one waits (I/O), CPU switches to another. <br>
 Goal → Increase CPU utilization. <br>
 
-* **Multitasking** is a logical extension of
-multiprogramming.
+### **Multitasking**
+is a logical extension of multiprogramming.
 - Single CPU
 - Able to run more than one task simultaneously.
 - Context switching and time sharing used.
@@ -2654,20 +2647,21 @@ multiprogramming.
 Basis → CPU switches very fast between tasks to give illusion of parallelism. <br>
 Goal → User responsiveness. <br>
 
-* **Multi-processing OS**, more than 1 CPU in a single computer.
+### **Multi-processing OS**
+more than 1 CPU in a single computer.
 - Increases reliability, 1 CPU fails, other can work
 - Better throughput.
 - Lesser process starvation, (if 1 CPU is working on some process, other can be executed on other CPU. <br>
 Basis → Uses multiple CPUs or cores. <br>
 True parallel execution. <br>
 
-* **Distributed OS**
+### **Distributed OS**
 - OS manages many bunches of resources, >=1 CPUs, >=1 memory, >=1 GPUs, etc
 - Loosely connected autonomous, interconnected computer nodes.
 - collection of independent, networked, communicating, and physically separate computational nodes. <br>
 Basis → Multiple computers connected, but appear as one system. <br>
 
-* **RTOS**
+### **RTOS**
 - Real time error free, computations within tight-time boundaries.
 - Air Traffic control system, ROBOTS etc. <br>
 Basis → Strict timing requirements. <br>
