@@ -21,7 +21,7 @@
 [LECTURE - dbms vedio lecture](https://www.youtube.com/watch?v=dl00fOOYLOM&t=34400s)
 
 ### OS  THEORY
-[REPOSITORY OS](#OS)
+[REPOSITORY OS](#OPTERATING-SYSTEM)
 <BR>
 [THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
 <BR>
@@ -2487,7 +2487,7 @@ CodeHelp
 ---
 
 
-# OS
+# OPERATING SYSTEM
 
 ## INDEX
 #### 🪵 Basics of OS
