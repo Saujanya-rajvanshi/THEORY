@@ -2522,26 +2522,21 @@ CodeHelp
 **System software** operates and controls the computer system and provides a platform to run
 application software. <br>
 
-### 🧱 Hardware
-
+#### 🧱 Hardware
 * CPU
 * RAM
 * Hard disk
 * Keyboard
 
-### 🖥 System Software
-
+#### 🖥 System Software
 * Operating System
 * Device Drivers
 * Compiler
 
-### 📱 Application Software
-
+#### 📱 Application Software
 * Chrome
 * Word
-* VS Code
-<br>
-<br>
+* VS Code <br>
 * Hardware = body
 * System software = controller/manager
 * Application software = tasks you want done
