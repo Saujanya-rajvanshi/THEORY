@@ -2489,25 +2489,37 @@ CodeHelp
 
 # OS
 
+## INDEX
+#### 🪵 Basics of OS
+- [Harware and Software](#Harware-and-Software)
+- [Definiton](#Definiton)
 - [Types of OS](#Types-of-OS)
 - [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
 - [Components of OS](#Components-of-OS)
-- [System Calls](#System-Calls)
-- [What happens when you turn on your computer](#What-happens-when-you-turn-on-your-computer)
 - [32 Bit vs 64 Bit OS](#32-Bit-vs-64-Bit-OS)
 - [Storage Devices Basics](#Storage-Devices-Basics)
+- [What happens when you turn on your computer](#What-happens-when-you-turn-on-your-computer)
+
+#### 🪵 System Calls & Modes
+- [System Calls](#System-Calls)
+
+#### 🪵 Process Management
 - [Introduction to Process](#Introduction-to-Process)
 - [Process States Process Queues](#Process-States-Process-Queues)
 - [Swapping | Context-Switching | Orphan process | Zombie process](#Swapping-Context-Switching-Orphan-process-Zombie-process)
 - [Intro to Process Scheduling | FCFS | Convoy Effect](#Intro-to-Process-Scheduling-FCFS-Convoy-Effect)
 - [CPU Scheduling | SJF | Priority | RR](#CPU-Scheduling-SJF-Priority-RR)
 - [MLQ | MLFQ](#MLQ-MLFQ)
+
+#### 🪵 Synchronization
 - [Introduction to Concurrency](#Introduction-to-Concurrency)
 - [Critical Section Problem and How to address it](#Critical-Section-Problem-and-How-to-address-it)
 - [Conditional Variable and Semaphores for Threads synchronization](#Conditional-Variable-and-Semaphores-for-Threads-synchronization)
 - [The Dining Philosophers problem](#The-Dining-Philosophers-problem)
 - [Deadlock Part-1](#Deadlock-Part-one)
 - [Deadlock Part-2](#Deadlock-Part-two)
+
+#### 🪵 Memory Management
 - [Memory Management Techniques Contiguous Memory Allocation](#Memory-Management-Techniques-Contiguous-Memory-Allocation)
 - [Free Space Management](#Free-Space-Management)
 - [Paging Non Contiguous Memory Allocation](#Paging-Non-Contiguous-Memory-Allocation)
@@ -2516,7 +2528,14 @@ CodeHelp
 - [Page Replacement Algorithms](#Page-Replacement-Algorithms)
 - [Thrashing](#Thrashing)
 
+#### 🪵 File System 
+- File concept
+- File attributes
+- File allocation methods
+- Directory structure
+- Disk scheduling
 
+## Harware and Software
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -2542,6 +2561,7 @@ application software. <br>
 * Application software = tasks you want done
 
 
+## Definiton
 
 #### Why OS?
 * resourse managment
@@ -2555,18 +2575,16 @@ application software. <br>
 * Provides abstraction, protection and resource management (CPU, memory, files, I/O).
 * Goals: high CPU utilization, less starvation, better throughput.
 
-
+<br>
 An **Operating System** is a manager. <br><br>
 It manages 4 main things:<br>
-* 🧠 CPU (Processes)
-* 💾 Memory (RAM)
-* 📂 Files
-* 💿 Devices (I/O)
+* 🧠 CPU → Processes + Scheduling + Synchronization + Deadlock
+* 💾 Memory → Paging + Segmentation + Virtual Memory
+* 📂 Files → File System + Disk Management
+* 💿 Devices → I/O + System Calls + Kernel Mode
 <br><br>
 That’s it.<br>
 Everything in OS is about managing these 4.<br>
-
-
 
 
 ### The Correct Flow of OS 
