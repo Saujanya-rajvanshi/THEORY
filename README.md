@@ -2573,16 +2573,12 @@ application software. <br>
 * System software that manages hardware and software resources.
 * Acts as interface between user and hardware.
 * Provides abstraction, protection and resource management (CPU, memory, files, I/O).
-* Goals: high CPU utilization, less starvation, better throughput.
-
-<br>
-An **Operating System** is a manager. <br><br>
-It manages 4 main things:<br>
-* 🧠 CPU → Processes + Scheduling + Synchronization + Deadlock
-* 💾 Memory → Paging + Segmentation + Virtual Memory
-* 📂 Files → File System + Disk Management
-* 💿 Devices → I/O + System Calls + Kernel Mode
-<br><br>
+* Goals: high CPU utilization, less starvation, better throughput. 
+* **Operating System** is a manager , It manages 4 main things:<br>
+    * 🧠 CPU → Processes + Scheduling + Synchronization + Deadlock
+    * 💾 Memory → Paging + Segmentation + Virtual Memory
+    * 📂 Files → File System + Disk Management
+    * 💿 Devices → I/O + System Calls + Kernel Mode <br>
 That’s it.<br>
 Everything in OS is about managing these 4.<br>
 
