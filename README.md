@@ -21,7 +21,7 @@
 [LECTURE - dbms vedio lecture](https://www.youtube.com/watch?v=dl00fOOYLOM&t=34400s)
 
 ### OS  THEORY
-[REPOSITORY OS](#OPTERATING-SYSTEM)
+[REPOSITORY OS](#OPERATING-SYSTEM)
 <BR>
 [THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
 <BR>
