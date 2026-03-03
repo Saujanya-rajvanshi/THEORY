@@ -3058,202 +3058,42 @@ CodeHelp
 
 # Harware and Software
 
+### Where the OS Actually Lives (Physically)
+
+An OS exists in **two physical places**:
+
+#### 1. On Disk (Persistent Storage)
+
+Stored as files:
+
+* Kernel image (e.g., `vmlinuz` in Linux kernel)
+* Bootloader (e.g., GRUB)
+* System libraries
+* Init system
+* Device drivers
+
+When system is OFF → OS is just files on SSD/HDD.
+
+#### 2. In RAM (After Boot)
+
+When system powers on:
+
+1. Firmware (BIOS/UEFI)
+2. Bootloader loads kernel
+3. Kernel is decompressed into RAM
+4. Kernel initializes hardware
+5. Kernel switches CPU to protected mode
+6. First user process starts
+
+Now:
+
+* Kernel lives in **high memory region**
+* User processes live in **separate virtual address spaces**
+
+
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
 application software. <br>
-
-#### 🧱 Hardware
-* CPU
-* RAM
-* Hard disk
-* Keyboard
-
-#### 🖥 System Software
-* Operating System
-* Device Drivers
-* Compiler
-
-#### 📱 Application Software
-* Chrome
-* Word
-* VS Code <br>
-* Hardware = body
-* System software = controller/manager
-* Application software = tasks you want done
-
-# CPU
-
-CPU = **Central Processing Unit**
-
-It is the hardware that:
-
-• Fetches instructions
-• Decodes instructions
-• Executes instructions
-
-That’s it.
-
-Everything else is detail.
-
-
-## MAIN COMPONENTS OF CPU
-
-CPU has 4 major internal parts:
-
-### 1️. Control Unit (CU)
-
-**Brain inside the CPU**
-
-What it does:
-
-* Tells other components what to do
-* Controls instruction execution
-* Manages fetch-decode-execute cycle
-
-It does NOT calculate.
-
-It only directs traffic.
-
-### 2️. ALU (Arithmetic Logic Unit)
-
-**The calculator**
-
-Performs:
-
-* Addition
-* Subtraction
-* Comparisons
-* AND, OR, NOT operations
-
-All mathematical & logical work happens here.
-
-### 3️. Registers (Very Important)
-
-**Ultra-fast tiny memory inside CPU**
-
-Stores:
-
-* Current instruction
-* Addresses
-* Intermediate results
-
-Types you must know:
-
-• Program Counter (PC) → Holds address of next instruction
-• Instruction Register (IR) → Holds current instruction
-• MAR (Memory Address Register) → Holds memory location
-• MDR (Memory Data Register) → Holds data from memory
-• Accumulator → Stores ALU results
-
-Registers are the fastest memory in the computer.
-
-### 4️. Cache Memory
-
-Small fast memory near CPU
-
-Purpose:
-
-* Reduces RAM access time
-* Stores frequently used data
-
-Levels:
-
-* L1 (fastest, smallest)
-* L2
-* L3 (bigger, slower)
-
-## HOW CPU ACTUALLY WORKS (Fetch–Decode–Execute Cycle)
-
-This is the core.
-
-Step 1️. Fetch
-PC tells where next instruction is.
-Instruction loaded into IR.
-
-Step 2️. Decode
-Control Unit understands what operation to perform.
-
-Step 3️. Execute
-ALU performs operation.
-
-Step 4️. Store
-Result written to register or memory.
-
-This cycle runs billions of times per second.
-
-## HARDWARE FEATURES IMPORTANT FOR OS
-
-this is where OS connects.
-
-### 1. Clock
-
-CPU runs based on clock speed (GHz).
-
-Higher clock → more instructions per second.
-
-### 2. Cores
-
-One core = one processing unit.
-
-1 core → single instruction stream
-4 cores → parallel execution
-
-OS scheduling depends on number of cores.
-
-### 3. Threads (Hardware Threads)
-
-With Hyperthreading:
-1 core can handle 2 threads.
-
-OS sees them as logical CPUs.
-
-### 4. Interrupt Mechanism
-
-VERY IMPORTANT for OS.
-
-When:
-
-* Keyboard pressed
-* I/O completes
-* Timer expires
-
-CPU receives interrupt signal.
-
-OS handles interrupts.
-
-Without interrupts → no multitasking.
-
-### 5. Privileged Instructions
-
-CPU supports two modes:
-
-User Mode
-Kernel Mode
-
-Certain instructions:
-
-* Access hardware
-* Change page table
-* Control interrupts
-
-Can ONLY run in kernel mode.
-
-This is enforced by CPU hardware.
-
-## HOW OS USES CPU
-
-OS does NOT control CPU magically.
-
-It uses hardware features:
-
-• Timer interrupt → for scheduling
-• Mode bit → for security
-• Context switch → saves register values
-• Page table register → for memory management
-
-OS depends completely on CPU design.
-
----
 
 
 ## Definiton
@@ -3429,12 +3269,10 @@ Threads are scheduled for execution based on their priority. Even though threads
 
 ## Components of OS
 
-1. **Kernel :** A kernel is that part of the operating system which interacts directly with
-the hardware andperforms the most crucialtasks.
+1. **Kernel :** A kernel is that part of the operating system which interacts directly with the hardware and performs the most crucialtasks.
 a. Heart of OS/Core component
 b. Very first part of OS to load on start-up.
-2. **User space :** Where application software runs, apps don’t have privileged access to the
-underlying hardware. It interacts with kernel.
+2. **User space :** Where application software runs, apps don’t have privileged access to the underlying hardware. It interacts with kernel.
 a. GUI
 b. CLI
 <br>
@@ -3514,6 +3352,159 @@ Ans. Inter process communication (IPC).**
 protection), But some may need to communicate to work.
 2. Done by shared memory and message passing.
 
+# 🧠 2️⃣ Memory Layout (Architectural View)
+
+On a 64-bit system (conceptual view):
+
+```
+|--------------------------|
+|      User Space          |
+|  (Apps, libraries)       |
+|--------------------------|
+|   Kernel Space           |
+|  (OS core code)          |
+|--------------------------|
+```
+
+But this separation is enforced by:
+
+### 🔐 MMU (Memory Management Unit)
+
+Hardware component inside CPU.
+
+It:
+
+* Translates virtual → physical addresses
+* Prevents user code from touching kernel memory
+
+This is not logical separation.
+This is **hardware-enforced protection**.
+
+---
+
+# 🧠 3️⃣ CPU Privilege Rings (Critical Architecture Concept)
+
+Most CPUs (like x86) support **rings**:
+
+* Ring 0 → Kernel (highest privilege)
+* Ring 3 → User applications
+
+Kernel runs in Ring 0.
+Apps run in Ring 3.
+
+When app needs OS service:
+
+It performs a **system call instruction**.
+
+CPU does:
+
+1. Switch to Ring 0
+2. Jump to kernel entry point
+3. Execute privileged code
+4. Return to user mode
+
+This transition is controlled by hardware.
+
+---
+
+# 🧠 4️⃣ What Is Kernel Internally Made Of?
+
+Architecturally, kernel includes:
+
+### 1. Process Management Subsystem
+
+* Scheduler
+* Context switch logic
+* PCB storage
+
+### 2. Memory Management Subsystem
+
+* Page tables
+* Virtual memory manager
+* Page fault handler
+
+### 3. VFS (Virtual File System)
+
+Abstracts file systems.
+
+### 4. Device Drivers
+
+Hardware abstraction layer.
+
+### 5. Networking Stack
+
+TCP/IP implementation.
+
+In a monolithic system like Linux kernel, these are inside kernel space.
+
+---
+
+# 🧠 5️⃣ What Happens During a Context Switch (Deep View)
+
+When switching process:
+
+1. CPU registers saved to PCB
+2. Page table pointer updated
+3. TLB flushed (sometimes)
+4. Kernel updates scheduling structures
+5. CPU resumes new process
+
+This is low-level architecture work.
+
+---
+
+# 🧠 6️⃣ User Space Architecture
+
+User space contains:
+
+* Runtime libraries
+* Standard C library
+* Dynamic linker
+* Shell
+* Background services
+* All applications
+
+Each process gets:
+
+* Own virtual memory space
+* Own stack
+* Own heap
+* Own page table
+
+But they share the same kernel.
+
+---
+
+# 🧠 7️⃣ Microkernel vs Monolithic (Architecture Difference)
+
+### Monolithic (Linux)
+
+* Everything inside kernel space
+* Faster
+* Larger trusted code base
+
+### Microkernel (like MINIX)
+
+* Minimal kernel
+* Drivers in user space
+* More modular
+* More secure
+
+---
+
+# 🧠 8️⃣ Final Deep Mental Model
+
+OS is not:
+
+* A separate hardware chip
+* A magic software floating somewhere
+
+It is:
+
+A privileged program loaded into RAM
+Running in Ring 0
+Controlling CPU, memory, devices
+Using hardware features (MMU, privilege levels, interrupts)
 
 
 
