@@ -1,12 +1,39 @@
 # THEORY
 ## computer system
 * [computer system](#computer-system)
-* [hardware](#HARDWARE)
-    * []()
-* [software](#SOFTWARE)
-    * []()
-    * []()
-* [I/0 devices](#Input-and-Output-Devices)
+* [🧱 hardware](#HARDWARE)
+    * [CPU](#CPU)
+    * [Memory System](#Memory-System)
+    * [Storage System](#Storage-System)
+    * [GPU](#GPU)
+    * [I/O System](#I-O-System)
+* [🖥 Software](#software)
+    * [System Software](#system-software)
+        * [Operating System](#operating-system)
+        * [Device Drivers](#device-drivers)
+        * [Compiler](#compiler)
+        * [Networking Stack](#networking-stack)
+    * [Application Software](#application-software)
+        * [Database software](#database-software)
+        * [Web Applications](#web-applications)
+        * [Games/Apps](#games-apps)     
+    * [Programming & Logic (Used to Build Software)](#programming--logic)
+        * [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+        * [Data Structures & Algorithms (DSA)](#data-structures)
+        * [Concurrency & Multithreading](#concurrency)
+* [⌨ I/O Devices](#input-and-output-devices)
+    * [Keyboard](#keyboard)
+    * [Mouse](#mouse)
+    * [Monitor](#monitor)
+    * [Printer](#printer)
+    * [Speakers](#speakers)
+    * [Microphone](#microphone)
+    * [Network Interface Card](#network-interface-card)
+* [📚 Theoretical Foundations](#theoretical-foundations)
+    * [Database Management System (DBMS)](#database-management-system-dbms)  
+    * [Discrete Structures (DSTL)](#discrete-structures-dstl)
+    * [Theory of Automata (TOC / TAFL)](#theory-of-automata-toc--tafl)
+    * [Computational Complexity](#computational-complexity)
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
@@ -53,7 +80,6 @@
 
 
 
-### roadmap
 # Computer System 
 
 ## 1. 🧱 HARDWARE (Physical Layer)
@@ -103,7 +129,7 @@ This is the manager.
 
 This is where tasks are done.
 
-# 🧠 Theoretical Foundation (Base Support Layer)
+## 🧠 Theoretical Foundation (Base Support Layer)
 
 Under everything:
 
@@ -117,26 +143,27 @@ These explain:
 👉 Why computation works
 👉 What is possible to compute
 
+---
 
 # HARDWARE 
 
-## 1.1 CPU (Processor)
+## 1 CPU (Processor)
 
-### 1.1.1 Internal Components
+### 1.1 Internal Components
 
 * Control Unit
 * ALU
 * Registers (PC, IR, MAR, MDR, Accumulator)
 * Cache (L1, L2, L3)
 
-### 1.1.2 Execution Model
+### 1.2 Execution Model
 
 * Fetch–Decode–Execute cycle
 * Instruction set (ISA)
 * RISC vs CISC
 * Assembly language basics
 
-### 1.1.3 Performance Concepts
+### 1.3 Performance Concepts
 
 * Clock speed
 * CPI (cycles per instruction)
@@ -145,48 +172,48 @@ These explain:
 * Multi-core architecture
 * Hyperthreading
 
-## 1.2 Memory System
+## 2 Memory System
 
-### 1.2.1 Primary Memory
+### 2.1 Primary Memory
 
 * RAM (DRAM, SRAM)
 * ROM
 
-### 1.2.2 Memory Hierarchy
+### 2.2 Memory Hierarchy
 
 * Registers
 * Cache
 * RAM
 * Secondary storage
 
-### 1.2.3 Memory Concepts
+### 2.3 Memory Concepts
 
 * Addressing
 * Virtual memory
 * Page tables
 * Memory fragmentation
 
-## 1.3 Storage System
+## 3 Storage System
 
 * HDD vs SSD
 * File blocks
 * Disk scheduling
 * RAID basics
 
-## 1.4 GPU (Graphics Processing Unit)
+## 4 GPU (Graphics Processing Unit)
 
-### 1.4.1 What is GPU
+### 4.1 What is GPU
 
 * Parallel architecture
 * Thousands of cores
 
-### 1.4.2 Use Cases
+### 4.2 Use Cases
 
 * Graphics rendering
 * AI training
 * High-performance computing
 
-## 1.5 I/O System
+## 5 I/O System
 
 * Interrupts
 * Device controllers
