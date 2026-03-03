@@ -74,7 +74,7 @@
 ###### computer system
 # 🎗 COMPUTER SYSTEM
 
-<img width="500" height="408" alt="image" src="https://github.com/user-attachments/assets/8694b3bc-275b-4969-8cbe-2ee59d921e90" />
+![Uploading image.png…]()
 
 # 💻 Computer – Definition & Evolution
 
