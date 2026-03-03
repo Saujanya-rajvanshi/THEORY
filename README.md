@@ -1,7 +1,7 @@
 # THEORY
 ## computer system
-* [computer system](#computer-system)
-* [🧱 hardware](#hardware)
+* [computer system](#Computer-System)
+* [🧱 hardware](#Hardware)
     * [CPU](#CPU)
     * [Memory System](#Memory-System)
     * [Storage System](#Storage-System)
@@ -71,7 +71,7 @@
 
 
 
-###### computer system
+###### Computer System
 # 🎗 COMPUTER SYSTEM
 
 ![unnamed](https://github.com/user-attachments/assets/35c6de89-1d51-4f48-bf81-d6449a679213)
@@ -211,7 +211,7 @@ Intelligent systems
 
 ---
 
-###### hardware
+###### Hardware
 # 🎗 HARDWARE 
 * [CPU](#CPU)
 * [Memory System](#Memory-System)
