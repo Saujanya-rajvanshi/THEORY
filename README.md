@@ -3012,7 +3012,6 @@ CodeHelp
 
 #### 🪵 Basics of OS
 - [Harware and Software](#Harware-and-Software)
-- [CPU](#CPU)
 - [Definiton](#Definiton)
 - [Types of OS](#Types-of-OS)
 - [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
@@ -3304,11 +3303,9 @@ a. Buffering (data copy between two devices), caching and spooling.
    i. Spooling
        1. Within differing speed two jobs.
        2. Eg. Print spooling and mail spooling.
-
    ii. Buffering
        1. Within one job.
-       2. Eg. Youtube video buffering
-   
+       2. Eg. Youtube video buffering   
    iii. Caching
        1. Memory caching, Web caching etc.
 
