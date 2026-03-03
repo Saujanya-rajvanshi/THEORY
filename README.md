@@ -209,19 +209,10 @@ Personal computer →
 Intelligent systems
 
 
-### Modern Computer = Combination of:
-
-* Hardware
-* System Software
-* Application Software
-* Networking
-* Databases
-* AI
-
 ---
 
-
-####  HARDWARE 
+###### hardware
+# 🎗 HARDWARE 
 * [CPU](#CPU)
 * [Memory System](#Memory-System)
 * [Storage System](#Storage-System)
