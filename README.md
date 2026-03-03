@@ -1,6 +1,12 @@
 # THEORY
-### basic
-- [computer system](#computer-system)
+## computer system
+* [computer system](#computer-system)
+* [hardware](#HARDWARE)
+    * []()
+* [software](#SOFTWARE)
+    * []()
+    * []()
+* [I/0 devices](#Input-and-Output-Devices)
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
@@ -48,9 +54,76 @@
 
 
 ### roadmap
-# 🌍 MASTER COMPUTER SYSTEM KNOWLEDGE TREE
+# Master Computer System 
 
-# 1️⃣ HARDWARE LAYER (Physical Machine)
+## 1. 🧱 HARDWARE (Physical Layer)
+
+### Components
+
+* CPU → Computes
+* RAM → Temporary memory
+* Storage → Permanent memory
+* GPU → Parallel computing
+* I/O Devices → Input/Output
+
+### Function
+
+👉 **Compute + Physical storage**
+
+This is the body.
+
+# 2. 🖥 SYSTEM SOFTWARE (Control Layer)
+
+### Includes
+
+* Operating System
+* Device Drivers
+* Compiler
+
+### What it does (5 core functions happen here mostly):
+
+1. **Controls CPU** → Scheduling
+2. **Manages Memory** → Paging, allocation
+3. **Manages Files** → File system
+4. **Manages Devices** → I/O control
+5. **Provides platform for apps**
+
+This is the manager.
+
+# 3. 📱 APPLICATION SOFTWARE (User Layer)
+
+### Examples
+
+* Chrome
+* VS Code
+* Games
+* Instagram
+
+### What happens inside applications:
+
+* 🧠 DSA → Logic & efficiency
+* 💾 DBMS → Data storage system (can be system-level or app-level)
+* 🌐 Networking → Communication
+* 🎨 UI/UX → Interface
+
+This is where tasks are done.
+
+# 🧠 Now Add Theoretical Foundation (Base Support Layer)
+
+Under everything:
+
+* Discrete Math
+* Automata
+* Logic
+* COA (supports hardware understanding)
+* TOC
+
+These explain:
+👉 Why computation works
+👉 What is possible to compute
+
+
+# HARDWARE 
 
 ## 1.1 CPU (Processor)
 
@@ -77,8 +150,6 @@
 * Multi-core architecture
 * Hyperthreading
 
----
-
 ## 1.2 Memory System
 
 ### 1.2.1 Primary Memory
@@ -100,16 +171,12 @@
 * Page tables
 * Memory fragmentation
 
----
-
 ## 1.3 Storage System
 
 * HDD vs SSD
 * File blocks
 * Disk scheduling
 * RAID basics
-
----
 
 ## 1.4 GPU (Graphics Processing Unit)
 
@@ -124,8 +191,6 @@
 * AI training
 * High-performance computing
 
----
-
 ## 1.5 I/O System
 
 * Interrupts
@@ -133,7 +198,55 @@
 * Buses (data, address, control)
 * DMA
 
----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 2️⃣ OPERATING SYSTEM LAYER
 
