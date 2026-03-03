@@ -2537,7 +2537,7 @@ CodeHelp
 - Directory structure
 - Disk scheduling
 
-## Harware and Software
+# Harware and Software
 
 **Application software** performs specific task for the user. <br>
 **System software** operates and controls the computer system and provides a platform to run
@@ -2562,7 +2562,7 @@ application software. <br>
 * System software = controller/manager
 * Application software = tasks you want done
 
-## CPU
+# CPU
 
 CPU = **Central Processing Unit**
 
@@ -2577,7 +2577,7 @@ That’s it.
 Everything else is detail.
 
 
-#### MAIN COMPONENTS OF CPU
+## MAIN COMPONENTS OF CPU
 
 CPU has 4 major internal parts:
 
@@ -2643,7 +2643,7 @@ Levels:
 * L2
 * L3 (bigger, slower)
 
-### HOW CPU ACTUALLY WORKS (Fetch–Decode–Execute Cycle)
+## HOW CPU ACTUALLY WORKS (Fetch–Decode–Execute Cycle)
 
 This is the core.
 
@@ -2662,17 +2662,17 @@ Result written to register or memory.
 
 This cycle runs billions of times per second.
 
-### HARDWARE FEATURES IMPORTANT FOR OS
+## HARDWARE FEATURES IMPORTANT FOR OS
 
 this is where OS connects.
 
-#### 1. Clock
+### 1. Clock
 
 CPU runs based on clock speed (GHz).
 
 Higher clock → more instructions per second.
 
-#### 2. Cores
+### 2. Cores
 
 One core = one processing unit.
 
@@ -2681,14 +2681,14 @@ One core = one processing unit.
 
 OS scheduling depends on number of cores.
 
-#### 3. Threads (Hardware Threads)
+### 3. Threads (Hardware Threads)
 
 With Hyperthreading:
 1 core can handle 2 threads.
 
 OS sees them as logical CPUs.
 
-#### 4. Interrupt Mechanism
+### 4. Interrupt Mechanism
 
 VERY IMPORTANT for OS.
 
@@ -2704,7 +2704,7 @@ OS handles interrupts.
 
 Without interrupts → no multitasking.
 
-#### 5. Privileged Instructions
+### 5. Privileged Instructions
 
 CPU supports two modes:
 
@@ -2721,7 +2721,7 @@ Can ONLY run in kernel mode.
 
 This is enforced by CPU hardware.
 
-### HOW OS USES CPU
+## HOW OS USES CPU
 
 OS does NOT control CPU magically.
 
