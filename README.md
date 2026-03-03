@@ -1,4 +1,6 @@
 # THEORY
+### basic
+- [computer system](#computer-system)
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
@@ -42,6 +44,511 @@
 ### extra 
 ## mechanism of the computer 
 - [mechanism of the computer](#mechanism-of-the-computer)
+
+
+
+### roadmap
+# 🌍 MASTER COMPUTER SYSTEM KNOWLEDGE TREE
+
+# 1️⃣ HARDWARE LAYER (Physical Machine)
+
+## 1.1 CPU (Processor)
+
+### 1.1.1 Internal Components
+
+* Control Unit
+* ALU
+* Registers (PC, IR, MAR, MDR, Accumulator)
+* Cache (L1, L2, L3)
+
+### 1.1.2 Execution Model
+
+* Fetch–Decode–Execute cycle
+* Instruction set (ISA)
+* RISC vs CISC
+* Assembly language basics
+
+### 1.1.3 Performance Concepts
+
+* Clock speed
+* CPI (cycles per instruction)
+* Pipelining
+* Branch prediction
+* Multi-core architecture
+* Hyperthreading
+
+---
+
+## 1.2 Memory System
+
+### 1.2.1 Primary Memory
+
+* RAM (DRAM, SRAM)
+* ROM
+
+### 1.2.2 Memory Hierarchy
+
+* Registers
+* Cache
+* RAM
+* Secondary storage
+
+### 1.2.3 Memory Concepts
+
+* Addressing
+* Virtual memory
+* Page tables
+* Memory fragmentation
+
+---
+
+## 1.3 Storage System
+
+* HDD vs SSD
+* File blocks
+* Disk scheduling
+* RAID basics
+
+---
+
+## 1.4 GPU (Graphics Processing Unit)
+
+### 1.4.1 What is GPU
+
+* Parallel architecture
+* Thousands of cores
+
+### 1.4.2 Use Cases
+
+* Graphics rendering
+* AI training
+* High-performance computing
+
+---
+
+## 1.5 I/O System
+
+* Interrupts
+* Device controllers
+* Buses (data, address, control)
+* DMA
+
+---
+
+# 2️⃣ OPERATING SYSTEM LAYER
+
+## 2.1 Process Management
+
+* Process lifecycle
+* PCB
+* Context switching
+* Scheduling algorithms
+
+## 2.2 Synchronization
+
+* Race conditions
+* Mutex
+* Semaphores
+* Monitors
+* Deadlocks
+
+## 2.3 Memory Management
+
+* Paging
+* Segmentation
+* Virtual memory
+* Page replacement
+
+## 2.4 File System
+
+* File structure
+* Allocation methods
+* Directory structure
+* Journaling
+
+## 2.5 Device Management
+
+* Drivers
+* System calls
+* Kernel vs User mode
+
+---
+
+# 3️⃣ PROGRAMMING LAYER
+
+## 3.1 Low-Level Programming
+
+* C
+* Memory management
+* Pointers
+* Stack vs heap
+
+## 3.2 OOP Concepts
+
+* Abstraction
+* Encapsulation
+* Inheritance
+* Polymorphism
+* Design patterns
+
+## 3.3 Advanced Programming
+
+* Multithreading
+* Concurrency models
+* Asynchronous programming
+
+---
+
+# 4️⃣ DATA & ALGORITHMS LAYER
+
+## 4.1 Data Structures
+
+* Arrays
+* Linked List
+* Stack / Queue
+* Trees
+* Graphs
+* Heap
+* Hashing
+
+## 4.2 Algorithms
+
+* Sorting
+* Searching
+* Recursion
+* DP
+* Greedy
+* Graph algorithms
+
+## 4.3 Complexity Analysis
+
+* Big O
+* Time vs Space tradeoff
+* Amortized analysis
+
+---
+
+# 5️⃣ DATABASE SYSTEMS
+
+## 5.1 Database Fundamentals
+
+* Relational model
+* Normalization
+* Keys
+
+## 5.2 Transactions
+
+* ACID properties
+* Isolation levels
+* Locking
+
+## 5.3 Indexing
+
+* B+ Trees
+* Hash indexing
+
+---
+
+# 6️⃣ COMPUTER NETWORKS
+
+## 6.1 Network Basics
+
+* OSI model
+* TCP/IP model
+
+## 6.2 Transport Layer
+
+* TCP
+* UDP
+* Flow control
+* Congestion control
+
+## 6.3 Application Layer
+
+* HTTP
+* DNS
+* SMTP
+
+---
+
+# 7️⃣ THEORY LAYER
+
+## 7.1 Discrete Mathematics
+
+* Logic
+* Sets
+* Graph theory
+* Recurrence
+
+## 7.2 Automata
+
+* DFA/NFA
+* CFG
+* Turing Machines
+
+## 7.3 Complexity Theory
+
+* P vs NP
+* NP-complete problems
+
+---
+
+# 8️⃣ ADVANCED SYSTEMS (After Stability)
+
+* Distributed systems
+* Cloud computing
+* Containers (Docker)
+* Kubernetes
+* System design
+* Compiler design
+
+---
+
+# 🧠 HOW TO USE THIS TREE
+
+You are not learning everything now.
+
+Phase 1 (Placement Focus):
+
+* DSA
+* OS (interview depth)
+* DBMS
+* CN
+* C++
+
+Phase 2 (Deep Curiosity):
+
+* Architecture
+* Distributed systems
+* Compiler design
+* Performance engineering
+
+
+
+
+
+
+
+
+
+
+
+###### computer system
+# 🎗 COMPUTER SYSTEM
+
+<img width="500" height="408" alt="image" src="https://github.com/user-attachments/assets/8694b3bc-275b-4969-8cbe-2ee59d921e90" />
+
+<br>
+
+Computer System
+1️. Hardware
+2️. System Software
+3️. Application Software
+4️. Users
+
+# 1. HARDWARE 
+
+(Physical Components) <br>
+Hardware is divided into 4 major subsystems.
+
+* A. CPU (Processor)
+* B. Primary Memory (Main Memory)
+* C. Secondary Storage
+* D. I/O Devices
+* E. System Bus
+
+
+## 1A. CPU (Processor)
+
+### Core Components
+
+* Control Unit (CU)
+* ALU
+* Registers
+* Cache (L1, L2, L3)
+
+### Features
+
+* Clock Speed (GHz)
+* Cores
+* Threads
+* Interrupt handling
+* Privileged mode support
+
+Purpose:
+Executes instructions.
+
+Example processors:
+
+* Intel Core i7
+* AMD Ryzen 7
+
+## 1B. Primary Memory (Main Memory)
+
+### 1. RAM
+
+* Volatile
+* Stores running programs
+
+Types:
+
+* DRAM
+* SRAM
+
+### 2. ROM
+
+* Non-volatile
+* Stores firmware
+
+Purpose:
+Holds active instructions & data.
+
+## 1C. Secondary Storage
+
+* HDD
+* SSD
+* NVMe
+
+Purpose:
+Permanent data storage.
+
+## 1D. I/O Devices
+
+### Input Devices
+
+* Keyboard
+* Mouse
+* Scanner
+
+### Output Devices
+
+* Monitor
+* Printer
+* Speakers
+
+### Communication Devices
+
+* Network card
+* WiFi adapter
+
+Purpose:
+Interaction with outside world.
+
+## 1E. System Bus
+
+Connects everything.
+
+Types:
+
+* Data Bus
+* Address Bus
+* Control Bus
+
+
+# 2️. SYSTEM SOFTWARE 
+
+(Controls Hardware)
+
+## 2A. Operating System
+
+Examples:
+
+* Microsoft Windows
+* Linux
+* macOS
+
+Responsibilities:
+
+### CPU Management
+
+* Scheduling
+* Context switching
+
+### Memory Management
+
+* Paging
+* Virtual memory
+
+### File Management
+
+* File system
+* Disk scheduling
+
+### Device Management
+
+* Drivers
+* Interrupt handling
+
+## 2B. Device Drivers
+
+Small programs that let OS talk to hardware.
+
+Example:
+
+* Graphics driver
+* Printer driver
+
+## 2C. Utility Programs
+
+* Disk cleanup
+* Antivirus
+* Backup tools
+
+## 2D. Compilers & Interpreters
+
+* Convert high-level code to machine code.
+
+Examples:
+
+* GCC
+* Java Compiler
+
+# 3️. APPLICATION SOFTWARE
+
+Programs made for user tasks.
+
+Examples:
+
+* Google Chrome
+* Microsoft Word
+* Visual Studio Code
+
+These run in user mode.
+
+They use system calls to access OS services.
+
+# 4️. USERS
+
+Humans interacting with system.
+
+Levels:
+
+* End users
+* Developers
+* System administrators
+
+# HOW EVERYTHING CONNECTS (Layered View)
+
+```
+User
+↓
+Application Software
+↓
+System Calls
+↓
+Operating System
+↓
+Hardware
+```
+
+This is the full stack.
+
+
+
+
+
+
+
 
 
 ###### Oops
