@@ -54,25 +54,20 @@
 
 
 ### roadmap
-# Master Computer System 
+# Computer System 
 
 ## 1. 🧱 HARDWARE (Physical Layer)
 
 ### Components
 
-* CPU → Computes
-* RAM → Temporary memory
-* Storage → Permanent memory
-* GPU → Parallel computing
-* I/O Devices → Input/Output
+* **CPU** – Instruction executor
+* **Memory System** – Temporary data holder
+* **Storage System** – Permanent data storage
+* **GPU** – Parallel computation unit
 
-### Function
+👉 **Compute + Physical storage** This is the body.
 
-👉 **Compute + Physical storage**
-
-This is the body.
-
-# 2. 🖥 SYSTEM SOFTWARE (Control Layer)
+## 2. 🖥 SYSTEM SOFTWARE (Control Layer)
 
 ### Includes
 
@@ -90,7 +85,7 @@ This is the body.
 
 This is the manager.
 
-# 3. 📱 APPLICATION SOFTWARE (User Layer)
+## 3. 📱 APPLICATION SOFTWARE (User Layer)
 
 ### Examples
 
@@ -108,7 +103,7 @@ This is the manager.
 
 This is where tasks are done.
 
-# 🧠 Now Add Theoretical Foundation (Base Support Layer)
+# 🧠 Theoretical Foundation (Base Support Layer)
 
 Under everything:
 
