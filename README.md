@@ -2490,8 +2490,10 @@ CodeHelp
 # OPERATING SYSTEM
 
 ## INDEX
+
 #### 🪵 Basics of OS
 - [Harware and Software](#Harware-and-Software)
+- [CPU](#CPU)
 - [Definiton](#Definiton)
 - [Types of OS](#Types-of-OS)
 - [Multi-Tasking vs Multi-Threading](#Multi-Tasking-vs-Multi-Threading)
@@ -2559,6 +2561,180 @@ application software. <br>
 * Hardware = body
 * System software = controller/manager
 * Application software = tasks you want done
+
+## CPU
+
+CPU = **Central Processing Unit**
+
+It is the hardware that:
+
+• Fetches instructions
+• Decodes instructions
+• Executes instructions
+
+That’s it.
+
+Everything else is detail.
+
+
+#### MAIN COMPONENTS OF CPU
+
+CPU has 4 major internal parts:
+
+### 1️. Control Unit (CU)
+
+**Brain inside the CPU**
+
+What it does:
+
+* Tells other components what to do
+* Controls instruction execution
+* Manages fetch-decode-execute cycle
+
+It does NOT calculate.
+
+It only directs traffic.
+
+### 2️. ALU (Arithmetic Logic Unit)
+
+**The calculator**
+
+Performs:
+
+* Addition
+* Subtraction
+* Comparisons
+* AND, OR, NOT operations
+
+All mathematical & logical work happens here.
+
+### 3️. Registers (Very Important)
+
+**Ultra-fast tiny memory inside CPU**
+
+Stores:
+
+* Current instruction
+* Addresses
+* Intermediate results
+
+Types you must know:
+
+• Program Counter (PC) → Holds address of next instruction
+• Instruction Register (IR) → Holds current instruction
+• MAR (Memory Address Register) → Holds memory location
+• MDR (Memory Data Register) → Holds data from memory
+• Accumulator → Stores ALU results
+
+Registers are the fastest memory in the computer.
+
+### 4️. Cache Memory
+
+Small fast memory near CPU
+
+Purpose:
+
+* Reduces RAM access time
+* Stores frequently used data
+
+Levels:
+
+* L1 (fastest, smallest)
+* L2
+* L3 (bigger, slower)
+
+### HOW CPU ACTUALLY WORKS (Fetch–Decode–Execute Cycle)
+
+This is the core.
+
+Step 1️. Fetch
+PC tells where next instruction is.
+Instruction loaded into IR.
+
+Step 2️. Decode
+Control Unit understands what operation to perform.
+
+Step 3️. Execute
+ALU performs operation.
+
+Step 4️. Store
+Result written to register or memory.
+
+This cycle runs billions of times per second.
+
+### HARDWARE FEATURES IMPORTANT FOR OS
+
+this is where OS connects.
+
+#### 1. Clock
+
+CPU runs based on clock speed (GHz).
+
+Higher clock → more instructions per second.
+
+#### 2. Cores
+
+One core = one processing unit.
+
+1 core → single instruction stream
+4 cores → parallel execution
+
+OS scheduling depends on number of cores.
+
+#### 3. Threads (Hardware Threads)
+
+With Hyperthreading:
+1 core can handle 2 threads.
+
+OS sees them as logical CPUs.
+
+#### 4. Interrupt Mechanism
+
+VERY IMPORTANT for OS.
+
+When:
+
+* Keyboard pressed
+* I/O completes
+* Timer expires
+
+CPU receives interrupt signal.
+
+OS handles interrupts.
+
+Without interrupts → no multitasking.
+
+#### 5. Privileged Instructions
+
+CPU supports two modes:
+
+User Mode
+Kernel Mode
+
+Certain instructions:
+
+* Access hardware
+* Change page table
+* Control interrupts
+
+Can ONLY run in kernel mode.
+
+This is enforced by CPU hardware.
+
+### HOW OS USES CPU
+
+OS does NOT control CPU magically.
+
+It uses hardware features:
+
+• Timer interrupt → for scheduling
+• Mode bit → for security
+• Context switch → saves register values
+• Page table register → for memory management
+
+OS depends completely on CPU design.
+
+---
 
 
 ## Definiton
