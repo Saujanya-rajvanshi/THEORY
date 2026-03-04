@@ -3278,6 +3278,7 @@ b. CLI
 A shell, also known as a command interpreter, is that part of the operating system that receives
 commands from the users and gets them executed.
 <br>
+<img width="536" height="536" alt="Gemini_Generated_Image_57e6vf57e6vf57e6" src="https://github.com/user-attachments/assets/3a67c8a9-515f-4f6a-bb2e-bc3d4789d03d" />
 
 ### Functions of Kernel:
 1. **Process management :**
