@@ -3318,6 +3318,8 @@ commands from the users and gets them executed.
     * e. High performance as communication is fast. (Less user mode, kernel mode overheads)
     * f. Eg. Linux, Unix, MS-DOS.
 
+<img width="542" height="356" alt="image" src="https://github.com/user-attachments/assets/26ea94b7-ca7f-44ba-8f1a-226279ea8a60" />
+
 2. **Micro Kernel**
     * a. Only major functions are in kernel.
         * i. Memory mgmt.
@@ -3329,6 +3331,9 @@ commands from the users and gets them executed.
     * f. Performance is slow.
     * g. Overhead switching b/w user mode and kernel mode.
     * h. Eg. L4 Linux, Symbian OS, MINIX etc.
+   
+<img width="518" height="396" alt="image" src="https://github.com/user-attachments/assets/5f564012-ad1e-4ca5-9c14-b29ee9f3cf88" />
+
 
 3. **Hybrid Kernel**
     * a. Advantages of both worlds. (File mgmt. in User space and rest in Kernel space. )
@@ -3340,15 +3345,11 @@ commands from the users and gets them executed.
 
 5. **Nano/Exo kernels...**
 
-* **Q. How will communication happen between user mode and kernel mode?
-Ans. Inter process communication (IPC).**
+* **Q. How will communication happen between user mode and kernel mode?** 
+Ans. Inter process communication (IPC).
 1. Two processes executing independently, having independent memory space (Memory
 protection), But some may need to communicate to work.
 2. Done by shared memory and message passing.
-
-# 🧠 2️⃣ Memory Layout (Architectural View)
-
-On a 64-bit system (conceptual view):
 
 ```
 |--------------------------|
@@ -3362,7 +3363,7 @@ On a 64-bit system (conceptual view):
 
 But this separation is enforced by:
 
-### 🔐 MMU (Memory Management Unit)
+* **MMU (Memory Management Unit)**
 
 Hardware component inside CPU.
 
