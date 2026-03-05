@@ -3676,29 +3676,22 @@ After this:
 
 ## 32 Bit vs 64 Bit OS
 
-1. A 32-bit OS has 32-bit registers, and it can access 2^32 unique memory addresses. i.e., 4GB of
+internally this is physically implemented using 32 parallel electrical lines (wires/transistors) carrying 0s and 1s.
+👉 Each bit = one signal line that can be ON (1) or OFF (0)
+```32-bit = 32 parallel electrical signals```
+
+1. A 32-bit OS has 32-bit registers, and it can access 2^32 unique memory addresses. i.e., 4,294,967,296 of
 physical memory.
 2. A 64-bit OS has 64-bit registers, and it can access 2^64 unique memory addresses. i.e.,
 17,179,869,184 GB of physical memory.
 3. 32-bit CPU architecture can process 32 bits of data & information.
 4. 64-bit CPU architecture can process 64 bits of data & information.
-5. Advantages of 64-bit over the 32-bit operating system: <br>
-* a. **Addressable Memory :** 32-bit CPU -> 2^32 memory addresses, 64-bit CPU -> 2^64
-memory addresses.
-* b. **Resource usage :** Installing more RAM on a system with a 32-bit OS doesn't impact
-performance. However, upgrade that system with excess RAM to the 64-bit version of
-Windows, and you'll notice a difference.
-* c. **Performance :** All calculations take place in the registers. When you’re performing math in
-your code, operands are loaded from memory into registers. So, having larger registers
-allow you to perform larger calculations at the same time.
-32-bit processor can execute 4 bytes of data in 1 instruction cycle while 64-bit means that
-processor can execute 8 bytes of data in 1 instruction cycle.
-(In 1 sec, there could be thousands to billons of instruction cycles depending upon a
-processor design)
-* d. **Compatibility :** 64-bit CPU can run both 32-bit and 64-bit OS. While 32-bit CPU can only
-run 32-bit OS.
-* e. **Better Graphics performance :** 8-bytes graphics calculations make graphics-intensive apps
-run faster.
+* 5. Advantages of 64-bit over the 32-bit operating system: <br>
+    * a. **Addressable Memory :** 32-bit CPU -> 2^32 memory addresses, 64-bit CPU -> 2^64 memory addresses.
+    * b. **Resource usage :** Installing more RAM on a system with a 32-bit OS doesn't impact performance. However, upgrade that system with excess RAM to the 64 bit version of Windows, and you'll notice a difference.
+    * c. **Performance :** All calculations take place in the registers. When you’re performing math in your code, operands are loaded from memory into registers. So, having larger registers allow you to perform larger calculations at the same time. 32-bit processor can execute 4 bytes of data in 1 instruction cycle while 64-bit means that processor can execute 8 bytes of data in 1 instruction cycle. (In 1 sec, there could be thousands to billons of instruction cycles depending upon a processor design)
+    * d. **Compatibility :** 64-bit CPU can run both 32-bit and 64-bit OS. While 32-bit CPU can only run 32-bit OS.
+    * e. **Better Graphics performance :** 8-bytes graphics calculations make graphics-intensive apps run faster.
 
 ## Storage Devices Basics
 
@@ -3739,6 +3732,81 @@ quicker processing by the CPU.
 
   
 ## Introduction to Process
+
+**how a program becomes a running entity inside the computer.**
+
+A process is: 
+```Program + Memory + CPU State + OS resources```
+When the OS starts executing a program, it becomes a process.
+
+* Part 1 — Program vs Process
+* Part 2 — How OS Creates a Process :
+```
+1. Load Program into Memory
+OS loads:
+    Program code, Global variables, Static data
+from disk → RAM.
+
+2️. Allocate Stack
+Stack is used for:
+    Function calls, Local variables, Return addresses
+Example 
+main()
+  └── function1()
+         └── function2()
+Each call uses the stack.
+
+3️. Allocate Heap
+Heap is used for dynamic memory.
+Example in C/C++:
+malloc(), new
+The OS provides a heap region for the process.
+
+4️. Setup I/O
+If the program uses:
+    keyboard, files, network
+the OS prepares these resources.
+
+5️. OS transfers control
+The CPU begins execution at:
+    main()
+Technically it starts at _start then reaches main().
+```
+
+* Part 3 — Process Architecture
+* Part 4 — Process Identification
+* Part 5 — Process Table
+```
+The OS keeps track of processes using a structure called:
+Process Table
+Think of it like:
+----------------------------------
+| PID | STATE | MEMORY | PRIORITY |
+----------------------------------
+|101  | RUN   | 200MB  | 5        |
+|102  | WAIT  | 120MB  | 3        |
+|103  | READY | 80MB   | 4        |
+----------------------------------
+Each row represents one process.
+```
+
+* Part 6 — Process Control Block (PCB)
+```
+Each process has a PCB.
+PCB = data structure containing all process information.
+Stored inside the process table.
+PCB Stores
+Typical PCB fields:
+    Process ID
+    Process State
+    Program Counter
+    CPU Registers
+    Memory Info
+    Scheduling Priority
+    Open Files
+PCB is used during context switching.
+```
+
 1. What is a program? Compiled code, that is ready to execute.
 2. What is a process? Program under execution.
 3. How OS creates a process? Converting program into a process. 
@@ -3765,7 +3833,7 @@ quicker processing by the CPU.
 
 <img width="776" height="438" alt="image" src="https://github.com/user-attachments/assets/2063a074-62e8-4962-9664-8add42d59036" />
 
-**Registers in the PCB**, it is a data structure. When a processes is running and it's time slice expires, the
+**Registers in the PCB** : it is a data structure. When a processes is running and it's time slice expires, the
 current value of process specific registers would be stored in the PCB and the process would be swapped
 out. When the process is scheduled to be run, the register values is read from the PCB and written to the
 CPU registers. This is the main purpose of the registers in the PCB.
