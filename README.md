@@ -3819,6 +3819,7 @@ PCB is used during context switching.
   
 5. **Architecture** of process:
 <img width="850" height="397" alt="image" src="https://github.com/user-attachments/assets/43c3ed3f-137a-49f3-9387-2ad848184530" />
+
 ```
 Both stack and heap change size while the program runs.
 Stack grows downward
