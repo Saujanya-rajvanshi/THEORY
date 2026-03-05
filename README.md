@@ -3819,7 +3819,32 @@ PCB is used during context switching.
   
 5. **Architecture** of process:
 <img width="850" height="397" alt="image" src="https://github.com/user-attachments/assets/43c3ed3f-137a-49f3-9387-2ad848184530" />
+```
+Both stack and heap change size while the program runs.
+Stack grows downward
+When functions are called:
+    main()
+      ↓
+    func1()
+      ↓
+    func2()
+Each call pushes a stack frame.
+So stack keeps expanding downwards.
+Heap grows upward
+Heap grows when dynamic memory is allocated.
+Example:
+    malloc()
+    new
+Each allocation increases heap size upwards.
 
+if one grows too much:
+    stack overflow
+    heap overflow
+they might collide.
+So the OS keeps large free space between them.
+This allows both to grow safely.
+
+```
 
 6. **Attributes** of process:
     * a. Feature that allows identifying a process uniquely.
