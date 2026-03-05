@@ -3566,41 +3566,111 @@ d. attach or detach remote devices
 
 
 ## What happens when you turn on your computer 
-* i. PC On
 
-* ii. CPU initializes itself and looks for a firmware program (BIOS) stored in
-BIOS Chip (Basic input-output system chip is a ROM chip found on
-mother board that allows to access & setup computer system at most
-basic level.)
-    * 1. In modern PCs, CPU loads UEFI (Unified extensible firmware interface)
+Power On
+→ Firmware (BIOS/UEFI)
+→ POST
+→ Bootloader
+→ Kernel
+→ User Space
 
-* iii. CPU runs the BIOS which tests and initializes system hardware. Bios
-loads configuration settings. If something is not appropriate (like missing
-RAM) error is thrown and boot process is stopped.
-This is called POST (Power on self-test) process.
-(UEFI can do a lot more than just initialize hardware; it’s really a tiny
-operating system. For example, Intel CPUs have the Intel Management
-Engine. This provides a variety of features, including powering Intel’s
-Active Management Technology, which allows for remote management
-of business PCs.)
+### 1. Power On
 
-* iv. BIOS will handoff responsibility for booting your PC to your OS’s
-bootloader.
-    * 1. BIOS looked at the MBR (master boot record), a special boot
-sector at the beginning of a disk. The MBR contains code that
-loads the rest of the operating system, known as a “bootloader.”
-The BIOS executes the bootloader, which takes it from there and
-begins booting the actual operating system—Windows or Linux,
-for example.
-In other words,
-the BIOS or UEFI examines a storage device on your system to
-look for a small program, either in the MBR or on an EFI system
-partition, and runs it.
+* You press the power button.
+* Power Supply Unit (PSU) starts supplying electricity.
+* CPU receives a reset signal and starts execution.
 
-* v. The bootloader is a small program that has the large task of booting the
-rest of the operating system (Boots Kernel then, User Space). Windows
-uses a bootloader named Windows Boot Manager (Bootmgr.exe), most
-Linux systems use GRUB, and Macs use something called boot.efi
+### 2. CPU Starts Firmware (BIOS / UEFI)
+
+* CPU looks for firmware stored in ROM/flash memory on the motherboard.
+* This firmware is:
+
+  * **BIOS** (older systems)
+  * **UEFI** (modern systems)
+<br>
+UEFI = Unified Extensible Firmware Interface <br>
+(It replaces traditional BIOS and provides more features.)
+
+### 3. POST (Power-On Self-Test)
+
+Firmware performs hardware checks:
+
+* RAM detection
+* CPU check
+* Keyboard, storage detection
+* Basic hardware initialization
+
+If something fails (e.g., no RAM):
+
+* Error beep/message
+* Boot process stops
+
+### 4. Hardware Initialization
+
+Firmware:
+
+* Loads hardware configuration settings
+* Initializes memory controller
+* Detects storage devices (HDD/SSD)
+* Prepares system for OS loading
+
+### 5. Locate Boot Device
+
+Firmware checks boot order:
+
+Example:
+
+1. SSD
+2. USB
+3. Network
+
+It looks for:
+
+* **MBR** (Master Boot Record) → Legacy BIOS systems
+* **EFI System Partition** → UEFI systems
+
+### 6. Load Bootloader
+
+Firmware loads the bootloader into RAM and transfers control.
+
+Common bootloaders:
+
+* Windows → Windows Boot Manager (bootmgr / bootmgfw.efi)
+* Linux → GRUB
+* macOS → boot.efi
+
+### 7. Bootloader Loads the Kernel
+
+Bootloader:
+
+* Loads OS Kernel into RAM
+* Sets up initial memory structures
+* Passes control to the kernel
+
+### 8. Kernel Initialization
+
+Kernel:
+
+* Switches CPU to protected/long mode
+* Initializes memory management
+* Sets up device drivers
+* Initializes process scheduler
+* Mounts root filesystem
+
+## 9️. Start User Space
+
+Kernel starts the first user-space process:
+
+* Linux → `init` / `systemd`
+* Windows → `smss.exe`
+
+After this:
+
+* Services start
+* Login screen appears
+* Desktop loads
+
+
 
 
 
