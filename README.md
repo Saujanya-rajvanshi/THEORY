@@ -3843,7 +3843,6 @@ if one grows too much:
 they might collide.
 So the OS keeps large free space between them.
 This allows both to grow safely.
-
 ```
 
 6. **Attributes** of process:
