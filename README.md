@@ -3897,35 +3897,193 @@ created.
 
 ## Swapping Context Switching Orphan process Zombie process
 
-* **Swapping**
-    * a. Time-sharing system may have medium term schedular (MTS).
-    * b. Remove processes from memory to reduce degree of multi-programming.
-    * c. These removed processes can be reintroduced into memory, and its execution can be continued where it left off. This is called Swapping.
-    * d. Swap-out and swap-in is done by MTS.
-    * e. Swapping is necessaryto improve process mix or because a change in memory requirements has overcommitted available memory, requiring memory to be freed up.
+## **Swapping**
+
+### 1. Definition
+
+**Swapping** is a memory management technique in which a process is **temporarily moved from main memory (RAM) to secondary storage (disk)** so that memory can be freed for other processes.
+Later, the process can be **brought back into RAM and resume execution from where it stopped**.
+
+
+### 2. Why Swapping is Needed
+
+Swapping is used when:
+
+* The system has **too many processes in memory**.
+* The **available RAM becomes insufficient**.
+* The OS wants to **improve process scheduling and system performance**.
+
+This helps the system maintain a **better process mix** and continue running smoothly.
+
+### 3. Role of Medium-Term Scheduler (MTS)
+
+In **time-sharing systems**, the **Medium-Term Scheduler** manages swapping.
+
+### Responsibilities of MTS:
+
+* **Select processes to remove from memory**
+* **Swap out processes to disk**
+* **Swap in processes back to RAM when needed**
+
+This helps control the **degree of multiprogramming**.
+
+### 4. Degree of Multiprogramming
+
+**Degree of multiprogramming** =
+Number of processes **present in main memory at the same time**.
+
+If too many processes are loaded:
+
+* Memory becomes overloaded
+* System performance decreases
+
+So the OS **reduces the degree of multiprogramming by swapping some processes out**.
+
+
+
+### 5. Swapping Operations
+
+#### Swap Out
+
+* Process is **moved from RAM → Disk**
+* Memory space becomes available
+
+#### Swap In
+
+* Process is **brought back from Disk → RAM**
+* Execution continues from where it stopped
+
+
+
+### 6. Swapping Process Flow
+
+```
+Process in RAM
+      ↓
+Medium-Term Scheduler decides
+      ↓
+Process swapped out to Disk
+      ↓
+Memory becomes free
+      ↓
+Later OS needs the process
+      ↓
+Process swapped back into RAM
+      ↓
+Execution resumes
+```
+
     * f. Swapping is a mechanism in which a process can be swapped temporarily out of main memory (or move) to secondary storage (disk) and make that memory available to other processes. At some later time, the system swaps back the process from the secondary storage to main memory.
 
 <img width="1274" height="509" alt="image" src="https://github.com/user-attachments/assets/31cc472a-f615-44a5-bcb5-d34d5ee9f20f" />
 <br>
 
-* **Context-Switching**
-    * a. Switching the CPU to another process requires performing a state save of the current process and a state restore of a different process.
-    * b. When this occurs, the kernel saves the context of the old process in its PCB and loads the saved context of the new process scheduled to run.
-    * c. It is pure overhead, because the system does no useful work while switching.
-    * d. Speed varies from machine to machine, depending on the memory speed, the number of registers that must be copied etc.
+## **Context-Switching**
 
-* **Orphan process**
-    * a. The process whose parent process has been terminated and it is still running.
-    * b. Orphan processes are adopted by init process.
-    * c. Init is the first process of OS.
- 
+**Context Switching** is the process where the CPU **stops executing one process and starts executing another process**.
+To do this, the operating system **saves the state of the current process and loads the state of the next process**.
+
+* b. During this event, the **kernel saves the CPU context of the currently running process into its PCB and loads the saved context of the next scheduled process from its PCB into the CPU registers**.
+
+* c. It is **pure overhead**, because the system does no useful work during the switch.
+
+* d. Speed varies from machine to machine depending on **memory speed, number of CPU registers, and OS implementation**.
+
+
+### Definition
+
+**Context Switching** is the process where the CPU **stops executing one process and starts executing another process**.
+
+To do this, the operating system **saves the state of the current process and loads the state of the next process**.
+
+
+### How It Happens
+
+1. The CPU is executing **Process A**.
+2. The OS decides to run **Process B**.
+3. The OS **saves the state of Process A in its PCB**.
+4. The OS **loads the saved state of Process B from its PCB**.
+5. CPU resumes execution of **Process B**.
+
+### What is Saved (Context)
+
+The **context** includes:
+
+* CPU registers
+* Program Counter (PC)
+* Process state
+* Stack pointer
+
+These values are stored inside the **Process Control Block (PCB)**.
+
+### Important Point
+
+Context switching is **pure overhead**.
+
+* During switching, the CPU **does not perform useful work**.
+* Time is spent **saving and restoring process states**.
+
+### Performance Factors
+
+The **speed of context switching depends on**:
+
+* CPU architecture
+* Number of registers to save
+* Memory speed
+* OS implementation
+
+### Simple Flow
+
+```
+Process A running
+      ↓
+Interrupt / Scheduler decision
+      ↓
+Save Process A context → PCB
+      ↓
+Load Process B context → CPU
+      ↓
+Process B starts running
+```
+   
+
+### Orphan Process
+
+* **Definition:**
+  A process whose **parent process has terminated while the child process is still running**.
+
+* **Adoption:**
+  The orphan process is **adopted by the `init` process (PID 1)**.
+
+* **Reason:**
+  The **init process becomes the new parent** and is responsible for **managing and cleaning up the child when it terminates**.
+
+* **Note:**
+  `init` is the **first process started by the operating system during boot**.
+
+👉 **Parent dies → child continues → init adopts it.**
+
   
- * **Zombie process / Defunct process**
-     * a. A zombie process is a process whose execution is completed but it still has an entry in the process table.
-     * b. Zombie processes usually occur for child processes, as the parent process still needs to read its child’s exit status. Once this is done using the wait system call, the zombie process is eliminated from the process table. This is known as reaping the zombie process.
-     * c. It is because parent process maycall wait () on child process for a longer time duration and child process got terminated much earlier.
-     * d. As entry in the process table can only be removed, after the parent process reads the exit status of
-child process. Hence, the child process remains a zombie till it is removed from the process table.
+### Zombie Process / Defunct Process
+
+* **Definition:**
+  A process whose **execution has finished but its entry still exists in the process table**.
+
+* **Why it happens:**
+  The **parent process has not yet read the child's exit status**.
+
+* **Reason:**
+  The OS **keeps the process entry (PCB)** so the parent can retrieve the **termination status**.
+
+* **Removal (Reaping):**
+  When the **parent process calls `wait()`**, it reads the child’s exit status and the **OS removes the zombie from the process table**.
+
+* **Note:**
+  If the parent delays calling `wait()`, the **terminated child remains a zombie** until it is reaped.
+
+👉 **Child terminates → parent hasn’t called `wait()` → process becomes zombie.**
+
+
 
 
 
