@@ -3905,6 +3905,8 @@ created.
     * e. Swapping is necessaryto improve process mix or because a change in memory requirements has overcommitted available memory, requiring memory to be freed up.
     * f. Swapping is a mechanism in which a process can be swapped temporarily out of main memory (or move) to secondary storage (disk) and make that memory available to other processes. At some later time, the system swaps back the process from the secondary storage to main memory.
 
+<img width="1274" height="509" alt="image" src="https://github.com/user-attachments/assets/31cc472a-f615-44a5-bcb5-d34d5ee9f20f" />
+<br>
 * **Context-Switching**
     * a. Switching the CPU to another process requires performing a state save of the current process and a state restore of a different process.
     * b. When this occurs, the kernel saves the context of the old process in its PCB and loads the saved context of the new process scheduled to run.
