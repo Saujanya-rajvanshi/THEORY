@@ -3907,6 +3907,7 @@ created.
 
 <img width="1274" height="509" alt="image" src="https://github.com/user-attachments/assets/31cc472a-f615-44a5-bcb5-d34d5ee9f20f" />
 <br>
+
 * **Context-Switching**
     * a. Switching the CPU to another process requires performing a state save of the current process and a state restore of a different process.
     * b. When this occurs, the kernel saves the context of the old process in its PCB and loads the saved context of the new process scheduled to run.
