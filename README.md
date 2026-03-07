@@ -4098,6 +4098,11 @@ Process B starts running
     * Whenever the CPU become ideal, OS must select one process from the ready queue to be executed.
     * Done by STS.
 
+### sheduling 
+
+Preemptive Scheduling : The operating system can interrupt a running process and allocate the CPU to another process. <br>
+Non-Preemptive scheduling : Once a process gets the CPU, it keeps it until it finishes execution or voluntarily releases it.<br>
+
 * **Non-Preemptive scheduling**
     * Once CPU has been allocated to a process, the process keeps the CPU until it releases CPU either by terminating or by switching to wait-state.
     * Starvation, as a process with long burst time may starve less burst time process.
@@ -4131,37 +4136,144 @@ Process B starts running
 
 ## CPU Scheduling SJF Priority RR
 
-* Shortest Job First (SJF) [Non-preemptive]
-    * a. Process with least BT will be dispatched to CPU first.
-    * b. Must do estimation for BT for each process in ready queue beforehand, Correct estimation of BT is an impossible task (ideally.)
-    * c. Run lowest time process for all time then, choose job having lowest BT at that instance.
-    * d. This will suffer from convoy effect as if the very first process which came is Ready state is having a large BT.
-    * e. Process starvation might happen.
-    * f. Criteria for SJF algos, AT + BT.
+## 1️. Shortest Job First (SJF)
 
-* SJF [Preemptive]
-    * a. Less starvation.
-    * b. No convoy effect.
-    * c. Gives average WT less for a given set of processes as scheduling short job before a long one decreases the WT of short job more than it increases the WT of the long process.
+### Non-Preemptive SJF
 
-* Priority Scheduling [Non-preemptive]
-    * a. Priority is assigned to a process when it is created.
-    * b. SJF is a special case of general priority scheduling with priority inversely proportional to BT.
+#### Definition
 
-* Priority Scheduling [Preemptive]
-    * a. Current RUN state job will be preempted if next job has higher priority.
-    * b. May cause indefinite waiting (Starvation) for lower priority jobs. (Possibility is they won’t get executed ever). (True for both preemptive and non-preemptive version)
-        * i. Solution: Ageing is the solution.
-        * ii. Gradually increase priority of process that wait so long. E.g., increase priority by 1 every 15 minutes.
+The process with the **smallest Burst Time (BT)** is selected and executed **until completion**.
 
-* Round robin scheduling (RR)
-    * a. Most popular
-    * b. Like FCFS but preemptive.
-    * c. Designed for time sharing systems.
-    * d. Criteria: AT + time quantum (TQ), Doesn’t depend on BT.
-    * e. No process is going to wait forever, hence very low starvation. [No convoy effect]
-    * f. Easy to implement.
-    * g. If TQ is small, more will be the context switch (more overhead).
+#### Characteristics
+
+* Process with **least BT gets CPU first**.
+* Requires **estimation of burst time**, which is difficult in practice.
+* Once a process starts executing, it **cannot be interrupted**.
+
+#### Issues
+
+* **Convoy Effect:**
+  If a very long job arrives first, shorter jobs must wait.
+* **Starvation:**
+  Long processes may wait indefinitely if short jobs keep arriving.
+
+#### Scheduling Criteria
+
+Uses:
+
+```
+Arrival Time (AT) + Burst Time (BT)
+```
+
+### Preemptive SJF
+
+(Also called **Shortest Remaining Time First – SRTF**)
+
+#### Definition
+
+The CPU is always assigned to the process with the **shortest remaining burst time**.
+
+#### Characteristics
+
+* If a **new process arrives with shorter remaining time**, the current process is **preempted**.
+* Reduces waiting time for short jobs.
+
+#### Advantages
+
+* **Less starvation compared to non-preemptive SJF**
+* **No convoy effect**
+* Gives **minimum average waiting time** for a given set of processes.
+
+## 2. Priority Scheduling
+
+Processes are scheduled based on **priority values**.
+
+### Non-Preemptive Priority Scheduling
+
+#### Characteristics
+
+* Priority is **assigned when the process is created**.
+* CPU is allocated to the **highest priority process**.
+* Once a process starts running, it **continues until completion**.
+
+#### Note
+
+* **SJF is a special case of priority scheduling** where:
+
+```
+Priority ∝ 1 / Burst Time
+```
+
+(shorter job → higher priority)
+
+### Preemptive Priority Scheduling
+
+#### Characteristics
+
+* If a **higher priority process arrives**, the currently running process is **preempted**.
+* CPU is given to the higher priority process immediately.
+
+#### Issue
+
+* **Starvation (Indefinite Waiting)**
+  Low-priority processes may never get CPU time.
+
+#### Solution: Aging
+
+**Aging** gradually increases the priority of waiting processes.
+
+Example:
+
+```
+Increase priority by 1 every 15 minutes
+```
+
+This ensures long-waiting processes eventually run.
+
+## 3️. Round Robin Scheduling (RR)
+
+#### Definition
+
+Each process gets CPU for a **fixed time slice called Time Quantum (TQ)**.
+
+#### Characteristics
+
+* Similar to **FCFS but preemptive**
+* Designed for **time-sharing systems**
+* Each process gets CPU **in cyclic order**
+
+#### Scheduling Criteria
+
+Uses:
+
+```
+Arrival Time (AT) + Time Quantum (TQ)
+```
+
+It **does not depend on Burst Time**.
+
+#### Advantages
+
+* **Very low starvation**
+* **No convoy effect**
+* **Fair CPU distribution**
+* **Easy to implement**
+
+#### Disadvantage
+
+* If **Time Quantum is too small**:
+
+  * Frequent **context switches**
+  * Higher **overhead**
+
+
+| Algorithm   | Preemption | Key Idea                | Main Issue              |
+| ----------- | ---------- | ----------------------- | ----------------------- |
+| SJF         | No         | Shortest job first      | Starvation              |
+| SRTF        | Yes        | Shortest remaining time | Complexity              |
+| Priority    | Both       | Highest priority first  | Starvation              |
+| Round Robin | Yes        | Fixed time slice        | Context switch overhead |
+
 
 <img width="454" height="526" alt="image" src="https://github.com/user-attachments/assets/67341e19-3740-4e31-9d04-170ab799d6c8" />
 
