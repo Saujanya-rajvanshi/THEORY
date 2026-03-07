@@ -4090,18 +4090,18 @@ Process B starts running
 ## Intro to Process Scheduling FCFS Convoy Effect
 
 * **Process Scheduling**
-    * a. Basis of Multi-programming OS.
-    * b. By switching the CPU among processes, the OS can make the computer more productive.
-    * c. Many processes are kept in memory at a time, when a process must wait or time quantum expires, the OS takes the CPU away from that process & gives the CPU to another process & this pattern continues.
+    * Basis of Multi-programming OS.
+    * By switching the CPU among processes, the OS can make the computer more productive.
+    * Many processes are kept in memory at a time, when a process must wait or time quantum expires, the OS takes the CPU away from that process & gives the CPU to another process & this pattern continues.
 
 * **CPU Scheduler**
-    * a. Whenever the CPU become ideal, OS must select one process from the ready queue to be executed.
-    * b. Done by STS.
+    * Whenever the CPU become ideal, OS must select one process from the ready queue to be executed.
+    * Done by STS.
 
 * **Non-Preemptive scheduling**
-    * a. Once CPU has been allocated to a process, the process keeps the CPU until it releases CPU either by terminating or by switching to wait-state.
-    * b. Starvation, as a process with long burst time may starve less burst time process.
-    * c. Low CPU utilization.
+    * Once CPU has been allocated to a process, the process keeps the CPU until it releases CPU either by terminating or by switching to wait-state.
+    * Starvation, as a process with long burst time may starve less burst time process.
+    * Low CPU utilization.
 
 * **Preemptive scheduling**
     * a. CPU is taken away from a process after time quantum expires along with terminating or switching to wait-state.
@@ -4123,9 +4123,9 @@ Process B starts running
 * **Response time :** Time duration between process getting into ready queue and process getting CPU for the first time.
 * **Completion Time (CT) :** Time taken till process gets terminated.
 * **FCFS (First come-first serve) :**
-    * a. Whichever process comes first in the ready queue will be given CPU first.
-    * b. In this, if one process has longer BT. It will have major effect on average WT of diff processes, called Convoy effect.
-    * c. Convoy Effect is a situation where many processes, who need to use a resource for a short time, are blocked by one process holding that resource for a long time.
+    * Whichever process comes first in the ready queue will be given CPU first.
+    * In this, if one process has longer BT. It will have major effect on average WT of diff processes, called Convoy effect.
+    * **Convoy Effect :** is a situation where many processes, who need to use a resource for a short time, are blocked by one process holding that resource for a long time.
   
 
 
