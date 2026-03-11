@@ -4286,7 +4286,6 @@ It **does not depend on Burst Time**.
     * a. Ready queue is divided into multiple queues depending upon priority.
     * b. A process is permanently assigned to one of the queues (inflexible) based on some property of process, memory, size, process priority or process type.
     * c. Each queue has its own scheduling algorithm. E.g., SP -> RR, IP -> RR & BP -> FCFS.
-    <img width="635" height="347" alt="image" src="https://github.com/user-attachments/assets/f18db95d-a4f0-47b6-bcec-cebb2324bb8b" />
     * d. System process: Created by OS (Highest priority) <br>
          Interactive process (Foreground process): Needs user input (I/O).
          Batch process (Background process): Runs silently, no user input required.
@@ -4294,6 +4293,9 @@ It **does not depend on Burst Time**.
     * f. If an interactive process comes & batch process is currently executing. Then, batch process will be preempted.
     * g. Problem: Only after completion of all the processes from the top-level ready queue, the further level ready queues will be scheduled. This came starvation for lower priority process.
     * h. Convoy effect is present.
+ 
+<img width="635" height="347" alt="image" src="https://github.com/user-attachments/assets/f18db95d-a4f0-47b6-bcec-cebb2324bb8b" />
+    
 
 * Multi-level feedback queue scheduling (MLFQ)
     * a. Multiple sub-queues are present.
