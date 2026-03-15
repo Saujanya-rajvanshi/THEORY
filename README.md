@@ -542,13 +542,6 @@ Phase 2:
 
 ---
 
-This version now:
-✔ Matches your index
-✔ Separates software vs knowledge
-✔ Keeps interview clarity
-✔ Keeps research path open
-
-
 
 
 
