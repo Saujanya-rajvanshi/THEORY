@@ -5048,5 +5048,110 @@ processes.
 
 # CN 
 
+* [Basics](#Basics)
+* [Network Topology](#Network-Topology)
+* [Network Types](#Network-Types)
+* [OSI Model](#Osi-Model)
+* [Networking Commands](#Networking-Commands)
+* [Web Concepts](#Web-Concepts)
+* [Networking Protocols](#Networking-Protocols)
+* [System Design Concepts](#System-Design-Concepts)
+* [Modern Infrastructure](#Modern-Infrastructure)
+* [Wireless Communication](#Wireless-Communication)
+* [Security](#Security)
+* [Real World Systems](Real-World-Systems)
+
+
+##  Basics
+
+* [What is Computer Networking](#what-is-computer-networking)
+* [Basic Terms](#basic-terms)
+* [Web vs Internet](#web-vs-internet)
+* [Transmission Media](#transmission-media)
+* [Network Devices](#network-devices)
+* [Unicast, Broadcast, Multicast](#unicast-broadcast-and-multicast)
+
+## Network Topology
+
+* [Mesh](#mesh)
+* [Star](#star)
+* [Bus](#bus)
+* [Ring](#ring)
+* [Tree](#tree)
+
+## Network Types
+
+* [LAN](#lan)
+* [MAN](#man)
+* [WAN](#wan)
+
+## OSI Model
+
+* [What is OSI Model](#what-is-osi-model)
+* [OSI Layers](#osi-layers)
+* [How a Packet Travels](#how-a-packet-travels)
+
+## Networking Commands
+
+* [Web Concepts](#web-concepts)
+* [HTTP vs HTTPS](#http-vs-https)
+* [API Gateway](#api-gateway)
+* [SSL / TLS](#ssl--tls)
+* [Reverse Proxy](#reverse-proxy)
+* [Load Balancer](#load-balancer)
+
+## Networking Protocols
+
+* [ARP](#arp)
+* [Multiplexing](#multiplexing)
+* [Public vs Private IP](#public-vs-private-ip)
+* [NIC and MAC Address](#nic-and-mac-address)
+* [Gateway vs Router](#gateway-vs-router)
+* [Modem vs Router](#modem-vs-router)
+
+## System Design Concepts
+
+* [Horizontal vs Vertical Scaling](#horizontal-vs-vertical-scaling)
+* [Caching](#caching)
+* [Performance vs Scalability](#performance-vs-scalability)
+* [Latency vs Throughput](#latency-vs-throughput)
+* [VIP in Networks](#vip-in-networks)
+
+## Modern Infrastructure
+
+* [REST API vs HTTP API](#rest-api-vs-http-api)
+* [Containers](#containers)
+* [Containerization vs Virtualization](#containerization-vs-virtualization)
+
+## Wireless Communication
+
+* [Bluetooth](#bluetooth)
+* [Hotspot](#hotspot)
+* [2G vs 3G vs 4G vs 5G](#2g-vs-3g-vs-4g-vs-5g)
+
+## Security
+
+* [VPN](#vpn)
+
+## Real World Systems
+
+* [How Email Works](#how-email-works)
+* [How File Transfer Works](#how-file-transfer-works)
+* [How ATM Works](#how-atm-works)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## mechanism of the computer
