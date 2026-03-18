@@ -5064,12 +5064,122 @@ processes.
 
 ##  Basics
 
-* [What is Computer Networking](#what-is-computer-networking)
-* [Basic Terms](#basic-terms)
-* [Web vs Internet](#web-vs-internet)
-* [Transmission Media](#transmission-media)
-* [Network Devices](#network-devices)
-* [Unicast, Broadcast, Multicast](#unicast-broadcast-and-multicast)
+* [What is Computer Networking](#What-is-Computer-Networking)
+* [Basic Terms](#Basic-Terms)
+* [Web vs Internet](#Web-vs-Internet)
+* [Transmission Media](#Transmission-Media)
+* [Network Devices](#Metwork-Devices)
+* [Unicast, Broadcast, Multicast](#Unicast-Broadcast-and-Multicast)
+
+### What is Computer Networking
+
+* A **computer network** is a collection of interconnected devices that can communicate and share resources.
+* Devices include: computers, servers, routers, switches, mobiles.
+* Communication happens using **protocols** (rules).
+  <br><br>
+**Goals**
+
+* Resource sharing (files, printers)
+* Communication (email, chat)
+* Scalability
+* Reliability
+<br><br>
+**Types**
+
+* Wired (Ethernet)
+* Wireless (Wi-Fi, Bluetooth)
+
+## Basic Terms
+
+* **Node** → Any device in a network
+* **Link** → Connection between nodes
+* **Bandwidth** → Data transfer capacity (bps)
+* **Latency** → Delay in data transfer
+* **Throughput** → Actual data transferred
+* **IP Address** → Unique identifier of a device
+* **MAC Address** → Hardware address (unique, physical)
+* **Protocol** → Rules of communication (HTTP, TCP, etc.)
+
+**Important**
+
+* Bandwidth ≠ Throughput
+* Latency low = faster response
+
+## Web vs Internet
+
+| Feature    | Internet            | Web                 |
+| ---------- | ------------------- | ------------------- |
+| Definition | Network of networks | Service on internet |
+| Works on   | IP, TCP/UDP         | HTTP/HTTPS          |
+| Includes   | Email, FTP, Web     | Only websites       |
+<br><br>
+**Simple**
+
+* Internet = Infrastructure
+* Web = Service on top
+<br><br>
+**Example**
+
+* Internet = Roads
+* Web = Cars running on roads
+
+## Transmission Media
+
+Means how data travels
+
+### 1. Guided (Wired)
+
+* Twisted Pair Cable
+* Coaxial Cable
+* Optical Fiber (🔥 fastest)
+
+### 2. Unguided (Wireless)
+
+* Radio waves
+* Microwaves
+* Infrared
+<br><br>
+**Important**
+
+* Fiber → High speed, low loss
+* Wireless → Flexible but less secure
+
+## Network Devices
+
+* **Router** → Connects different networks
+* **Switch** → Connects devices in LAN
+* **Hub** → Broadcasts data (old, inefficient)
+* **Modem** → Converts digital ↔ analog
+* **Access Point** → Provides Wi-Fi
+* **Firewall** → Security filter
+
+💡 **Important Differences**
+
+* Hub vs Switch → Switch is smarter
+* Router works at **Network Layer**
+
+## Unicast Broadcast Multicast
+
+### 1. Unicast
+
+* One-to-One communication
+* Example: Sending message to a friend
+
+### 2. Broadcast
+
+* One-to-All
+* Example: ARP request
+
+### 3. Multicast
+
+* One-to-Many (selected group)
+* Example: Live streaming
+<br><br>
+**Important**
+
+* Broadcast = heavy traffic
+* Multicast = optimized communication
+
 
 ## Network Topology
 
