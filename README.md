@@ -5183,11 +5183,146 @@ Means how data travels
 
 ## Network Topology
 
-* [Mesh](#mesh)
-* [Star](#star)
-* [Bus](#bus)
-* [Ring](#ring)
-* [Tree](#tree)
+* [Mesh](#Mesh-Topology)
+* [Star](#Star-Topology)
+* [Bus](#Bus-Topology)
+* [Ring](#Ring-Topology)
+* [Tree](#Tree-Topology)
+
+**Definition :**<br>
+Network topology is the **physical or logical arrangement of devices (nodes) and connections (links)** in a network.<br><br>
+
+Two types:<br><br>
+
+* **Physical Topology** → Actual layout (cables, devices)
+* **Logical Topology** → How data flows
+
+### Mesh Topology
+
+#### Structure
+
+* Every node is connected to **every other node**
+
+#### Formula
+
+* Total links = **n(n-1)/2**
+
+#### Advantages
+
+* High reliability (no single point of failure)
+* Fault tolerant
+* High security (dedicated links)
+
+#### Disadvantages
+
+* Very expensive (lots of cables)
+* Complex setup
+* Poor scalability
+
+#### Use Case
+
+* Military systems, critical networks
+
+
+### Star Topology
+
+#### Structure
+
+* All devices connected to a **central hub/switch**
+
+#### Advantages
+
+* Easy to install & manage
+* Easy fault detection
+* Scalable
+
+#### Disadvantages
+
+* Central device failure → whole network down
+* More cable than bus
+
+#### Use Case
+
+* Most modern LANs (🔥 very important)
+
+## Bus Topology
+
+#### Structure
+
+* All devices connected to a **single backbone cable**
+
+#### Advantages
+
+* Low cost
+* Simple to implement
+
+#### Disadvantages
+
+* Backbone failure → entire network down
+* Difficult fault detection
+* Collision issues
+
+#### Use Case
+
+* Old Ethernet networks (rare today)
+
+## Ring Topology
+
+#### Structure
+
+* Devices connected in a **circular loop**
+
+#### Working
+
+* Data travels in **one direction** (token passing)
+
+#### Advantages
+
+* No collisions
+* Predictable performance
+
+#### Disadvantages
+
+* Failure of one node → affects entire network
+* Hard to troubleshoot
+
+#### Use Case
+
+* Token Ring (obsolete now)
+
+## Tree Topology
+
+#### Structure
+
+* Combination of **star + bus**
+* Hierarchical (parent-child structure)
+
+#### Advantages
+
+* Scalable
+* Easy management of large networks
+
+#### Disadvantages
+
+* Backbone dependency
+* Complex setup
+
+#### Use Case
+
+* Large organizations, enterprise networks
+
+### Placement Important Comparison
+
+| Topology | Cost        | Reliability | Scalability | Failure Impact       |
+| -------- | ----------- | ----------- | ----------- | -------------------- |
+| Mesh     | High        | Very High   | Poor        | Minimal              |
+| Star     | Medium      | Medium      | High        | Central node failure |
+| Bus      | Low         | Low         | Poor        | Full network down    |
+| Ring     | Medium      | Medium      | Low         | One node affects all |
+| Tree     | Medium-High | Medium      | High        | Backbone failure     |
+
+
+
 
 ## Network Types
 
