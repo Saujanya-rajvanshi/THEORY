@@ -2,36 +2,15 @@
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
-<BR>
-[THEORY NOTES- oops theory part 1 ](https://drive.google.com/file/d/1h-4RdVIQCNu_loshweVu5TvqvYxHTY2d/view)
-<BR>
-[notes](https://www.geeksforgeeks.org/cpp/object-oriented-programming-in-cpp/)
-<BR>
-[.............................. - oops theory part 2 ](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
-<BR>
-[LECTURE - oops vedio leture](https://www.youtube.com/watch?v=JeYx8vJB75Q&list=PLfte2JjPrXPueKLpApF3evL4guf_rWmx4)
-<BR>
 
 ### OS  THEORY
 [REPOSITORY OS](#OPERATING-SYSTEM)
-<BR>
-[THEORY NOTES- OS theory notes](https://drive.google.com/file/d/1kksqpGT_YBQsFwsyVyftikPRP-sZZF-e/view)
-<BR>
-[LECTURE - OS vedio lecture](https://www.youtube.com/watch?v=3obEP8eLsCw)
 
 ### DBMS THEORY
 [REPOSITORY DBMS](#DBMS)
-<BR>
-[THEORY NOTES - dbms theory](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
-<BR>
-[LECTURE - dbms vedio lecture](https://www.youtube.com/watch?v=dl00fOOYLOM&t=34400s)
 
 ### CN THEORY
 [REPOSITORY - CN](#CN)
-<BR>
-[THEORY NOTES - CN theory ]()
-<BR>
-[LECTURE - CN vedio lecture](https://www.youtube.com/watch?v=IPvYjXCsTg8&t=290s)
 
 
 ## computer system
