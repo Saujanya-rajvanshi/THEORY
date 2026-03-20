@@ -636,12 +636,9 @@ Teacher() {
 cout << "Hi, I am constructor\n";
 }
 ```
-```cpp
-public:
-Teacher () {
-    dept = "Computer Science";
-}
-```
+
+##### parametrized and non-parametrized
+
 ``` cpp
 public:
 //non-parameterized
@@ -656,6 +653,9 @@ subject = s;
 salary = sal;
 }
 ```
+
+##### copy constructor
+
 ```cpp
 //copy constructor
 Teacher(Teacher &org0bj) {
@@ -672,30 +672,24 @@ This will call copy constructor again <br>
 That again needs a copy → infinite recursion <br>
 
 
-construction -> base class -> derived class
-destruction ->  derived class -> base class
-
+* construction calls -> 1st base class -> 2nd derived class
+* destruction ->  1st derived class -> 2nd base class
 
 ---
 
 ## this Pointer
 
-## 🔹 `this` Keyword (C++)
-
-### What is `this`?
-
+#### What is `this`?
 `this` is an **implicit pointer** inside a non-static member function that **points to the current calling object**.
-
 ➡ It holds the **address of the current object**.
 
-## 🔹 Why `this` is used?
-
+#### Why `this` is used?
 1. To **differentiate data members and parameters**
 2. To **return the current object**
 3. To **pass current object as argument**
 4. To **enable method chaining**
 
-## 🔹 Example 1: Resolving name conflict
+#### Example 1: Resolving name conflict
 
 ```cpp
 class Student {
@@ -705,12 +699,13 @@ public:
         this->id = id;
     }
 };
+
+- `this->id` → data member
+- `id` → function parameter
+
 ```
 
-✔ `this->id` → data member
-✔ `id` → function parameter
-
-## 🔹 Example 2: Returning current object
+#### Example 2: Returning current object
 
 ```cpp
 class Test {
@@ -727,11 +722,14 @@ Usage:
 
 ```cpp
 obj.set(10).set(20);
-```
-👉 Chaining is just syntactic convenience, not logic change.
-✔ Enables **method chaining**
 
-## 🔹 Example 3: Passing current object
+- Chaining is just syntactic convenience, not logic change.
+- Enables **method chaining**
+
+```
+
+
+#### Example 3: Passing current object
 
 ```cpp
 class Demo {
@@ -744,42 +742,41 @@ public:
         show(this);
     }
 };
+
+`this` passes **current object address**
+
 ```
 
-✔ `this` passes **current object address**
 
-## 🔹 Important Rules (Exam Points)
+#### Important Rules (Exam Points)
 
 * `this` is a **pointer**
 * Available only in **non-static** member functions
 * Cannot be used in **static functions**
 * Type: `ClassName*`
 
-## 🔹 One-Line Definition (Very Important)
+#### One-Line Definition (Very Important)
 
 > **`this` is a pointer that stores the address of the current calling object.**
 
-## 🔹 `this` vs Normal Variable
+#### `this` vs Normal Variable
 
 | Without `this`    | With `this`  |
 | ----------------- | ------------ |
 | Ambiguous         | Clear        |
 | Shadowing problem | No confusion |
 
-## 🔹 Common Viva Questions
-
-**Q. Why `this` is not used in static functions?**
+* **Q. Why `this` is not used in static functions?**
 👉 Static members do not belong to any object.
 
-**Q. Can we change `this`?**
+* **Q. Can we change `this`?**
 👉 ❌ No, it is a constant pointer.
 
 ---
 
 ## Destructor
 
-## destructor
-A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
+A destructor is a special member function of a class that is automatically called when an **object is destroyed** (goes out of scope or is deleted) and is used to **release resources like dynamically allocated memory** .
 
 ```cpp
 //destructor
@@ -831,10 +828,8 @@ int main() {
     return 0;   // destructors called automatically here
 }
 ```
-
 ---
 
----
 
 #### Core Concepts
 ## Four Pillars of OOP
@@ -843,7 +838,7 @@ int main() {
 - [Abstraction](#abstraction)
 - [Polymorphism](#polymorphism)
 
-### Encapsulation
+## Encapsulation
 
 * Encapsulation is **binding data and functions into a single unit (class)**.
 * Data is **not accessed directly**; it is accessed via **member functions**.
@@ -1008,6 +1003,7 @@ public:
     string subject;
 }
 ```
+
 #### Ambiguity
 Ambiguity occurs in C++ when a derived class inherits two or more base classes that have functions or variables with the same name, and the compiler cannot decide which one to use.
 This commonly happens in multiple inheritance.
@@ -1044,7 +1040,7 @@ int main() {
 }
 ```
 
-### Abstraction
+## Abstraction
 
 * Abstraction means **showing only essential details** and hiding unnecessary details.
 * Focuses on **what an object does**, not **how it does it**.
@@ -1087,9 +1083,101 @@ int main() {
 return 0;
 }
 ```
+
 ---
 
-### polymorphism 
+
+## Polymorphism 
+
+* Polymorphism means **one interface, many forms**.
+* Same function name behaves **differently for different objects**.
+* Derived from:
+
+  * **Poly** → many
+  * **Morphism** → forms
+
+### **Types of Polymorphism**
+
+1. **Compile-Time (Static)**
+2. **Runtime (Dynamic)**
+
+## **Compile-Time Polymorphism**
+
+* Resolved **at compile time**.
+* Implemented using **Function Overloading** and **Operator Overloading**.
+
+### **Function Overloading**
+
+* Same function name with **different parameters**.
+* Cannot be overloaded only by **return type**.
+
+**Example:**
+
+```cpp
+class Add {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+```
+
+
+### 2. Compile-Time Polymorphism (Static Binding)
+
+- Definition
+- Rules
+- Types (Number, Type, Order of Parameters)
+- Compiler Working (Logic)
+- Examples
+
+#### 2.2 Operator Overloading
+- Definition
+- Syntax
+- Why Use
+- Operators That Can Be Overloaded
+- Operators That Cannot Be Overloaded
+- Rules & Restrictions
+- Example
+
+---
+
+### 3. Runtime Polymorphism (Dynamic Binding)
+
+#### 3.1 Method Overriding
+- Definition
+- Rules
+- Requirements (Inheritance, Same Signature)
+
+#### 3.2 Virtual Functions
+- Definition
+- Role in Runtime Polymorphism
+- How it Works (v-table concept)
+
+#### 3.3 Working Mechanism
+- Base Class Pointer → Derived Object
+- Runtime Decision
+
+#### 3.4 Without Virtual (Important Case)
+- Compile-time binding behavior
+
+---
+
+### 4. Types of Binding
+
+- Early Binding (Compile-Time)
+- Late Binding (Runtime)
+
+---
+
+### 5. Data Binding (Conceptual)
+
+- Definition
+- Role in Software Design
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -1112,13 +1200,11 @@ int main() {
 }
 ``` 
 
----
+### Function Overloading 
 
-## Function Overloading 
-
-**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).
-The compiler decides **which function to call at compile time**, based on the arguments passed.
-👉 It improves **readability and flexibility** of the program.
+**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).<br>
+The compiler decides **which function to call at compile time**, based on the arguments passed.<br>
+It improves **readability and flexibility** of the program.<br>
 
 * **How Functions Can Be Overloaded**
 Functions can be overloaded by:
@@ -1126,7 +1212,7 @@ Functions can be overloaded by:
 2. **Different types of arguments**
 3. **Different order of arguments**
 
-❌ Function overloading **cannot** be done by return type alone.
+( X ) Function overloading **cannot** be done by return type alone.
 
 * **Logic (How Compiler Works)**
 
@@ -1140,9 +1226,8 @@ Functions can be overloaded by:
 
 This is called **Compile-Time Polymorphism**.
 
----
 
-## Example 1: Function Overloading with Different Number of Arguments
+#### Example 1: Function Overloading with Different Number of Arguments
 
 ```cpp
 #include <iostream>
@@ -1165,7 +1250,7 @@ int main() {
 }
 ```
 
-## Example 2: Function Overloading with Different Data Types
+#### Example 2: Function Overloading with Different Data Types
 
 ```cpp
 #include <iostream>
@@ -1186,14 +1271,12 @@ int main() {
 }
 ```
 
----
+### Operator Overloading 
 
-## Operator Overloading 
-
-###  **Definition**
-
-**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.
-It makes objects behave like **built-in data types**.
+**Definition**
+<br>
+**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.<br>
+It makes objects behave like **built-in data types**.<br>
 👉 It is a form of **compile-time polymorphism**.
 
 
@@ -1204,7 +1287,7 @@ It makes objects behave like **built-in data types**.
 * Enables **natural syntax** (e.g., `c1 + c2`)
 
 
-## General Syntax
+#### General Syntax
 
 ```cpp
 return_type operator operator_symbol (arguments) {
@@ -1212,9 +1295,7 @@ return_type operator operator_symbol (arguments) {
 }
 ```
 
----
-
-## Operators That **CAN** Be Overloaded in C++
+#### Operators That **CAN** Be Overloaded in C++
 
 Some commonly overloaded operators:
 
@@ -1227,11 +1308,10 @@ Some commonly overloaded operators:
 -> new delete
 ```
 
-✔ Most arithmetic, relational, logical, and bitwise operators can be overloaded.
+( V ) Most arithmetic, relational, logical, and bitwise operators can be overloaded.
 
----
 
-## Operators That **CANNOT** Be Overloaded in C++
+#### Operators That **CANNOT** Be Overloaded in C++
 
 | Operator | Meaning           |
 | -------- | ----------------- |
@@ -1242,9 +1322,9 @@ Some commonly overloaded operators:
 
 These operators have **fixed meanings** decided by the compiler.
 
----
 
-## Example: Operator Overloading (Addition of Complex Numbers)
+
+#### Example: Operator Overloading (Addition of Complex Numbers)
 
 ```cpp
 #include <iostream>
@@ -1279,14 +1359,14 @@ int main() {
 }
 ```
 
-### Output
+#### Output
 
 ```
 Real: 4
 Imaginary: 6
 ```
 
-## Important Rules 
+#### Important Rules 
 
 ✔ At least **one operand must be a user-defined type**
 ✔ Operator precedence **cannot be changed**
@@ -1294,31 +1374,22 @@ Imaginary: 6
 ✔ Some operators must be overloaded as **member functions** (`=`, `[]`, `()`)
 
 
-## Function Overloading vs Operator Overloading
 
-| Feature      | Function Overloading | Operator Overloading |
-| ------------ | -------------------- | -------------------- |
-| Purpose      | Same function name   | Same operator        |
-| Polymorphism | Compile-time         | Compile-time         |
-| Used for     | Functions            | Operators            |
+###  Runtime Polymorphism (C++)
 
-
-
-##  Runtime Polymorphism (C++)
-
-**Runtime polymorphism** is also called **dynamic polymorphism**.
-It occurs when the **function call is resolved at runtime**, not at compile time.
+**Runtime polymorphism** is also called **dynamic polymorphism**. <br>
+It occurs when the **function call is resolved at runtime**, not at compile time. <br><br>
 
 👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
 
 
 ## Method Overriding
 
-**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.
+**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.<br><br>
 
 The decision of which function to call depends on the **object type at runtime**.
 
-## Rules for Method Overriding (Very Important)
+### Rules for Method Overriding (Very Important)
 
 1. Function name must be **same** in parent and child class
 2. Function parameters must be **same**
@@ -1328,14 +1399,14 @@ The decision of which function to call depends on the **object type at runtime**
 6. Access is usually through **base class pointer**
 
 
-## How Runtime Polymorphism Works (Logic)
+### How Runtime Polymorphism Works (Logic)
 
 * Base class pointer points to derived class object
 * Compiler decides the function call **at runtime**
 * Uses **virtual function table (v-table)** internally
 
 
-## Example: Runtime Polymorphism using Method Overriding
+#### Example: Runtime Polymorphism using Method Overriding
 
 ```cpp
 #include <iostream>
@@ -1365,7 +1436,7 @@ int main() {
 }
 ```
 
-### Output
+#### Output
 
 ```
 This is Child class show function
@@ -1373,15 +1444,6 @@ This is Child class show function
 
 * **What if `virtual` is not used?**
 Without `virtual`, **compile-time binding** happens and parent class function is called.
-
-## Compile-Time vs Runtime Polymorphism
-
-| Feature     | Compile-Time                    | Runtime           |
-| ----------- | ------------------------------- | ----------------- |
-| Binding     | Compile time                    | Runtime           |
-| Achieved by | Function / Operator Overloading | Method Overriding |
-| Keyword     | No keyword                      | `virtual`         |
-| Inheritance | Not required                    | Required          |
 
 ---
 
@@ -1396,47 +1458,7 @@ Without `virtual`, **compile-time binding** happens and parent class function is
 
 ---
 
-## **Polymorphism**
 
-* Polymorphism means **one interface, many forms**.
-* Same function name behaves **differently for different objects**.
-* Derived from:
-
-  * **Poly** → many
-  * **Morphism** → forms
-
-### **Types of Polymorphism**
-
-1. **Compile-Time (Static)**
-2. **Runtime (Dynamic)**
-
----
-
-## **Compile-Time Polymorphism**
-
-* Resolved **at compile time**.
-* Implemented using **Function Overloading** and **Operator Overloading**.
-
-### **Function Overloading**
-
-* Same function name with **different parameters**.
-* Cannot be overloaded only by **return type**.
-
-**Example:**
-
-```cpp
-class Add {
-public:
-    int add(int a, int b) {
-        return a + b;
-    }
-    int add(int a, int b, int c) {
-        return a + b + c;
-    }
-};
-```
-
----
 
 ## **Runtime Polymorphism**
 
