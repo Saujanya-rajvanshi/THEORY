@@ -10,7 +10,7 @@
 [REPOSITORY DBMS](#DBMS)
 
 ### CN THEORY
-[REPOSITORY - CN](#CN)
+[REPOSITORY CN](#CN)
 
 
 ## computer system
