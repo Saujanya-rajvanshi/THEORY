@@ -621,6 +621,7 @@ Student* s = new Student(); // heap memory
 ```
 
 ---
+
 #### 🦋 Object Lifecycle
 
 ## constructor
@@ -829,6 +830,113 @@ int main() {
 }
 ```
 ---
+
+
+### practice
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+public:
+    // 🔹 Attributes (Data Members)
+    int id;
+    int age;
+    string name;
+    int nos;
+    int* gpa;   // 🔥 Pointer → dynamic memory (important for deep copy)
+
+    // 🔹 Default Constructor
+    Student() {
+        cout << "Student Default ctor called" << endl;
+        gpa = new int(0);  // 🔥 allocate memory to avoid garbage pointer
+    }
+
+    // 🔹 Parameterized Constructor
+    Student(int id, int age, string name, int nos, float gpa) {
+        cout << "Student Parameterised ctor called" << endl;
+
+        this->id = id;
+        this->age = age;
+        this->name = name;
+        this->nos = nos;
+
+        this->gpa = new int(gpa);  
+        // 🔥 dynamic allocation → heap memory
+    }
+
+    // 🔹 Copy Constructor (DEEP COPY)
+    Student(const Student &srcobj) {
+        cout << "Student Copy ctor called" << endl;
+
+        this->id = srcobj.id;
+        this->age = srcobj.age;
+        this->name = srcobj.name;
+        this->nos = srcobj.nos;
+
+        // 🔥 VERY IMPORTANT
+        this->gpa = new int(*(srcobj.gpa));  
+        // Deep copy → new memory created
+    }
+
+    // 🔹 Methods / Behaviour
+    void study() {
+        cout << this->name << " Studying" << endl;
+    }
+
+    void sleep() {
+        cout << this->name << " Sleeping" << endl;
+    }
+
+    void bunk() {
+        cout << this->name << " Bunking" << endl;
+    }
+
+    // 🔹 Destructor
+    ~Student() {
+        cout << "Student Destructor called" << endl;
+
+        delete this->gpa;  
+        // 🔥 free heap memory → avoid memory leak
+    }
+};
+
+int main() {
+
+    // 🔹 Parameterized Object
+    Student A(1, 15, "Ranu", 6, 9);
+
+    // 🔹 Copy Constructor Call
+    Student B = A;   // OR Student B(A);
+
+    // 🔹 Modify original object's GPA
+    *(A.gpa) = 10;
+
+    // 🔥 Check if deep copy worked
+    cout << "A GPA: " << *(A.gpa) << endl;
+    cout << "B GPA: " << *(B.gpa) << endl;
+
+    // 🔹 Method Calls
+    A.study();
+    B.sleep();
+
+    return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #### Core Concepts
