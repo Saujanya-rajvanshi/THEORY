@@ -569,7 +569,6 @@ Object-Oriented Programming (OOP) is a programming paradigm
 ##### Fundamentals (Core Basics)
 - [Class](#class)
 - [Object](#object)
-- [Syntax](#syntax)
 
 ##### Core Concepts
 - [Four Pillars of OOP](#four-pillars-of-oop)
@@ -592,14 +591,13 @@ Object-Oriented Programming (OOP) is a programming paradigm
 ##### Advanced Concepts
 - [Static Keyword](#static-keyword)
 
-
-
 ---
 - [OOPS in C](#OOPS-in-C)
 - [OOPS in python](#OOPS-in-python)
 - [OOPS in JAVA](#OOPS-in-JAVA)
 ---
 
+#### Fundamentals (Core Basics)
 ## Class
 
 * A **class** is a **user-defined data type**.
@@ -643,11 +641,64 @@ Student* s = new Student(); // heap memory
 
 ---
 
-## four pillars
-- [inherittance](#inherittance)
+#### Core Concepts
+## Four Pillars of OOP
 - [encapsulation](#encapsulation)
+- [inherittance](#inherittance)
 - [abstraction](#abstraction)
 - [polymorphism](#polymorphism)
+
+
+### encapsulation
+* wrapping up of data & member function in a single unit called class
+* fully encapsulated class -> all data member are private
+
+<img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;   // hidden data
+
+public:
+    void setName(string n) {
+        name = n;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+class GradStudent : public Student {
+private:
+    string researchArea;   // hidden data
+
+public:
+    void setResearchArea(string r) {
+        researchArea = r;
+    }
+
+    string getResearchArea() {
+        return researchArea;
+    }
+};
+
+int main() {
+    GradStudent s1;
+
+    s1.setName("Tony Stark");
+    s1.setResearchArea("Quantum Physics");
+
+    cout << s1.getName() << endl;
+    cout << s1.getResearchArea() << endl;
+
+    return 0;
+}
+```
 
 ## Inheritance
 
@@ -767,57 +818,6 @@ int main() {
 
     obj.A::func(); // Calls A's func
     // obj.B::func(); // Calls B's func
-
-    return 0;
-}
-```
-
-### encapsulation
-* wrapping up of data & member function in a single unit called class
-* fully encapsulated class -> all data member are private
-
-<img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Student {
-private:
-    string name;   // hidden data
-
-public:
-    void setName(string n) {
-        name = n;
-    }
-
-    string getName() {
-        return name;
-    }
-};
-
-class GradStudent : public Student {
-private:
-    string researchArea;   // hidden data
-
-public:
-    void setResearchArea(string r) {
-        researchArea = r;
-    }
-
-    string getResearchArea() {
-        return researchArea;
-    }
-};
-
-int main() {
-    GradStudent s1;
-
-    s1.setName("Tony Stark");
-    s1.setResearchArea("Quantum Physics");
-
-    cout << s1.getName() << endl;
-    cout << s1.getResearchArea() << endl;
 
     return 0;
 }
@@ -1316,7 +1316,7 @@ int main() {
 
 ---
 
-## acess modifiers
+## Access Modifiers
 
 ```cpp
 #include <iostream>
@@ -1351,7 +1351,7 @@ int main() {
 
 ---
 
-## setter and getter
+## Getter & Setter
 
 **Getter** and **Setter** are **public member functions** to **access and modify private data members** of a class, enabling **encapsulation** and controlled data access.
 * **Getter** → returns the value of a private variable
@@ -1399,6 +1399,70 @@ int main() {
 
 ---
 
+#### Memory & Object Behavior
+
+## Static vs Dynamic Allocation
+
+**Static memory allocation**
+* Memory decided at compile time.
+* Size and lifetime are fixed before the program runs.
+* * memory area is stack/data.
+
+**Dynamic memory allocation**
+* memory decided at runtime.
+* Size and lifetime are controlled by the programmer.
+* Program requests memory from heap, OS provides a memory block
+* Address is returned to the program
+* Memory exists until explicitly released
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Teacher {
+private:
+    double salary;
+
+public:
+    string name;
+    string dept;
+    string subject;
+
+    // setters
+    void setName(string n) {
+        name = n;
+    }
+
+    void setSubject(string s) {
+        subject = s;
+    }
+};
+
+int main() {
+    // static memory allocation
+    Teacher t1;
+    t1.name = "Alice";
+    t1.subject = "Math";
+
+    // dynamic memory allocation
+    Teacher* t2 = new Teacher;
+    t2->setName("Bob");
+    t2->setSubject("Physics");
+
+    cout << "Static object name: " << t1.name << endl;
+    cout << "Static object subject: " << t1.subject << endl;
+    
+    cout << "Dynamic object name: " << t2->name << endl;
+    cout << "Dynamic object subject: " << t2->subject << endl;
+
+    delete t2;   // free dynamic memory
+    return 0;
+}
+```
+
+---
+
+## Padding & Memory Alignment
 ## padding and greedy alignment
 
 ## 🔹 Padding (in OOPS / Memory)
@@ -1524,66 +1588,9 @@ class P {
     int i;
 };
 ```
+
 ---
-
-## static and dynamic
-**Static memory allocation**
-* Memory decided at compile time.
-* Size and lifetime are fixed before the program runs.
-* * memory area is stack/data.
-
-**Dynamic memory allocation**
-* memory decided at runtime.
-* Size and lifetime are controlled by the programmer.
-* Program requests memory from heap, OS provides a memory block
-* Address is returned to the program
-* Memory exists until explicitly released
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Teacher {
-private:
-    double salary;
-
-public:
-    string name;
-    string dept;
-    string subject;
-
-    // setters
-    void setName(string n) {
-        name = n;
-    }
-
-    void setSubject(string s) {
-        subject = s;
-    }
-};
-
-int main() {
-    // static memory allocation
-    Teacher t1;
-    t1.name = "Alice";
-    t1.subject = "Math";
-
-    // dynamic memory allocation
-    Teacher* t2 = new Teacher;
-    t2->setName("Bob");
-    t2->setSubject("Physics");
-
-    cout << "Static object name: " << t1.name << endl;
-    cout << "Static object subject: " << t1.subject << endl;
-    
-    cout << "Dynamic object name: " << t2->name << endl;
-    cout << "Dynamic object subject: " << t2->subject << endl;
-
-    delete t2;   // free dynamic memory
-    return 0;
-}
-```
----
+#### Object Lifecycle
 
 ## constructor
 
@@ -1640,7 +1647,7 @@ destruction ->  derived class -> base class
 
 ---
 
-## this
+## this Pointer
 
 ## 🔹 `this` Keyword (C++)
 
@@ -1738,55 +1745,7 @@ public:
 
 ---
 
-## shallow and deep copy
-```cpp
-#include <iostream>
-using namespace std;
-
-class Student {
-public:
-    string name;
-    double* cgpaPtr;
-
-    // parameterized constructor
-    Student(string name, double cgpa) {
-        this->name = name;
-        cgpaPtr = new double;
-        *cgpaPtr = cgpa;
-    }
-
-    // deep copy constructor
-    Student(const Student &obj) {
-        this->name = obj.name;
-        cgpaPtr = new double(*obj.cgpaPtr);
-    }
-
-    void getInfo() {
-        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
-    }
-
-    // destructor
-    ~Student() {
-        delete cgpaPtr;
-    }
-};
-
-int main() {
-    Student s1("rahul kumar", 8.9);
-    Student s2(s1);   // deep copy
-
-    s1.getInfo();
-
-    *(s2.cgpaPtr) = 9.2;   // change only s2
-    s1.getInfo();         // unchanged
-
-    s2.name = "neha";
-    s2.getInfo();
-
-    return 0;
-}
-```
----
+## Destructor
 
 ## destructor
 A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
@@ -1844,7 +1803,68 @@ int main() {
 
 ---
 
-## static keywords
+---
+
+#### Copying & Memory Handling
+## shallow and deep copy
+
+## Shallow Copy
+## Deep Copy
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    double* cgpaPtr;
+
+    // parameterized constructor
+    Student(string name, double cgpa) {
+        this->name = name;
+        cgpaPtr = new double;
+        *cgpaPtr = cgpa;
+    }
+
+    // deep copy constructor
+    Student(const Student &obj) {
+        this->name = obj.name;
+        cgpaPtr = new double(*obj.cgpaPtr);
+    }
+
+    void getInfo() {
+        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
+    }
+
+    // destructor
+    ~Student() {
+        delete cgpaPtr;
+    }
+};
+
+int main() {
+    Student s1("rahul kumar", 8.9);
+    Student s2(s1);   // deep copy
+
+    s1.getInfo();
+
+    *(s2.cgpaPtr) = 9.2;   // change only s2
+    s1.getInfo();         // unchanged
+
+    s2.name = "neha";
+    s2.getInfo();
+
+    return 0;
+}
+```
+---
+
+
+#### Advanced Concepts
+
+## Static Keyword
+
 The static keyword gives a variable or function a lifetime of the entire program
 * it retains its value even after the scope where it is declared ends.
 * to accesss you dont need to create object
