@@ -570,6 +570,11 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [Class](#class)
 - [Object](#object)
 
+##### Object Lifecycle
+- [Constructor](#constructor)
+- [this Pointer](#this-pointer)
+- [Destructor](#destructor)
+
 ##### Core Concepts
 - [Four Pillars of OOP](#four-pillars-of-oop)
 - [Access Modifiers](#access-modifiers)
@@ -578,11 +583,6 @@ Object-Oriented Programming (OOP) is a programming paradigm
 ##### Memory & Object Behavior
 - [Static vs Dynamic Allocation](#static-vs-dynamic-allocation)
 - [Padding & Memory Alignment](#padding--memory-alignment)
-
-##### Object Lifecycle
-- [Constructor](#constructor)
-- [this Pointer](#this-pointer)
-- [Destructor](#destructor)
 
 ##### Copying & Memory Handling
 - [Shallow Copy](#shallow-copy)
@@ -640,20 +640,260 @@ Student* s = new Student(); // heap memory
 ```
 
 ---
+#### Object Lifecycle
+
+## constructor
+
+* when a function is created a function (constructor gets build) like name t1.Teacher()
+* object creation used for initialisation
+* no return type
+* input parameter can or cannot be 
+
+```cpp
+public:
+Teacher() {
+cout << "Hi, I am constructor\n";
+}
+```
+```cpp
+public:
+Teacher () {
+    dept = "Computer Science";
+}
+```
+``` cpp
+public:
+//non-parameterized
+Teacher() {
+dept = "Computer Science";
+
+//parameterized
+Teacher(string n, string d, string s, double sal) {
+name = n;
+dept =xd;
+subject = s;
+salary = sal;
+}
+```
+```cpp
+//copy constructor
+Teacher(Teacher &org0bj) {
+    cout << "i am custom copy constructor ... \n";
+    this->name = org0bj.name;
+    this->dept = org0bj.dept;
+    this->subject = org0bj.subject;
+    this->salary = org0bj. salary;
+}
+```
+
+💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
+This will call copy constructor again <br>
+That again needs a copy → infinite recursion <br>
+
+
+construction -> base class -> derived class
+destruction ->  derived class -> base class
+
+
+---
+
+## this Pointer
+
+## 🔹 `this` Keyword (C++)
+
+### What is `this`?
+
+`this` is an **implicit pointer** inside a non-static member function that **points to the current calling object**.
+
+➡ It holds the **address of the current object**.
+
+## 🔹 Why `this` is used?
+
+1. To **differentiate data members and parameters**
+2. To **return the current object**
+3. To **pass current object as argument**
+4. To **enable method chaining**
+
+## 🔹 Example 1: Resolving name conflict
+
+```cpp
+class Student {
+    int id;
+public:
+    void setId(int id) {
+        this->id = id;
+    }
+};
+```
+
+✔ `this->id` → data member
+✔ `id` → function parameter
+
+## 🔹 Example 2: Returning current object
+
+```cpp
+class Test {
+    int x;
+public:
+    Test& set(int x) {
+        this->x = x;
+        return *this;
+    }
+};
+```
+
+Usage:
+
+```cpp
+obj.set(10).set(20);
+```
+👉 Chaining is just syntactic convenience, not logic change.
+✔ Enables **method chaining**
+
+## 🔹 Example 3: Passing current object
+
+```cpp
+class Demo {
+public:
+    void show(Demo* obj) {
+        cout << "Object passed";
+    }
+
+    void call() {
+        show(this);
+    }
+};
+```
+
+✔ `this` passes **current object address**
+
+## 🔹 Important Rules (Exam Points)
+
+* `this` is a **pointer**
+* Available only in **non-static** member functions
+* Cannot be used in **static functions**
+* Type: `ClassName*`
+
+## 🔹 One-Line Definition (Very Important)
+
+> **`this` is a pointer that stores the address of the current calling object.**
+
+## 🔹 `this` vs Normal Variable
+
+| Without `this`    | With `this`  |
+| ----------------- | ------------ |
+| Ambiguous         | Clear        |
+| Shadowing problem | No confusion |
+
+## 🔹 Common Viva Questions
+
+**Q. Why `this` is not used in static functions?**
+👉 Static members do not belong to any object.
+
+**Q. Can we change `this`?**
+👉 ❌ No, it is a constant pointer.
+
+---
+
+## Destructor
+
+## destructor
+A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
+
+```cpp
+//destructor
+~Student() {
+    cout << "Hi, I delete everything\n";
+}
+```
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    double* cgpaPtr;
+
+    // constructor
+    Student(string name, double cgpa) {
+        this->name = name;
+        cgpaPtr = new double(cgpa);
+        cout << "Constructor called for " << name << endl;
+    }
+
+    // deep copy constructor
+    Student(const Student &obj) {
+        name = obj.name;
+        cgpaPtr = new double(*obj.cgpaPtr);
+        cout << "Copy constructor called for " << name << endl;
+    }
+
+    void getInfo() {
+        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
+    }
+
+    // destructor
+    ~Student() {
+        delete cgpaPtr;
+        cout << "Hi, I delete everything for " << name << endl;
+    }
+};
+
+int main() {
+    Student s1("rahul kumar", 8.9);
+    Student s2(s1);
+
+    s1.getInfo();
+    s2.getInfo();
+
+    return 0;   // destructors called automatically here
+}
+```
+
+---
+
+---
 
 #### Core Concepts
 ## Four Pillars of OOP
-- [encapsulation](#encapsulation)
-- [inherittance](#inherittance)
-- [abstraction](#abstraction)
-- [polymorphism](#polymorphism)
+- [Encapsulation](#encapsulation)
+- [Inherittance](#inherittance)
+- [Abstraction](#abstraction)
+- [Polymorphism](#polymorphism)
 
+### Encapsulation
 
-### encapsulation
-* wrapping up of data & member function in a single unit called class
-* fully encapsulated class -> all data member are private
+* Encapsulation is **binding data and functions into a single unit (class)**.
+* Data is **not accessed directly**; it is accessed via **member functions**.
+* Achieves **data hiding** using access specifiers.
 
+**Access Specifiers in C++:**
+
+* `private` → accessible only within the class
+* `protected` → accessible in class + derived class
+* `public` → accessible everywhere
+
+**Benefits:**
+
+* Data security
+* Controlled access
+* Better maintainability
+  
 <img width="435" height="149" alt="image" src="https://github.com/user-attachments/assets/68b3afc3-0d3d-4995-b564-e2be3362ddd2" />
+
+**Example:**
+
+```cpp
+class Student {
+private:
+    int id;
+
+public:
+    void setId(int x) { id = x; }
+    int getId() { return id; }
+};
+```
 
 ```cpp
 #include <iostream>
@@ -823,7 +1063,27 @@ int main() {
 }
 ```
 
-### abstraction
+### Abstraction
+
+* Abstraction means **showing only essential details** and hiding unnecessary details.
+* Focuses on **what an object does**, not **how it does it**.
+* Helps in solving **complex real-world problems efficiently**.
+
+**Achieved using:**
+
+* Classes
+* Abstract classes
+* Interfaces (using pure virtual functions)
+
+**Example:**
+
+```cpp
+class Shape {
+public:
+    virtual void draw() = 0;  // pure virtual function
+};
+```
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -1063,17 +1323,13 @@ Imaginary: 6
 
 
 
-
----
-
-## 🔵 Runtime Polymorphism (C++)
+##  Runtime Polymorphism (C++)
 
 **Runtime polymorphism** is also called **dynamic polymorphism**.
 It occurs when the **function call is resolved at runtime**, not at compile time.
 
 👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
 
----
 
 ## Method Overriding
 
@@ -1098,7 +1354,7 @@ The decision of which function to call depends on the **object type at runtime**
 * Uses **virtual function table (v-table)** internally
 
 
-## 🧪 Example: Runtime Polymorphism using Method Overriding
+## Example: Runtime Polymorphism using Method Overriding
 
 ```cpp
 #include <iostream>
@@ -1128,8 +1384,6 @@ int main() {
 }
 ```
 
----
-
 ### Output
 
 ```
@@ -1150,61 +1404,8 @@ Without `virtual`, **compile-time binding** happens and parent class function is
 
 ---
 
-## Encapsulation
 
-* Encapsulation is **binding data and functions into a single unit (class)**.
-* Data is **not accessed directly**; it is accessed via **member functions**.
-* Achieves **data hiding** using access specifiers.
 
-**Access Specifiers in C++:**
-
-* `private` → accessible only within the class
-* `protected` → accessible in class + derived class
-* `public` → accessible everywhere
-
-**Benefits:**
-
-* Data security
-* Controlled access
-* Better maintainability
-
-**Example:**
-
-```cpp
-class Student {
-private:
-    int id;
-
-public:
-    void setId(int x) { id = x; }
-    int getId() { return id; }
-};
-```
-
----
-
-## Abstraction
-
-* Abstraction means **showing only essential details** and hiding unnecessary details.
-* Focuses on **what an object does**, not **how it does it**.
-* Helps in solving **complex real-world problems efficiently**.
-
-**Achieved using:**
-
-* Classes
-* Abstract classes
-* Interfaces (using pure virtual functions)
-
-**Example:**
-
-```cpp
-class Shape {
-public:
-    virtual void draw() = 0;  // pure virtual function
-};
-```
-
----
 
 ## **Data Binding**
 
@@ -1588,220 +1789,6 @@ class P {
     int i;
 };
 ```
-
----
-#### Object Lifecycle
-
-## constructor
-
-* when a function is created a function (constructor gets build) like name t1.Teacher()
-* object creation used for initialisation
-* no return type
-* input parameter can or cannot be 
-
-```cpp
-public:
-Teacher() {
-cout << "Hi, I am constructor\n";
-}
-```
-```cpp
-public:
-Teacher () {
-    dept = "Computer Science";
-}
-```
-``` cpp
-public:
-//non-parameterized
-Teacher() {
-dept = "Computer Science";
-
-//parameterized
-Teacher(string n, string d, string s, double sal) {
-name = n;
-dept =xd;
-subject = s;
-salary = sal;
-}
-```
-```cpp
-//copy constructor
-Teacher(Teacher &org0bj) {
-    cout << "i am custom copy constructor ... \n";
-    this->name = org0bj.name;
-    this->dept = org0bj.dept;
-    this->subject = org0bj.subject;
-    this->salary = org0bj. salary;
-}
-```
-
-💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
-This will call copy constructor again <br>
-That again needs a copy → infinite recursion <br>
-
-
-construction -> base class -> derived class
-destruction ->  derived class -> base class
-
-
----
-
-## this Pointer
-
-## 🔹 `this` Keyword (C++)
-
-### What is `this`?
-
-`this` is an **implicit pointer** inside a non-static member function that **points to the current calling object**.
-
-➡ It holds the **address of the current object**.
-
-## 🔹 Why `this` is used?
-
-1. To **differentiate data members and parameters**
-2. To **return the current object**
-3. To **pass current object as argument**
-4. To **enable method chaining**
-
-## 🔹 Example 1: Resolving name conflict
-
-```cpp
-class Student {
-    int id;
-public:
-    void setId(int id) {
-        this->id = id;
-    }
-};
-```
-
-✔ `this->id` → data member
-✔ `id` → function parameter
-
-## 🔹 Example 2: Returning current object
-
-```cpp
-class Test {
-    int x;
-public:
-    Test& set(int x) {
-        this->x = x;
-        return *this;
-    }
-};
-```
-
-Usage:
-
-```cpp
-obj.set(10).set(20);
-```
-👉 Chaining is just syntactic convenience, not logic change.
-✔ Enables **method chaining**
-
-## 🔹 Example 3: Passing current object
-
-```cpp
-class Demo {
-public:
-    void show(Demo* obj) {
-        cout << "Object passed";
-    }
-
-    void call() {
-        show(this);
-    }
-};
-```
-
-✔ `this` passes **current object address**
-
-## 🔹 Important Rules (Exam Points)
-
-* `this` is a **pointer**
-* Available only in **non-static** member functions
-* Cannot be used in **static functions**
-* Type: `ClassName*`
-
-## 🔹 One-Line Definition (Very Important)
-
-> **`this` is a pointer that stores the address of the current calling object.**
-
-## 🔹 `this` vs Normal Variable
-
-| Without `this`    | With `this`  |
-| ----------------- | ------------ |
-| Ambiguous         | Clear        |
-| Shadowing problem | No confusion |
-
-## 🔹 Common Viva Questions
-
-**Q. Why `this` is not used in static functions?**
-👉 Static members do not belong to any object.
-
-**Q. Can we change `this`?**
-👉 ❌ No, it is a constant pointer.
-
----
-
-## Destructor
-
-## destructor
-A destructor is a special member function of a class that is automatically called when an object is destroyed (goes out of scope or is deleted) and is used to release resources like dynamically allocated memory.
-
-```cpp
-//destructor
-~Student() {
-    cout << "Hi, I delete everything\n";
-}
-```
-```cpp
-#include <iostream>
-using namespace std;
-
-class Student {
-public:
-    string name;
-    double* cgpaPtr;
-
-    // constructor
-    Student(string name, double cgpa) {
-        this->name = name;
-        cgpaPtr = new double(cgpa);
-        cout << "Constructor called for " << name << endl;
-    }
-
-    // deep copy constructor
-    Student(const Student &obj) {
-        name = obj.name;
-        cgpaPtr = new double(*obj.cgpaPtr);
-        cout << "Copy constructor called for " << name << endl;
-    }
-
-    void getInfo() {
-        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
-    }
-
-    // destructor
-    ~Student() {
-        delete cgpaPtr;
-        cout << "Hi, I delete everything for " << name << endl;
-    }
-};
-
-int main() {
-    Student s1("rahul kumar", 8.9);
-    Student s2(s1);
-
-    s1.getInfo();
-    s2.getInfo();
-
-    return 0;   // destructors called automatically here
-}
-```
-
----
 
 ---
 
