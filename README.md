@@ -564,20 +564,35 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * which combine data (attributes) and methods (functions) that operate on that data
 * enabling modularity, reusability, abstraction, and data security.
 
-#### index
-- [class](#Class)
-- [object](#Object)
-- [four pillars](#four-pillars)
-- [syntax](#syntax)
-- [acess modifiers](#acess-modifiers)
-- [setter and getter](#setter-and-getter)
-- [padding and greedy alignment](#padding-and-greedy-alignment)
-- [static and dynamic](#static-and-dynamic)
-- [constructor](#constructor)
-- [this](#this)
-- [shallow and deep copy](#shallow-and-deep-copy)
-- [destructor](#destructor)
-- [static keywords](#static-keywords)
+#### Index
+
+##### Fundamentals (Core Basics)
+- [Class](#class)
+- [Object](#object)
+- [Syntax](#syntax)
+
+##### Core Concepts
+- [Four Pillars of OOP](#four-pillars-of-oop)
+- [Access Modifiers](#access-modifiers)
+- [Getter & Setter](#getter--setter)
+
+##### Memory & Object Behavior
+- [Static vs Dynamic Allocation](#static-vs-dynamic-allocation)
+- [Padding & Memory Alignment](#padding--memory-alignment)
+
+##### Object Lifecycle
+- [Constructor](#constructor)
+- [this Pointer](#this-pointer)
+- [Destructor](#destructor)
+
+##### Copying & Memory Handling
+- [Shallow Copy](#shallow-copy)
+- [Deep Copy](#deep-copy)
+
+##### Advanced Concepts
+- [Static Keyword](#static-keyword)
+
+
 
 ---
 - [OOPS in C](#OOPS-in-C)
@@ -1613,7 +1628,15 @@ Teacher(Teacher &org0bj) {
     this->salary = org0bj. salary;
 }
 ```
-💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps
+
+💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
+This will call copy constructor again <br>
+That again needs a copy → infinite recursion <br>
+
+
+construction -> base class -> derived class
+destruction ->  derived class -> base class
+
 
 ---
 
@@ -1667,7 +1690,7 @@ Usage:
 ```cpp
 obj.set(10).set(20);
 ```
-
+👉 Chaining is just syntactic convenience, not logic change.
 ✔ Enables **method chaining**
 
 ## 🔹 Example 3: Passing current object
