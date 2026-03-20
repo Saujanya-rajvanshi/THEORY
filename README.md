@@ -9,9 +9,8 @@
 <BR>
 [.............................. - oops theory part 2 ](https://drive.google.com/file/d/1L5Syt7UWG4FJBDth6tfoBn8FfuEMGLUL/view)
 <BR>
-[LECTURE - oops vedio leture 1](https://www.youtube.com/watch?v=i_5pvt7ag7E&t=1s)
+[LECTURE - oops vedio leture](https://www.youtube.com/watch?v=JeYx8vJB75Q&list=PLfte2JjPrXPueKLpApF3evL4guf_rWmx4)
 <BR>
-[...................- oops vedio lecture 2](https://www.youtube.com/watch?v=b3GccK5_KSQ)
 
 ### OS  THEORY
 [REPOSITORY OS](#OPERATING-SYSTEM)
