@@ -523,25 +523,6 @@ Only after strong base.
 
 ---
 
-# 🎯 Now Your Placement Focus (Clean Version)
-
-Phase 1:
-
-* DSA
-* OS
-* DBMS
-* CN
-* C++
-
-Phase 2:
-
-* Architecture
-* Distributed systems
-* System design
-* Compilers
-
----
-
 
 
 
@@ -597,7 +578,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [OOPS in JAVA](#OOPS-in-JAVA)
 ---
 
-#### Fundamentals (Core Basics)
+#### 🦋 Fundamentals (Core Basics)
 ## Class
 
 * A **class** is a **user-defined data type**.
@@ -640,7 +621,7 @@ Student* s = new Student(); // heap memory
 ```
 
 ---
-#### Object Lifecycle
+#### 🦋 Object Lifecycle
 
 ## constructor
 
