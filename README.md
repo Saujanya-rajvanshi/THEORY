@@ -5762,8 +5762,6 @@ Two types:<br><br>
 * [Reverse Proxy](#reverse-proxy)
 * [Load Balancer](#load-balancer)
 
----
-
 ## **Web Concepts**
 
 * Web works on **client-server model**
@@ -5771,8 +5769,6 @@ Two types:<br><br>
 * Server → sends response (web server)
 * Uses **HTTP/HTTPS protocols**
 * Example: Opening a website in Chrome
-
----
 
 ## **HTTP vs HTTPS**
 
@@ -5789,8 +5785,6 @@ Two types:<br><br>
 * Default port: **443**
 * Protects data from hackers
 
----
-
 ## **API Gateway**
 
 * Acts as an **entry point** for all client requests
@@ -5802,16 +5796,12 @@ Two types:<br><br>
   * Load balancing
 * Used in **microservices architecture**
 
----
-
 ## **SSL / TLS**
 
 * **SSL (Secure Sockets Layer)** and **TLS (Transport Layer Security)**
 * Provide **encryption** for secure communication
 * Used in HTTPS
 * TLS is the **modern and more secure version of SSL**
-
----
 
 ## **Reverse Proxy**
 
@@ -5822,8 +5812,6 @@ Two types:<br><br>
 
   * Security
   * Performance (caching)
-
----
 
 ## **Load Balancer**
 
@@ -5838,10 +5826,6 @@ Two types:<br><br>
   * Round Robin
   * Least Connections
 
----
-
-If you want, I can convert this into **super short interview-ready answers (1–2 lines each)**.
-
 
 ## Networking Protocols
 
@@ -5852,7 +5836,97 @@ If you want, I can convert this into **super short interview-ready answers (1–
 * [Gateway vs Router](#gateway-vs-router)
 * [Modem vs Router](#modem-vs-router)
 
-## System Design Concepts
+Here are your clean and structured notes:
+
+---
+
+## **Networking Protocols**
+
+* [ARP](#arp)
+* [Multiplexing](#multiplexing)
+* [Public vs Private IP](#public-vs-private-ip)
+* [NIC and MAC Address](#nic-and-mac-address)
+* [Gateway vs Router](#gateway-vs-router)
+* [Modem vs Router](#modem-vs-router)
+
+## **ARP**
+
+* **Full form:** Address Resolution Protocol
+* Maps **IP address → MAC address**
+* Used in local network communication
+* Example: Finding device MAC using its IP
+
+## **Multiplexing**
+
+* Technique to **combine multiple signals into one channel**
+* Improves bandwidth usage
+* Types:
+
+  * FDM (Frequency Division)
+  * TDM (Time Division)
+
+## **Public vs Private IP**
+
+### **Public IP**
+
+* Unique across the internet
+* Assigned by ISP
+* Used for external communication
+
+### **Private IP**
+
+* Used inside local networks
+* Not accessible from internet directly
+* Example ranges:
+
+  * 192.168.x.x
+  * 10.x.x.x
+
+## **NIC and MAC Address**
+
+### **NIC (Network Interface Card)**
+
+* Hardware that connects device to network
+* Example: Ethernet card, Wi-Fi adapter
+
+### **MAC Address**
+
+* Unique **physical address** of NIC
+* Assigned by manufacturer
+* Format: 00:1A:2B:3C:4D:5E
+
+## **Gateway vs Router**
+
+### **Gateway**
+
+* Connects **different networks**
+* Acts as entry/exit point
+
+### **Router**
+
+* Routes data between networks
+* Uses IP addresses
+
+## **Modem vs Router**
+
+### **Modem**
+
+* Converts **digital ↔ analog signals**
+* Connects to ISP
+
+### **Router**
+
+* Distributes internet to multiple devices
+* Creates local network (Wi-Fi/LAN)
+
+
+
+
+
+
+
+
+## **System Design Concepts**
 
 * [Horizontal vs Vertical Scaling](#horizontal-vs-vertical-scaling)
 * [Caching](#caching)
@@ -5860,27 +5934,259 @@ If you want, I can convert this into **super short interview-ready answers (1–
 * [Latency vs Throughput](#latency-vs-throughput)
 * [VIP in Networks](#vip-in-networks)
 
-## Modern Infrastructure
+
+## **Horizontal vs Vertical Scaling**
+
+### **Horizontal Scaling**
+
+* Adding **more machines/servers**
+* Also called **scaling out**
+* Improves reliability and availability
+* Example: Adding more servers to handle traffic
+
+### **Vertical Scaling**
+
+* Increasing **power of a single machine** (CPU, RAM)
+* Also called **scaling up**
+* Limited by hardware capacity
+* Example: Upgrading server RAM
+
+## **Caching**
+
+* Storing frequently accessed data in **temporary storage**
+* Reduces **latency** and server load
+* Improves performance
+
+**Types:**
+
+* Browser cache
+* Server cache
+* CDN cache
+
+## **Performance vs Scalability**
+
+### **Performance**
+
+* How fast a system responds
+* Measured by **response time & latency**
+
+### **Scalability**
+
+* Ability to handle **increasing load**
+* Measured by how system grows without failure
+
+## **Latency vs Throughput**
+
+### **Latency**
+
+* Time taken for a request → response
+* Lower latency = faster response
+
+### **Throughput**
+
+* Number of requests processed per second
+* Higher throughput = better capacity
+
+## **VIP in Networks**
+
+* **VIP = Virtual IP Address**
+* Not tied to a single device
+* Used by:
+
+  * Load balancers
+  * High availability systems
+* Helps in **failover** and traffic distribution
+
+
+
+
+
+
+
+
+## **Modern Infrastructure**
 
 * [REST API vs HTTP API](#rest-api-vs-http-api)
 * [Containers](#containers)
 * [Containerization vs Virtualization](#containerization-vs-virtualization)
 
-## Wireless Communication
+## **REST API vs HTTP API**
+
+### **REST API**
+
+* Follows **REST principles** (stateless, client-server, cacheable)
+* Uses standard HTTP methods: **GET, POST, PUT, DELETE**
+* Structured and widely used
+
+### **HTTP API**
+
+* General term for any API using HTTP
+* Not necessarily RESTful
+* More flexible but less standardized
+
+## **Containers**
+
+* Lightweight units that package:
+
+  * Application
+  * Dependencies
+* Run consistently across environments
+
+**Features:**
+
+* Fast startup
+* Portable
+* Efficient resource usage
+
+## **Containerization vs Virtualization**
+
+### **Containerization**
+
+* Uses **containers**
+* Shares host OS
+* Lightweight and fast
+* Example: Docker
+
+### **Virtualization**
+
+* Uses **virtual machines (VMs)**
+* Each VM has its own OS
+* Heavy and slower than containers
+* Example: VMware
+
+
+
+
+
+
+
+
+
+## **Wireless Communication**
 
 * [Bluetooth](#bluetooth)
 * [Hotspot](#hotspot)
 * [2G vs 3G vs 4G vs 5G](#2g-vs-3g-vs-4g-vs-5g)
 
-## Security
+## **Bluetooth**
+
+* Short-range wireless communication technology
+* Used to connect devices like:
+
+  * Headphones
+  * Speakers
+  * Smartwatches
+* Range: ~10 meters
+* Low power consumption
+
+## **Hotspot**
+
+* Turns a device (phone/laptop) into a **Wi-Fi source**
+* Shares mobile data with other devices
+* Types:
+
+  * Mobile hotspot
+  * Wi-Fi hotspot
+
+## **2G vs 3G vs 4G vs 5G**
+
+### **2G**
+
+* Supports calls and SMS
+* Very slow data (kbps)
+
+### **3G**
+
+* Introduced mobile internet
+* Moderate speed (Mbps)
+
+### **4G**
+
+* High-speed internet
+* Supports streaming, gaming
+* Speed: up to ~100 Mbps
+
+### **5G**
+
+* Very high speed and low latency
+* Supports IoT, smart devices
+* Speed: up to Gbps
+
+
+
+
+
+
+
+
+## **Security**
 
 * [VPN](#vpn)
 
-## Real World Systems
+## **VPN**
+
+* **Full form:** Virtual Private Network
+* Creates a **secure, encrypted connection** over the internet
+* Hides user’s **IP address**
+* Protects data from hackers and tracking
+
+**Uses:**
+
+* Secure browsing on public Wi-Fi
+* Access restricted websites
+* Maintain privacy and anonymity
+
+
+
+
+
+
+
+## **Real World Systems**
 
 * [How Email Works](#how-email-works)
 * [How File Transfer Works](#how-file-transfer-works)
 * [How ATM Works](#how-atm-works)
+
+## **How Email Works**
+
+* User composes email in **email client**
+* Sent using **SMTP (Simple Mail Transfer Protocol)**
+* Email server processes and sends to recipient server
+* Receiver fetches email using:
+
+  * **POP3** or
+  * **IMAP**
+* Email is displayed in receiver’s inbox
+
+## **How File Transfer Works**
+
+* Uses protocols like:
+
+  * **FTP (File Transfer Protocol)**
+  * **SFTP (Secure FTP)**
+* Steps:
+
+  * Client requests file
+  * Server authenticates user
+  * File is transferred in packets
+  * Reassembled at receiver side
+
+## **How ATM Works**
+
+* User inserts card → ATM reads card details
+* User enters PIN → verified by bank server
+* Request sent to bank system
+* Bank checks:
+
+  * Balance
+  * Authentication
+* If valid:
+
+  * Cash is dispensed
+  * Transaction recorded
+* Receipt generated
+
 
 
 
