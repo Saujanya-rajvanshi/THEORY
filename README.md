@@ -5384,7 +5384,6 @@ CodeHelp
 * [Security](#Security)
 * [Real World Systems](Real-World-Systems)
 
-
 ##  Basics
 
 * [What is Computer Networking](#What-is-Computer-Networking)
@@ -5399,18 +5398,14 @@ CodeHelp
 * A **computer network** is a collection of interconnected devices that can communicate and share resources.
 * Devices include: computers, servers, routers, switches, mobiles.
 * Communication happens using **protocols** (rules).
-  <br><br>
-**Goals**
-
-* Resource sharing (files, printers)
-* Communication (email, chat)
-* Scalability
-* Reliability
-<br><br>
-**Types**
-
-* Wired (Ethernet)
-* Wireless (Wi-Fi, Bluetooth)
+* **Goals**
+    * Resource sharing (files, printers)
+    * Communication (email, chat)
+    * Scalability
+    * Reliability
+* **Types**
+    * Wired (Ethernet)
+    * Wireless (Wi-Fi, Bluetooth)
 
 ## Basic Terms
 
