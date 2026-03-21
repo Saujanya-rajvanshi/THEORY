@@ -528,6 +528,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 ##### Fundamentals (Core Basics)
 - [Class](#class)
 - [Object](#object)
+- [syntax](#syntax)
 
 ##### Object Lifecycle
 - [Constructor](#constructor)
@@ -544,8 +545,7 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [Padding & Memory Alignment](#padding--memory-alignment)
 
 ##### Copying & Memory Handling
-- [Shallow Copy](#shallow-copy)
-- [Deep Copy](#deep-copy)
+- [Shallow Copy & Deep Copy](#shallow-and-deep-copy)
 
 ##### Advanced Concepts
 - [Static Keyword](#static-keyword)
@@ -555,6 +555,13 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [OOPS in python](#OOPS-in-python)
 - [OOPS in JAVA](#OOPS-in-JAVA)
 ---
+
+
+
+
+
+
+
 
 #### 🦋 Fundamentals (Core Basics)
 ## Class
@@ -598,21 +605,56 @@ Student s;              // stack memory
 Student* s = new Student(); // heap memory
 ```
 
+## syntax
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// making class
+class Teacher {
+    // class properties
+    public :
+    double salary;
+    string name;
+    string dept;
+    string subject;
+    
+};
+
+int main() {
+    // object value
+    Teacher t1 ;
+    t1.name = "Saujanya";
+    t1.subject = "C++";
+    t1.dept = "Computer Science";
+    cout << t1.name << endl;
+    return 0;
+}
+```
+💡 size of class is sum of all properties
+💡 empty class - no properties - size is 1 for identification
+
 ---
 
 #### 🦋 Object Lifecycle
 
 ## constructor
 
-* when a function is created a function (constructor gets build) like name t1.Teacher()
-* object creation used for initialisation
-* no return type
-* input parameter can or cannot be 
+A **constructor** is a **special member function of a class** that is **automatically called when an object is created** to **initialize the object’s data members**.
+
+* Same name as the class
+* **No return type** (not even `void`)
+* Called **automatically** during object creation
+* Used for **initialization**
+* Can have **parameters or no parameters**
+* Can be **overloaded** (multiple constructors)
+ 
 
 ```cpp
 public:
 Teacher() {
-cout << "Hi, I am constructor\n";
+    cout << "Hi, I am constructor\n";
 }
 ```
 
@@ -622,14 +664,15 @@ cout << "Hi, I am constructor\n";
 public:
 //non-parameterized
 Teacher() {
-dept = "Computer Science";
+    dept = "Computer Science";
+}
 
 //parameterized
 Teacher(string n, string d, string s, double sal) {
-name = n;
-dept =xd;
-subject = s;
-salary = sal;
+    name = n;
+    dept = d;
+    subject = s;
+    salary = sal;
 }
 ```
 
@@ -646,7 +689,7 @@ Teacher(Teacher &org0bj) {
 }
 ```
 
-💡 & (ampersand) is used in function parameters — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
+ampersand (&) — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
 This will call copy constructor again <br>
 That again needs a copy → infinite recursion <br>
 
@@ -665,8 +708,8 @@ That again needs a copy → infinite recursion <br>
 #### Why `this` is used?
 1. To **differentiate data members and parameters**
 2. To **return the current object**
-3. To **pass current object as argument**
-4. To **enable method chaining**
+3. To **enable method chaining**
+4. To **pass current object as argument**
 
 #### Example 1: Resolving name conflict
 
@@ -684,7 +727,7 @@ public:
 
 ```
 
-#### Example 2: Returning current object
+#### Example 2: Returning current object , enable method chaining
 
 ```cpp
 class Test {
@@ -733,29 +776,21 @@ public:
 * Available only in **non-static** member functions
 * Cannot be used in **static functions**
 * Type: `ClassName*`
-
-#### One-Line Definition (Very Important)
-
-> **`this` is a pointer that stores the address of the current calling object.**
-
-#### `this` vs Normal Variable
-
-| Without `this`    | With `this`  |
-| ----------------- | ------------ |
-| Ambiguous         | Clear        |
-| Shadowing problem | No confusion |
-
-* **Q. Why `this` is not used in static functions?**
-👉 Static members do not belong to any object.
-
-* **Q. Can we change `this`?**
-👉 ❌ No, it is a constant pointer.
+* Static members do not belong to any object.
+* **Can we change `this`?** No, it is a constant pointer.
 
 ---
 
 ## Destructor
 
-A destructor is a special member function of a class that is automatically called when an **object is destroyed** (goes out of scope or is deleted) and is used to **release resources like dynamically allocated memory** .
+A **destructor** is a special member function of a class that is **automatically called when an object is destroyed** (goes out of scope or is explicitly deleted) and is used to **release resources such as dynamically allocated memory, file handles, or connections**.
+
+* Name is same as class with `~` (tilde)
+* **No return type**
+* **No parameters**
+* Called **automatically**
+* Used for **cleanup / deallocation**
+* Only **one destructor per class** (no overloading)
 
 ```cpp
 //destructor
@@ -763,76 +798,93 @@ A destructor is a special member function of a class that is automatically calle
     cout << "Hi, I delete everything\n";
 }
 ```
+
+#### When it is called?
+
 ```cpp
-#include <iostream>
-using namespace std;
-
-class Student {
-public:
-    string name;
-    double* cgpaPtr;
-
-    // constructor
-    Student(string name, double cgpa) {
-        this->name = name;
-        cgpaPtr = new double(cgpa);
-        cout << "Constructor called for " << name << endl;
-    }
-
-    // deep copy constructor
-    Student(const Student &obj) {
-        name = obj.name;
-        cgpaPtr = new double(*obj.cgpaPtr);
-        cout << "Copy constructor called for " << name << endl;
-    }
-
-    void getInfo() {
-        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
-    }
-
-    // destructor
-    ~Student() {
-        delete cgpaPtr;
-        cout << "Hi, I delete everything for " << name << endl;
-    }
-};
-
 int main() {
-    Student s1("rahul kumar", 8.9);
-    Student s2(s1);
+    Student s1;  // constructor called
+}               // destructor called automatically here
+```
 
-    s1.getInfo();
-    s2.getInfo();
+### where destructor is not called last
 
-    return 0;   // destructors called automatically here
+#### Case 1: Inner Scope (VERY IMPORTANT)
+
+```cpp
+int main() {
+    cout << "Start\n";
+
+    {
+        A obj;
+        cout << "Inside block\n";
+    }  // destructor called here
+
+    cout << "End\n";
 }
 ```
----
+```
+Start
+Constructor
+Inside block
+Destructor
+End
+```
 
+#### Case 2: Dynamic Object (`new/delete`)
+
+```cpp
+int main() {
+    A* obj = new A();
+
+    cout << "Before delete\n";
+
+    delete obj;   // destructor called here
+
+    cout << "After delete\n";
+}
+```
+
+```
+Constructor
+Before delete
+Destructor
+After delete
+```
+
+#### Case 4: Program crash / exit
+
+```cpp
+exit(0);
+
+Destructor **may NOT run at all**
+
+```
+
+---
 
 ### practice
 
-```cpp
+```cpp id="9m3k2s"
 #include <iostream>
 #include <string>
 using namespace std;
 
 class Student {
 public:
-    // 🔹 Attributes (Data Members)
     int id;
     int age;
     string name;
     int nos;
-    int* gpa;   // 🔥 Pointer → dynamic memory (important for deep copy)
+    int* gpa;
 
-    // 🔹 Default Constructor
+    //-----Default Constructor
     Student() {
         cout << "Student Default ctor called" << endl;
-        gpa = new int(0);  // 🔥 allocate memory to avoid garbage pointer
+        gpa = new int(0);
     }
 
-    // 🔹 Parameterized Constructor
+    //-----Parameterized Constructor
     Student(int id, int age, string name, int nos, float gpa) {
         cout << "Student Parameterised ctor called" << endl;
 
@@ -841,11 +893,10 @@ public:
         this->name = name;
         this->nos = nos;
 
-        this->gpa = new int(gpa);  
-        // 🔥 dynamic allocation → heap memory
+        this->gpa = new int(gpa);  // -----heap allocation
     }
 
-    // 🔹 Copy Constructor (DEEP COPY)
+    //-----Copy Constructor (Deep Copy)
     Student(const Student &srcobj) {
         cout << "Student Copy ctor called" << endl;
 
@@ -854,68 +905,78 @@ public:
         this->name = srcobj.name;
         this->nos = srcobj.nos;
 
-        // 🔥 VERY IMPORTANT
-        this->gpa = new int(*(srcobj.gpa));  
-        // Deep copy → new memory created
+        this->gpa = new int(*(srcobj.gpa));  //----- deep copy
     }
 
-    // 🔹 Methods / Behaviour
+    //-----Methods
     void study() {
-        cout << this->name << " Studying" << endl;
+        cout << name << " Studying" << endl;
     }
 
     void sleep() {
-        cout << this->name << " Sleeping" << endl;
+        cout << name << " Sleeping" << endl;
     }
 
-    void bunk() {
-        cout << this->name << " Bunking" << endl;
-    }
-
-    // 🔹 Destructor
+    //-----Destructor
     ~Student() {
         cout << "Student Destructor called" << endl;
-
-        delete this->gpa;  
-        // 🔥 free heap memory → avoid memory leak
+        delete gpa;   //-----free memory
     }
 };
 
 int main() {
 
-    // 🔹 Parameterized Object
+    // ========================= STACK OBJECT =========================
     Student A(1, 15, "Ranu", 6, 9);
 
-    // 🔹 Copy Constructor Call
-    Student B = A;   // OR Student B(A);
+    Student B = A;   // copy constructor
 
-    // 🔹 Modify original object's GPA
     *(A.gpa) = 10;
 
-    // 🔥 Check if deep copy worked
     cout << "A GPA: " << *(A.gpa) << endl;
     cout << "B GPA: " << *(B.gpa) << endl;
 
-    // 🔹 Method Calls
     A.study();
     B.sleep();
+
+    cout << "-------------------" << endl;
+
+    // ========================= DYNAMIC OBJECT (HEAP) =========================
+    Student *C = new Student(2, 14, "Babban", 7, 8);
+
+    cout << C->name << endl;
+    cout << C->age << endl;
+    cout << "C GPA: " << *(C->gpa) << endl;
+
+    C->study();
+
+    //-----IMPORTANT
+    delete C;   // destructor called manually
 
     return 0;
 }
 ```
 
-output flow :
 
-```cpp
+```text id="d4hl2m"
 Student Parameterised ctor called
 Student Copy ctor called
 A GPA: 10
 B GPA: 9
 Ranu Studying
 Ranu Sleeping
-Student Destructor called
-Student Destructor called
+-------------------
+Student Parameterised ctor called
+Babban
+14
+C GPA: 8
+Babban Studying
+Student Destructor called   // for C
+Student Destructor called   // for B
+Student Destructor called   // for A
 ```
+
+
 ---
 
 
@@ -964,55 +1025,16 @@ private:
     int id;
 
 public:
-    void setId(int x) { id = x; }
-    int getId() { return id; }
+    void setId(int x) {
+        id = x;
+    }
+    int getId() {
+        return id;
+    }
 };
 ```
 
-```cpp
-#include <iostream>
-using namespace std;
 
-class Student {
-private:
-    string name;   // hidden data
-
-public:
-    void setName(string n) {
-        name = n;
-    }
-
-    string getName() {
-        return name;
-    }
-};
-
-class GradStudent : public Student {
-private:
-    string researchArea;   // hidden data
-
-public:
-    void setResearchArea(string r) {
-        researchArea = r;
-    }
-
-    string getResearchArea() {
-        return researchArea;
-    }
-};
-
-int main() {
-    GradStudent s1;
-
-    s1.setName("Tony Stark");
-    s1.setResearchArea("Quantum Physics");
-
-    cout << s1.getName() << endl;
-    cout << s1.getResearchArea() << endl;
-
-    return 0;
-}
-```
 
 ### practice
 ```cpp
@@ -1022,7 +1044,7 @@ using namespace std;
 
 class Student {
 private:
-    // 🔒 Private Data (Encapsulation)
+    //-------Private Data (Encapsulation)
     int id;
     int age;
     string name;
@@ -1032,22 +1054,22 @@ private:
 
 public:
 
-    // 🔹 Getter for GPA
+    //-------Getter for GPA
     int getGpa() {
-        return *gpa;   // 🔥 return value stored in heap
+        return *gpa;   //-------return value stored in heap
     }
 
-    // 🔹 Setter for GPA
+    //-------Setter for GPA
     void setGpa(float a) {
-        *gpa = a;   // 🔥 modify value at memory location
+        *gpa = a;   //-------modify value at memory location
     }
 
-    // 🔹 Getter for Age
+    //-------Getter for Age
     int getAge() {
         return age;
     }
 
-    // 🔹 Parameterized Constructor
+    //-------Parameterized Constructor
     Student(int id, int age, string name, int nos, float gpa, string gf) {
         this->id = id;
         this->age = age;
@@ -1056,12 +1078,13 @@ public:
         this->gf = gf;
 
         this->gpa = new int(gpa);  
-        // 🔥 dynamic allocation (heap)
+        //-------dynamic allocation (heap)
     }
 
-    // 🔹 Destructor
+    //-------Destructor
     ~Student() {
-        delete gpa;   // 🔥 free memory
+        cout << "Destructor called" << endl;
+        delete gpa;   //-------free memory
     }
 };
 
@@ -1084,7 +1107,10 @@ int main() {
 otput flow :
 
 ```cpp
-
+7
+6
+12
+Destructor called
 ```
 
 ---
@@ -1111,37 +1137,34 @@ public:
 };
 ```
 
+
 ### Types of Inheritance :
-1. **Single inheritance :** When one class inherits anotherclass, it is known
-as singlelevel inheritance
-2. **Multiple inheritance :** Multiple inheritance isthe process of deriving
-a new classthat inherits the attributes from twoor more classes.
-3. **Hierarchical inheritance :** Hierarchical inheritanceis defined as the
-process ofderiving more than one class from a baseclass.
-4. **Multilevel inheritance :** Multilevel inheritanceis a process of deriving a
-class fromanother derived class.
-5. **Hybrid inheritance :** Hybrid inheritance is a combinationof
-simple, multipleinheritance and hierarchical inheritance.
 
----
+1. **Single inheritance :** When one class inherits another class, it is known as single inheritance.
+2. **Multiple inheritance :** Multiple inheritance is the process of deriving a new class that inherits attributes from two or more classes.
+3. **Hierarchical inheritance :** Hierarchical inheritance is defined as the process of deriving more than one class from a single base class.
+4. **Multilevel inheritance :** Multilevel inheritance is a process of deriving a class from another derived class.
+5. **Hybrid inheritance :** Hybrid inheritance is a combination of single, multiple, and hierarchical inheritance.
 
-#### multilevel inheritance
+
+#### 1. Single Inheritance
+
 ```cpp
+class Student {
+public:
+    string name;
+};
+
 class GradStudent : public Student {
 public:
     string researchArea;
 };
-
-int main() {
-    GradStudent s1;
-    s1.name = "tony stark";
-    s1.researchArea = "quantum physics";
-    cout << s1.name << endl;
-    cout << s1.researchArea << endl;
-    return 0;
-}
 ```
-#### multiple inheritance
+
+
+
+#### 2. Multiple Inheritance
+
 ```cpp
 class Student {
 public:
@@ -1161,7 +1184,9 @@ public:
 };
 ```
 
-#### hierarchial inheritance
+
+#### 3. Hierarchical Inheritance
+
 ```cpp
 class Person {
 public:
@@ -1172,13 +1197,67 @@ public:
 class Student : public Person {
 public:
     int rollno;
-}
+};
 
-class Teacher : public Person{
+class Teacher : public Person {
 public:
     string subject;
+};
+```
+
+
+
+#### 4. Multilevel Inheritance
+
+```cpp
+class Student {
+public:
+    string name;
+};
+
+class GradStudent : public Student {
+public:
+    string researchArea;
+};
+
+class PhDStudent : public GradStudent {
+public:
+    string thesisTopic;
+};
+
+int main() {
+    PhDStudent s1;
+    s1.name = "Tony Stark";
+    s1.researchArea = "Quantum Physics";
+    s1.thesisTopic = "Time Travel";
+
+    cout << s1.name << endl;
+    cout << s1.researchArea << endl;
+    cout << s1.thesisTopic << endl;
+
+    return 0;
 }
 ```
+
+
+#### 5. Hybrid Inheritance (Conceptual Example)
+
+```cpp
+class Person {
+public:
+    string name;
+};
+
+class Student : public Person {
+};
+
+class Teacher {
+};
+
+class TA : public Student, public Teacher {
+};
+```
+
 
 #### Ambiguity
 Ambiguity occurs in C++ when a derived class inherits two or more base classes that have functions or variables with the same name, and the compiler cannot decide which one to use.
@@ -1207,13 +1286,18 @@ class C : public A, public B {
 
 int main() {
     C obj;
-    // obj.func();  // Ambiguous call
 
-    obj.A::func(); // Calls A's func
-    // obj.B::func(); // Calls B's func
+    // obj.func();   //------ Error: Ambiguous
+
+    obj.A::func();   //------ Calls A's func
+    obj.B::func();   //------ Calls B's func
 
     return 0;
 }
+```
+```
+I am A
+I am B
 ```
 
 ### practice
@@ -1223,7 +1307,7 @@ int main() {
 #include <string>
 using namespace std;
 
-// 🔹 Base Class
+//------------- Base Class
 class Vehicle {
 protected:
     string name;
@@ -1231,7 +1315,7 @@ protected:
     int noOfTyres;
 
 public:
-    // 🔹 Constructor
+    //------------- Constructor
     Vehicle(string _name, string _model, int _noOfTyres) {
         cout << "I am inside Vehicle ctor" << endl;
 
@@ -1240,7 +1324,7 @@ public:
         this->noOfTyres = _noOfTyres;
     }
 
-    // 🔹 Methods
+    //------------Methods
     void start_engine() {
         cout << "Engine is starting " << name << " " << model << endl;
     }
@@ -1250,17 +1334,17 @@ public:
     }
 };
 
-// 🔹 Derived Class: Car
+//--------------Derived Class: Car
 class Car : public Vehicle {
 protected:
     int noOfDoors;
     string transmissionType;
 
 public:
-    // 🔥 Constructor chaining (IMPORTANT)
+    //----------Constructor chaining (IMPORTANT)
     Car(string _name, string _model, int _noOfTyres,
         int _noOfDoors, string _transmissionType)
-        : Vehicle(_name, _model, _noOfTyres)   // 🔥 Base constructor call
+        : Vehicle(_name, _model, _noOfTyres)   //------------Base constructor call
     {
         cout << "I am inside Car ctor" << endl;
 
@@ -1269,18 +1353,18 @@ public:
     }
 
     void startAC() {
-        cout << "AC has started of " << name << endl;  // 🔥 protected access
+        cout << "AC has started of " << name << endl;  //----------protected access
     }
 };
 
-// 🔹 Derived Class: MotorCycle
+//------------Derived Class: MotorCycle
 class MotorCycle : public Vehicle {
 protected:
     string handleBarStyle;
     string suspensionType;
 
 public:
-    // 🔥 Constructor chaining
+    //-------------Constructor chaining
     MotorCycle(string _name, string _model, int _noOfTyres,
                string _handleBarStyle, string _suspensionType)
         : Vehicle(_name, _model, _noOfTyres)
@@ -1298,7 +1382,7 @@ public:
 
 int main() {
 
-    // 🔹 Car Object
+    //------------Car Object
     Car A("Maruti 800", "LXI", 4, 4, "Manual");
 
     A.start_engine();
@@ -1307,7 +1391,7 @@ int main() {
 
     cout << endl;
 
-    // 🔹 Motorcycle Object
+    //-------------- Motorcycle Object
     MotorCycle M("BMW", "VXI", 2, "U", "Hard");
 
     M.start_engine();
@@ -1333,6 +1417,282 @@ Wheelie kar rahi hai BMW
 Engine is stopping BMW VXI
 ```
 
+
+---
+
+
+## Polymorphism 
+
+* Polymorphism means **one interface, many forms**
+* Same function behaves **differently based on context**
+* Derived from:
+    * Poly → many
+    * Morphism → forms
+
+#### Types of Polymorphism
+
+1. **Compile-Time (Static Binding)**
+2. **Runtime (Dynamic Binding)**
+
+
+### 1. Compile-Time Polymorphism (Static Binding)
+
+* Resolved **at compile time**
+* Faster (no runtime overhead)
+* Achieved using:
+
+  * Function Overloading
+  * Operator Overloading
+
+#### 2.1 Function Overloading
+
+Function overloading allows **same function name** with **different parameters**
+
+* Must differ in:
+
+  * Number of parameters
+  * Type of parameters
+  * Order of parameters
+* Cannot differ only by return type
+
+```cpp
+class Add {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+```
+
+#### Example (Different Types)
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+```
+
+
+
+### 2.2 Operator Overloading
+
+Allows operators (`+`, `-`, etc.) to work with **objects**
+
+##### Syntax
+
+```cpp
+return_type operator operator_symbol(arguments) {
+    // logic
+}
+```
+
+* Improves readability
+* Natural syntax (`a + b`)
+* Makes objects behave like built-in types
+
+#### Operators That Can Be Overloaded
+
+```
++  -  *  /  %  
+== != < > <= >=
+++ -- += -= *= /=
+<< >> [] ()
+&& || !
+-> new delete
+```
+
+#### Operators That Cannot Be Overloaded
+
+| Operator | Meaning           |
+| -------- | ----------------- |
+| ::       | Scope resolution  |
+| .        | Member access     |
+| .*       | Pointer to member |
+| ?:       | Ternary           |
+
+#### Rules
+
+* At least one operand must be object
+* Precedence cannot change
+* Number of operands cannot change
+
+### Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imag = i;
+    }
+
+    Complex operator + (Complex const &obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+};
+
+int main() {
+    Complex c1(3, 4), c2(1, 2);
+    Complex c3 = c1 + c2;
+
+    cout << "Real: " << c3.real << endl;
+    cout << "Imaginary: " << c3.imag << endl;
+
+    return 0;
+}
+```
+
+**Output**
+
+```
+Real: 4
+Imaginary: 6
+```
+
+### 3. Runtime Polymorphism (Dynamic Binding)
+
+* Resolved **at runtime**
+* Slightly slower (uses indirection)
+* Achieved using:
+
+  * Method Overriding
+  * Virtual Functions
+
+
+#### 3.1 Method Overriding
+
+Child class **redefines** parent class function
+
+##### Rules
+
+* Same function name
+* Same parameters
+* Same return type
+* Requires inheritance
+* Base function must be `virtual`
+
+
+#### 3.2 Virtual Functions
+
+Functions that allow **runtime decision**
+
+##### Role
+
+* Enables dynamic binding
+* Ensures correct function is called
+
+#### 3.3 Working Mechanism
+
+* Base pointer → Derived object
+* Uses **v-table internally**
+* Decision happens at runtime
+
+##### Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void show() {
+        cout << "Parent class" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "Child class" << endl;
+    }
+};
+
+int main() {
+    Parent* p;
+    Child obj;
+
+    p = &obj;
+    p->show();   // Runtime binding
+
+    return 0;
+}
+```
+
+**Output**
+
+```
+Child class
+```
+
+#### 3.4 Without Virtual (Important)
+
+```cpp
+p->show();
+```
+
+Output will be:
+
+```
+Parent class
+```
+
+Because:
+
+* Compile-time binding happens
+
+### 4. Types of Binding
+
+| Type          | Time         | Example              |
+| ------------- | ------------ | -------------------- |
+| Early Binding | Compile time | Function Overloading |
+| Late Binding  | Runtime      | Virtual Functions    |
+
+### 5. Data Binding (Conceptual)
+
+* Connects **UI + logic**
+* Changes in logic reflect in UI
+* Used in frameworks (React, Angular)
+
+### 6. Connection with Class Syntax
+
+Polymorphism exists **inside classes**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Teacher {
+public:
+    double salary;
+    string name;
+    string dept;
+    string subject;
+};
+
+int main() {
+    Teacher t1;
+    t1.name = "Saujanya";
+
+    cout << t1.name << endl;
+    return 0;
+}
+```
 
 ---
 
@@ -1382,441 +1742,33 @@ return 0;
 
 ---
 
-
-## Polymorphism 
-
-* Polymorphism means **one interface, many forms**.
-* Same function name behaves **differently for different objects**.
-* Derived from:
-
-  * **Poly** → many
-  * **Morphism** → forms
-
-### **Types of Polymorphism**
-
-1. **Compile-Time (Static)**
-2. **Runtime (Dynamic)**
-
-## **Compile-Time Polymorphism**
-
-* Resolved **at compile time**.
-* Implemented using **Function Overloading** and **Operator Overloading**.
-
-### **Function Overloading**
-
-* Same function name with **different parameters**.
-* Cannot be overloaded only by **return type**.
-
-**Example:**
-
-```cpp
-class Add {
-public:
-    int add(int a, int b) {
-        return a + b;
-    }
-    int add(int a, int b, int c) {
-        return a + b + c;
-    }
-};
-```
-
-
-### 2. Compile-Time Polymorphism (Static Binding)
-
-- Definition
-- Rules
-- Types (Number, Type, Order of Parameters)
-- Compiler Working (Logic)
-- Examples
-
-#### 2.2 Operator Overloading
-- Definition
-- Syntax
-- Why Use
-- Operators That Can Be Overloaded
-- Operators That Cannot Be Overloaded
-- Rules & Restrictions
-- Example
-
----
-
-### 3. Runtime Polymorphism (Dynamic Binding)
-
-#### 3.1 Method Overriding
-- Definition
-- Rules
-- Requirements (Inheritance, Same Signature)
-
-#### 3.2 Virtual Functions
-- Definition
-- Role in Runtime Polymorphism
-- How it Works (v-table concept)
-
-#### 3.3 Working Mechanism
-- Base Class Pointer → Derived Object
-- Runtime Decision
-
-#### 3.4 Without Virtual (Important Case)
-- Compile-time binding behavior
-
----
-
-### 4. Types of Binding
-
-- Early Binding (Compile-Time)
-- Late Binding (Runtime)
-
----
-
-### 5. Data Binding (Conceptual)
-
-- Definition
-- Role in Software Design
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Print {
-public:
-    void show(int x) {
-        cout << "int : " << x << endl;
-    }
-
-    void show(char ch) {
-        cout << "char : " << ch << endl;
-    }
-};
-
-int main() {
-    Print p1;
-    p1.show(101);
-    return 0;
-}
-``` 
-
-### Function Overloading 
-
-**Function overloading** is a feature of C++ that allows **multiple functions with the same name** but **different parameter lists** (number, type, or order of parameters).<br>
-The compiler decides **which function to call at compile time**, based on the arguments passed.<br>
-It improves **readability and flexibility** of the program.<br>
-
-* **How Functions Can Be Overloaded**
-Functions can be overloaded by:
-1. **Different number of arguments**
-2. **Different types of arguments**
-3. **Different order of arguments**
-
-( X ) Function overloading **cannot** be done by return type alone.
-
-* **Logic (How Compiler Works)**
-
-* When a function is called,
-* The compiler matches:
-
-  * Function name
-  * Number of parameters
-  * Data types of parameters
-* Then it calls the **best matched function**
-
-This is called **Compile-Time Polymorphism**.
-
-
-#### Example 1: Function Overloading with Different Number of Arguments
-
-```cpp
-#include <iostream>
-using namespace std;
-
-// Function with two parameters
-int add(int num1, int num2) {
-    return num1 + num2;
-}
-
-// Function with three parameters
-int add(int num1, int num2, int num3) {
-    return num1 + num2 + num3;
-}
-
-int main() {
-    cout << add(10, 20) << endl;
-    cout << add(10, 20, 30) << endl;
-    return 0;
-}
-```
-
-#### Example 2: Function Overloading with Different Data Types
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int add(int a, int b) {
-    return a + b;
-}
-
-double add(double a, double b) {
-    return a + b;
-}
-
-int main() {
-    cout << add(5, 3) << endl;
-    cout << add(2.5, 3.5) << endl;
-    return 0;
-}
-```
-
-### Operator Overloading 
-
-**Definition**
-<br>
-**Operator overloading** is a feature of C++ that allows programmers to **redefine the behavior of operators** (`+`, `-`, `*`, etc.) for **user-defined data types (objects)**.<br>
-It makes objects behave like **built-in data types**.<br>
-👉 It is a form of **compile-time polymorphism**.
-
-
-* **Why Operator Overloading?**
-
-* Improves **code readability**
-* Makes user-defined objects **intuitive to use**
-* Enables **natural syntax** (e.g., `c1 + c2`)
-
-
-#### General Syntax
-
-```cpp
-return_type operator operator_symbol (arguments) {
-    // logic
-}
-```
-
-#### Operators That **CAN** Be Overloaded in C++
-
-Some commonly overloaded operators:
-
-```
-+  -  *  /  %  
-== != < > <= >=
-++ -- += -= *= /=
-<< >> [] ()
-&& || !
--> new delete
-```
-
-( V ) Most arithmetic, relational, logical, and bitwise operators can be overloaded.
-
-
-#### Operators That **CANNOT** Be Overloaded in C++
-
-| Operator | Meaning           |
-| -------- | ----------------- |
-| `::`     | Scope resolution  |
-| `.`      | Member access     |
-| `.*`     | Pointer to member |
-| `?:`     | Ternary operator  |
-
-These operators have **fixed meanings** decided by the compiler.
-
-
-
-#### Example: Operator Overloading (Addition of Complex Numbers)
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Complex {
-public:
-    int real, imag;
-
-    Complex(int r = 0, int i = 0) {
-        real = r;
-        imag = i;
-    }
-
-    // Overload + operator
-    Complex operator + (Complex const &obj) {
-        Complex temp;
-        temp.real = real + obj.real;
-        temp.imag = imag + obj.imag;
-        return temp;
-    }
-};
-
-int main() {
-    Complex c1(3, 4), c2(1, 2);
-    Complex c3 = c1 + c2;
-
-    cout << "Real: " << c3.real << endl;
-    cout << "Imaginary: " << c3.imag << endl;
-
-    return 0;
-}
-```
-
-#### Output
-
-```
-Real: 4
-Imaginary: 6
-```
-
-#### Important Rules 
-
-✔ At least **one operand must be a user-defined type**
-✔ Operator precedence **cannot be changed**
-✔ Number of operands **cannot be changed**
-✔ Some operators must be overloaded as **member functions** (`=`, `[]`, `()`)
-
-
-
-###  Runtime Polymorphism (C++)
-
-**Runtime polymorphism** is also called **dynamic polymorphism**. <br>
-It occurs when the **function call is resolved at runtime**, not at compile time. <br><br>
-
-👉 In C++, runtime polymorphism is achieved using **method overriding** with **virtual functions**.
-
-
-## Method Overriding
-
-**Method overriding** is a feature in which a **child (derived) class redefines a method of the parent (base) class** with the **same name, same parameters, and same return type** to provide its own implementation.<br><br>
-
-The decision of which function to call depends on the **object type at runtime**.
-
-### Rules for Method Overriding (Very Important)
-
-1. Function name must be **same** in parent and child class
-2. Function parameters must be **same**
-3. Return type must be **same**
-4. Must use **inheritance**
-5. Parent class function must be declared as **virtual**
-6. Access is usually through **base class pointer**
-
-
-### How Runtime Polymorphism Works (Logic)
-
-* Base class pointer points to derived class object
-* Compiler decides the function call **at runtime**
-* Uses **virtual function table (v-table)** internally
-
-
-#### Example: Runtime Polymorphism using Method Overriding
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Parent {
-public:
-    virtual void show() {
-        cout << "This is Parent class show function" << endl;
-    }
-};
-
-class Child : public Parent {
-public:
-    void show() {
-        cout << "This is Child class show function" << endl;
-    }
-};
-
-int main() {
-    Parent* p;
-    Child obj;
-    p = &obj;
-
-    p->show();   // Runtime decision
-    return 0;
-}
-```
-
-#### Output
-
-```
-This is Child class show function
-```
-
-* **What if `virtual` is not used?**
-Without `virtual`, **compile-time binding** happens and parent class function is called.
-
----
-
-
-
-
-## **Data Binding**
-
-* Data binding connects **UI and business logic**.
-* Any change in business logic **automatically reflects in UI**.
-* Improves consistency and reduces errors.
-
----
-
-
-
-## **Runtime Polymorphism**
-
-* Resolved **at runtime**.
-* Implemented using **Function Overriding** and **virtual functions**.
-* Uses **base class pointer** to derived class object.
-
-**Example:**
-
-```cpp
-class Base {
-public:
-    virtual void show() {
-        cout << "Base class" << endl;
-    }
-};
-
-class Derived : public Base {
-public:
-    void show() {
-        cout << "Derived class" << endl;
-    }
-};
-```
-
----
-
-
-
-## syntax
-
-```cpp
-#include <iostream>
-using namespace std;
-
-// making class
-class Teacher {
-    // class properties
-    public :
-    double salary;
-    string name;
-    string dept;
-    string subject;
-    
-};
-
-int main() {
-    // object value
-    Teacher t1 ;
-    t1.name = "Saujanya";
-    t1.subject = "C++";
-    t1.dept = "Computer Science";
-    cout << t1.name << endl;
-    return 0;
-}
-```
-💡 size of class is sum of all properties
-💡 empty class - no properties - size is 1 for identification
-
----
-
 ## Access Modifiers
+
+Access modifiers control **visibility (who can access data/functions)**.
+
+### Types
+
+#### 1. Public
+
+* Accessible **from anywhere**
+* No restriction
+
+#### 2. Private
+
+* Accessible **only inside the same class**
+* Not accessible outside or in derived class
+
+#### 3. Protected
+
+* Accessible **inside class + derived (child) class**
+* Not accessible outside
+
+
+#### Default (Important)
+
+* `class` → **private by default**
+* `struct` → **public by default**
+
 
 ```cpp
 #include <iostream>
@@ -1899,7 +1851,15 @@ int main() {
 
 ---
 
-#### Memory & Object Behavior
+
+
+
+
+
+
+
+
+#### 🦋 Memory & Object Behavior
 
 ## Static vs Dynamic Allocation
 
@@ -1963,9 +1923,7 @@ int main() {
 ---
 
 ## Padding & Memory Alignment
-## padding and greedy alignment
 
-## 🔹 Padding (in OOPS / Memory)
 **Padding** is the extra unused memory added by the compiler **between class/struct data members** to satisfy **alignment rules** and make memory access faster.
 * CPU accesses memory faster when data is **properly aligned**
 * Avoids **multiple memory fetches**
@@ -2002,9 +1960,8 @@ int main() {
 * Order of members
 * Target architecture/compiler
 * Padding is added only when needed for alignment, not a fixed number of bytes.
----
 
-## 🔹 Alignment
+### Alignment
 **Alignment** means placing data in memory addresses that are multiples of their size.
 * CPUs don’t read memory byte-by-byte logically — they read in words (e.g., 4 bytes, 8 bytes).
 
@@ -2015,17 +1972,13 @@ int main() {
 | int       | 4 bytes   |
 | double    | 8 bytes   |
 
----
-
-## 🔹 Greedy Alignment
-
-### What is Greedy Alignment?
+### Greedy Alignment
 
 **Greedy alignment** is a strategy where the compiler places **each data member at the next valid aligned address**, even if it causes unused gaps (padding).
 ➡ Compiler is **greedy for alignment**, not memory saving.
 
 
-### Example (Bad Order → More Padding)
+#### Example (Bad Order → More Padding)
 
 ```cpp
 class B {
@@ -2044,7 +1997,7 @@ Memory layout:
 ✔ More padding
 ✔ More memory used
 
-### Optimized (Less Padding)
+#### Optimized (Less Padding)
 
 ```cpp
 class C {
@@ -2060,10 +2013,9 @@ Memory layout:
 | d | i | c | pad x3 |
 ```
 
-✔ Less padding
-✔ Same data, less memory
+* Less padding
+* Same data, less memory
 
----
 
 ## Key Differences 
 
@@ -2074,7 +2026,6 @@ Memory layout:
 | Controlled by      | Compiler           | Compiler                 |
 | Programmer control | ❌                  | Partially (member order) |
 
----
 
 ## How to Reduce Padding
 
@@ -2091,63 +2042,70 @@ class P {
 
 ---
 
-#### Copying & Memory Handling
+
+
+
+
+
+
+
+
+
+
+#### 🦋 Copying & Memory Handling
 ## shallow and deep copy
 
-## Shallow Copy
-## Deep Copy
+### **1. Constructor (Normal Constructor)**
+
+Initialize a **new object**
 
 ```cpp
-#include <iostream>
-using namespace std;
+Student s1(10);   // constructor called
+```
 
-class Student {
-public:
-    string name;
-    double* cgpaPtr;
+### **2. Copy Constructor**
 
-    // parameterized constructor
-    Student(string name, double cgpa) {
-        this->name = name;
-        cgpaPtr = new double;
-        *cgpaPtr = cgpa;
-    }
+Purpose : Create a **new object as a copy of an existing object**
+<br><br>
+When called
 
-    // deep copy constructor
-    Student(const Student &obj) {
-        this->name = obj.name;
-        cgpaPtr = new double(*obj.cgpaPtr);
-    }
+* `Student s2 = s1;`
+* `Student s2(s1);`
 
-    void getInfo() {
-        cout << "Name: " << name << ", CGPA: " << *cgpaPtr << endl;
-    }
+```cpp
+Student(const Student &obj) {
+    this->x = obj.x;
+}
+```
 
-    // destructor
-    ~Student() {
-        delete cgpaPtr;
-    }
-};
+### **3. Shallow Copy (Default Behavior)**
 
-int main() {
-    Student s1("rahul kumar", 8.9);
-    Student s2(s1);   // deep copy
+* Copies **values directly**
+* If pointer exists → copies **address only**
+* Problem : Both objects share same memory → **danger (double delete, bugs)**
 
-    s1.getInfo();
+### **4. Deep Copy**
 
-    *(s2.cgpaPtr) = 9.2;   // change only s2
-    s1.getInfo();         // unchanged
+* Purpose : Copy **actual data**, not just address
+* What happens : New memory is created, Values are copied
 
-    s2.name = "neha";
-    s2.getInfo();
-
-    return 0;
+```cpp
+Student(const Student &obj) {
+    this->data = new int(*obj.data);  // deep copy
 }
 ```
 ---
 
 
-#### Advanced Concepts
+
+
+
+
+
+
+
+
+#### 🦋  Advanced Concepts
 
 ## Static Keyword
 
@@ -2189,6 +2147,17 @@ public:
 ```
 
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 - [OOPS in C](#OOPS-in-C)
 
