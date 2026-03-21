@@ -5649,17 +5649,111 @@ Two types:<br><br>
 
 ## Network Types
 
-* [LAN](#lan)
-* [MAN](#man)
-* [WAN](#wan)
+* [LAN](#LAN)
+* [MAN](#MAN)
+* [WAN](#WAN)
+* [PAN](#PAN)
+* [CAN](#CAN)
+* [SAN](#SAN)
+ 
+
+### LAN
+
+* **LAN (Local Area Network)**
+* **Area Covered:** Small area (office, home, building)
+* **Speed:** High (100 Mbps – 10 Gbps)
+* **Topology:** Star, Ring, Bus
+* **Devices:** Switch, Router, Hub
+* **Example:** Home Wi-Fi, Office network
+
+### MAN
+
+* **MAN (Metropolitan Area Network)**
+* **Area Covered:** City or town
+* **Speed:** Medium
+* **Topology:** Ring or Fiber-optic
+* **Devices:** Routers, Switches
+* **Example:** City-wide cable TV or internet network
+
+### WAN
+
+* **WAN (Wide Area Network)**
+* **Area Covered:** Countries or continents
+* **Speed:** Lower than LAN/MAN
+* **Topology:** Mesh, Hybrid
+* **Devices:** Routers, Modems
+* **Example:** Internet
+
+### PAN
+
+* **PAN (Personal Area Network)**
+* **Area Covered:** Very small, personal use
+* **Speed:** Low to medium
+* **Devices:** Smartphone, Laptop, Bluetooth devices
+* **Example:** Bluetooth headphones, USB tethering
+
+### CAN
+
+* **CAN (Campus Area Network)**
+* **Area Covered:** Multiple LANs in a campus or company
+* **Devices:** Switches, Routers
+* **Example:** University network connecting different departments
+
+### SAN
+
+* **SAN (Storage Area Network)**
+* **Purpose:** High-speed network for storage devices
+* **Devices:** Storage controllers, Fibre Channel switches
+* **Example:** Data centers
+
+
+
+
 
 ## OSI Model
 
-* [What is OSI Model](#what-is-osi-model)
-* [OSI Layers](#osi-layers)
-* [How a Packet Travels](#how-a-packet-travels)
+* [What is OSI Model](#What-is-OSI-Model)
+* [OSI Layers](#OSI-Layers)
+* [How a Packet Travels](#How-a-Packet-Travels)
+
+### What is OSI Model
+
+* **Full form:** Open Systems Interconnection Model
+* **Purpose:** Standard framework for **network communication** between devices.
+* **Layers:** 7 layers, each with a specific function.
+* Helps in **troubleshooting**, designing, and understanding networks.
+
+### OSI Layers
+
+| Layer               | Function                                  | Data Unit | Devices/Protocols      |
+| ------------------- | ----------------------------------------- | --------- | ---------------------- |
+| **7. Application**  | Interface between user & network          | Data      | HTTP, FTP, SMTP        |
+| **6. Presentation** | Data translation, encryption, compression | Data      | JPEG, MPEG, SSL/TLS    |
+| **5. Session**      | Establish, manage, terminate sessions     | Data      | APIs, Sockets          |
+| **4. Transport**    | End-to-end communication, error control   | Segment   | TCP, UDP               |
+| **3. Network**      | Routing, addressing                       | Packet    | IP, Routers            |
+| **2. Data Link**    | Error detection/correction, framing       | Frame     | Switch, MAC, Ethernet  |
+| **1. Physical**     | Transmission of bits over media           | Bits      | Cables, Hub, Repeaters |
+
+**Mnemonic to remember layers (top to bottom):**
+**A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing
+
+### How a Packet Travels
+
+1. **Application Layer:** User sends a request (e.g., HTTP request).
+2. **Presentation Layer:** Data is encrypted/compressed.
+3. **Session Layer:** Connection/session established between devices.
+4. **Transport Layer:** Data is split into **segments**, sequence added.
+5. **Network Layer:** Segments → **Packets**, IP addresses added, routed.
+6. **Data Link Layer:** Packets → **Frames**, MAC addresses added.
+7. **Physical Layer:** Frames → **Bits**, transmitted over cables/wireless.
+
+**Reverse process** happens at the receiver: bits → frames → packets → segments → data → presented to user.
+
 
 ## Networking Commands
+
+## **Networking Commands**
 
 * [Web Concepts](#web-concepts)
 * [HTTP vs HTTPS](#http-vs-https)
@@ -5667,6 +5761,87 @@ Two types:<br><br>
 * [SSL / TLS](#ssl--tls)
 * [Reverse Proxy](#reverse-proxy)
 * [Load Balancer](#load-balancer)
+
+---
+
+## **Web Concepts**
+
+* Web works on **client-server model**
+* Client → sends request (browser)
+* Server → sends response (web server)
+* Uses **HTTP/HTTPS protocols**
+* Example: Opening a website in Chrome
+
+---
+
+## **HTTP vs HTTPS**
+
+### **HTTP (HyperText Transfer Protocol)**
+
+* Not secure
+* Data sent in **plain text**
+* Default port: **80**
+
+### **HTTPS (Secure HTTP)**
+
+* Secure version of HTTP
+* Uses **encryption (SSL/TLS)**
+* Default port: **443**
+* Protects data from hackers
+
+---
+
+## **API Gateway**
+
+* Acts as an **entry point** for all client requests
+* Routes requests to appropriate services
+* Handles:
+
+  * Authentication
+  * Rate limiting
+  * Load balancing
+* Used in **microservices architecture**
+
+---
+
+## **SSL / TLS**
+
+* **SSL (Secure Sockets Layer)** and **TLS (Transport Layer Security)**
+* Provide **encryption** for secure communication
+* Used in HTTPS
+* TLS is the **modern and more secure version of SSL**
+
+---
+
+## **Reverse Proxy**
+
+* Sits between **client and server**
+* Forwards client requests to backend servers
+* Hides server identity
+* Improves:
+
+  * Security
+  * Performance (caching)
+
+---
+
+## **Load Balancer**
+
+* Distributes incoming traffic across multiple servers
+* Prevents server overload
+* Improves:
+
+  * Performance
+  * Availability
+* Types:
+
+  * Round Robin
+  * Least Connections
+
+---
+
+If you want, I can convert this into **super short interview-ready answers (1–2 lines each)**.
+
 
 ## Networking Protocols
 
