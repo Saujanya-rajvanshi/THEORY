@@ -548,13 +548,23 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [Shallow Copy & Deep Copy](#shallow-and-deep-copy)
 
 ##### Advanced Concepts
+- [Local vs Global Variables](#local-vs-global-variables)
+- [Memory Layout of a Program](#memory-layout-of-a-program)
 - [Static Keyword](#static-keyword)
+- [const keyword](#const-keyword)
+- [Mscros keyword](#Macros-keyword)
+- [Can Constructor be Made Private](#can-constructor-be-made-private)
+- [Friend Keyword in C++](#friend-keyword-in-c)
+- [Virtual Constructor vs Virtual Destructor](#virtual-constructor-vs-virtual-destructor)
+- [Inline Functions](#inline-functions)
+
 
 ---
 - [OOPS in C](#OOPS-in-C)
 - [OOPS in python](#OOPS-in-python)
 - [OOPS in JAVA](#OOPS-in-JAVA)
 ---
+
 
 
 
@@ -2147,6 +2157,644 @@ public:
 ```
 
 ---
+
+
+
+
+## **Local vs Global Variables**
+
+### **Local Variables**
+
+* Declared **inside a function or block**
+* Scope is limited to that block/function
+* Cannot be accessed outside
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void func() {
+    int x = 10; // local variable
+    cout << x;
+}
+
+int main() {
+    func();
+    // cout << x; // Error
+}
+```
+
+### **Global Variables**
+
+* Declared **outside all functions**
+* Accessible throughout the program
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int x = 20; // global variable
+
+void func() {
+    cout << x;
+}
+
+int main() {
+    func();
+    cout << x;
+}
+```
+
+### **Difference**
+
+| Feature  | Local Variable                   | Global Variable          |
+| -------- | -------------------------------- | ------------------------ |
+| Scope    | Inside function/block            | Entire program           |
+| Lifetime | Exists during function execution | Exists till program ends |
+| Access   | Limited                          | Accessible everywhere    |
+| Memory   | Stack                            | Data segment             |
+
+---
+
+
+
+
+## **Memory Layout of a Program**
+
+A C++ program is divided into different memory sections:
+
+### **1. Text Segment**
+
+* Stores **compiled program code (instructions)**
+* Read-only
+
+### **2. Data Segment**
+
+Stores global and static variables
+
+#### **a) Initialized Data**
+
+* Global/static variables with values
+
+```cpp
+int x = 10;
+```
+
+#### **b) Uninitialized Data (BSS)**
+
+* Default initialized to 0
+
+```cpp
+int y;
+```
+
+
+### **3. Heap**
+
+* Used for **dynamic memory allocation** (`new`, `malloc`)
+* Managed manually by programmer
+
+```cpp
+int* ptr = new int(10);
+```
+
+### **4. Stack**
+
+* Stores:
+
+  * Local variables
+  * Function calls
+* Works in **LIFO (Last In First Out)**
+
+```cpp
+void func() {
+    int x = 5; // stored in stack
+}
+```
+
+### **5. Memory Flow**
+
+* Stack grows **downward**
+* Heap grows **upward**
+
+### **Diagram (Conceptual)**
+
+```
+High Address
+-------------
+|   Stack   |
+-------------
+|           |
+|           |
+|   Heap    |
+-------------
+|   BSS     |
+-------------
+|   Data    |
+-------------
+|   Text    |
+-------------
+Low Address
+```
+
+### **Key Points**
+
+* Stack is **fast but limited**
+* Heap is **flexible but slower**
+* Global/static → Data segment
+* Local → Stack
+* Dynamic → Heap
+
+
+
+## const keyword
+
+* `const` is used to make a variable **constant (read-only)**
+* Value must be **initialized at declaration**
+* Cannot be modified later in the program
+
+```cpp
+const int x = 5;
+x = 10; // Error
+```
+
+#### **Types of const Usage**
+
+### **1. const Variable**
+
+* Value cannot be changed after initialization
+
+```cpp
+const int a = 10;
+// a = 20; // Error
+```
+
+### **2. const Pointer**
+
+#### **Pointer to const (data cannot change)**
+
+```cpp
+int x = 10;
+const int* ptr = &x;
+
+*ptr = 20; // Error
+ptr = &x;  // Allowed
+```
+
+#### **Const pointer (pointer cannot change)**
+
+```cpp
+int x = 10;
+int* const ptr = &x;
+
+*ptr = 20; // Allowed
+// ptr = &y; // Error
+```
+
+#### **Const pointer to const data**
+
+```cpp
+int x = 10;
+const int* const ptr = &x;
+
+// *ptr = 20; // Error
+// ptr = &y;  // Error
+```
+
+### **3. const in Function Parameters**
+
+* Prevents modification of arguments
+
+```cpp
+void print(const int x) {
+    // x = 10; // Error
+    cout << x;
+}
+```
+
+#### **With reference**
+
+```cpp
+void print(const int &x) {
+    // x = 20; // Error
+}
+```
+
+### **4. const Member Function**
+
+* Cannot modify object data members
+* Used in classes
+
+```cpp
+class Test {
+public:
+    int x;
+
+    void display() const {
+        // x = 10; // Error
+        cout << x;
+    }
+};
+```
+
+### **5. const Objects**
+
+* Can only call **const member functions**
+
+```cpp
+class Test {
+public:
+    void show() const {
+        cout << "Const function";
+    }
+
+    void modify() {
+        cout << "Modify";
+    }
+};
+
+int main() {
+    const Test obj;
+    obj.show();   // Allowed
+    // obj.modify(); // Error
+}
+```
+
+### **6. const with Return Type**
+
+* Prevents modification of returned value
+
+```cpp
+const int getValue() {
+    return 10;
+}
+```
+
+#### **Why Use const**
+
+* Prevents accidental changes
+* Makes code safer and predictable
+* Helps compiler optimization
+* Improves readability
+
+#### **Important Points**
+
+* Must initialize at declaration
+* Works with variables, pointers, functions, objects
+* Widely used in **OOP and APIs**
+* `const` correctness is important in interviews
+
+
+---
+
+
+## **MACROS Keyword**
+
+* Macros are **preprocessor directives**
+* Defined using `#define`
+* Processed **before compilation** (by preprocessor)
+* Perform **text substitution**, not actual variable/function creation
+
+#### **Types of Macros**
+
+### **1. Object-like Macros (Constants)**
+
+* Used to define constant values
+
+```cpp
+#define PI 3.14
+
+int main() {
+    cout << PI; // replaced by 3.14
+}
+```
+
+### **2. Function-like Macros**
+
+* Work like functions but are just text replacement
+
+```cpp
+#define SQUARE(x) (x * x)
+
+int main() {
+    cout << SQUARE(5); // 25
+}
+```
+
+## **Important Difference from Functions**
+
+* No type checking
+* No function call overhead
+* Can lead to unexpected results
+
+```cpp
+#define SQUARE(x) x * x
+
+int main() {
+    cout << SQUARE(2 + 3); // 2 + 3 * 2 + 3 = 11 (wrong)
+}
+```
+
+Correct way:
+
+```cpp
+#define SQUARE(x) ((x) * (x))
+```
+
+### **3. Multi-line Macros**
+
+* Use `\` for line continuation
+
+```cpp
+#define PRINT \
+cout << "Hello"; \
+cout << "World";
+```
+
+### **4. Conditional Macros**
+
+* Used for conditional compilation
+
+```cpp
+#define DEBUG
+
+#ifdef DEBUG
+cout << "Debug Mode";
+#endif
+```
+
+### **5. Undefining Macros**
+
+* Remove a macro definition
+
+```cpp
+#define X 10
+#undef X
+```
+
+#### **Advantages**
+
+* Faster execution (no function call)
+* Code reusability
+* Useful for constants and debugging
+
+#### **Disadvantages**
+
+* No type safety
+* Hard to debug
+* Can cause unexpected bugs
+* Not recommended over modern alternatives
+
+#### **Modern Alternatives**
+
+* `const` variables
+* `constexpr`
+* Inline functions
+
+```cpp
+constexpr int square(int x) {
+    return x * x;
+}
+```
+
+#### **Key Points**
+
+* Macros are **text substitution only**
+* Handled before compilation
+* Use carefully in competitive programming
+* Prefer safer alternatives in real projects
+
+
+Here are **clean and complete notes** for each topic:
+
+---
+
+
+
+
+
+## **Can Constructor be Made Private**
+
+### **Concept**
+
+* Yes, constructors **can be private** in C++
+* Prevents object creation from outside the class
+
+### **Why Use**
+
+* To **control object creation**
+* Used in:
+
+  * **Singleton design pattern**
+  * Factory methods
+
+### **Example**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Test {
+private:
+    Test() {
+        cout << "Constructor called";
+    }
+
+public:
+    static Test createObject() {
+        return Test();
+    }
+};
+
+int main() {
+    // Test obj; // Error (constructor is private)
+    Test obj = Test::createObject(); // Allowed
+}
+```
+
+---
+
+## **Friend Keyword**
+
+### **Concept**
+
+* `friend` allows a function or class to access **private and protected members**
+
+### **Types**
+
+* Friend function
+* Friend class
+
+### **Friend Function Example**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Test {
+private:
+    int x;
+
+public:
+    Test() { x = 10; }
+
+    friend void show(Test obj);
+};
+
+void show(Test obj) {
+    cout << obj.x; // accessing private member
+}
+```
+
+### **Friend Class Example**
+
+```cpp
+class A {
+private:
+    int x = 10;
+
+    friend class B;
+};
+
+class B {
+public:
+    void show(A obj) {
+        cout << obj.x;
+    }
+};
+```
+
+### **Key Points**
+
+* Not inherited
+* Breaks encapsulation (use carefully)
+* Declared inside class, defined outside
+
+## **Virtual Constructor vs Virtual Destructor**
+
+### **Virtual Constructor**
+
+* **Not possible in C++**
+* Constructors cannot be virtual because:
+
+  * Object is not fully created yet
+  * Virtual mechanism needs a fully constructed object
+
+### **Virtual Destructor**
+
+* **Used in inheritance**
+* Ensures proper deletion of derived class objects
+
+### **Why Needed**
+
+* When deleting object using **base class pointer**
+
+### **Example**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual ~Base() {
+        cout << "Base Destructor\n";
+    }
+};
+
+class Derived : public Base {
+public:
+    ~Derived() {
+        cout << "Derived Destructor\n";
+    }
+};
+
+int main() {
+    Base* obj = new Derived();
+    delete obj;
+}
+```
+
+### **Output**
+
+```
+Derived Destructor
+Base Destructor
+```
+
+### **Key Points**
+
+* Always use **virtual destructor in base class**
+* Prevents memory leaks
+
+---
+
+
+
+
+
+
+
+
+## **Inline Functions**
+
+### **Concept**
+
+* `inline` suggests compiler to **replace function call with function body**
+* Reduces function call overhead
+
+### **Syntax**
+
+```cpp
+inline int add(int a, int b) {
+    return a + b;
+}
+```
+
+### **Example**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    cout << square(5);
+}
+```
+
+### **Advantages**
+
+* Faster execution (no function call overhead)
+* Useful for small functions
+
+### **Disadvantages**
+
+* Increases code size
+* Compiler may ignore `inline`
+* Not suitable for large/complex functions
+
+### **When to Use**
+
+* Small, frequently used functions
+* Getter/setter functions
+
+### **Important Points**
+
+* Inline is a **request, not a command**
+* Functions inside class are **implicitly inline**
+* Avoid recursion with inline
+
+
+
+---
+
+
+
+
 
 
 
