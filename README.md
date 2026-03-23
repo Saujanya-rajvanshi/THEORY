@@ -767,13 +767,21 @@ obj.set(10).set(20);
 class Demo {
 public:
     void show(Demo* obj) {
-        cout << "Object passed";
+        cout << "Object passed" << endl;
+        cout << "Address received: " << obj << endl;
     }
 
     void call() {
+        cout << "Address using this: " << this << endl;
         show(this);
     }
 };
+
+int main() {
+    Demo d;
+    d.call();
+    return 0;
+}
 
 `this` passes **current object address**
 
