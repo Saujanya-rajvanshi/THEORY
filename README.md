@@ -642,7 +642,7 @@ int main() {
     return 0;
 }
 ```
-💡 size of class is sum of all properties
+💡 size of class is sum of all properties <br>
 💡 empty class - no properties - size is 1 for identification
 
 ---
@@ -700,7 +700,7 @@ Teacher(Teacher &org0bj) {
 ```
 
 ampersand (&) — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
-This will call copy constructor again <br>
+without ampersand (&) This will call copy constructor again <br>
 That again needs a copy → infinite recursion <br>
 
 
@@ -785,8 +785,8 @@ public:
 * `this` is a **pointer**
 * Available only in **non-static** member functions
 * Cannot be used in **static functions**
-* Type: `ClassName*`
 * Static members do not belong to any object.
+* Type: `ClassName*`
 * **Can we change `this`?** No, it is a constant pointer.
 
 ---
