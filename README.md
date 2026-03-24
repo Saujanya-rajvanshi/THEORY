@@ -1360,9 +1360,7 @@ protected:
 
 public:
     //----------Constructor chaining (IMPORTANT)
-    Car(string _name, string _model, int _noOfTyres,
-        int _noOfDoors, string _transmissionType)
-        : Vehicle(_name, _model, _noOfTyres)   //------------Base constructor call
+    Car(string _name, string _model, int _noOfTyres, int _noOfDoors, string _transmissionType) : Vehicle(_name, _model, _noOfTyres)   //------------Base constructor call
     {
         cout << "I am inside Car ctor" << endl;
 
