@@ -1012,8 +1012,9 @@ Student Destructor called   // for A
 ## Four Pillars of OOP
 - [Encapsulation](#Encapsulation)
 - [Inherittance](#Inheritance)
-- [Abstraction](#Abstraction)
 - [Polymorphism](#Polymorphism)
+- [Abstraction](#Abstraction)
+
 
 ## Encapsulation
 
@@ -1453,10 +1454,8 @@ Engine is stopping BMW VXI
 
 ### 1. Compile-Time Polymorphism (Static Binding)
 
-* Resolved **at compile time**
-* Faster (no runtime overhead)
+* Resolved **at compile time**, Faster (no runtime overhead)
 * Achieved using:
-
   * Function Overloading
   * Operator Overloading
 
@@ -1465,26 +1464,10 @@ Engine is stopping BMW VXI
 Function overloading allows **same function name** with **different parameters**
 
 * Must differ in:
-
   * Number of parameters
   * Type of parameters
   * Order of parameters
 * Cannot differ only by return type
-
-```cpp
-class Add {
-public:
-    int add(int a, int b) {
-        return a + b;
-    }
-
-    int add(int a, int b, int c) {
-        return a + b + c;
-    }
-};
-```
-
-#### Example (Different Types)
 
 ```cpp
 int add(int a, int b) {
@@ -1527,18 +1510,12 @@ return_type operator operator_symbol(arguments) {
 
 #### Operators That Cannot Be Overloaded
 
-| Operator | Meaning           |
-| -------- | ----------------- |
-| ::       | Scope resolution  |
-| .        | Member access     |
-| .*       | Pointer to member |
-| ?:       | Ternary           |
-
-#### Rules
-
-* At least one operand must be object
-* Precedence cannot change
-* Number of operands cannot change
+```
+:: ( Scope resolution )  
+.  ( Member access )
+.* ( Pointer to member )
+?: ( Ternary )
+```
 
 ### Example
 
@@ -1550,15 +1527,15 @@ class Complex {
 public:
     int real, imag;
 
-    Complex(int r = 0, int i = 0) {
+    Complex(int r = 0, int i = 0) {    // initialise value of c1, c2
         real = r;
         imag = i;
     }
 
-    Complex operator + (Complex const &obj) {
+    Complex operator + (Complex const &obj) {     // c1.operator+(c2), obj = second object (right side)
         Complex temp;
-        temp.real = real + obj.real;
-        temp.imag = imag + obj.imag;
+        temp.real = real + obj.real;  // real parts → 3 + 1 = 4
+        temp.imag = imag + obj.imag;  // imag parts → 4 + 2 = 6
         return temp;
     }
 };
@@ -1581,12 +1558,17 @@ Real: 4
 Imaginary: 6
 ```
 
+#### Rules
+
+* At least one operand must be object
+* Precedence cannot change
+* Number of operands cannot change
+
 ### 3. Runtime Polymorphism (Dynamic Binding)
 
 * Resolved **at runtime**
 * Slightly slower (uses indirection)
 * Achieved using:
-
   * Method Overriding
   * Virtual Functions
 
@@ -1671,6 +1653,66 @@ Parent class
 Because:
 
 * Compile-time binding happens
+
+Your image is correct 👍 — I’ll simplify it clearly:
+
+👉 **Rule:** Left side (pointer type) decides
+
+```cpp
+Base* obj = new Derived();
+obj->show();
+```
+
+✔ Output → **Base function**
+
+### Why?
+
+* Compiler only looks at **Base*** (left side)
+* It ignores that object is actually `Derived`
+* This is **compile-time binding**
+
+👉 Think:
+**“Left side decides”**
+
+
+## With `virtual`
+
+👉 **Rule:** Actual object decides
+
+```cpp
+class Base {
+public:
+    virtual void show() {
+        cout << "Base";
+    }
+};
+```
+
+```cpp
+Base* obj = new Derived();
+obj->show();
+```
+
+✔ Output → **Derived function**
+
+### Why?
+
+* Runtime checks actual object (`Derived`)
+* Calls correct function
+* This is **runtime binding**
+
+👉 Think:
+**“Real object decides”**
+
+### `ClassA a = new ClassB();` (same idea as C++)
+
+* **Without virtual** → A’s function runs ❌
+* **With virtual** → B’s function runs ✅
+
+
+* ❌ No virtual → **Pointer type**
+* ✅ Virtual → **Object type**
+
 
 ### 4. Types of Binding
 
@@ -2569,12 +2611,6 @@ constexpr int square(int x) {
 * Handled before compilation
 * Use carefully in competitive programming
 * Prefer safer alternatives in real projects
-
-
-Here are **clean and complete notes** for each topic:
-
----
-
 
 
 
