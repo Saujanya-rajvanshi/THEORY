@@ -2253,6 +2253,45 @@ int main() {
 }
 ```
 
+```cpp
+#include <iostream>
+using namespace std;
+
+int x = 2; // GLOBAL VARIABLE
+
+void fun()
+{
+    int x = 60;
+    cout << x << endl;     // 60, local to fun
+    ::x = 40;              // modify global
+    cout << ::x << endl;   // 40, global
+}
+
+int main()
+{
+    ::x = 4;        // modify global
+    int x = 20;     // local to main
+    {
+        int x = 50;     // new block (different scope)
+        {
+            int x = 44; // inner block (different scope)
+        }      
+        cout << x << endl;   // 50
+        cout << x << endl;   // 50
+        cout << ::x << endl; // 4
+    }
+    fun(); // call function
+    return 0;
+}
+```
+```
+50
+50
+4
+60
+40
+```
+
 ### **Difference**
 
 | Feature  | Local Variable                   | Global Variable          |
@@ -2263,8 +2302,6 @@ int main() {
 | Memory   | Stack                            | Data segment             |
 
 ---
-
-
 
 
 ## **Memory Layout of a Program**
@@ -2379,34 +2416,49 @@ const int a = 10;
 
 ### **2. const Pointer**
 
-#### **Pointer to const (data cannot change)**
-
-```cpp
-int x = 10;
-const int* ptr = &x;
-
-*ptr = 20; // Error
-ptr = &x;  // Allowed
+```
+int *a = new int;
+*a = 2;
+cout << *a << endl;
+delete a; // if not the memory leek
+int b = 5;
+a = &b;
+cout << *a << endl;
 ```
 
-#### **Const pointer (pointer cannot change)**
-
+#### **CONST data, NON-CONST pointer.
 ```cpp
 int x = 10;
-int* const ptr = &x;
-
-*ptr = 20; // Allowed
-// ptr = &y; // Error
+const int *a = new int(2) ;
+const int *a = new int(2); // CONST data, NON-CONST pointer.
+cout << *a << endl;
+// *a = 20; // error cant change the content of the pointer 
+// cout  << *a << endl;
+int b = 20;
+a = &b;
+cout << *a << endl;
 ```
 
-#### **Const pointer to const data**
+#### **NON-CONST data, CONST pointer**
 
 ```cpp
-int x = 10;
-const int* const ptr = &x;
+int *const a = new int(2);
+cout << *a << endl;
+*a = 20; // chal jayega
+cout << *a << endl;
+int b = 50;
+a = &b; // nahi chalega, CONST pointer.
+```
 
-// *ptr = 20; // Error
-// ptr = &y;  // Error
+#### **CONST data, CONST pointer**
+
+```cpp
+// CONST pointer, CONST data
+const int *const a = new int(10);
+cout << *a << endl;
+*a = 50;
+int b = 100;
+a = &b;
 ```
 
 ### **3. const in Function Parameters**
@@ -2443,6 +2495,10 @@ public:
         cout << x;
     }
 };
+```
+```cpp
+// initialization list
+abc(int _x, int _y, int _z = 0) : x(_x), y(new int(_y)), z(_z) {}
 ```
 
 ### **5. const Objects**
@@ -2661,6 +2717,7 @@ int main() {
 ### **Concept**
 
 * `friend` allows a function or class to access **private and protected members**
+* CAN ALSO BE DONE BY SINGELTON CLASS
 
 ### **Types**
 
@@ -2849,7 +2906,6 @@ int main() {
 
 
 
-- [OOPS in C](#OOPS-in-C)
 
 # OOPS in python
 ## 🎗 OOP — Python vs C++
