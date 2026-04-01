@@ -1459,7 +1459,7 @@ Engine is stopping BMW VXI
   * Function Overloading
   * Operator Overloading
 
-#### 2.1 Function Overloading
+#### 1.1 Function Overloading
 
 Function overloading allows **same function name** with **different parameters**
 
@@ -1481,7 +1481,7 @@ double add(double a, double b) {
 
 
 
-### 2.2 Operator Overloading
+### 1.2 Operator Overloading
 
 Allows operators (`+`, `-`, etc.) to work with **objects**
 
@@ -1564,7 +1564,7 @@ Imaginary: 6
 * Precedence cannot change
 * Number of operands cannot change
 
-### 3. Runtime Polymorphism (Dynamic Binding)
+### 2. Runtime Polymorphism (Dynamic Binding)
 
 * Resolved **at runtime**
 * Slightly slower (uses indirection)
@@ -1573,7 +1573,7 @@ Imaginary: 6
   * Virtual Functions
 
 
-#### 3.1 Method Overriding
+#### 2.1 Method Overriding
 
 Child class **redefines** parent class function
 
@@ -1585,23 +1585,28 @@ Child class **redefines** parent class function
 * Requires inheritance
 * Base function must be `virtual`
 
+## **2.2 Virtual Functions**
 
-#### 3.2 Virtual Functions
+A **virtual function** is a member function that is declared using `virtual` keyword and allows **runtime decision (dynamic binding)**.
 
-Functions that allow **runtime decision**
+* Enables **runtime polymorphism**
+* Ensures the **correct function is called based on object type**
+* Supports **dynamic binding**
 
-##### Role
+### **Working Mechanism**
 
-* Enables dynamic binding
-* Ensures correct function is called
+* A **base class pointer** can point to a **derived class object**
+* Uses **v-table (virtual table)** internally
+* Function call decision happens **at runtime**
+  
+### (With Virtual)
 
-#### 3.3 Working Mechanism
+* **“Real object decides”**
+* Runtime checks actual object (`Child`)
+* Calls **derived class function**
+* This is **runtime binding**
 
-* Base pointer → Derived object
-* Uses **v-table internally**
-* Decision happens at runtime
-
-##### Example
+#### **Example (With Virtual)**
 
 ```cpp
 #include <iostream>
@@ -1632,86 +1637,52 @@ int main() {
 }
 ```
 
-**Output**
+### **Output**
 
 ```
 Child class
 ```
 
-#### 3.4 Without Virtual (Important)
+### (Without Virtual)
 
-```cpp
-p->show();
-```
-
-Output will be:
-
-```
-Parent class
-```
-
-Because:
-
-* Compile-time binding happens
-
-Your image is correct 👍 — I’ll simplify it clearly:
-
-👉 **Rule:** Left side (pointer type) decides
-
-```cpp
-Base* obj = new Derived();
-obj->show();
-```
-
-✔ Output → **Base function**
-
-### Why?
-
-* Compiler only looks at **Base*** (left side)
-* It ignores that object is actually `Derived`
+* **“Left side (pointer type) decides”**
+* Compiler only sees `Parent*`
+* Ignores actual object (`Child`)
 * This is **compile-time binding**
 
-👉 Think:
-**“Left side decides”**
-
-
-## With `virtual`
-
-👉 **Rule:** Actual object decides
+#### example **Without Virtual**
 
 ```cpp
-class Base {
+class Parent {
 public:
-    virtual void show() {
-        cout << "Base";
+    void show() {
+        cout << "Parent class" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "Child class" << endl;
     }
 };
 ```
 
 ```cpp
-Base* obj = new Derived();
-obj->show();
+Parent* p = new Child();
+p->show();
 ```
 
-✔ Output → **Derived function**
+### **Output**
 
-### Why?
+```
+Parent class
+```
 
-* Runtime checks actual object (`Derived`)
-* Calls correct function
-* This is **runtime binding**
-
-👉 Think:
-**“Real object decides”**
-
-### `ClassA a = new ClassB();` (same idea as C++)
-
-* **Without virtual** → A’s function runs ❌
-* **With virtual** → B’s function runs ✅
-
-
-* ❌ No virtual → **Pointer type**
-* ✅ Virtual → **Object type**
+| Case              | Decision Taken By | Binding Type | Output        |
+| ----------------- | ----------------- | ------------ | ------------- |
+| With `virtual`    | Object type, Real object decides       | Runtime      | Derived class |
+| Without `virtual` | Pointer type, Left side decides      | Compile-time | Base class    |
 
 
 ### 4. Types of Binding
@@ -1752,6 +1723,15 @@ int main() {
 }
 ```
 
+#### Final Keyword
+
+1. In C++, the final specifier is used in two main contexts: with classes and with virtual member
+functions.
+2. **Prevents Class Inheritance:** When you declare a class as final, it means that no other class
+can inherit from it.
+3. **Preventing Virtual Function Overriding:** The final specifier can also be used with virtual
+functions to prevent them from being overridden in derived classes.
+
 ---
 
 ## Abstraction
@@ -1759,6 +1739,7 @@ int main() {
 * Abstraction means **showing only essential details** and hiding unnecessary details.
 * Focuses on **what an object does**, not **how it does it**.
 * Helps in solving **complex real-world problems efficiently**.
+* It is a design and programming method that separates the interface from the implementation.
 
 **Achieved using:**
 
@@ -1766,37 +1747,71 @@ int main() {
 * Abstract classes
 * Interfaces (using pure virtual functions)
 
-**Example:**
+### Abstraction using Classes
+
+* 1. Grouping data members and member functions into classes using access specifiers.
+* 2. A class can choose which data members are visible to the outside world and which are hidden.
 
 ```cpp
-class Shape {
-public:
-    virtual void draw() = 0;  // pure virtual function
+class AbstractionExample{
+    private:
+        int num;
+        char ch;
+
+    public:
+        void setMyValues(int n, char c) {
+            num = n; ch = c;
+        }
+
+       void getMyValues () {
+           cout << "Numbers is: " << num << endl;
+           cout << "Char is: " << ch << endl;
+    }
 };
 ```
+
+### Abstract classes
+
+* 1. Class that contains at least one pure virtual function, and these classes cannot be
+instantiated. so, Bird *b2 = new Bird(); is not applicable
+* 2. It has come from the idea of Abstraction.
+* C++ doesn’t have a keyword like interface (unlike Java), but we create it using an abstract class with:
 
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Shape { //abstract class
-virtual void draw() = 0; //pure virtual function
-
+// Abstract class
+class Bird {
+public:
+    virtual void eat() = 0;   // Pure virtual function
+    virtual void fly() = 0;   // Pure virtual function
 };
 
-class Circle : public Shape {
+// Derived class
+class Sparrow : public Bird {
 public:
-void draw() {
-    cout << "drawing a circle\n";
+    void eat() {
+        cout << "Sparrow is eating\n";
+    }
+
+    void fly() {
+        cout << "Sparrow is flying\n";
+    }
 };
 
 int main() {
-    Circle c1;
-    c1.draw();
-return 0;
+    Bird* b;
+    Sparrow s;
+
+    b = &s;
+    b->eat();
+    b->fly();
+
+    return 0;
 }
 ```
+
 
 ---
 
@@ -1822,11 +1837,10 @@ Access modifiers control **visibility (who can access data/functions)**.
 * Not accessible outside
 
 
-#### Default (Important)
+#### Default 
 
 * `class` → **private by default**
 * `struct` → **public by default**
-
 
 ```cpp
 #include <iostream>
@@ -1908,11 +1922,6 @@ int main() {
 ```
 
 ---
-
-
-
-
-
 
 
 
