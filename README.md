@@ -3021,37 +3021,56 @@ class A:
 
 # Harware and Software
 
-### Where the OS Actually Lives (Physically)
+## **Where the OS Actually Lives**
 
-An OS exists in **two physical places**:
+The OS exists in **two places depending on system state**:
 
-#### 1. On Disk (Persistent Storage)
+## **When System is OFF → OS on Disk**
 
-Stored as files:
+* The OS is stored as **files on storage (SSD/HDD)**
+* Nothing is running
 
-* Kernel image (e.g., `vmlinuz` in Linux kernel)
-* Bootloader (e.g., GRUB)
+### **What exists on disk**
+
+* Kernel (core of OS)
+* Bootloader
 * System libraries
-* Init system
-* Device drivers
+* Drivers
 
-When system is OFF → OS is just files on SSD/HDD.
+So at this stage:
 
-#### 2. In RAM (After Boot)
+* OS = **just data (files)**
+* CPU is not executing anything
 
-When system powers on:
+### **When System Turns ON → OS moves to RAM** **Step-by-step process**
 
-1. Firmware (BIOS/UEFI)
-2. Bootloader loads kernel
-3. Kernel is decompressed into RAM
-4. Kernel initializes hardware
-5. Kernel switches CPU to protected mode
-6. First user process starts
+### **1. Power ON**
 
-Now:
+* CPU starts executing firmware (**BIOS/UEFI**)
+* Firmware is stored on motherboard (ROM)
 
-* Kernel lives in **high memory region**
-* User processes live in **separate virtual address spaces**
+### **2. Bootloader Loads**
+
+* BIOS/UEFI loads **bootloader** (like GRUB) from disk
+* Bootloader decides which OS to load
+
+### **3. Kernel Loaded into RAM**
+
+* Bootloader loads **kernel from disk → RAM**
+* Kernel is decompressed and prepared
+
+### **4. Kernel Starts Running**
+
+* Kernel:
+
+  * Initializes hardware
+  * Sets up memory
+  * Switches CPU mode (protected mode)
+
+### **5. OS Becomes Active**
+
+* Kernel starts first process (like `init` or `systemd`)
+* Now full OS is running
 
 
 **Application software** performs specific task for the user. <br>
