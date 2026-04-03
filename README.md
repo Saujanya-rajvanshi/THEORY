@@ -3025,6 +3025,9 @@ class A:
 
 The OS exists in **two places depending on system state**:
 
+* Disk = storage (permanent)
+* RAM = execution (temporary, fast)
+
 ## **When System is OFF → OS on Disk**
 
 * The OS is stored as **files on storage (SSD/HDD)**
