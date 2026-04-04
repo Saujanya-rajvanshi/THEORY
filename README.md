@@ -3361,131 +3361,6 @@ It:
 This is not logical separation.
 This is **hardware-enforced protection**.
 
----
-
-# 🧠 3️⃣ CPU Privilege Rings (Critical Architecture Concept)
-
-Most CPUs (like x86) support **rings**:
-
-* Ring 0 → Kernel (highest privilege)
-* Ring 3 → User applications
-
-Kernel runs in Ring 0.
-Apps run in Ring 3.
-
-When app needs OS service:
-
-It performs a **system call instruction**.
-
-CPU does:
-
-1. Switch to Ring 0
-2. Jump to kernel entry point
-3. Execute privileged code
-4. Return to user mode
-
-This transition is controlled by hardware.
-
----
-
-# 🧠 4️⃣ What Is Kernel Internally Made Of?
-
-Architecturally, kernel includes:
-
-### 1. Process Management Subsystem
-
-* Scheduler
-* Context switch logic
-* PCB storage
-
-### 2. Memory Management Subsystem
-
-* Page tables
-* Virtual memory manager
-* Page fault handler
-
-### 3. VFS (Virtual File System)
-
-Abstracts file systems.
-
-### 4. Device Drivers
-
-Hardware abstraction layer.
-
-### 5. Networking Stack
-
-TCP/IP implementation.
-
-In a monolithic system like Linux kernel, these are inside kernel space.
-
----
-
-# 🧠 5️⃣ What Happens During a Context Switch (Deep View)
-
-When switching process:
-
-1. CPU registers saved to PCB
-2. Page table pointer updated
-3. TLB flushed (sometimes)
-4. Kernel updates scheduling structures
-5. CPU resumes new process
-
-This is low-level architecture work.
-
----
-
-# 🧠 6️⃣ User Space Architecture
-
-User space contains:
-
-* Runtime libraries
-* Standard C library
-* Dynamic linker
-* Shell
-* Background services
-* All applications
-
-Each process gets:
-
-* Own virtual memory space
-* Own stack
-* Own heap
-* Own page table
-
-But they share the same kernel.
-
----
-
-# 🧠 7️⃣ Microkernel vs Monolithic (Architecture Difference)
-
-### Monolithic (Linux)
-
-* Everything inside kernel space
-* Faster
-* Larger trusted code base
-
-### Microkernel (like MINIX)
-
-* Minimal kernel
-* Drivers in user space
-* More modular
-* More secure
-
----
-
-# 🧠 8️⃣ Final Deep Mental Model
-
-OS is not:
-
-* A separate hardware chip
-* A magic software floating somewhere
-
-It is:
-
-A privileged program loaded into RAM
-Running in Ring 0
-Controlling CPU, memory, devices
-Using hardware features (MMU, privilege levels, interrupts)
 
 
 
@@ -3506,10 +3381,8 @@ directory.
 
 **Transitions from US to KS done by software interrupts.** <br>
 **System calls** are implemented in C.<br>
-**A system call** is a mechanism using which a user program can request a service from the kernel for
-whichitdoesnot havethepermissiontoperform. <br>
-User programs typically do not have permission to perform operations like accessing I/O devices and
-communicatingotherprograms.<br>
+**A system call** is a mechanism using which a user program can request a service from the kernel for which it does not have the permission toper form. <br>
+User programs typically do not have permission to perform operations like accessing I/O devices and communicatin go the programs.<br>
 **System Calls** are the only way through which a process can go into **kernel mode from user mode.** <br>
 
 <img width="665" height="516" alt="image" src="https://github.com/user-attachments/assets/cabb5eb7-d016-4b2d-b3f6-998ab678c0c6" />
