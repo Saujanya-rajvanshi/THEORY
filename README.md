@@ -3386,18 +3386,6 @@ This is **hardware-enforced protection**.
 ## System Calls
 **How do apps interact with Kernel?** -> using system calls. <br>
 
-**Eg. Mkdir laks** <br>
-- Mkdir indirectly calls kernel and asked the file mgmt. module to create a new
-directory.
-- Mkdir is just a wrapper of actual system calls.
-- Mkdir interacts with kernel using system calls. <br>
-
-**Eg. Creating a process.** <br>
-- User executes a process. (User space)
-- Gets system call. (US)
-- Exec system call to create a process. (KS)
-- Return to US. <br>
-
 **Transitions from US to KS done by software interrupts.** <br>
 **System calls** are implemented in C.<br>
 **A system call** is a mechanism using which a user program can request a service from the kernel for which it does not have the permission toper form. <br>
@@ -3406,39 +3394,88 @@ User programs typically do not have permission to perform operations like access
 
 <img width="665" height="516" alt="image" src="https://github.com/user-attachments/assets/cabb5eb7-d016-4b2d-b3f6-998ab678c0c6" />
 
-#### Types of System Calls:
-1) Process Control 
-a. end, abort
-b. load, execute
-c. create process, terminate process
-d. get process attributes, set process attributes
-e. wait for time
-f. wait event, signal event
-g. allocate and free memory
+Apps **cannot directly talk to hardware or kernel**
+→ They use **system calls** as a bridge
 
-2) File Management
-a. create file, delete file
-b. open, close
-c. read, write, reposition
-d. get file attributes, set file attributes
+## **Example: Creating a File (Two Ways)**
 
-3) Device Management
-a. request device, release device
-b. read, write, reposition
-c. get device attributes, set device attributes
-d. logically attach or detach devices
+### **1. GUI Method (File Explorer)**
 
-5) Information maintenance
-a. get time or date, set time or date
-b. get system data, set system data
-c. get process, file, or device attributes
-d. set process, file, or device attributes
+* You right-click → New Folder
+* GUI app sends request
+* Internally calls system call → `mkdir()`
+* Kernel creates directory
 
-7) Communication Management
-a. create, delete communication connection
-b. send, receive messages
-c. transfer status information
-d. attach or detach remote devices
+### **2. CLI Method (Terminal)**
+
+```bash
+mkdir laks
+```
+
+* You type command
+* `mkdir` program runs (user space)
+* It calls system call → `mkdir()`
+* Kernel creates directory
+
+### **What actually happens (behind both)**
+
+```
+User Action (GUI / CLI)
+        ↓
+User Space Program
+        ↓
+System Call (e.g., mkdir)
+        ↓
+Kernel Space
+        ↓
+File created
+        ↓
+Back to User Space
+```
+
+* GUI and CLI are just **different interfaces**
+* Both use **same system calls internally**
+* Kernel does the **actual work**
+* CLI is **better for speed and control**, GUI is **better for ease**
+
+
+### Types of System Calls:
+
+#### **Process Control**
+
+* Create and terminate processes
+* Load and execute programs
+* Wait for time or events, signal events
+* Get/set process attributes
+* Allocate and free memory
+
+#### **File Management**
+
+* Create and delete files
+* Open and close files
+* Read, write, and reposition files
+* Get/set file attributes
+
+#### **Device Management**
+
+* Request and release devices
+* Read, write, and reposition devices
+* Get/set device attributes
+* Attach or detach devices
+
+#### **Information Maintenance**
+
+* Get/set time and date
+* Get/set system data
+* Get/set attributes of process, file, or device
+
+#### **Communication Management**
+
+* Create and delete communication connections
+* Send and receive messages
+* Transfer status information
+* Attach or detach remote devices
+
 
 <img width="868" height="639" alt="image" src="https://github.com/user-attachments/assets/6f4bb47e-f62d-4e75-a553-eca46450a5a2" />
 
@@ -3462,12 +3499,8 @@ Power On
 
 * CPU looks for firmware stored in ROM/flash memory on the motherboard.
 * This firmware is:
-
-  * **BIOS** (older systems)
-  * **UEFI** (modern systems)
-<br>
-UEFI = Unified Extensible Firmware Interface <br>
-(It replaces traditional BIOS and provides more features.)
+  * **BIOS** : Basic Input/Output System (older systems) 
+  * **UEFI** : Unified Extensible Firmware Interface (modern systems), (It replaces traditional BIOS and provides more features.)
 
 ### 3. POST (Power-On Self-Test)
 
