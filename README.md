@@ -1,5 +1,6 @@
 # THEORY
 
+<hr style="border: 2px solid black;">
 <hr style="width:10%;">
 
 ### OOPS THEORY
