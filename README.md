@@ -1,5 +1,4 @@
 # THEORY
-----
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
@@ -3344,13 +3343,14 @@ commands from the users and gets them executed.
     * f. IPC also happens but lesser overheads
 
 5. **Nano/Exo kernels...**
---
+
+<hr style="width:50%;">
 
 * **Monolithic:** All-in-one, fast, bulky, less-safe
 * **Microkernel:** Minimal, modular, safe, slower
 * **Hybrid:** Combined, balanced, optimized, stable
 
----
+<hr style="width:50%;">
 
 * **Q. How will communication happen between user mode and kernel mode?** 
 Ans. Inter process communication (IPC).
