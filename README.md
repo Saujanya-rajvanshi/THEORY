@@ -1,5 +1,7 @@
 # THEORY
 
+<hr style="width:20%;">
+
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
 
