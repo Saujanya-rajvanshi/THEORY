@@ -3293,9 +3293,22 @@ commands from the users and gets them executed.
             * 2. Eg. Youtube video buffering   
         * iii. Caching
             * 1. Memory caching, Web caching etc.
+             
+
+
+
+* **Process Management** : Handles creation, scheduling, execution, and coordination of processes and threads.
+* **Memory Management** : Allocates, tracks, and manages memory usage among processes efficiently.
+* **File Management** : Manages creation, deletion, storage, and organization of files and directories.
+* **I/O Management** : Controls input/output devices and optimizes data transfer using buffering, caching, and spooling.
+    * **Spooling:** Manages multiple jobs by queuing them (e.g., print queue).
+    * **Buffering:** Temporarily stores data during transfer within a single process.
+    * **Caching:** Stores frequently used data for faster future access.
+
 
 
 ### Types of Kernels
+
 1. **Monolithic kernel**
     * a. All functions are in kernel itself.
     * b. Bulky in size.
@@ -3330,6 +3343,13 @@ commands from the users and gets them executed.
     * f. IPC also happens but lesser overheads
 
 5. **Nano/Exo kernels...**
+--
+
+* **Monolithic:** All-in-one, fast, bulky, less-safe
+* **Microkernel:** Minimal, modular, safe, slower
+* **Hybrid:** Combined, balanced, optimized, stable
+
+---
 
 * **Q. How will communication happen between user mode and kernel mode?** 
 Ans. Inter process communication (IPC).
