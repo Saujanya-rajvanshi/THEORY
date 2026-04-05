@@ -1,4 +1,5 @@
 # THEORY
+----
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
