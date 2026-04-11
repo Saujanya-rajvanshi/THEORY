@@ -3587,7 +3587,7 @@ After this:
 
 ## 32 Bit vs 64 Bit OS
 
-internally this is physically implemented using 32 parallel electrical lines (wires/transistors) carrying 0s and 1s.
+internally this is physically implemented using 32 parallel electrical lines (wires/transistors) carrying 0s and 1s. <br>
 👉 Each bit = one signal line that can be ON (1) or OFF (0)
 ```32-bit = 32 parallel electrical signals```
 
@@ -3685,6 +3685,45 @@ Technically it starts at _start then reaches main().
 ```
 
 * Part 3 — Process Architecture
+<img width="850" height="397" alt="image" src="https://github.com/user-attachments/assets/43c3ed3f-137a-49f3-9387-2ad848184530" />
+
+
+5. **Architecture** of process:
+
+```
+Both stack and heap change size while the program runs.
+Stack grows downward
+When functions are called:
+    main()
+      ↓
+    func1()
+      ↓
+    func2()
+Each call pushes a stack frame.
+So stack keeps expanding downwards.
+Heap grows upward
+Heap grows when dynamic memory is allocated.
+Example:
+    malloc()
+    new
+Each allocation increases heap size upwards.
+
+if one grows too much:
+    stack overflow
+    heap overflow
+they might collide.
+So the OS keeps large free space between them.
+This allows both to grow safely.
+```
+
+* **Attributes** of process:
+    * a. Feature that allows identifying a process uniquely.
+    * b. Process table
+        * i. All processes are being tracked by OS using a table like data structure.
+        * ii. Each entry in that table is process control block (PCB).
+    * c. PCB: Stores info/attributes of a process.
+        * i. Data structure used for each process, that stores information of a process such as process id, program counter, process state, priority etc.
+
 * Part 4 — Process Identification
 * Part 5 — Process Table
 ```
@@ -3717,55 +3756,8 @@ Typical PCB fields:
     Open Files
 PCB is used during context switching.
 ```
-
-1. What is a program? Compiled code, that is ready to execute.
-2. What is a process? Program under execution.
-3. How OS creates a process? Converting program into a process. 
-4. **STEPS :**
-    * a. Load the program & static data into memory.
-    * b. Allocate runtime stack.
-    * c. Heap memory allocation.
-    * d. IO tasks.
-    * e. OS handoffs control to main ().
   
-5. **Architecture** of process:
-<img width="850" height="397" alt="image" src="https://github.com/user-attachments/assets/43c3ed3f-137a-49f3-9387-2ad848184530" />
-
-```
-Both stack and heap change size while the program runs.
-Stack grows downward
-When functions are called:
-    main()
-      ↓
-    func1()
-      ↓
-    func2()
-Each call pushes a stack frame.
-So stack keeps expanding downwards.
-Heap grows upward
-Heap grows when dynamic memory is allocated.
-Example:
-    malloc()
-    new
-Each allocation increases heap size upwards.
-
-if one grows too much:
-    stack overflow
-    heap overflow
-they might collide.
-So the OS keeps large free space between them.
-This allows both to grow safely.
-```
-
-6. **Attributes** of process:
-    * a. Feature that allows identifying a process uniquely.
-    * b. Process table
-        * i. All processes are being tracked by OS using a table like data structure.
-        * ii. Each entry in that table is process control block (PCB).
-    * c. PCB: Stores info/attributes of a process.
-        * i. Data structure used for each process, that stores information of a process such as process id, program counter, process state, priority etc.
-
-7. **PCB structure :**
+**PCB structure :**
 
 <img width="776" height="438" alt="image" src="https://github.com/user-attachments/assets/2063a074-62e8-4962-9664-8add42d59036" />
 
@@ -3773,7 +3765,16 @@ This allows both to grow safely.
 current value of process specific registers would be stored in the PCB and the process would be swapped
 out. When the process is scheduled to be run, the register values is read from the PCB and written to the
 CPU registers. This is the main purpose of the registers in the PCB.
-CodeHelp
+
+1. What is a program? Compiled code, that is ready to execute.
+2. What is a process? Program under execution.
+3. How OS creates a process? Converting program into a process. 
+
+
+
+
+
+
 
 ## Process States Process Queues
 
