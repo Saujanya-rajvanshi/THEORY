@@ -12,7 +12,6 @@
 ### CN THEORY
 [REPOSITORY CN](#CN)
 
-
 ## computer system
 * [computer system](#Computer-System)
 * [🧱 hardware](#Hardware)
