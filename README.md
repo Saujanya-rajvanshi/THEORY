@@ -3896,26 +3896,8 @@ Execution resumes
 To do this, the operating system **saves the state of the current process and loads the state of the next process**.
 
 * b. During this event, the **kernel saves the CPU context of the currently running process into its PCB and loads the saved context of the next scheduled process from its PCB into the CPU registers**.
-
 * c. It is **pure overhead**, because the system does no useful work during the switch.
-
 * d. Speed varies from machine to machine depending on **memory speed, number of CPU registers, and OS implementation**.
-
-
-### Definition
-
-**Context Switching** is the process where the CPU **stops executing one process and starts executing another process**.
-
-To do this, the operating system **saves the state of the current process and loads the state of the next process**.
-
-
-### How It Happens
-
-1. The CPU is executing **Process A**.
-2. The OS decides to run **Process B**.
-3. The OS **saves the state of Process A in its PCB**.
-4. The OS **loads the saved state of Process B from its PCB**.
-5. CPU resumes execution of **Process B**.
 
 ### What is Saved (Context)
 
@@ -3927,13 +3909,6 @@ The **context** includes:
 * Stack pointer
 
 These values are stored inside the **Process Control Block (PCB)**.
-
-### Important Point
-
-Context switching is **pure overhead**.
-
-* During switching, the CPU **does not perform useful work**.
-* Time is spent **saving and restoring process states**.
 
 ### Performance Factors
 
@@ -3994,9 +3969,6 @@ Process B starts running
   If the parent delays calling `wait()`, the **terminated child remains a zombie** until it is reaped.
 
 👉 **Child terminates → parent hasn’t called `wait()` → process becomes zombie.**
-
-
-
 
 
 ## Intro to Process Scheduling FCFS Convoy Effect
@@ -4199,7 +4171,7 @@ It **does not depend on Burst Time**.
     * b. A process is permanently assigned to one of the queues (inflexible) based on some property of process, memory, size, process priority or process type.
     * c. Each queue has its own scheduling algorithm. E.g., SP -> RR, IP -> RR & BP -> FCFS.
     * d. System process: Created by OS (Highest priority) <br>
-         Interactive process (Foreground process): Needs user input (I/O).
+         Interactive process (Foreground process): Needs user input (I/O). <br>
          Batch process (Background process): Runs silently, no user input required.
     * e. Scheduling among different sub-queues is implemented as fixed priority preemptive scheduling. E.g., foreground queue has absolute priority over background queue.
     * f. If an interactive process comes & batch process is currently executing. Then, batch process will be preempted.
