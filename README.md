@@ -4308,12 +4308,42 @@ Process synchronization techniques play a key role in maintaining the consistenc
         * iii. Debugging
         * iv. Starvation of high priority threads.
 
-* **code**
+
+### Race Condition (Wrong Code)
+
+```cpp
+#include <iostream>
+#include <thread>
+using namespace std;
+
+int count = 0;
+
+void task() {
+    for (int i = 0; i < 1000000; i++) {
+        count++;   // ❌ race condition
+    }
+}
+
+int main() {
+    thread t1(task);
+    thread t2(task);
+
+    t1.join();
+    t2.join();
+
+    cout << "Final Count: " << count << endl;
+    return 0;
+}
+```
+
+👉 Output: unpredictable ❌
+
+### 2. Solution 1: Mutex (Correct & Standard)
+
 ```cpp
 #include <iostream>
 #include <thread>
 #include <mutex>
-
 using namespace std;
 
 int count = 0;
@@ -4328,49 +4358,81 @@ void task() {
 }
 
 int main() {
-
     thread t1(task);
     thread t2(task);
-
-    t1.start();   // ❌ Not needed in C++
-    t2.start();   // ❌ Not needed
 
     t1.join();
     t2.join();
 
-    cout << count << endl;
-
+    cout << "Final Count: " << count << endl;
     return 0;
 }
 ```
 
-* **solution code**
+### 3. Solution 2: lock_guard (Best Practice)
+
 ```cpp
-from threading import Thread, Lock
+#include <iostream>
+#include <thread>
+#include <mutex>
+using namespace std;
 
-lock = Lock()
-count = 0
+int count = 0;
+mutex mtx;
 
-def task():
-    global count
-    lock.acquire()
-    for i in range(1000000):
-        count += 1
-    lock.release()
+void task() {
+    for (int i = 0; i < 1000000; i++) {
+        lock_guard<mutex> lock(mtx);  // auto lock/unlock
+        count++;
+    }
+}
 
-if __name__ == "__main__":
+int main() {
+    thread t1(task);
+    thread t2(task);
 
-    t1 = Thread(target=task)
-    t2 = Thread(target=task)
+    t1.join();
+    t2.join();
 
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
-
-    print(count)
+    cout << "Final Count: " << count << endl;
+    return 0;
+}
 ```
+
+### 4. Solution 3: Atomic (Fastest)
+
+```cpp
+#include <iostream>
+#include <thread>
+#include <atomic>
+using namespace std;
+
+atomic<int> count(0);
+
+void task() {
+    for (int i = 0; i < 1000000; i++) {
+        count++;   // thread-safe
+    }
+}
+
+int main() {
+    thread t1(task);
+    thread t2(task);
+
+    t1.join();
+    t2.join();
+
+    cout << "Final Count: " << count << endl;
+    return 0;
+}
+```
+
+* ❌ Race condition → no synchronization
+* ✅ Mutex → safe but slower
+* ✅ lock_guard → safest + clean
+* ⚡ Atomic → fastest (limited use)
+
+
 
 
 
