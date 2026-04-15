@@ -4338,7 +4338,7 @@ int main() {
 
 👉 Output: unpredictable ❌
 
-### 2. Solution 1: Mutex (Correct & Standard)
+### Solution 1: Mutex (Correct & Standard)
 
 ```cpp
 int count = 0;
@@ -4353,7 +4353,7 @@ void task() {
 }
 ```
 
-### 3. Solution 2: lock_guard (Best Practice)
+### Solution 2: lock_guard (Best Practice)
 
 ```cpp
 int count = 0;
@@ -4367,7 +4367,7 @@ void task() {
 }
 ```
 
-### 4. Solution 3: Atomic (Fastest)
+### Solution 3: Atomic (Fastest)
 
 ```cpp
 atomic<int> count(0);
@@ -4410,42 +4410,67 @@ void task() {
     * e. Contention is not here.
 
 
-```py
-from threading import *
-import time
+```cpp
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <chrono>
+using namespace std;
 
-cond = Condition()
-done = 0
+mutex mtx;                 // protects shared data
+condition_variable cv;     // used for waiting & notifying
+bool done = false;         //condition flag 
 
-def task(name):
-    global done
-    
-    with cond:
-        if done == 1:
-            done = 2
-            print("Waiting on condition variable cond:", name)
-            cond.wait()
-            print("Condition met:", name)
-        else:
-            for i in range(5):
-                print(name, "working...")
-                time.sleep(1)
-            
-            print("Signaling condition variable cond:", name)
-            cond.notify_all()
-            print("Notification done:", name)
+void task1() {
+    unique_lock<mutex> lock(mtx);            // Locks the mutex (critical section starts)
 
-if __name__ == "__main__":
-    t1 = Thread(target=task, args=("t1",))
-    t2 = Thread(target=task, args=("t2",))
+    // first thread does work
+    for (int i = 0; i < 5; i++) {
+        cout << "t1 working..." << endl;
+        this_thread::sleep_for(chrono::seconds(1));
+    }
 
-    t1.start()
-    t2.start()
+    done = true;
+    cout << "Signaling condition variable (t1)" << endl;
 
-    t1.join()
-    t2.join()
+    cv.notify_all();  // wake up waiting threads
+}
+
+void task2() {
+    unique_lock<mutex> lock(mtx);
+
+    cout << "t2 waiting..." << endl;
+
+    // wait until condition becomes true
+    cv.wait(lock, [] { return done; });       // Releases lock, Goes to sleep, Wakes when notified, Re-checks condition (done == true)
+
+    cout << "Condition met (t2)" << endl;
+}
+
+int main() {
+    thread t1(task1);
+    thread t2(task2);
+
+    t1.join();
+    t2.join();
+
+    return 0;
+}
 ```
+* Without condition variable: <br>
+❌ Thread keeps checking (busy waiting) <br>
+while(!done) { } <br>
+👉 wastes CPU <br><br>
 
+* With condition variable: <br>
+✅ Thread sleeps efficiently <br>
+👉 CPU not wasted <br><br>
+
+* Important Rule <br>
+👉 Always use with mutex + condition <br>
+mutex mtx; <br>
+condition_variable cv; <br>
 
 
 
@@ -4468,37 +4493,43 @@ if __name__ == "__main__":
     * g. To overcome the need for busy waiting, we can modify the definition of the wait () and signal () semaphore operations. When a process executes the wait () operation and finds that the semaphore value is not positive, it must wait. However, rather than engaging in busy waiting, the process car block itself. The block- operation places a process into a waiting queue associated with the semaphore, and the state of the process is switched to the Waiting state. Then control is transferred to the CPU scheduler, which selects another process to execute.
     * h. A process that is blocked, waiting on a semaphore S, should be restarted when some other process executes a signal () operation. The process is restarted by a wakeup () operation, which changes the process from the waiting state to the ready state. The process is then placed in the ready queue.
 
-```py
-from threading import *
-import time
+```cpp
+#include <iostream>
+#include <thread>
+#include <semaphore>
+#include <chrono>
 
-sem = Semaphore(5)
+using namespace std;
 
-def task(name):
-    sem.acquire()
-    for i in range(5):
-        print("{} working".format(name))
-        time.sleep(1)
-    sem.release()
+counting_semaphore<2> sem(2);
 
-if __name__ == "__main__":
-    t1 = Thread(target=task, args=("Thread-1",))
-    t2 = Thread(target=task, args=("Thread-2",))
-    t3 = Thread(target=task, args=("Thread-3",))
-    t4 = Thread(target=task, args=("Thread-4",))
-    t5 = Thread(target=task, args=("Thread-5",))
+void task(string name) {
+    for (int i = 0; i < 5; i++) {
 
-    t1.start()
-    t2.start()
-    t3.start()
-    t4.start()
-    t5.start()
+        sem.acquire();
 
-    t1.join()
-    t2.join()
-    t3.join()
-    t4.join()
-    t5.join()
+        cout << name << " working " << i << endl;
+
+        sem.release();
+
+        this_thread::sleep_for(chrono::milliseconds(200));
+        this_thread::yield();  // force switching
+    }
+}
+
+int main() {
+    thread t1(task, "T1");
+    thread t2(task, "T2");
+    thread t3(task, "T3");
+    thread t4(task, "T4");
+    thread t5(task, "T5");
+
+    t1.join();
+    t2.join();
+    t3.join();
+    t4.join();
+    t5.join();
+}
 ```
 
 ### producer consumer problem and its solution 
