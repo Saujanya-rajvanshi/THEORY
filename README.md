@@ -4532,41 +4532,276 @@ int main() {
 }
 ```
 
-### producer consumer problem and its solution 
-```py
-from threading import *
-import time
+## producer consumer problem and its solution 
 
-cond = Condition()
-done = 0
+There are **two types of processes (threads)**:
+* **Producer** → creates data
+* **Consumer** → uses (removes) data
+👉 Both share a **common buffer (like a box)**
+   Real-life Example : Chef 👨‍🍳 (Producer) → cooks food, Customer 🍽️ (Consumer) → eats food, Table = buffer
 
-def task(name):
-    global done
-    
-    with cond:
-        if done == 1:
-            done = 2
-            print("Waiting on condition variable cond:", name)
-            cond.wait()
-            print("Condition met:", name)
-        else:
-            for i in range(5):
-                print(name, "working...")
-                time.sleep(1)
-            
-            print("Signaling condition variable cond:", name)
-            cond.notify_all()
-            print("Notification done:", name)
+### The Problem
 
-if __name__ == "__main__":
-    t1 = Thread(target=task, args=("t1",))
-    t2 = Thread(target=task, args=("t2",))
+There are **2 main issues**:
 
-    t1.start()
-    t2.start()
+* 1. Buffer Overflow : Producer keeps adding even when buffer is full, No space → problem
+* 2. Buffer Underflow : Consumer tries to remove when buffer is empty, Nothing to consume → problem
+* 3. Race Condition : Both access buffer at same time, Data becomes wrong
 
-    t1.join()
-    t2.join()
+## Solution (Using Semaphores)
+
+We use **3 tools**:
+
+### 1. `empty`
+Counts empty slots
+* Initially = buffer size
+* Decreases when producer adds
+
+### 2. `full`
+Counts filled slots
+* Initially = 0
+* Increases when producer adds
+
+### 3. `mutex` 
+Ensures **only one thread accesses buffer**
+
+### How Producer Works
+
+Step-by-step:
+
+```text
+wait(empty)   → check space
+wait(mutex)   → lock buffer
+
+add item      → put data
+
+signal(mutex) → unlock
+signal(full)  → increase filled slots
+```
+
+### How Consumer Works
+
+```text
+wait(full)    → check data exists
+wait(mutex)   → lock buffer
+
+remove item   → take data
+
+signal(mutex) → unlock
+signal(empty) → increase empty slots
+```
+```cpp
+#include <iostream>
+#include <thread>
+#include <semaphore>
+#include <vector>
+#include <chrono>
+
+using namespace std;
+
+const int BUFFER_SIZE = 5;
+
+vector<int> buffer;
+counting_semaphore<BUFFER_SIZE> empty(BUFFER_SIZE); // empty slots
+counting_semaphore<BUFFER_SIZE> full(0);            // filled slots
+binary_semaphore mtx(1);                            // mutex
+
+// Producer
+void producer() {
+    int item = 0;
+
+    while (true) {
+        this_thread::sleep_for(chrono::milliseconds(500));
+
+        empty.acquire();   // wait(empty)
+        mtx.acquire();     // wait(mutex)
+
+        buffer.push_back(item);
+        cout << "Produced: " << item << endl;
+        item++;
+
+        mtx.release();     // signal(mutex)
+        full.release();    // signal(full)
+    }
+}
+
+// Consumer
+void consumer() {
+    while (true) {
+        full.acquire();    // wait(full)
+        mtx.acquire();     // wait(mutex)
+
+        int item = buffer.back();
+        buffer.pop_back();
+        cout << "Consumed: " << item << endl;
+
+        mtx.release();     // signal(mutex)
+        empty.release();   // signal(empty)
+
+        this_thread::sleep_for(chrono::milliseconds(800));
+    }
+}
+
+int main() {
+    thread p(producer);
+    thread c(consumer);
+
+    p.join();
+    c.join();
+
+    return 0;
+}
+```
+
+## reader writer 
+
+Two types of processes:
+* **Readers** → only read data
+* **Writers** → modify data
+
+
+### Problem
+
+We must follow rules:
+
+#### ✅ Allowed:
+
+* Multiple **readers together** 
+* Only **one writer at a time** 
+
+#### ❌ Not allowed:
+
+* Writer + reader together 
+* Two writers together 
+
+### Idea of Solution (from your image)
+
+We use:
+* `mutex` → protect `readCount`
+* `wrt` → control access to shared data
+* `readCount` → number of active readers
+
+### Logic
+
+#### Reader
+
+```text
+wait(mutex)
+readCount++
+if first reader → lock writer
+signal(mutex)
+
+READ
+
+wait(mutex)
+readCount--
+if last reader → unlock writer
+signal(mutex)
+```
+
+#### Writer
+
+```text
+wait(wrt)
+
+WRITE
+
+signal(wrt)
+```
+
+```cpp
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <semaphore>
+#include <chrono>
+
+using namespace std;
+
+int readCount = 0;
+
+binary_semaphore mutex(1); // protects readCount
+binary_semaphore wrt(1);   // controls writer access
+
+// Reader
+void reader(int id) {
+    while (true) {
+        // Entry section
+        mutex.acquire();
+        readCount++;
+
+        if (readCount == 1) {
+            wrt.acquire(); // first reader blocks writers
+        }
+
+        mutex.release();
+
+        // Critical Section (Reading)
+        cout << "Reader " << id << " is reading\n";
+        this_thread::sleep_for(chrono::milliseconds(500));
+
+        // Exit section
+        mutex.acquire();
+        readCount--;
+
+        if (readCount == 0) {
+            wrt.release(); // last reader allows writers
+        }
+
+        mutex.release();
+
+        this_thread::sleep_for(chrono::milliseconds(500));
+    }
+}
+
+// Writer
+void writer(int id) {
+    while (true) {
+        wrt.acquire(); // only one writer at a time
+
+        // Critical Section (Writing)
+        cout << "Writer " << id << " is writing\n";
+        this_thread::sleep_for(chrono::milliseconds(800));
+
+        wrt.release();
+
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
+}
+
+int main() {
+    thread r1(reader, 1);
+    thread r2(reader, 2);
+    thread r3(reader, 3);
+
+    thread w1(writer, 1);
+
+    r1.join();
+    r2.join();
+    r3.join();
+    w1.join();
+
+    return 0;
+}
+```
+
+### Key Understanding
+
+| Concept      | Meaning                  |
+| ------------ | ------------------------ |
+| `readCount`  | number of active readers |
+| first reader | blocks writers           |
+| last reader  | allows writers           |
+| `wrt`        | ensures only one writer  |
+
+#### Output Behavior
+
+```
+Reader 1 is reading
+Reader 2 is reading   // multiple readers
+Reader 3 is reading
+
+Writer 1 is writing   // only after readers finish
 ```
 
 
@@ -4575,12 +4810,132 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
 ## The Dining Philosophers problem
+
+There are **5 philosophers** sitting around a table <br>
+Each has:
+* Food (in center)
+* 2 forks (left + right)
+
+### Problem
+
+To eat: <br>
+Philosopher needs **both forks**
+
+### Issues
+
+#### 1. Deadlock
+
+All pick **left fork** → wait for right → stuck forever 
+
+#### 2. Starvation
+
+One philosopher may **never get forks** ❌
+
+### Goal
+
+No deadlock
+No starvation
+Fair access
+
+### Simple Solution Idea
+
+Use **semaphore (or mutex)** to control forks
+AND limit number of philosophers eating
+
+### Best Easy Solution (Avoid Deadlock)
+
+Allow only **4 philosophers at a time**
+
+```text
+room semaphore = 4
+```
+
+### Logic
+
+#### Philosopher:
+
+```text id="n2g0b4"
+wait(room)
+
+wait(left fork)
+wait(right fork)
+
+EAT
+
+signal(left fork)
+signal(right fork)
+
+signal(room)
+```
+
+* full code
+
+```cpp id="m3v8rm"
+#include <iostream>
+#include <thread>
+#include <semaphore>
+#include <vector>
+#include <chrono>
+
+using namespace std;
+
+const int N = 5;
+
+// one semaphore per fork
+binary_semaphore forks[5] = {
+    binary_semaphore(1),
+    binary_semaphore(1),
+    binary_semaphore(1),
+    binary_semaphore(1),
+    binary_semaphore(1)
+};
+
+// limit philosophers (avoid deadlock)
+counting_semaphore<4> room(4);
+
+void philosopher(int id) {
+    while (true) {
+        cout << "Philosopher " << id << " is thinking\n";
+        this_thread::sleep_for(chrono::milliseconds(500));
+
+        room.acquire(); // enter room
+
+        forks[id].acquire();                 // left fork
+        forks[(id + 1) % N].acquire();       // right fork
+
+        cout << "Philosopher " << id << " is eating\n";
+        this_thread::sleep_for(chrono::milliseconds(500));
+
+        forks[id].release();
+        forks[(id + 1) % N].release();
+
+        room.release(); // leave room
+    }
+}
+
+int main() {
+    vector<thread> philosophers;
+
+    for (int i = 0; i < N; i++) {
+        philosophers.push_back(thread(philosopher, i));
+    }
+
+    for (auto &t : philosophers) {
+        t.join();
+    }
+
+    return 0;
+}
+```
+#### Output Behavior
+
+```id="gvdmyn"
+Philosopher 1 is thinking
+Philosopher 2 is eating
+Philosopher 3 is eating
+...
+```
 
 <img width="431" height="434" alt="image" src="https://github.com/user-attachments/assets/7f76c77a-3085-476b-a8ba-d0e7525125ee" />
 
@@ -4610,6 +4965,17 @@ if __name__ == "__main__":
 
 * Hence, only semaphores are not enough to solve this problem. <br>
 We must add some enhancement rules to make deadlock free solution.
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Deadlock Part one
@@ -4683,6 +5049,13 @@ resources
         * ii. Abort one process at a time until DL cycle is eliminated.
     * b. Resource preemption
         * i. To eliminate DL, we successively preempt some resources from processes and give these resources to other processes until DL cycle is broken.
+
+
+
+
+
+
+
 
 ## Memory Management Techniques Contiguous Memory Allocation
 
