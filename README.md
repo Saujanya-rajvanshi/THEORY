@@ -642,7 +642,7 @@ int main() {
 }
 ```
 💡 size of class is sum of all properties <br>
-💡 empty class - no properties - size is 1 for identification <br>
+💡 empty class - no properties - size is 1 byte for identification <br>
 
 <br><br>
 **Memory breakdown (approx)**  <br>
