@@ -708,13 +708,20 @@ Teacher(Teacher &org0bj) {
 }
 ```
 
+| Feature               | `Teacher t3(t2);` | `Teacher t4 = t2;`          |
+| --------------------- | ----------------- | --------------------------- |
+| Type                  | Direct init       | Copy init                   |
+| Temporary object      | ❌ No              | ⚠️ Conceptually yes         |
+| Compiler optimization | Less              | More chances (RVO, elision) |
+| Copy constructor call | ✅                 | ✅                           |
+
+
 ampersand (&) — specifically pass by reference — and how it prevents unnecessary copying and traps <br>
 without ampersand (&) This will call copy constructor again <br>
 That again needs a copy → infinite recursion <br>
 
-
 * construction calls -> 1st base class -> 2nd derived class
-* destruction ->  1st derived class -> 2nd base class
+* destruction calls ->  1st derived class -> 2nd base class
 
 ---
 
