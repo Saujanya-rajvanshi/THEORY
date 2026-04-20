@@ -642,7 +642,17 @@ int main() {
 }
 ```
 💡 size of class is sum of all properties <br>
-💡 empty class - no properties - size is 1 for identification
+💡 empty class - no properties - size is 1 for identification <br>
+
+<br><br>
+**Memory breakdown (approx)**  <br>
+Member	Size (approx) <br>
+double	8 bytes <br>
+string	24–32 bytes <br>
+string	24–32 bytes <br>
+string	24–32 bytes <br><br>
+
+👉 Total (rough) = 8 + 24 + 24 + 24 = 80 bytes (or more depending on system)
 
 ---
 
