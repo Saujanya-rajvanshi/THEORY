@@ -1,5 +1,7 @@
 # THEORY
 
+### SQL
+
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
 
