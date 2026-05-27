@@ -4951,11 +4951,13 @@ processes.
 * Supports insert, delete, update, retrieve
 
 ### 🎍 DBMS vs File System (Why DBMS?)
-* No redundancy
+* No redundancy and data inconsistency
 * Easy data access
 * Better security
 * Handles concurrency
 * Maintains integrity
+* maintains atomicity
+* concurent-access anomalies
 
 ---
 ## DBMS Architecture
