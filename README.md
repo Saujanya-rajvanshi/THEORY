@@ -4964,12 +4964,12 @@ processes.
 
 ### 🎍 view of data(3-Schema Architecture)
 system hides certain details of how the data is stored and maintained, through several levels of abstraction.
-1. **Physical Level**
+1. **Physical Level / Internal level**
    * How data is stored
-2. **Logical Level**
+2. **Logical Level / Conceptual level**
    * What data is stored
    * Relationships
-3. **View Level**
+3. **View Level / External level**
    * User-specific views
    * Security
      
@@ -4981,34 +4981,60 @@ system hides certain details of how the data is stored and maintained, through s
 * **Schema** → DB structure (static)
 * **Instance** → DB data at a time (dynamic)
 
+DB Schema (logical Schema)
+1. attributes of table
+2. consistency constraints
+
 ### 🎍 Data Models
-design at logical level 
-data , data relationship , data semantic & consistency
+* design at logical level 
+* data , data relationship , data semantic & consistency
 * ER Model, Relational Model, Object-Oriented Model
 
 ### 🎍 DB Languages
 
-* **DDL** → Create structure, specify database schema 
-* **DML** → Insert, update, delete
-* **SQL** → Combines both
+* **DDL (Data Definition language)** → Create structure, specify database schema <br>
+specify consistency constraints thta need to be checked everytime db is updated 
+* **DML (Data Manipulation language)** → Insert, update, delete i.e database queries
+* **Query Language** →  a part of DML to specify statement requesting retrieval of information <br><br>
 
-### 🎍 how is datas accesssed from application program 
+SQL provide both language 
+
+### 🎍 How is Database accesssed from application program 
 apps (written in host languages C,C++,Java) interacts with DB.
 <br>API is provided to send DML / DDL Statements to DB and retrieve the result.
-<br>     (i)  open database connectivity (DDBC), Microsoft "C" .
+<br>     (i)  open database connectivity (ODBC), Microsoft "C" .
 <br>     (ii) JAVA database connectivity (JDBC),java
 
 ### 🎍 DBA
-* autharization control
-* Schema design
-* Security
-* Backup & maintenance
+* A person who has central control of both the data and the programs that access those data.
+* Functions of DBA
+    * Schema Definition
+    * Storage structure and access methods.
+    * Schema and physical organization modifications.
+    * Authorization control.
+    * Routine maintenance
+        * Periodic backups.
+        * Security patches.
+        * Any upgrades.
 
 ### 🎍 DBMS Architectures
 
-* **1-Tier** → Single machine
-* **2-Tier** → Client + DB server
+* **1-Tier** → Single machine, The client, server & DB all present on the same machine.
+* **2-Tier** →
+    * App is partitioned into 2-components.
+    * Client machine, which invokes DB system functionality at server end through query language statements.
+    * API standards like ODBC & JDBC are used to interact between client and server.
 * **3-Tier** → Client + App server + DB (best)
+    * App is partitioned into 3 logical components.
+    * Client machine is just a frontend and doesn't contain any direct DB calls.
+    * Client machine communicates with App server, and App server communicated with DB system to access data.
+    * Business logic, what action to take at that condition is in App server itself.
+    * T3 architecture are best for WWW Applications.
+    * Advantages:
+        * Scalability due to distributed application servers.
+        * Data integrity, App server acts as a middle layer between client and DB, which minimize the chances of data corruption.
+        * Security, client can't directly access DB, hence it is more secure.
+
 
 <img width="582" height="306" alt="image" src="https://github.com/user-attachments/assets/4e8bb4e6-7023-4844-8892-8b9d38f741fd" />
 
