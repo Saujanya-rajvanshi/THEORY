@@ -15,9 +15,15 @@
 ### CN THEORY
 [REPOSITORY CN](#CN)
 
-
-
-
+```
+THEORY 
+1 lec per day 
+2 lec on weekends + revise 
+🎰 OOPS  - 8 hours 
+📺 OS  - 16 hours  
+🪗 DBMS  - 12 hours  
+🎭 CN - 4 hours
+```
 
 ###### SQL
 # 🎗 SQL
