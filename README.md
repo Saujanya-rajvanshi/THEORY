@@ -1,8 +1,5 @@
 # THEORY
 
-### SQL
-[REPOSITORY SQL](#SQL)
-
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
 
@@ -24,14 +21,6 @@ THEORY
 🪗 DBMS  - 12 hours  
 🎭 CN - 4 hours
 ```
-
-###### SQL
-# 🎗 SQL
-
-
-
-
-
 
 
 
