@@ -5038,6 +5038,11 @@ apps (written in host languages C,C++,Java) interacts with DB.
 
 ## ER Model
 
+**Data Model**: Collection of conceptual tools for describing data, data relationships, data semantics, and consistency
+constraints. <br>
+**ER Model** : It is a high level data model based on a perception of a real world that consists of a collection of basic objects, called entities and of relationships among these objects. <br>
+Graphical representation of ER Model is ER diagram, which acts as a blueprint of DB.
+
 ### 🎍 Entity
 
 * Real-world object
