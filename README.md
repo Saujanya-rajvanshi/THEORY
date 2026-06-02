@@ -1,45 +1,48 @@
 # THEORY
-| **Aspect**     | **Schema**                                                                        | **Instance**                                            |
-| -------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| **Definition** | The blueprint or structure of the database.                                       | The actual data stored in the database.                 |
-| **Nature**     | Static (changes infrequently).                                                    | Dynamic (changes frequently).                           |
-| **Role**       | Describes how data is organized and structured.                                   | Refers to the actual values and content.                |
-| **Examples**   | Table definitions, column names, data types, constraints.                         | Rows (records) of data stored in the tables.            |
-| **Changes**    | Updated when the database structure is modified (e.g., adding a table or column). | Changes whenever data is inserted, updated, or deleted. |
+| **Aspect**               | **Procedural DML**                                                                | **Non-Procedural DML**                                                           |
+| ------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Definition**           | Specifies **how** to retrieve or manipulate data.                                 | Specifies **what** data to retrieve, not how to retrieve it.                     |
+| **Control**              | User controls the exact steps and methods.                                        | DBMS decides how the query will be executed.                                     |
+| **Complexity**           | More complex; requires knowledge of the database structure and execution process. | Easier to use; focuses on the desired result rather than the process.            |
+| **Languages / Examples** | Relational Algebra, PL/SQL, T-SQL.                                                | SQL, Tuple Relational Calculus (TRC), Domain Relational Calculus (DRC).          |
+| **Flexibility**          | Offers greater flexibility in query execution.                                    | Less control over execution but simpler to write.                                |
+| **Use Case**             | Suitable for complex operations where specific execution details are important.   | Suitable for general queries where the result is more important than the method. |
 
 ### Example
 
-**Schema (Structure)**
+**Procedural DML**
 
-| Student_ID | Name        | Age |
-| ---------- | ----------- | --- |
-| INT        | VARCHAR(50) | INT |
+```sql
+Open Student Table
+Search for records where Age > 20
+Display matching records
+```
 
-This defines:
+The user specifies the **steps**.
 
-* Table name: **Student**
-* Columns: **Student_ID, Name, Age**
-* Data types: **INT, VARCHAR, INT**
+**Non-Procedural DML**
 
-**Instance (Actual Data)**
+```sql
+SELECT * FROM Student
+WHERE Age > 20;
+```
 
-| Student_ID | Name  | Age |
-| ---------- | ----- | --- |
-| 101        | Rahul | 20  |
-| 102        | Priya | 21  |
-| 103        | Amit  | 19  |
+The user specifies only the **result**, and the DBMS decides how to execute it.
 
 ### Memory Trick
 
-**Schema = Skeleton** 🦴
-→ Defines the structure.
+* **Procedural DML = HOW**
 
-**Instance = Information** 📋
-→ Contains the actual data.
+  * "Tell the DBMS how to do it."
 
-**Exam Definition**
+* **Non-Procedural DML = WHAT**
 
-> **Schema** is the logical design or structure of a database, while **Instance** is the collection of data stored in the database at a particular moment in time.
+  * "Tell the DBMS what you want."
+
+**Exam One-Liner:**
+
+> Procedural DML specifies both the operation and the execution steps, whereas Non-Procedural DML specifies only the desired result and leaves the execution details to the DBMS.
+
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
