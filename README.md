@@ -1,47 +1,44 @@
 # THEORY
-| **Aspect**               | **Procedural DML**                                                                | **Non-Procedural DML**                                                           |
-| ------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **Definition**           | Specifies **how** to retrieve or manipulate data.                                 | Specifies **what** data to retrieve, not how to retrieve it.                     |
-| **Control**              | User controls the exact steps and methods.                                        | DBMS decides how the query will be executed.                                     |
-| **Complexity**           | More complex; requires knowledge of the database structure and execution process. | Easier to use; focuses on the desired result rather than the process.            |
-| **Languages / Examples** | Relational Algebra, PL/SQL, T-SQL.                                                | SQL, Tuple Relational Calculus (TRC), Domain Relational Calculus (DRC).          |
-| **Flexibility**          | Offers greater flexibility in query execution.                                    | Less control over execution but simpler to write.                                |
-| **Use Case**             | Suitable for complex operations where specific execution details are important.   | Suitable for general queries where the result is more important than the method. |
+| **Category** | **Full Form**                | **Purpose**                                         | **Key Commands**                               |
+| ------------ | ---------------------------- | --------------------------------------------------- | ---------------------------------------------- |
+| **DDL**      | Data Definition Language     | Defines or modifies database structures and schema. | CREATE, ALTER, RENAME, DROP, TRUNCATE, COMMENT |
+| **DML**      | Data Manipulation Language   | Manages and manipulates data within tables.         | SELECT, INSERT, UPDATE, DELETE, MERGE          |
+| **DCL**      | Data Control Language        | Controls access to data and user permissions.       | GRANT, REVOKE                                  |
+| **TCL**      | Transaction Control Language | Manages transactions and ensures data integrity.    | COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION   |
 
-### Example
+### Quick Command Summary
 
-**Procedural DML**
-
-```sql
-Open Student Table
-Search for records where Age > 20
-Display matching records
-```
-
-The user specifies the **steps**.
-
-**Non-Procedural DML**
-
-```sql
-SELECT * FROM Student
-WHERE Age > 20;
-```
-
-The user specifies only the **result**, and the DBMS decides how to execute it.
+| **Command**     | **Description**                                          |
+| --------------- | -------------------------------------------------------- |
+| CREATE          | Creates a new database object (table, view, etc.).       |
+| ALTER           | Modifies an existing database object.                    |
+| RENAME          | Changes the name of a database object.                   |
+| DROP            | Permanently removes a database object.                   |
+| TRUNCATE        | Removes all rows from a table quickly.                   |
+| COMMENT         | Adds comments to database objects.                       |
+| SELECT          | Retrieves data from a table.                             |
+| INSERT          | Adds new records to a table.                             |
+| UPDATE          | Modifies existing records.                               |
+| DELETE          | Removes records from a table.                            |
+| MERGE           | Inserts, updates, or deletes data in a single operation. |
+| GRANT           | Gives privileges to users.                               |
+| REVOKE          | Removes privileges from users.                           |
+| COMMIT          | Permanently saves a transaction.                         |
+| ROLLBACK        | Undoes changes since the last COMMIT.                    |
+| SAVEPOINT       | Creates a point to roll back to within a transaction.    |
+| SET TRANSACTION | Sets transaction properties.                             |
 
 ### Memory Trick
 
-* **Procedural DML = HOW**
+* **DDL** → **Define** the structure
+* **DML** → **Manipulate** the data
+* **DCL** → **Control** permissions
+* **TCL** → **Control** transactions
 
-  * "Tell the DBMS how to do it."
-
-* **Non-Procedural DML = WHAT**
-
-  * "Tell the DBMS what you want."
-
-**Exam One-Liner:**
-
-> Procedural DML specifies both the operation and the execution steps, whereas Non-Procedural DML specifies only the desired result and leaves the execution details to the DBMS.
+**DDL → Structure**
+**DML → Data**
+**DCL → Access**
+**TCL → Transactions**
 
 
 ### OOPS THEORY
