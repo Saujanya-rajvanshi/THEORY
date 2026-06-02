@@ -1,45 +1,4 @@
 # THEORY
-| **Category** | **Full Form**                | **Purpose**                                         | **Key Commands**                               |
-| ------------ | ---------------------------- | --------------------------------------------------- | ---------------------------------------------- |
-| **DDL**      | Data Definition Language     | Defines or modifies database structures and schema. | CREATE, ALTER, RENAME, DROP, TRUNCATE, COMMENT |
-| **DML**      | Data Manipulation Language   | Manages and manipulates data within tables.         | SELECT, INSERT, UPDATE, DELETE, MERGE          |
-| **DCL**      | Data Control Language        | Controls access to data and user permissions.       | GRANT, REVOKE                                  |
-| **TCL**      | Transaction Control Language | Manages transactions and ensures data integrity.    | COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION   |
-
-### Quick Command Summary
-
-| **Command**     | **Description**                                          |
-| --------------- | -------------------------------------------------------- |
-| CREATE          | Creates a new database object (table, view, etc.).       |
-| ALTER           | Modifies an existing database object.                    |
-| RENAME          | Changes the name of a database object.                   |
-| DROP            | Permanently removes a database object.                   |
-| TRUNCATE        | Removes all rows from a table quickly.                   |
-| COMMENT         | Adds comments to database objects.                       |
-| SELECT          | Retrieves data from a table.                             |
-| INSERT          | Adds new records to a table.                             |
-| UPDATE          | Modifies existing records.                               |
-| DELETE          | Removes records from a table.                            |
-| MERGE           | Inserts, updates, or deletes data in a single operation. |
-| GRANT           | Gives privileges to users.                               |
-| REVOKE          | Removes privileges from users.                           |
-| COMMIT          | Permanently saves a transaction.                         |
-| ROLLBACK        | Undoes changes since the last COMMIT.                    |
-| SAVEPOINT       | Creates a point to roll back to within a transaction.    |
-| SET TRANSACTION | Sets transaction properties.                             |
-
-### Memory Trick
-
-* **DDL** → **Define** the structure
-* **DML** → **Manipulate** the data
-* **DCL** → **Control** permissions
-* **TCL** → **Control** transactions
-
-**DDL → Structure**
-**DML → Data**
-**DCL → Access**
-**TCL → Transactions**
-
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
