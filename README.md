@@ -1,4 +1,38 @@
 # THEORY
+| Feature                 | File System                                                                 | DBMS                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Definition**          | A system that manages files on a disk or storage device.                    | A software that manages databases, allowing storage, retrieval, and manipulation of data. |
+| **Data Storage**        | Stores data in files within directories.                                    | Stores data in structured tables using rows and columns.                                  |
+| **Data Organization**   | Unstructured; each file is independent.                                     | Highly structured; data is related through tables, schemas, and relationships.            |
+| **Redundancy**          | High redundancy due to lack of structure and relationships.                 | Minimizes redundancy using relational models and constraints.                             |
+| **Data Integrity**      | No inherent mechanisms to ensure data accuracy or integrity.                | Enforces integrity using primary keys, foreign keys, and unique constraints.              |
+| **Security**            | Basic file-level permissions (read, write, execute).                        | Fine-grained security with role-based access control.                                     |
+| **Concurrency Control** | Minimal support for multiple users accessing files simultaneously.          | Advanced concurrency control using locking, timestamps, and transactions.                 |
+| **Data Querying**       | No query language; users access data by opening files.                      | Supports complex queries using SQL (Structured Query Language).                           |
+| **Data Relationships**  | No direct support for relationships between files.                          | Supports relationships through primary and foreign keys.                                  |
+| **Data Independence**   | Low; changes to file structure may affect applications.                     | High; database structure changes usually do not affect application code.                  |
+| **Backup & Recovery**   | Manual backup with limited recovery options.                                | Automated backup and recovery, including point-in-time recovery.                          |
+| **Transactions**        | Does not support atomic transactions.                                       | Supports ACID transactions (Atomicity, Consistency, Isolation, Durability).               |
+| **Performance**         | Slower with large amounts of data due to lack of indexing and optimization. | Optimized using indexing, query optimization, and efficient storage mechanisms.           |
+| **Examples**            | FAT, NTFS, ext4 (used in Windows and Linux file systems).                   | MySQL, Oracle, PostgreSQL, Microsoft SQL Server.                                          |
+
+### Quick Memory Trick
+
+**File System = Files**
+
+* Stores data in separate files
+* Simple and lightweight
+* Suitable for small applications
+
+**DBMS = Database**
+
+* Stores data in related tables
+* Secure, reliable, and scalable
+* Suitable for large multi-user applications
+
+**Exam One-Liner:**
+
+> A File System stores data in independent files, whereas a DBMS stores data in structured databases with security, integrity, relationships, and transaction support.
 
 ### OOPS THEORY
 [REPOSITORY OOPS](#Oops)
