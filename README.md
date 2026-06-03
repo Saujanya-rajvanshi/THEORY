@@ -13,7 +13,7 @@
 	• Project 
 
 ### 3. DBMS THEORY
-- [Notes](file:///C:/Users/Saujanya/OneDrive/Documents/New%20folder/DBMS_Full_Notes.pdf)
+- [Notes](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
 - [git hub repository](#DBMS)
 - [Question](https://leetcode.com/problem-list/database/)
 - [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
