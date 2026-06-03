@@ -1,6 +1,6 @@
 # THEORY
 
-### OOPS THEORY
+### [OOPS THEORY](#Oops)
 [REPOSITORY OOPS](#Oops)
 
 ### OS  THEORY
