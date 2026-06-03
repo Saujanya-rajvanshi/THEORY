@@ -1,6 +1,36 @@
 # THEORY
 
 ### [1. OOPS THEORY](#Oops)
+	1. OOPS
+	• Notes
+	• git hub repository 
+	• Question 
+	• Project 
+
+	2. OS  
+	• Notes
+	• git hub repository 
+	• Question 
+	• Project 
+	
+	3. DBMS 
+	• Notes
+	• git hub repository 
+	• Question 
+	• Project 
+
+	4. CN 
+	• Notes
+	• git hub repository 
+	• Question 
+	• Project 
+
+
+2 hours per day 
+🎰 OOPS  - 8 hours  ; days 5  ; 20 june 
+📺 OS  - 16 hours ; days 10 ; 30 june 
+🪗 DBMS  - 12 hours  days 10 ; 10 june 
+🎭 CN - 4 hours days 5 ; 15 june 
 
 ### [2. OS  THEORY](#OPERATING-SYSTEM)
 
