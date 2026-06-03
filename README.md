@@ -14,12 +14,11 @@
 
 ```
 THEORY 
-1 lec per day 
-2 lec on weekends + revise 
-🎰 OOPS  - 8 hours 
-📺 OS  - 16 hours  
-🪗 DBMS  - 12 hours  
-🎭 CN - 4 hours
+2 hours per day 
+🎰 OOPS  - 8 hours  ; days 5  ; 20 june 
+📺 OS  - 16 hours ; days 10 ; 30 june 
+🪗 DBMS  - 12 hours  days 10 ; 10 june 
+🎭 CN - 4 hours days 5 ; 15 june 
 ```
 
 
