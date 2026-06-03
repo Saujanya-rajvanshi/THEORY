@@ -1,12 +1,12 @@
 # THEORY
 
-### [OOPS THEORY](#Oops)
+### [1. OOPS THEORY](#Oops)
 
-### [OS  THEORY](#OPERATING-SYSTEM)
+### [2. OS  THEORY](#OPERATING-SYSTEM)
 
-### [DBMS THEORY](#DBMS)
+### [3. DBMS THEORY](#DBMS)
 
-### [CN THEORY](#CN)
+### [4. CN THEORY](#CN)
 
 ```
 THEORY 
