@@ -13,10 +13,10 @@
 	• Project 
 
 ### 3. DBMS THEORY
-    - [Notes](file:///C:/Users/Saujanya/OneDrive/Documents/New%20folder/DBMS_Full_Notes.pdf)
-	- [git hub repository](#DBMS)
-	- [Question](https://leetcode.com/problem-list/database/) 
-	- [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
+- [Notes](file:///C:/Users/Saujanya/OneDrive/Documents/New%20folder/DBMS_Full_Notes.pdf)
+- [git hub repository](#DBMS)
+- [Question](https://leetcode.com/problem-list/database/)
+- [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
 
 
 ### [4. CN THEORY](#CN)
