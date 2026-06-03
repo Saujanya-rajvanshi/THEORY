@@ -5451,16 +5451,16 @@ A file may have several indices, on different search keys. If the data file cont
 Primary index is an index whose search key also defines the sequential order of the file. <br>
 **NOTE :** The term primary index is sometimes used to mean an index on a primary key. However, such usage is **nonstandard** and **should be avoided.** <br>
 All files are ordered sequentially on some search key. It could be Primary Key or non-primary key. <br>
-* **Dense And Sparse Indices**
-  **Dense Index**
-        1. The dense index contains an index record for every search key value in the data file.
+**Dense And Sparse Indices** <br>
+* **Dense Index** <br>
+        1. The dense index contains an index record for every search key value in the data file. <br>
         2. The index record contains the search-key value and a pointer to the first data record with that search-key value.
-The rest of the records with the same search-key value would be stored sequentially after the first record.
+The rest of the records with the same search-key value would be stored sequentially after the first record. <br>
         3. It needs more space to store index record itself. The index records have the search key and a pointer to the actual
-record on the disk.
-**Sparse Index**
-    1. An index record appears for only some of the search-key values.
-    2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a range of index columns stores the same data block address, and when data needs to be retrieved, the block address will be fetched.
+record on the disk. <br>
+* **Sparse Index** <br>
+    1. An index record appears for only some of the search-key values. <br>
+    2. Sparse Index helps you to resolve the issues of dense Indexing in DBMS. In this method of indexing technique, a range of index columns stores the same data block address, and when data needs to be retrieved, the block address will be fetched. <br>
 * Primary Indexing can be based on Data file is sorted w.r.t Primary Key attribute or non-key attributes.
 * **Based on Key attribute**
 1. Data file is sorted w.r.t primary key attribute.
