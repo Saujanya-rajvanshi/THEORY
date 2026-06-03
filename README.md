@@ -1,24 +1,25 @@
 # THEORY
 
-### [1. OOPS THEORY](#Oops)
-	* Notes
+### 1. OOPS THEORY
+	* [Notes]()
+	* [git hub repository](#Oops) 
+	• Question 
+	• Project 
+
+### [2. OS  THEORY](#OPERATING-SYSTEM)
+    * Notes
 	• git hub repository 
 	• Question 
 	• Project 
 
-	2. OS  
-	• Notes
-	• git hub repository 
-	• Question 
-	• Project 
-	
-	3. DBMS 
-	• Notes
-	• git hub repository 
-	• Question 
-	• Project 
+### 3. DBMS THEORY
+    * [Notes](file:///C:/Users/Saujanya/OneDrive/Documents/New%20folder/DBMS_Full_Notes.pdf)
+	* [git hub repository](#DBMS)
+	* [Question](https://leetcode.com/problem-list/database/) 
+	* [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
 
-	4. CN 
+
+### [4. CN THEORY](#CN)
 	• Notes
 	• git hub repository 
 	• Question 
@@ -30,12 +31,6 @@
 📺 OS  - 16 hours ; days 10 ; 30 june 
 🪗 DBMS  - 12 hours  days 10 ; 10 june 
 🎭 CN - 4 hours days 5 ; 15 june 
-
-### [2. OS  THEORY](#OPERATING-SYSTEM)
-
-### [3. DBMS THEORY](#DBMS)
-
-### [4. CN THEORY](#CN)
 
 
 # SQL 
