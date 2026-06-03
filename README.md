@@ -1,34 +1,21 @@
 # THEORY
 
 ### 1. OOPS THEORY
-- [Notes](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
-- [git hub repository](#DBMS)
-- [Question](https://leetcode.com/problem-list/database/)
-- [Project](https://github.com/Saujanya-rajvanshi/QueryVault)
+- [git hub theory repository](#Oops)
+- [Project]()
   
 ### [2. OS  THEORY](#OPERATING-SYSTEM)
-- [Notes](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
-- [git hub repository](#DBMS)
-- [Question](https://leetcode.com/problem-list/database/)
-- [Project](https://github.com/Saujanya-rajvanshi/QueryVault)
+- [git hub theory repository](#OPERATING-SYSTEM)
+- [Project]()
   
 ### 3. DBMS THEORY
-- [Notes](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
-- [git hub repository](#DBMS)
-- [Question](https://leetcode.com/problem-list/database/)
-- [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
+- [git hub theory repository](#DBMS)
+- [Project - QueryVault](https://github.com/Saujanya-rajvanshi/QueryVault) 
 
-### [4. CN THEORY](#CN)
-- [Notes](https://drive.google.com/file/d/1y3KKghRhQjKfbWhvLipMOCCemKd_XdTm/view)
-- [git hub repository](#DBMS)
-- [Question](https://leetcode.com/problem-list/database/)
-- [Project](https://github.com/Saujanya-rajvanshi/QueryVault) 
+### 4. CN THEORY
+- [git hub theory repository](#CN)
+- [Project]() 
 
-2 hours per day 
-🎰 OOPS  - 8 hours  ; days 5  ; 20 june 
-📺 OS  - 16 hours ; days 10 ; 30 june 
-🪗 DBMS  - 12 hours  days 10 ; 10 june 
-🎭 CN - 4 hours days 5 ; 15 june 
 
 
 # SQL 
