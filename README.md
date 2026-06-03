@@ -4,7 +4,7 @@
 - [git hub theory repository](#Oops)
 - [Project]()
   
-### [2. OS  THEORY](#OPERATING-SYSTEM)
+### 2. OS  THEORY
 - [git hub theory repository](#OPERATING-SYSTEM)
 - [Project]()
   
