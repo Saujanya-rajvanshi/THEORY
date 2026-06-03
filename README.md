@@ -1,7 +1,7 @@
 # THEORY
 
 ### [1. OOPS THEORY](#Oops)
-	• Notes
+	* Notes
 	• git hub repository 
 	• Question 
 	• Project 
