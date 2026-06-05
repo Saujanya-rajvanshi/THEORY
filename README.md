@@ -4941,6 +4941,7 @@ processes.
 * Easily accessed, updated, managed
 
 ### 🎍 DBMS
+* interrelated data and set of program to access those data 
 * Software to store & manage databases
 * Supports insert, delete, update, retrieve
 
@@ -4954,6 +4955,7 @@ processes.
 * concurent-access anomalies
 
 ---
+
 ## DBMS Architecture
 
 ### 🎍 view of data(3-Schema Architecture)
