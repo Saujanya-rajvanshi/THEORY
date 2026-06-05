@@ -4946,13 +4946,13 @@ processes.
 * Supports insert, delete, update, retrieve
 
 ### 🎍 DBMS vs File System (Why DBMS?)
-* No redundancy and data inconsistency
-* Easy data access
-* Better security
-* Handles concurrency
-* Maintains integrity
-* maintains atomicity
-* concurent-access anomalies
+* No redundancy and data inconsistency (avoids same data at two different places and change in one of them)
+* Easy data access (by query)
+* Better security (protect data from unauthorized user)
+* Handles concurrency (Multiple users can access)
+* Maintains integrity (data remains accurate, valid, and consistent)
+* maintains atomicity (transaction is completed fully or not executed at all)
+* concurent-access anomalies (Avoids lost updates, dirty reads, and inconsistent data when multiple transactions occur simultaneously)
 
 ---
 
@@ -4971,27 +4971,29 @@ system hides certain details of how the data is stored and maintained, through s
      
 <img width="559" height="387" alt="image" src="https://github.com/user-attachments/assets/ad52331c-ebcb-4d26-8026-dc9243b2f346" />
 
+### 🎍 Instance / Schema
 
-### 🎍 Schema vs Instance
-
-* **Schema** → DB structure (static)
 * **Instance** → DB data at a time (dynamic)
+* **Schema** → DB structure (static)
+
+Schema doesn’t change frequently. Data may change frequently. <br> 
+We have 3 types of Schemas: Physical, Logical, several view schemas called subschemas. <br> <br>
 
 DB Schema (logical Schema)
 1. attributes of table
 2. consistency constraints
 
 ### 🎍 Data Models
-* design at logical level 
-* data , data relationship , data semantic & consistency
-* ER Model, Relational Model, Object-Oriented Model
+* descibes design at logical level 
+* a collection of conceptual tools for describing data , data relationship , data semantic & consistency
+* eg : ER Model, Relational Model, Object-Oriented Model
 
 ### 🎍 DB Languages
 
 * **DDL (Data Definition language)** → Create structure, specify database schema <br>
 specify consistency constraints thta need to be checked everytime db is updated 
 * **DML (Data Manipulation language)** → Insert, update, delete i.e database queries
-* **Query Language** →  a part of DML to specify statement requesting retrieval of information <br><br>
+    * **Query Language** →  a part of DML to specify statement requesting retrieval of information <br><br>
 
 SQL provide both language 
 
