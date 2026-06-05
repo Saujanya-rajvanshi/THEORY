@@ -1,45 +1,5 @@
 # THEORY
 
-| **Attribute Type**  | **Description**                                                            | **Example**                           | **ER Diagram Representation**      |
-| ------------------- | -------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------- |
-| **Single-Valued**   | Holds a single value for an entity.                                        | Age, Gender                           | Single Ellipse                     |
-| **Multi-Valued**    | Holds multiple values for an entity.                                       | Phone No, Skills                      | Double Ellipse                     |
-| **Simple (Atomic)** | Cannot be divided further into smaller parts.                              | First Name, Salary                    | Single Ellipse                     |
-| **Composite**       | Can be divided into sub-attributes.                                        | Name (First Name, Last Name), Address | Oval with Sub-Ovals                |
-| **Key**             | Uniquely identifies an entity.                                             | Roll No, Employee_ID                  | Oval with Underline                |
-| **Non-Key**         | Provides descriptive information but does not uniquely identify an entity. | Name, Address                         | Single Ellipse                     |
-| **Derived**         | Can be derived from other attributes.                                      | Age (derived from Date_of_Birth)      | Dashed Oval                        |
-| **Stored**          | Attribute directly stored in the database.                                 | Date_of_Birth                         | Single Ellipse                     |
-| **Required**        | Must have a value for every entity.                                        | Employee_ID                           | Single Ellipse                     |
-| **Optional**        | May or may not have a value.                                               | Middle_Name                           | No visual difference in ER Diagram |
-
-### Quick Memory Table
-
-| **Type**      | **Remember As**       |
-| ------------- | --------------------- |
-| Single-Valued | One value             |
-| Multi-Valued  | Many values           |
-| Simple        | Cannot split          |
-| Composite     | Can split             |
-| Key           | Unique identifier     |
-| Non-Key       | Descriptive attribute |
-| Derived       | Calculated            |
-| Stored        | Saved in DB           |
-| Required      | Mandatory             |
-| Optional      | Not mandatory         |
-
-### Examples in One Entity
-
-**Student**
-
-* Roll_No → Key
-* Name → Composite
-* Age → Derived
-* Date_of_Birth → Stored
-* Phone_No → Multi-Valued
-* Middle_Name → Optional
-* Gender → Single-Valued
-* First_Name → Simple (Atomic)
 
 ### 1. OOPS THEORY
 - [git hub theory repository](#Oops)
