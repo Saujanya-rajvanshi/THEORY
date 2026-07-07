@@ -4903,7 +4903,7 @@ processes.
 - [NoSQL](#NoSQL)
 - [Types of Databases](#Types-of-Databases)
 - [Clustering in DBMS](#Clustering-in-DBMS)
-- [Partitioning & Sharding in DBMS (DB Optimisation)](#Partitioning-Sharding-in-DBMS-DB-Optimisation)
+- [Partitioning & Sharding in DBMS (DB Optimisation)](#Partitioning--Sharding-in-DBMS-DB-Optimisation)
 - [CAP Theorem](#CAP-Theorem)
 - [master slave architecture](#master-slave-architecture)
 
@@ -5763,7 +5763,7 @@ CodeHelp
 
 ---
 
-## Partitioning & Sharding in DBMS (DB Optimisation)
+## Partitioning & Sharding in DBMS DB Optimisation
 
 ## 🎍 Partitioning
 
