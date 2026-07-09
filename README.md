@@ -33,6 +33,19 @@ Object-Oriented Programming (OOP) is a programming paradigm
 * which combine data (attributes) and methods (functions) that operate on that data
 * enabling modularity, reusability, abstraction, and data security.
 
+```
+Implement classes and write your own OOP code
+
+Revise SOLID principles
+
+Practice real-world LLD problems
+Elevator System
+Parking Lot
+BookMyShow / Seat Booking
+
+Be comfortable modeling systems using OOP concepts
+```
+
 #### Index
 
 ##### Fundamentals (Core Basics)
@@ -41,7 +54,8 @@ Object-Oriented Programming (OOP) is a programming paradigm
 - [syntax](#syntax)
 
 ##### Object Lifecycle
-- [Constructor](#constructor)
+- [
+Constructor](#constructor)
 - [this Pointer](#this-pointer)
 - [Destructor](#destructor)
 
@@ -2546,6 +2560,18 @@ class A:
 - Directory structure
 - Disk scheduling
 
+```
+4 Key Topics:
+Processes & Threads
+CPU Scheduling
+Deadlocks & Prevention
+Memory Management
+
+Know standard OS problems (e.g. Producer-Consumer)
+
+Understand how OS solves concurrency & memory issues
+```
+
 # Harware and Software
 
 ## **Where the OS Actually Lives**
@@ -4908,6 +4934,18 @@ processes.
 - [master slave architecture](#master-slave-architecture)
 
 ---
+```
+ACID properties
+
+Indexing &
+Query Optimization
+
+Normalization Forms
+1NF, 2NF, 3NF, BCNF
+
+ER Diagrams basics
+```
+
 
 ## Introduction to DBMS
 
@@ -6049,6 +6087,18 @@ CodeHelp
 * [Transmission Media](#Transmission-Media)
 * [Network Devices](#Metwork-Devices)
 * [Unicast, Broadcast, Multicast](#Unicast-Broadcast-and-Multicast)
+
+
+```
+TCP vs UDP
+HTTP vs HTTPS
+OSI & TCP/IP Layers
+DNS & CDN Basics
+
+Real-world questions
+What happens when you type google.com
+Difference between 2G / 3G / 4G
+```
 
 ### What is Computer Networking
 
