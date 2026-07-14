@@ -1,5 +1,11 @@
 # THEORY
 
+| **Greedy Algorithm**                                                                    | **Divide and Conquer**                                             | **Dynamic Programming**                                                          |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Follows **Top-down** approach                                                           | Follows **Top-down** approach                                      | Follows **Bottom-up** approach                                                   |
+| Solves **optimization problems**                                                        | Solves **decision problems**                                       | Solves **optimization problems**                                                 |
+| The optimal solution is generated **without revisiting** previously generated solutions | Solution of subproblems is **computed recursively more than once** | Solution of subproblems is **computed once and stored** in a table for later use |
+| **May or may not** generate an optimal solution                                         | **Does not aim** for the optimal solution                          | **Always generates** the optimal solution                                        |
 
 ### 1. OOPS THEORY
 - [git hub theory repository](#Oops)
