@@ -1,23 +1,5 @@
 # THEORY
 
-| **S. No.** | **Greedy Algorithm**                                                                    | **Divide and Conquer**                                                 | **Dynamic Programming**                                                          |
-| :--------: | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-|    **1**   | Follows **Top-down** approach                                                           | Follows **Top-down** approach                                          | Follows **Bottom-up** approach                                                   |
-|    **2**   | Solves **optimization problems**                                                        | Solves **decision problems**                                           | Solves **optimization problems**                                                 |
-|    **3**   | The optimal solution is generated **without revisiting** previously generated solutions | Solution of subproblems is **computed recursively more than once**     | Solution of subproblems is **computed once and stored** in a table for later use |
-|    **4**   | **May or may not** generate an optimal solution                                         | **Does not aim** for the optimal solution                              | **Always generates** the optimal solution                                        |
-|    **5**   | **Iterative** in nature                                                                 | **Recursive** in nature                                                | **May or may not use recursion (optional)**                                      |
-|    **6**   | **Efficient and faster** than Divide and Conquer                                        | **Less efficient and slower**                                          | **More efficient but slower than Greedy**                                        |
-|    **7**   | **Extra memory is not required**                                                        | **Some memory is required** (recursion stack)                          | **More memory is required** to store subproblems for later use                   |
-|    **8**   | **Examples:** Fractional Knapsack, Activity Selection, Job Sequencing                   | **Examples:** Merge Sort, Quick Sort, Strassen's Matrix Multiplication | **Examples:** 0/1 Knapsack, All-Pairs Shortest Path, Matrix Chain Multiplication |
-
-| **Greedy Algorithm**                                                                    | **Divide and Conquer**                                             | **Dynamic Programming**                                                          |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| Follows **Top-down** approach                                                           | Follows **Top-down** approach                                      | Follows **Bottom-up** approach                                                   |
-| Solves **optimization problems**                                                        | Solves **decision problems**                                       | Solves **optimization problems**                                                 |
-| The optimal solution is generated **without revisiting** previously generated solutions | Solution of subproblems is **computed recursively more than once** | Solution of subproblems is **computed once and stored** in a table for later use |
-| **May or may not** generate an optimal solution                                         | **Does not aim** for the optimal solution                          | **Always generates** the optimal solution                                        |
-
 ### 1. OOPS THEORY
 - [git hub theory repository](#Oops)
 - [Project]()
