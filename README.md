@@ -5029,12 +5029,10 @@ DB Schema (logical Schema)
 
 ### 🎍 DB Languages
 
-* **DDL (Data Definition language)** → Create structure, specify database schema <br>
-specify consistency constraints thta need to be checked everytime db is updated 
-* **DML (Data Manipulation language)** → Insert, update, delete i.e database queries
-    * **Query Language** →  a part of DML to specify statement requesting retrieval of information <br><br>
-
-SQL provide both language 
+* **DDL (Data Definition Language)** defines and manages the database structure (tables, views, indexes, etc.).
+* **DML (Data Manipulation Language)** is used to retrieve, insert, update, and delete data from tables.
+* **DCL (Data Control Language)** controls user permissions and access to database objects.
+* **TCL (Transaction Control Language)** manages transactions and ensures data consistency using **COMMIT**, **ROLLBACK**, and **SAVEPOINT**.
 
 ### 🎍 How is Database accesssed from application program 
 apps (written in host languages C,C++,Java) interacts with DB.
