@@ -1,18 +1,5 @@
 # THEORY
 
-### Difference Between Backtracking and Branch and Bound (AKTU 2020–21, 2022–23)
-
-| **Parameter**    | **Backtracking**                                                                                                       | **Branch and Bound**                                                                                                       |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| **Definition**   | A technique that searches for a solution by exploring one path at a time and backtracking when a path is not feasible. | A technique that finds the optimal solution by exploring branches and pruning those that cannot produce a better solution. |
-| **Approach**     | Uses a **feasibility function**.                                                                                       | Uses a **bounding function**.                                                                                              |
-| **Traversal**    | Traverses the state space tree using **DFS (Depth First Search)**.                                                     | Traverses the state space tree using **DFS or BFS (Breadth First Search)**.                                                |
-| **Problems**     | Used for solving **Decision Problems**.                                                                                | Used for solving **Optimization Problems**.                                                                                |
-| **Applications** | N-Queen, Sum of Subsets, Hamiltonian Cycle, Graph Coloring.                                                            | Knapsack Problem, Travelling Salesman Problem (TSP).                                                                       |
-| **Next Move**    | Next move from the current state may lead to a bad choice.                                                             | Next move is always towards a better solution.                                                                             |
-| **Solution**     | Search stops as soon as a feasible solution is found.                                                                  | Entire state space tree is searched (with pruning) to obtain the optimal solution.                                         |
-
-
 ### 1. OOPS THEORY
 - [git hub theory repository](#Oops)
 - [Project]()
