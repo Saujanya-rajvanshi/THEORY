@@ -5102,34 +5102,21 @@ An attribute represents a characteristic or feature of an entity.
 A property of an entity
 eg -> Roll_No, Name, Age
 
-Types of Attributes (important for exams)
+#### Types of Attributes
 
-1. Simple Attribute <br> 
-Cannot be divided <br> 
-Example: Age
+| **Attribute Type**            | **Description**                                        | **Example**                           | **ER Diagram Representation**   |
+| ----------------------------- | ------------------------------------------------------ | ------------------------------------- | ------------------------------- |
+| **Single-Valued Attribute**   | Stores only one value for an entity.                   | Age, Gender                           | Single Oval (Ellipse)           |
+| **Multi-Valued Attribute**    | Stores multiple values for an entity.                  | Phone No, Skills                      | Double Oval (Double Ellipse)    |
+| **Simple (Atomic) Attribute** | Cannot be divided into smaller parts.                  | First Name, Salary                    | Single Oval                     |
+| **Composite Attribute**       | Can be divided into sub-attributes.                    | Name (First Name, Last Name), Address | Oval connected to Sub-Ovals     |
+| **Key Attribute**             | Uniquely identifies each entity.                       | Roll No, Employee_ID                  | Underlined Oval                 |
+| **Non-Key Attribute**         | Describes an entity but does not uniquely identify it. | Name, Address                         | Single Oval                     |
+| **Derived Attribute**         | Calculated from another attribute.                     | Age (from Date_of_Birth)              | Dashed Oval                     |
+| **Stored Attribute**          | Directly stored in the database.                       | Date_of_Birth                         | Single Oval                     |
+| **Required Attribute**        | Must contain a value for every entity.                 | Employee_ID                           | Single Oval                     |
+| **Optional Attribute**        | May or may not contain a value.                        | Middle_Name                           | Single Oval (No special symbol) |
 
-2. Composite Attribute <br> 
-Can be divided into sub-parts <br> 
-Example: Address → Street, City, Pincode
-
-3. Single-valued Attribute <br> 
-One value only <br> 
-Example: Roll_No
-
-4. Multi-valued Attribute <br> 
-Multiple values <br> 
-Example: Phone_Number
-
-5. Derived Attribute <br> 
-Calculated from another attribute <br> 
-Example: Age (derived from Date_of_Birth)
-
-6. Key Attribute <br> 
-Uniquely identifies an entity <br> 
-Example: Student_ID
-
-7. null value : not applicable <br> 
-example : middle name 
 
 <img width="828" height="432" alt="image" src="https://github.com/user-attachments/assets/a307959f-3a27-4a3d-ab60-34dab937a460" />
 
